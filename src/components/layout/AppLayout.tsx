@@ -91,6 +91,11 @@ export default function AppLayout() {
             <span className={styles.navIcon}>☗</span>
             <span>错题本</span>
           </NavLink>
+          <div className={styles.navDivider} />
+          <NavLink to="/knowledge-graph" className={({ isActive }) => isActive ? styles.navItemActive : styles.navItem}>
+            <span className={styles.navIcon}>◉</span>
+            <span>知识图谱</span>
+          </NavLink>
         </nav>
       </aside>
       <main className={styles.main}>

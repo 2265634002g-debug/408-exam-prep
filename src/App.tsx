@@ -9,6 +9,8 @@ import QuizConfigPage from '@/pages/QuizConfig';
 import QuizSessionPage from '@/pages/QuizSession';
 import QuizResultPage from '@/pages/QuizResult';
 import ErrorBookPage from '@/pages/ErrorBook';
+import ChapterMapPage from '@/pages/ChapterMap';
+import KnowledgeGraphPage from '@/pages/KnowledgeGraphPage';
 
 export default function App() {
   return (
@@ -24,6 +26,8 @@ export default function App() {
             <Route path="/quiz/session" element={<QuizSessionPage />} />
             <Route path="/quiz/result/:sessionId" element={<QuizResultPage />} />
             <Route path="/errorbook" element={<ErrorBookPage />} />
+            <Route path="/knowledge/:subject/:chapterId/map" element={<ChapterMapPage />} />
+            <Route path="/knowledge-graph" element={<KnowledgeGraphPage />} />
           </Route>
         </Routes>
       </AppProvider>

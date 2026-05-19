@@ -1,0 +1,36 @@
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--color-card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.link {
+  transition: stroke 0.15s;
+}
+
+.link:hover {
+  stroke: var(--color-primary) !important;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  transition: r 0.15s, fill 0.15s;
+}
+
+.node:hover circle {
+  r: 7;
+  fill: var(--color-primary) !important;
+}

@@ -1,0 +1,38 @@
+.container {
+  max-width: 1020px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.link:hover { text-decoration: underline; }
+
+.sep {
+  color: var(--color-text-secondary);
+}
+
+.current {
+  color: var(--color-text-secondary);
+}
+
+.title {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.hint {
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  margin-bottom: 8px;
+}

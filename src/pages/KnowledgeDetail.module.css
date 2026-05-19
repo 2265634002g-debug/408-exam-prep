@@ -159,3 +159,21 @@
 .quizButton:hover {
   opacity: 0.9;
 }
+
+.mapButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.mapButton:hover {
+  background: var(--color-active);
+}

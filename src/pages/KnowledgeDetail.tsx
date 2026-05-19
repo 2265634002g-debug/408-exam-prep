@@ -85,6 +85,9 @@ export default function KnowledgeDetail() {
       </div>
 
       <div className={styles.actions}>
+        <Link to={`/knowledge/${subject}/${chapterId}/map`} className={styles.mapButton}>
+          查看知识导图
+        </Link>
         <Link to={`/quiz?subject=${subject}&chapter=${chapterId}`} className={styles.quizButton}>
           刷本章题目
         </Link>
