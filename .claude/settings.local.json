@@ -6,19 +6,7 @@
       "Edit",
       "Glob",
       "Grep",
-      "Bash(npm *)",
-      "Bash(npx *)",
-      "Bash(git *)",
-      "Bash(python *)",
-      "Bash(pdftotext *)",
-      "Bash(pip *)",
-      "Bash(mkdir *)",
-      "Bash(rm *)",
-      "Bash(cd *)",
-      "Bash(find *)",
-      "Bash(ls *)",
-      "Bash(cat *)",
-      "Bash(echo *)",
+      "Bash(*)",
       "WebSearch",
       "WebFetch",
       "Skill(*)",
@@ -30,17 +18,10 @@
       "CronCreate",
       "CronDelete",
       "CronList",
-      "Bash(gh --version)",
-      "Bash(gh auth *)",
-      "Bash(winget install *)",
-      "Read(//c/Program Files/GitHub CLI/**)",
-      "Bash(find /c -name \"gh.exe\" -type f)",
-      "Bash(\"C:/Program Files/GitHub CLI/gh.exe\" auth login --with-token)",
-      "Bash(curl *)",
-      "Bash(ping -n 1 github.com)",
-      "Bash(nslookup github.com)",
-      "Bash(rm -f workflow_logs.zip)",
-      "Bash(git rm *)"
-    ]
+      "AskUserQuestion",
+      "EnterPlanMode",
+      "ExitPlanMode"
+    ],
+    "defaultMode": "acceptEdits"
   }
 }
