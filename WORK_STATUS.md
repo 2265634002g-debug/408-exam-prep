@@ -7,83 +7,39 @@
 ## 在线地址
 https://2265634002g-debug.github.io/408-exam-prep/
 
-## 仓库地址
+## 仓库
 https://github.com/2265634002g-debug/408-exam-prep
 
 ---
 
-## 项目目标
-构建一个帮助考生系统化复习 408 计算机考研的 Web 应用，覆盖四科全部知识点，支持：
-- 知识点浏览（Markdown + KaTeX 数学公式）
-- 章节思维导图（待做）
-- 全局知识图谱（待做）
-- 刷题（待建题库）
-- 错题本（已有空框架）
+## 知识点完成情况 (154 总计)
 
-## 技术栈
-React 19 + TypeScript + Vite 8 + React Router v7 + react-markdown + KaTeX
-部署：GitHub Pages（GitHub Actions 自动构建）
+| 科目 | 知识点数 | 408分值 | 内容丰富度 |
+|------|---------|--------|----------|
+| DS 数据结构 | 84 | 45分 | ⭐⭐⭐ 较好，Ch1-2详细，Ch3-8标准 |
+| CO 计组 | 32 | 45分 | ⭐⭐ 核心章节(浮点/Cache/流水线)已详细化 |
+| OS 操作系统 | 17 | 35分 | ⭐⭐ 核心章节(PV/死锁/虚拟内存)已详细化 |
+| CN 计网 | 21 | 25分 | ⭐⭐ 核心章节(TCP/路由)已详细化，7小节缺失 |
 
-## 数据架构
-```
-data/
-├── subjects.ts                    # 四科章节结构（完整）
-├── knowledge-points/
-│   ├── index.ts                   # 汇总 + 搜索
-│   ├── ds.ts  (84 KPs) ✅
-│   ├── co.ts  (32 KPs) ✅
-│   ├── os.ts  (17 KPs) ✅
-│   └── cn.ts  (21 KPs) ✅
-└── questions/                     # 题库（仅空壳）
-```
+## 可视化 ✅ 已完成
+- 章节思维导图 (KnowledgeMap): 放射状树图
+- 全局知识图谱 (KnowledgeGraph): 力导向图，按科筛选
+- 入口：侧边栏"知识图谱" / 章节详情"查看知识导图"
 
-## 知识点完成情况
+## 待做工作
 
-### DS 数据结构 (84 知识点) ✅
-已全部完成，内容相对详尽。从第2章开始使用 Python 脚本生成，格式统一。
+### P0 - 知识点持续完善
+- [ ] CN 缺失的7个小节 (组帧/广域网/IPv6/多播/移动IP/FTP/电子邮件)
+- [ ] 各科知识点继续细化（目前约 30% 的 KP 内容还算简略）
 
-### CO 计算机组成原理 (32 知识点) ✅
-内容过于简略——每个知识点只有要点罗列，缺少详细的考点分析和真题示例。
-
-### OS 操作系统 (17 知识点) ✅
-同样简略，特别是 PV 操作、死锁、虚拟内存等核心章节需要大幅扩充。
-
-### CN 计算机网络 (21 知识点) ✅
-部分小节完全缺失：组帧(cn-3-2)、广域网(cn-3-7)、IPv6(cn-4-3)、IP多播(cn-4-5)、移动IP(cn-4-6)、FTP(cn-6-3)、电子邮件(cn-6-4)。
-
-## 待做工作（按优先级）
-
-### P0 - 知识点丰富化（进行中）
-- [ ] CO 知识点大幅扩充，增加详细的考点分析
-- [ ] OS 知识点大幅扩充，特别是 PV操作/死锁/虚拟内存
-- [ ] CN 知识点大幅扩充 + 补全缺失的小节
-
-### P1 - 可视化
-- [ ] 章节思维导图组件（Mind Map）
-- [ ] 全局知识图谱组件（Knowledge Graph）
-- [ ] D3.js 或其他可视化库的选型与集成
-
-### P2 - 题库
+### P1 - 题库
 - [ ] 选择题题库
 - [ ] 大题题库
-- [ ] 按知识点分类
 
-### P3 - 增强
-- [ ] 知识点详情页增强（相关知识点推荐、上下导航）
+### P2 - 细节增强
+- [ ] 知识点详情页：相关知识点推荐、上下导航
+- [ ] Dashboard 中利用 real 进度数据
 
-## 关键注意事项
-- 知识点必须交叉验证确保正确性（王道考研 + 历年真题 + 网络搜索）
-- 内容格式：Markdown + KaTeX + 表格 + 代码块 + 考试辨析
-- 使用 Python 脚本生成 TypeScript 文件（处理反引号转义）
-- 编译验证：`npx tsc -b --noEmit`
-
-## Git 设置
-- 代理：`git config --global http.proxy http://127.0.0.1:7897`
-- 用户：`git config user.name "2265634002g-debug"`
-- 远程：`https://github.com/2265634002g-debug/408-exam-prep.git`
-- 推送后 GitHub Actions 自动部署到 Pages
-
-## 历史重要错误（见 memory/error-log.md）
-1. TypeScript 模板字符串内反引号必须转义为 \`
-2. 扫描版 PDF 无法直接提取文字，改用知识储备 + WebSearch 验证
-3. bash heredoc 中不宜嵌入含反引号和 $ 的 Python 代码——写到独立 .py 文件再执行
+## 技术栈
+React 19 + TypeScript + Vite 8 + React Router v7 + react-markdown + KaTeX + D3.js
+部署：GitHub Pages (peaceiris/actions-gh-pages)

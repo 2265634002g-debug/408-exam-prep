@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import { getKnowledgePointById } from '@data/knowledge-points';
+import { getKnowledgePointById, getKnowledgePointsByChapter } from '@data/knowledge-points';
 import { getChapterById } from '@data/subjects';
 import { useAppContext } from '@/context/AppContext';
 import Markdown from '@/components/common/Markdown';
@@ -24,6 +24,23 @@ export default function KnowledgePointDetail() {
   const chapter = chapterResult?.chapter;
   const subjectInfo = chapterResult?.subject;
 
+  // Related knowledge points
+  const relatedKPs = kp.relatedPoints
+    .map(id => getKnowledgePointById(id))
+    .filter(Boolean);
+
+  // Previous / Next navigation within the chapter
+  const chapterKPs = getKnowledgePointsByChapter(chapterId ?? '');
+  const currentIndex = chapterKPs.findIndex(k => k.id === kp.id);
+  const prevKP = currentIndex > 0 ? chapterKPs[currentIndex - 1] : null;
+  const nextKP = currentIndex < chapterKPs.length - 1 ? chapterKPs[currentIndex + 1] : null;
+
+  // Find subject/chapter context for related KPs
+  const getSubjectForKp = (kpId: string) => {
+    const prefix = kpId.split('-')[0];
+    return prefix;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.breadcrumb}>
@@ -40,15 +57,20 @@ export default function KnowledgePointDetail() {
 
       <div className={styles.header}>
         <h1 className={styles.title}>{kp.title}</h1>
-        <label className={styles.completeToggle}>
-          <input
-            type="checkbox"
-            checked={isCompleted}
-            onChange={() => dispatch({ type: 'COMPLETE_POINT', pointId: kp.id })}
-            className={styles.checkbox}
-          />
-          {isCompleted ? '已掌握' : '标记为已掌握'}
-        </label>
+        <div className={styles.headerActions}>
+          <Link to={`/knowledge/${subject}/${chapterId}/map`} className={styles.mapLink}>
+            查看导图
+          </Link>
+          <label className={styles.completeToggle}>
+            <input
+              type="checkbox"
+              checked={isCompleted}
+              onChange={() => dispatch({ type: 'COMPLETE_POINT', pointId: kp.id })}
+              className={styles.checkbox}
+            />
+            {isCompleted ? '已掌握' : '标记为已掌握'}
+          </label>
+        </div>
       </div>
 
       <div className={styles.tags}>
@@ -59,6 +81,52 @@ export default function KnowledgePointDetail() {
 
       <div className={styles.content}>
         <Markdown content={kp.content} />
+      </div>
+
+      {/* Related Knowledge Points */}
+      {relatedKPs.length > 0 && (
+        <div className={styles.relatedSection}>
+          <h3 className={styles.relatedTitle}>相关知识点</h3>
+          <div className={styles.relatedGrid}>
+            {relatedKPs.map(rkp => {
+              const rSubject = getSubjectForKp(rkp!.id);
+              const rChapter = getChapterById(rkp!.chapterId);
+              return (
+                <Link
+                  key={rkp!.id}
+                  to={`/knowledge/${rSubject}/${rkp!.chapterId}/${rkp!.id}`}
+                  className={styles.relatedCard}
+                >
+                  <span className={styles.relatedSubject}>{rSubject.toUpperCase()}</span>
+                  <span className={styles.relatedName}>{rkp!.title}</span>
+                  {rChapter && (
+                    <span className={styles.relatedChapter}>第{rChapter.chapter.chapterNum}章</span>
+                  )}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {/* Previous / Next Navigation */}
+      <div className={styles.navRow}>
+        {prevKP ? (
+          <Link
+            to={`/knowledge/${subject}/${chapterId}/${prevKP.id}`}
+            className={styles.navPrev}
+          >
+            ← {prevKP.title}
+          </Link>
+        ) : <span />}
+        {nextKP ? (
+          <Link
+            to={`/knowledge/${subject}/${chapterId}/${nextKP.id}`}
+            className={styles.navNext}
+          >
+            {nextKP.title} →
+          </Link>
+        ) : <span />}
       </div>
 
       <div className={styles.footer}>
