@@ -278,7 +278,7 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
   // --- 3.5 介质访问控制 ---
   {
     id: 'cn-3-5-1', chapterId: 'cn-3', title: '介质访问控制',
-    keyConcepts: ['CSMA/CD', 'CSMA/CA', 'MAC', 'ALOHA', '碰撞', '冲突域'], relatedPoints: [],
+    keyConcepts: ['CSMA/CD', 'CSMA/CA', 'MAC', 'ALOHA', '碰撞', '冲突域'], relatedPoints: ['cn-3-5-2'],
     content: `## 介质访问控制的分类
 
 ### 信道划分
@@ -443,7 +443,7 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
   // --- 4.2 IPv4 ---
   {
     id: 'cn-4-2-1', chapterId: 'cn-4', title: 'IPv4',
-    keyConcepts: ['IPv4', 'IP地址', '子网划分', 'CIDR', 'NAT', 'ARP', 'DHCP'], relatedPoints: [],
+    keyConcepts: ['IPv4', 'IP地址', '子网划分', 'CIDR', 'NAT', 'ARP', 'DHCP'], relatedPoints: ['cn-4-2-2'],
     content: `## IPv4 地址
 - 32 位，点分十进制
 - 分类：A(0~127)、B(128~191)、C(192~223)、D(组播)、E(保留)
@@ -517,7 +517,7 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
   // --- 4.4 路由 ---
   {
     id: 'cn-4-4-1', chapterId: 'cn-4', title: '路由算法与路由协议',
-    keyConcepts: ['RIP', 'OSPF', 'BGP', '距离向量', '链路状态', '路径向量'], relatedPoints: [],
+    keyConcepts: ['RIP', 'OSPF', 'BGP', '距离向量', '链路状态', '路径向量'], relatedPoints: ['cn-4-1-1'],
     content: `## 内部网关协议 (IGP) — 同一 AS 内
 
 ### RIP (Routing Information Protocol)
@@ -732,7 +732,7 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
   // --- 5.3 TCP ---
   {
     id: 'cn-5-3-1', chapterId: 'cn-5', title: 'TCP协议',
-    keyConcepts: ['TCP', '三次握手', '四次挥手', '滑动窗口', '拥塞控制', '慢开始', '拥塞避免', '快重传', '快恢复', 'TIME_WAIT'], relatedPoints: ['cn-5-1-1'],
+    keyConcepts: ['TCP', '三次握手', '四次挥手', '滑动窗口', '拥塞控制', '慢开始', '拥塞避免', '快重传', '快恢复', 'TIME_WAIT'], relatedPoints: ['cn-5-1-1', 'cn-5-3-2', 'cn-3-4-1'],
     content: `## TCP 的特点
 > Transmission Control Protocol —— **面向连接、可靠、字节流**传输。
 | 特性 | 说明 |

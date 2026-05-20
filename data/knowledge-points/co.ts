@@ -270,7 +270,7 @@ Step4: (0,0) → +0, 右移 → 0000 0110 0
   // --- 2.3 浮点数的表示与运算 ---
   {
     id: 'co-2-3-1', chapterId: 'co-2', title: 'IEEE 754 浮点数标准',
-    keyConcepts: ['IEEE754', '单精度', '双精度', '阶码', '尾数', '规格化', '隐藏位', '移码', 'NaN', '非规格化数'], relatedPoints: ['co-2-1-2'],
+    keyConcepts: ['IEEE754', '单精度', '双精度', '阶码', '尾数', '规格化', '隐藏位', '移码', 'NaN', '非规格化数'], relatedPoints: ['co-2-1-2', 'co-2-3-2'],
     content: `## IEEE 754 浮点数格式
 > $N = (-1)^S \\times 1.M \\times 2^{E-bias}$
 
@@ -420,7 +420,7 @@ C0A00000H = 1100 0000 1010 0000 0000 0000 0000 0000B
   // --- 3.1 存储器概述 ---
   {
     id: 'co-3-1-1', chapterId: 'co-3', title: '存储器分类与层次结构',
-    keyConcepts: ['层次结构', 'Cache', '主存', '辅存', '局部性', '时间局部性', '空间局部性'], relatedPoints: ['co-3-3-1', 'ds-1-1-2'],
+    keyConcepts: ['层次结构', 'Cache', '主存', '辅存', '局部性', '时间局部性', '空间局部性'], relatedPoints: ['co-3-3-1', 'ds-1-1-2', 'os-3-1-1'],
     content: `## 存储器的层次结构
 
 \`\`\`
@@ -535,7 +535,7 @@ $$\\text{容量} \\uparrow \\quad \\text{速度} \\uparrow \\quad \\text{价格}
   // --- 3.3 高速缓冲存储器 Cache ---
   {
     id: 'co-3-3-1', chapterId: 'co-3', title: 'Cache的基本原理',
-    keyConcepts: ['Cache', '命中', '缺失', '命中率', '块', '主存块', 'Cache行'], relatedPoints: ['co-3-1-1', 'co-3-3-2'],
+    keyConcepts: ['Cache', '命中', '缺失', '命中率', '块', '主存块', 'Cache行'], relatedPoints: ['co-3-1-1', 'co-3-3-2', 'os-3-4-1'],
     content: `## Cache 的工作原理
 
 > 利用**局部性原理**，将主存中频繁访问的数据块复制到 Cache 中。
@@ -568,7 +568,7 @@ $$T_{avg} = h \\times T_{cache} + (1-h) \\times T_{main}$$
 - 缺失损失 = 从主存取回数据块的时间`,
   },  {
     id: 'co-3-3-2', chapterId: 'co-3', title: 'Cache的地址映射方式',
-    keyConcepts: ['直接映射', '全相联映射', '组相联映射', 'Cache行', '主存块', '标记', '组号', '块内地址'], relatedPoints: ['co-3-3-1', 'co-3-3-3'],
+    keyConcepts: ['直接映射', '全相联映射', '组相联映射', 'Cache行', '主存块', '标记', '组号', '块内地址'], relatedPoints: ['co-3-3-1', 'co-3-3-3', 'co-3-3-4'],
     content: `## 三种映射方式的核心原理
 
 Cache 地址映射的核心问题：**主存块应该放到 Cache 的哪个位置？**
@@ -721,7 +721,7 @@ $$\\text{Cache 组号} = \\text{主存块号} \\bmod \\text{组数}$$
   // --- 做题技巧 ---
   {
     id: 'co-3-3-4', chapterId: 'co-3', title: 'Cache 常见题型与解题技巧',
-    keyConcepts: ['Cache', '组相联', '地址拆分', 'LRU', '命中率', '平均访存时间'], relatedPoints: ['co-3-3-2', 'co-3-3-3'],
+    keyConcepts: ['Cache', '组相联', '地址拆分', 'LRU', '命中率', '平均访存时间'], relatedPoints: ['co-3-3-2', 'co-3-3-3', 'os-3-4-3'],
     content: `## 题型一：主存地址拆分
 **已知**：主存地址n位，Cache容量C，块大小B，路数w
 **步骤**：
@@ -753,7 +753,7 @@ Tavg = h x Tcache + (1-h) x Tmain
 
   {
     id: 'co-3-4-1', chapterId: 'co-3', title: '虚拟存储器',
-    keyConcepts: ['虚拟地址', '物理地址', '页表', 'TLB', '快表', '页式存储', '缺页'], relatedPoints: ['co-3-1-1', 'co-3-3-1', 'os-3-4-1'],
+    keyConcepts: ['虚拟地址', '物理地址', '页表', 'TLB', '快表', '页式存储', '缺页'], relatedPoints: ['co-3-1-1', 'co-3-3-1', 'os-3-4-1', 'os-3-3-1'],
     content: `## 虚拟存储器的目的
 > 将**主存**和**辅存**统一编址，向程序员提供一个比主存大得多的地址空间。
 
@@ -911,7 +911,7 @@ Tavg = h x Tcache + (1-h) x Tmain
   // --- 补充 ---
   {
     id: 'co-3-4-2', chapterId: 'co-3', title: '虚实地址转换全流程 (TLB+页表+Cache)',
-    keyConcepts: ['TLB', '页表', 'Cache', '虚实地址', '缺页', '访存次数'], relatedPoints: ['co-3-4-1', 'co-3-3-1', 'co-3-3-2'],
+    keyConcepts: ['TLB', '页表', 'Cache', '虚实地址', '缺页', '访存次数'], relatedPoints: ['co-3-4-1', 'co-3-3-1', 'co-3-3-2', 'os-3-3-2', 'os-3-4-1'],
     content: `## 完整地址转换流程
 \`\`\`
 CPU给出虚拟地址VA
@@ -1107,7 +1107,7 @@ CPU
   // --- 5.3 控制器 ---
   {
     id: 'co-5-3-1', chapterId: 'co-5', title: '硬布线控制器与微程序控制器',
-    keyConcepts: ['硬布线', '微程序', '控制存储器', '微命令', '微操作'], relatedPoints: ['co-5-1-1'],
+    keyConcepts: ['硬布线', '微程序', '控制存储器', '微命令', '微操作'], relatedPoints: ['co-5-1-1', 'co-5-3-2', 'co-5-3-3'],
     content: `## 硬布线控制器
 
 > 用组合逻辑电路产生控制信号——门电路直接实现。
@@ -1279,7 +1279,7 @@ TP = n / T；S = nk / (k+n-1)
   // --- 5.5 指令流水线 ---
   {
     id: 'co-5-5-1', chapterId: 'co-5', title: '指令流水线',
-    keyConcepts: ['流水线', 'IF', 'ID', 'EX', 'MEM', 'WB', '吞吐率', '加速比', '数据冲突', '控制冲突', '转发', '分支预测'], relatedPoints: ['co-5-1-1', 'co-4-3-1'],
+    keyConcepts: ['流水线', 'IF', 'ID', 'EX', 'MEM', 'WB', '吞吐率', '加速比', '数据冲突', '控制冲突', '转发', '分支预测'], relatedPoints: ['co-5-1-1', 'co-4-3-1', 'co-5-5-2'],
     content: `## 指令流水线的思想
 > 将指令执行过程分为多个阶段，多条指令的不同阶段可以**并行**执行。
 
@@ -1588,7 +1588,7 @@ while (设备忙)
 
   {
     id: 'co-7-3-1', chapterId: 'co-7', title: '程序中断方式',
-    keyConcepts: ['中断', '中断请求', '中断响应', '中断向量', '中断优先级', '中断屏蔽'], relatedPoints: ['co-5-4-1', 'co-7-2-1'],
+    keyConcepts: ['中断', '中断请求', '中断响应', '中断向量', '中断优先级', '中断屏蔽'], relatedPoints: ['co-5-4-1', 'co-7-2-1', 'os-2-1-1', 'os-1-3-1'],
     content: `## 中断 I/O 的思想
 
 > 外设准备好后**主动通知 CPU**——CPU 暂停当前程序，执行中断服务程序。
@@ -1624,7 +1624,7 @@ while (设备忙)
   // --- 7.4 DMA 方式 ---
   {
     id: 'co-7-4-1', chapterId: 'co-7', title: 'DMA方式',
-    keyConcepts: ['DMA', 'DMAC', '周期窃取', 'DMA请求', '中断请求', 'AR', 'WC', 'DAR'], relatedPoints: ['co-7-3-1', 'co-6-1-1'],
+    keyConcepts: ['DMA', 'DMAC', '周期窃取', 'DMA请求', '中断请求', 'AR', 'WC', 'DAR'], relatedPoints: ['co-7-3-1', 'co-6-1-1', 'os-5-1-2'],
     content: `## DMA 方式核心思想
 > 在主存与外设间开辟**直接数据通路**，传送过程**不经CPU**。
 

@@ -122,7 +122,7 @@ export const osKnowledgePoints: KnowledgePoint[] = [
   // --- 2.1 进程与线程 ---
   {
     id: 'os-2-1-1', chapterId: 'os-2', title: '进程与线程',
-    keyConcepts: ['进程', 'PCB', '线程', 'TCB', '五状态', '上下文切换'], relatedPoints: ['os-2-2-1'],
+    keyConcepts: ['进程', 'PCB', '线程', 'TCB', '五状态', '上下文切换'], relatedPoints: ['os-2-2-1', 'co-5-1-1', 'co-5-4-1', 'ds-3-1-1'],
     content: `## 进程
 
 > 进程 = 程序的一次执行过程，是**资源分配**的基本单位。
@@ -264,7 +264,7 @@ export const osKnowledgePoints: KnowledgePoint[] = [
 
   {
     id: 'os-2-2-1', chapterId: 'os-2', title: 'CPU 调度',
-    keyConcepts: ['调度', 'FCFS', 'SJF', 'SRTF', '优先级', 'RR', '多级反馈队列', '周转时间', '等待时间', '响应时间'], relatedPoints: ['os-2-1-1'],
+    keyConcepts: ['调度', 'FCFS', 'SJF', 'SRTF', '优先级', 'RR', '多级反馈队列', '周转时间', '等待时间', '响应时间'], relatedPoints: ['os-2-1-1', 'co-5-5-1'],
     content: `## 调度的三个层次
 | 层次 | 频率 | 功能 | 典型 |
 |------|------|------|------|
@@ -326,7 +326,7 @@ export const osKnowledgePoints: KnowledgePoint[] = [
   // --- 2.3 同步与互斥 ---
   {
     id: 'os-2-3-1', chapterId: 'os-2', title: '同步与互斥',
-    keyConcepts: ['互斥', '同步', '临界区', '信号量', 'PV操作', '生产者消费者', '读者写者', '哲学家就餐'], relatedPoints: ['os-2-1-1'],
+    keyConcepts: ['互斥', '同步', '临界区', '信号量', 'PV操作', '生产者消费者', '读者写者', '哲学家就餐'], relatedPoints: ['os-2-1-1', 'co-7-3-1'],
     content: `## 基本概念
 | 概念 | 含义 | 举例 |
 |------|------|------|
@@ -945,7 +945,7 @@ P4 → P2 → P0：全部可完成 → **安全！**
 
   {
     id: 'os-3-1-1', chapterId: 'os-3', title: '内存管理概念',
-    keyConcepts: ['内存管理', '地址转换', '逻辑地址', '物理地址', '链接', '装入', '覆盖', '交换'], relatedPoints: ['os-3-2-1', 'ds-1-1-2'],
+    keyConcepts: ['内存管理', '地址转换', '逻辑地址', '物理地址', '链接', '装入', '覆盖', '交换'], relatedPoints: ['os-3-2-1', 'ds-1-1-2', 'co-3-1-1'],
     content: `## 内存管理的任务
 1. 内存分配与回收
 2. 地址转换（逻辑地址 → 物理地址）
@@ -1019,7 +1019,7 @@ P4 → P2 → P0：全部可完成 → **安全！**
   // --- 3.3 非连续分配 ---
   {
     id: 'os-3-3-1', chapterId: 'os-3', title: '非连续分配管理方式',
-    keyConcepts: ['分页', '分段', '段页式', '页表', '段表', '快表', 'TLB'], relatedPoints: ['os-3-2-1', 'co-3-4-1'],
+    keyConcepts: ['分页', '分段', '段页式', '页表', '段表', '快表', 'TLB'], relatedPoints: ['os-3-2-1', 'co-3-4-1', 'co-3-3-2'],
     content: `## 基本分页存储管理
 
 > 内存划分成固定大小的**页框**，进程划分成等大小的**页**。
@@ -1068,7 +1068,7 @@ P4 → P2 → P0：全部可完成 → **安全！**
   // --- 3.3 非连续分配（续）---
   {
     id: 'os-3-3-2', chapterId: 'os-3', title: '快表 (TLB) 与多级页表',
-    keyConcepts: ['TLB', '快表', '两级页表', '多级页表', '页目录', '访存次数'], relatedPoints: ['os-3-3-1', 'co-3-4-1'],
+    keyConcepts: ['TLB', '快表', '两级页表', '多级页表', '页目录', '访存次数'], relatedPoints: ['os-3-3-1', 'co-3-4-1', 'co-3-4-2'],
     content: `## 快表 (TLB — Translation Lookaside Buffer)
 > 用高速缓存存放近期使用的页表项，加速地址转换。
 基于**局部性原理**——最近访问的页很可能会再次访问。
@@ -1144,7 +1144,7 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 
   {
     id: 'os-3-4-1', chapterId: 'os-3', title: '虚拟内存管理',
-    keyConcepts: ['虚拟内存', '请求分页', '缺页', '页面置换', 'FIFO', 'LRU', 'Clock', 'Belady异常', '抖动'], relatedPoints: ['os-3-3-1', 'co-3-4-1'],
+    keyConcepts: ['虚拟内存', '请求分页', '缺页', '页面置换', 'FIFO', 'LRU', 'Clock', 'Belady异常', '抖动'], relatedPoints: ['os-3-3-1', 'co-3-4-1', 'co-3-3-1'],
     content: `## 虚拟内存的核心思想
 > 只将程序**部分装入内存**即可运行——需要时再从磁盘调入。
 **理论基础**：局部性原理（时间局部性 + 空间局部性）
