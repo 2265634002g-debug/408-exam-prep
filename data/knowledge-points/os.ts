@@ -340,112 +340,112 @@ while(1) {
 
 ### 读者-写者问题
 
-	**问题描述**：多个读者可以同时读，但写者必须独占访问。
-	两种策略：读者优先（可能饿死写者）和写者优先（可能饿死读者）。
+**问题描述**：多个读者可以同时读，但写者必须独占访问。
+两种策略：读者优先（可能饿死写者）和写者优先（可能饿死读者）。
 
-	**读者优先方案：**
-	\`\`\`c
-	Semaphore rw_mutex = {1, NULL};  // 读写互斥
-	Semaphore mutex = {1, NULL};     // 保护 count
-	int read_count = 0;              // 读者数量
+**读者优先方案：**
+\`\`\`c
+Semaphore rw_mutex = {1, NULL};  // 读写互斥
+Semaphore mutex = {1, NULL};     // 保护 count
+int read_count = 0;              // 读者数量
 
-	void reader() {
-	    while(1) {
-	        P(mutex);
-	        read_count++;
-	        if (read_count == 1)      // 第一个读者
-	            P(rw_mutex);          // 锁住写者
-	        V(mutex);
-	        // 读操作...
-	        P(mutex);
-	        read_count--;
-	        if (read_count == 0)      // 最后一个读者离开
-	            V(rw_mutex);          // 释放写者
-	        V(mutex);
-	    }
-	}
+void reader() {
+    while(1) {
+        P(mutex);
+        read_count++;
+        if (read_count == 1)      // 第一个读者
+            P(rw_mutex);          // 锁住写者
+        V(mutex);
+        // 读操作...
+        P(mutex);
+        read_count--;
+        if (read_count == 0)      // 最后一个读者离开
+            V(rw_mutex);          // 释放写者
+        V(mutex);
+    }
+}
 
-	void writer() {
-	    while(1) {
-	        P(rw_mutex);              // 独占访问
-	        // 写操作...
-	        V(rw_mutex);
-	    }
-	}
-	\`\`\`
+void writer() {
+    while(1) {
+        P(rw_mutex);              // 独占访问
+        // 写操作...
+        V(rw_mutex);
+    }
+}
+\`\`\`
 
-	**写者优先方案**：引入 write_wait 信号量，有写者等待时阻止新读者进入。
-	核心思想：write_wait 使写者之后的读者排队等待，避免写者饥饿。
+**写者优先方案**：引入 write_wait 信号量，有写者等待时阻止新读者进入。
+核心思想：write_wait 使写者之后的读者排队等待，避免写者饥饿。
 
-	---
+---
 
-	## 经典同步问题三：哲学家进餐问题（Dijkstra, 1965）
+## 经典同步问题三：哲学家进餐问题（Dijkstra, 1965）
 
-	### 问题描述
-	> 五位哲学家围坐圆桌，每人面前一盘意大利面。每两位之间有一根筷子。
-	> 哲学家交替进行“思考”和“进餐”。进餐需同时拿起左右两根筷子。
+### 问题描述
+> 五位哲学家围坐圆桌，每人面前一盘意大利面。每两位之间有一根筷子。
+> 哲学家交替进行“思考”和“进餐”。进餐需同时拿起左右两根筷子。
 
-	### 简单解法（会导致死锁）
-	\`\`\`c
-	Semaphore chopstick[5] = {1,1,1,1,1};
-	void philosopher(int i) {
-	    while(1) {
-	        think();
-	        P(chopstick[i]);                // 拿左边
-	        P(chopstick[(i+1) % 5]);         // 拿右边
-	        eat();
-	        V(chopstick[i]);                // 放左边
-	        V(chopstick[(i+1) % 5]);         // 放右边
-	    }
-	}
-	\`\`\`
-	> 五位同时拿左边筷子 → **死锁**（每人拿一根，都在等另一根）。
+### 简单解法（会导致死锁）
+\`\`\`c
+Semaphore chopstick[5] = {1,1,1,1,1};
+void philosopher(int i) {
+    while(1) {
+        think();
+        P(chopstick[i]);                // 拿左边
+        P(chopstick[(i+1) % 5]);         // 拿右边
+        eat();
+        V(chopstick[i]);                // 放左边
+        V(chopstick[(i+1) % 5]);         // 放右边
+    }
+}
+\`\`\`
+> 五位同时拿左边筷子 → **死锁**（每人拿一根，都在等另一根）。
 
-	### 防止死锁的四种方法（408高频考点）
+### 防止死锁的四种方法（408高频考点）
 
-	**方法一：最多允许四人同时拿筷子（限制并发数）**
+**方法一：最多允许四人同时拿筷子（限制并发数）**
 
-	\`\`\`c
-	Semaphore limit = {4, NULL};  // 最多4人拿筷子
-	void philosopher(int i) {
-	    while(1) {
-	        think();
-	        P(limit);           // 先申请“拿筷子权”
-	        P(chopstick[i]);
-	        P(chopstick[(i+1)%5]);
-	        eat();
-	        V(chopstick[i]); V(chopstick[(i+1)%5]);
-	        V(limit);
-	    }
-	}
-	\`\`\`
+\`\`\`c
+Semaphore limit = {4, NULL};  // 最多4人拿筷子
+void philosopher(int i) {
+    while(1) {
+        think();
+        P(limit);           // 先申请“拿筷子权”
+        P(chopstick[i]);
+        P(chopstick[(i+1)%5]);
+        eat();
+        V(chopstick[i]); V(chopstick[(i+1)%5]);
+        V(limit);
+    }
+}
+\`\`\`
 
-	**方法二：奇数先左后右，偶数先右后左（破坏循环等待）**
+**方法二：奇数先左后右，偶数先右后左（破坏循环等待）**
 
-	\`\`\`c
-	void philosopher(int i) {
-	    while(1) {
-	        think();
-	        if (i % 2 == 0) {           // 偶数号
-	            P(chopstick[(i+1)%5]);   // 先右后左
-	            P(chopstick[i]);
-	        } else {                     // 奇数号
-	            P(chopstick[i]);         // 先左后右
-	            P(chopstick[(i+1)%5]);
-	        }
-	        eat();
-	        V(chopstick[i]); V(chopstick[(i+1)%5]);
-	    }
-	}
-	\`\`\`
+\`\`\`c
+void philosopher(int i) {
+    while(1) {
+        think();
+        if (i % 2 == 0) {           // 偶数号
+            P(chopstick[(i+1)%5]);   // 先右后左
+            P(chopstick[i]);
+        } else {                     // 奇数号
+            P(chopstick[i]);         // 先左后右
+            P(chopstick[(i+1)%5]);
+        }
+        eat();
+        V(chopstick[i]); V(chopstick[(i+1)%5]);
+    }
+}
+\`\`\`
 
-	**方法三：左右两根必须同时拿到（一次性分配，用互斥信号量保护拿筷子过程）**
+**方法三：左右两根必须同时拿到（一次性分配，用互斥信号量保护拿筷子过程）**
 
-	**方法四：引入 AND 型信号量——同时 P 多根筷子，要么全拿要么全不拿**
+**方法四：引入 AND 型信号量——同时 P 多根筷子，要么全拿要么全不拿**
 
-	---
+---
 
-	## PV 题型的答题模板## PV 题型的答题模板
+## PV 题型的答题模板## PV 题型的答题模板
 1. 确定**进程数量**和**资源类型**
 2. 为每种资源/约束设信号量并定初值
 3. 写出每个进程的操作流程，标注 P/V 的位置
