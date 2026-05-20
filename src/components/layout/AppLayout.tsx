@@ -7,6 +7,7 @@ import styles from './AppLayout.module.css';
 export default function AppLayout() {
   const [query, setQuery] = useState('');
   const [focus, setFocus] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -31,9 +32,11 @@ export default function AppLayout() {
     }
   };
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div className={styles.layout}>
-      <aside className={styles.sidebar}>
+      <aside className={`${styles.sidebar} ${menuOpen ? styles.sidebarOpen : ''}`}>
         <div className={styles.logo}>
           <span className={styles.logoText}>408</span>
         </div>
@@ -53,7 +56,7 @@ export default function AppLayout() {
                 <button
                   key={kp.id}
                   className={styles.searchItem}
-                  onClick={() => handleSelect(kp.id)}
+                  onClick={() => { handleSelect(kp.id); closeMenu(); }}
                 >
                   <span className={styles.searchItemTitle}>{kp.title}</span>
                   <span className={styles.searchItemChapter}>
@@ -98,7 +101,11 @@ export default function AppLayout() {
           </NavLink>
         </nav>
       </aside>
-      <main className={styles.main}>
+      {menuOpen && <div className={styles.overlay} onClick={closeMenu} />}
+      <main className={styles.main} onClick={closeMenu}>
+        <button className={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)} aria-label="菜单">
+          <span /><span /><span />
+        </button>
         <Outlet />
       </main>
     </div>

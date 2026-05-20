@@ -95,3 +95,10 @@
 
 .emptyHint { padding: 40px 20px; text-align: center; color: var(--color-text-secondary); font-size: 14px; }
 .emptyHint p { margin-bottom: 8px; }
+
+@media (max-width: 768px) {
+  .mainArea { flex-direction: column; }
+  .treePanel { flex: none; max-height: 40vh; }
+  .detailPanel { max-height: none; }
+  .container { max-width: 100%; }
+}
