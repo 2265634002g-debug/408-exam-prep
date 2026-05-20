@@ -216,7 +216,7 @@ export const subjects: SubjectInfo[] = [
         title: '内存管理',
         sections: [
           { id: 'os-3-1', title: '内存管理概念', knowledgePointIds: ['os-3-1-1'] },
-          { id: 'os-3-2', title: '连续分配管理方式', knowledgePointIds: ['os-3-2-1'] },
+          { id: 'os-3-2', title: '连续分配管理方式', knowledgePointIds: ['os-3-2-1', 'os-3-2-2'] },
           { id: 'os-3-3', title: '非连续分配管理方式', knowledgePointIds: ['os-3-3-1', 'os-3-3-2', 'os-3-3-3'] },
           { id: 'os-3-4', title: '虚拟内存管理', knowledgePointIds: ['os-3-4-1', 'os-3-4-2', 'os-3-4-3'] },
         ],
@@ -226,7 +226,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 4,
         title: '文件管理',
         sections: [
-          { id: 'os-4-1', title: '文件系统基础', knowledgePointIds: ['os-4-1-1', 'os-4-1-2', 'os-4-1-3', 'os-4-1-4'] },
+          { id: 'os-4-1', title: '文件系统基础', knowledgePointIds: ['os-4-1-1', 'os-4-1-2', 'os-4-1-3', 'os-4-1-4', 'os-4-1-5'] },
           { id: 'os-4-2', title: '文件系统实现', knowledgePointIds: ['os-4-2-1', 'os-4-2-2'] },
           { id: 'os-4-3', title: '磁盘组织与管理', knowledgePointIds: ['os-4-3-1', 'os-4-3-2'] },
         ],
