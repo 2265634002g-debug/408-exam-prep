@@ -95,6 +95,34 @@
   font-weight: 500;
 }
 
+.refSection {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  padding: 10px 16px;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 8px;
+}
+
+.refLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #92400e;
+  margin-right: 4px;
+}
+
+.refBadge {
+  font-size: 12px;
+  padding: 2px 8px;
+  background: #fde68a;
+  color: #92400e;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+}
+
 .content {
   background: var(--color-card-bg);
   border: 1px solid var(--color-border);

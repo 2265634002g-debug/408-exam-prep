@@ -3,12 +3,14 @@ import { dsKnowledgePoints } from './ds';
 import { coKnowledgePoints } from './co';
 import { osKnowledgePoints } from './os';
 import { cnKnowledgePoints } from './cn';
+import { maKnowledgePoints } from './ma';
 
 export const allKnowledgePoints: KnowledgePoint[] = [
   ...dsKnowledgePoints,
   ...coKnowledgePoints,
   ...osKnowledgePoints,
   ...cnKnowledgePoints,
+  ...maKnowledgePoints,
 ];
 
 export function getKnowledgePointsByChapter(chapterId: string): KnowledgePoint[] {
@@ -33,3 +35,4 @@ export { dsKnowledgePoints } from './ds';
 export { coKnowledgePoints } from './co';
 export { osKnowledgePoints } from './os';
 export { cnKnowledgePoints } from './cn';
+export { maKnowledgePoints } from './ma';

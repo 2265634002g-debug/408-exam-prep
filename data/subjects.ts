@@ -320,6 +320,106 @@ export const subjects: SubjectInfo[] = [
       },
     ],
   },
+  {
+    id: 'ma',
+    name: '数学一',
+    fullName: '数学一（高等数学+线代+概率）',
+    color: '#8b5cf6',
+    chapters: [
+      {
+        id: 'ma-1', chapterNum: 1, title: '函数、极限与连续',
+        sections: [
+          { id: 'ma-1-1', title: '函数的概念与性质', knowledgePointIds: ['ma-1-1-1'] },
+          { id: 'ma-1-2', title: '数列极限', knowledgePointIds: ['ma-1-2-1'] },
+          { id: 'ma-1-3', title: '函数极限', knowledgePointIds: ['ma-1-3-1'] },
+          { id: 'ma-1-4', title: '无穷小与无穷大', knowledgePointIds: [] },
+          { id: 'ma-1-5', title: '极限的运算法则与存在准则', knowledgePointIds: [] },
+          { id: 'ma-1-6', title: '函数的连续性与间断点', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-2', chapterNum: 2, title: '一元函数微分学',
+        sections: [
+          { id: 'ma-2-1', title: '导数的概念与几何意义', knowledgePointIds: [] },
+          { id: 'ma-2-2', title: '求导法则与高阶导数', knowledgePointIds: [] },
+          { id: 'ma-2-3', title: '微分中值定理', knowledgePointIds: [] },
+          { id: 'ma-2-4', title: '洛必达法则', knowledgePointIds: [] },
+          { id: 'ma-2-5', title: '泰勒公式', knowledgePointIds: [] },
+          { id: 'ma-2-6', title: '函数的单调性与极值', knowledgePointIds: [] },
+          { id: 'ma-2-7', title: '函数的凹凸性与拐点', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-3', chapterNum: 3, title: '一元函数积分学',
+        sections: [
+          { id: 'ma-3-1', title: '不定积分的概念与性质', knowledgePointIds: [] },
+          { id: 'ma-3-2', title: '不定积分的计算（换元与分部）', knowledgePointIds: [] },
+          { id: 'ma-3-3', title: '定积分的概念与性质', knowledgePointIds: [] },
+          { id: 'ma-3-4', title: '定积分的计算（牛顿-莱布尼茨）', knowledgePointIds: [] },
+          { id: 'ma-3-5', title: '广义积分', knowledgePointIds: [] },
+          { id: 'ma-3-6', title: '定积分的应用（面积与体积）', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-4', chapterNum: 4, title: '多元函数微分学',
+        sections: [
+          { id: 'ma-4-1', title: '多元函数的基本概念', knowledgePointIds: [] },
+          { id: 'ma-4-2', title: '偏导数与全微分', knowledgePointIds: [] },
+          { id: 'ma-4-3', title: '多元复合函数求导', knowledgePointIds: [] },
+          { id: 'ma-4-4', title: '隐函数求导', knowledgePointIds: [] },
+          { id: 'ma-4-5', title: '多元函数的极值与条件极值', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-5', chapterNum: 5, title: '多元函数积分学',
+        sections: [
+          { id: 'ma-5-1', title: '二重积分的概念与计算', knowledgePointIds: [] },
+          { id: 'ma-5-2', title: '三重积分', knowledgePointIds: [] },
+          { id: 'ma-5-3', title: '曲线积分', knowledgePointIds: [] },
+          { id: 'ma-5-4', title: '曲面积分', knowledgePointIds: [] },
+          { id: 'ma-5-5', title: '格林公式与高斯公式', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-6', chapterNum: 6, title: '微分方程',
+        sections: [
+          { id: 'ma-6-1', title: '微分方程的基本概念', knowledgePointIds: [] },
+          { id: 'ma-6-2', title: '一阶微分方程', knowledgePointIds: [] },
+          { id: 'ma-6-3', title: '高阶常系数线性微分方程', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-7', chapterNum: 7, title: '无穷级数',
+        sections: [
+          { id: 'ma-7-1', title: '常数项级数的概念与性质', knowledgePointIds: [] },
+          { id: 'ma-7-2', title: '正项级数的审敛法', knowledgePointIds: [] },
+          { id: 'ma-7-3', title: '幂级数', knowledgePointIds: [] },
+          { id: 'ma-7-4', title: '傅里叶级数', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-8', chapterNum: 8, title: '线性代数',
+        sections: [
+          { id: 'ma-8-1', title: '行列式', knowledgePointIds: ['ma-8-1-1'] },
+          { id: 'ma-8-2', title: '矩阵及其运算', knowledgePointIds: [] },
+          { id: 'ma-8-3', title: '向量组与线性方程组', knowledgePointIds: [] },
+          { id: 'ma-8-4', title: '特征值与特征向量', knowledgePointIds: [] },
+          { id: 'ma-8-5', title: '二次型', knowledgePointIds: [] },
+        ],
+      },
+      {
+        id: 'ma-9', chapterNum: 9, title: '概率论与数理统计',
+        sections: [
+          { id: 'ma-9-1', title: '随机事件与概率', knowledgePointIds: ['ma-9-1-1'] },
+          { id: 'ma-9-2', title: '随机变量及其分布', knowledgePointIds: [] },
+          { id: 'ma-9-3', title: '多维随机变量', knowledgePointIds: [] },
+          { id: 'ma-9-4', title: '数字特征（期望/方差/协方差）', knowledgePointIds: [] },
+          { id: 'ma-9-5', title: '大数定律与中心极限定理', knowledgePointIds: [] },
+          { id: 'ma-9-6', title: '数理统计（估计与检验）', knowledgePointIds: [] },
+        ],
+      },
+    ],
+  },
 ];
 
 export function getSubjectById(id: string): SubjectInfo | undefined {

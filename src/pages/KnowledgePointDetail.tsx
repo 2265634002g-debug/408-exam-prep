@@ -3,6 +3,7 @@ import { getKnowledgePointById, getKnowledgePointsByChapter } from '@data/knowle
 import { getChapterById } from '@data/subjects';
 import { useAppContext } from '@/context/AppContext';
 import Markdown from '@/components/common/Markdown';
+import { examRefs } from '@data/exam-refs';
 import styles from './KnowledgePointDetail.module.css';
 
 export default function KnowledgePointDetail() {
@@ -78,6 +79,15 @@ export default function KnowledgePointDetail() {
           <span key={tag} className={styles.tag}>{tag}</span>
         ))}
       </div>
+
+      {examRefs[kp.id] && examRefs[kp.id].length > 0 && (
+        <div className={styles.refSection}>
+          <span className={styles.refLabel}>真题：</span>
+          {examRefs[kp.id].map((ref, i) => (
+            <span key={i} className={styles.refBadge}>{ref}</span>
+          ))}
+        </div>
+      )}
 
       <div className={styles.content}>
         <Markdown content={kp.content} />

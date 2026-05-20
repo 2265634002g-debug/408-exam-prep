@@ -1,4 +1,4 @@
-export type Subject = 'ds' | 'co' | 'os' | 'cn';
+export type Subject = 'ds' | 'co' | 'os' | 'cn' | 'ma';
 
 export interface SubjectInfo {
   id: Subject;

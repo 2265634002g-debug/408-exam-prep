@@ -95,6 +95,11 @@ export default function AppLayout() {
             <span>错题本</span>
           </NavLink>
           <div className={styles.navDivider} />
+          <NavLink to="/knowledge/ma" className={({ isActive }) => isActive ? styles.navItemActive : styles.navItem}>
+            <span className={styles.navDot} style={{ background: '#8b5cf6' }} />
+            <span>数学一</span>
+          </NavLink>
+          <div className={styles.navDivider} />
           <NavLink to="/knowledge-graph" className={({ isActive }) => isActive ? styles.navItemActive : styles.navItem}>
             <span className={styles.navIcon}>◉</span>
             <span>知识图谱</span>
