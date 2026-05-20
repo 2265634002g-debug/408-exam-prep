@@ -118,7 +118,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 2,
         title: '数据的表示和运算',
         sections: [
-          { id: 'co-2-1', title: '数制与编码', knowledgePointIds: ['co-2-1-1', 'co-2-1-2', 'co-2-1-3'] },
+          { id: 'co-2-1', title: '数制与编码', knowledgePointIds: ['co-2-1-1', 'co-2-1-2', 'co-2-1-3', 'co-2-1-4'] },
           { id: 'co-2-2', title: '定点数的表示与运算', knowledgePointIds: ['co-2-2-1', 'co-2-2-2'] },
           { id: 'co-2-3', title: '浮点数的表示与运算', knowledgePointIds: ['co-2-3-1', 'co-2-3-2'] },
           { id: 'co-2-4', title: '算术逻辑单元 ALU', knowledgePointIds: ['co-2-4-1', 'co-2-4-2'] },
@@ -174,7 +174,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 7,
         title: '输入/输出系统',
         sections: [
-          { id: 'co-7-1', title: 'I/O 系统基本概念', knowledgePointIds: ['co-7-1-1'] },
+          { id: 'co-7-1', title: 'I/O 系统基本概念', knowledgePointIds: ['co-7-1-1', 'co-7-1-2'] },
           { id: 'co-7-2', title: '程序查询方式', knowledgePointIds: ['co-7-2-1'] },
           { id: 'co-7-3', title: '程序中断方式', knowledgePointIds: ['co-7-3-1', 'co-7-3-2'] },
           { id: 'co-7-4', title: 'DMA 方式', knowledgePointIds: ['co-7-4-1'] },
