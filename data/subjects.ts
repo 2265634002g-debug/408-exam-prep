@@ -166,7 +166,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'co-6-1', title: '总线概述', knowledgePointIds: ['co-6-1-1'] },
           { id: 'co-6-2', title: '总线仲裁', knowledgePointIds: ['co-6-2-1'] },
           { id: 'co-6-3', title: '总线操作和定时', knowledgePointIds: ['co-6-3-1'] },
-          { id: 'co-6-4', title: '总线标准', knowledgePointIds: [] },
+          { id: 'co-6-4', title: '总线标准', knowledgePointIds: ['co-6-4-1'] },
         ],
       },
       {
@@ -176,7 +176,7 @@ export const subjects: SubjectInfo[] = [
         sections: [
           { id: 'co-7-1', title: 'I/O 系统基本概念', knowledgePointIds: ['co-7-1-1'] },
           { id: 'co-7-2', title: '程序查询方式', knowledgePointIds: ['co-7-2-1'] },
-          { id: 'co-7-3', title: '程序中断方式', knowledgePointIds: ['co-7-3-1'] },
+          { id: 'co-7-3', title: '程序中断方式', knowledgePointIds: ['co-7-3-1', 'co-7-3-2'] },
           { id: 'co-7-4', title: 'DMA 方式', knowledgePointIds: ['co-7-4-1'] },
         ],
       },
