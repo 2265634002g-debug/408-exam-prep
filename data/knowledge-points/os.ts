@@ -461,6 +461,267 @@ void philosopher(int i) {
   },
 
   // --- 2.4 死锁 ---
+  // --- 2.3 同步与互斥（续）---
+  {
+    id: 'os-2-3-2', chapterId: 'os-2', title: '互斥的软件实现方法',
+    keyConcepts: ['单标志法', '双标志先检查', '双标志后检查', 'Peterson算法', 'turn', 'flag'], relatedPoints: ['os-2-3-1'],
+    content: `## 软件方法的演进
+在信号量机制出现之前，人们尝试用纯软件方式解决互斥问题。
+以下四种方法展示了从"有问题"到"接近完美"的演进过程。
+
+---
+## 一、单标志法（轮流法）
+\`\`\`c
+int turn = 0;  // turn表示当前允许进入的进程号
+// P0进程
+while (turn != 0);   // 等待
+critical_section();
+turn = 1;            // 权限转交
+// P1进程
+while (turn != 1);
+critical_section();
+turn = 0;
+\`\`\`
+| 违背原则 | 说明 |
+|----------|------|
+| **空闲让进** | 若P0不再访问临界区，P1永久无法进入 |
+> 本质问题：权限只能由对方赋予，缺乏自主性。
+
+---
+## 二、双标志先检查法
+\`\`\`c
+bool flag[2] = {false, false};
+// P0
+while (flag[1]);      // ①先检查对方
+flag[0] = true;       // ②后标记自己
+critical_section();
+flag[0] = false;
+// P1
+while (flag[0]);
+flag[1] = true;
+critical_section();
+flag[1] = false;
+\`\`\`
+| 违背原则 | 说明 |
+|----------|------|
+| **忙则等待** | 检查和上锁之间有空隙——两个进程可能同时通过while检查，然后都上锁进入 |
+
+---
+## 三、双标志后检查法
+\`\`\`c
+bool flag[2] = {false, false};
+// P0
+flag[0] = true;       // ①先标记自己
+while (flag[1]);      // ②后检查对方
+critical_section();
+flag[0] = false;
+\`\`\`
+| 违背原则 | 说明 |
+|----------|------|
+| **空闲让进 + 有限等待** | 双方同时标记自己想进 → 互相谦让 → "饥饿" |
+
+---
+## 四、Peterson 算法（重点⭐）
+\`\`\`c
+bool flag[2] = {false, false};
+int turn = 0;
+// P0进程
+flag[0] = true;                  // ①主动争取
+turn = 1;                        // ②主动谦让（把机会给P1）
+while (flag[1] && turn == 1);    // ③对方也想用 且 最后是自己在谦让
+critical_section();
+flag[0] = false;                 // ④退出
+// P1进程（对称）
+flag[1] = true;
+turn = 0;
+while (flag[0] && turn == 0);
+critical_section();
+flag[1] = false;
+\`\`\`
+| 满足的原则 | 说明 |
+|-----------|------|
+| 空闲让进 ✅ | flag 标记意愿，对方不想进则自己可进 |
+| 忙则等待 ✅ | 对方已进则 while 循环等待 |
+| 有限等待 ✅ | turn 机制防止"互相谦让而死等" |
+| **让权等待 ❌** | while 循环是忙等 |
+> Peterson 算法是唯一满足**前三个原则**的纯软件方法。
+> **口诀**：主动争取 → 主动谦让 → 检查对方想用且最后是自己说了客气话
+---
+## 四种方法对比
+| 方法 | 空闲让进 | 忙则等待 | 有限等待 | 让权等待 |
+|------|:--:|:--:|:--:|:--:|
+| 单标志法 | ❌ | ✅ | ✅ | ❌ |
+| 双标志先检查 | ✅ | ❌ | ✅ | ❌ |
+| 双标志后检查 | ❌ | ✅ | ❌ | ❌ |
+| **Peterson** | ✅ | ✅ | ✅ | ❌ |
+---
+## 考试辨析
+- Peterson 算法用 flag[] 解决互斥 + turn 解决饥饿——两者缺一不可
+- 所有软件方法的共性缺点：**不满足让权等待**（忙等浪费CPU）
+- [[2010-选择27] [2016-选择27]]`,
+  },
+  {
+    id: 'os-2-3-3', chapterId: 'os-2', title: '互斥的硬件实现方法与互斥锁',
+    keyConcepts: ['中断屏蔽', 'TestAndSet', 'TSL', 'Swap', 'XCHG', '互斥锁', '自旋锁', 'SpinLock'], relatedPoints: ['os-2-3-1', 'os-2-3-2'],
+    content: `## 一、中断屏蔽方法
+\`\`\`c
+关中断;        // 禁止时钟中断 → 不切换进程
+临界区;
+开中断;
+\`\`\`
+| 优点 | 缺点 |
+|------|------|
+| 简单高效 | 不适用多处理机（关一个核的中断不能阻止其他核访问） |
+| | 只适用于内核进程（特权指令） |
+
+---
+## 二、TestAndSet 指令（TS / TSL）
+\`\`\`c
+// 硬件实现的原子操作——执行过程不可中断
+bool TestAndSet(bool *lock) {
+    bool old = *lock;
+    *lock = true;       // 无论原来如何，都上锁
+    return old;         // 返回原来的值
+}
+// 使用
+while (TestAndSet(&lock));  // 直到拿到锁（原来没锁）
+critical_section();
+lock = false;               // 解锁
+\`\`\`
+> 把"检查"和"上锁"变成**一条原子指令**——硬件保证中间不被中断。
+
+---
+## 三、Swap 指令（XCHG / Exchange）
+\`\`\`c
+void Swap(bool *a, bool *b) {
+    bool temp = *a;
+    *a = *b;
+    *b = temp;
+}
+// 使用
+bool key = true;
+do {
+    Swap(&lock, &key);   // 原子交换
+} while (key == true);    // 换出来的是true → 原来锁着
+critical_section();
+lock = false;
+\`\`\`
+> 逻辑上与 TS 等价——都是硬件原子操作。
+
+---
+## 四、互斥锁 (Mutex Lock)
+\`\`\`c
+acquire() {
+    while (!available);   // 忙等待获取锁
+    available = false;    // acquire和release必须是原子操作
+}
+release() {
+    available = true;
+}
+\`\`\`
+
+### 自旋锁 (Spin Lock)
+> 需要连续忙等的互斥锁称为自旋锁。TSL、Swap、单标志法都是自旋锁。
+| 适用场景 | 不适用场景 |
+|----------|-----------|
+| 多处理机 + 临界区短 | 单处理机（忙等期间不可能解锁） |
+| 等待期间不需切换上下文 | 临界区长的场景 |
+
+---
+## 硬件方法对比总结
+| 方法 | 优点 | 缺点 |
+|------|------|------|
+| 中断屏蔽 | 简单 | 不适用多处理机、用户进程 |
+| TestAndSet | 实现简单，适用多处理机 | 不满足让权等待 |
+| Swap | 同 TS | 不满足让权等待 |
+| 互斥锁(自旋) | 多处理机中成本低 | 忙等 |
+---
+## 考试辨析
+- TS/Swap 与软件方法的核心区别：**检查和上锁原子执行**
+- 自旋锁 ≈ 忙等的锁——不释放CPU，适合等待时间极短的场景
+- [[2011-选择27] [2018-选择27] [2021-选择27]]`,
+  },
+  {
+    id: 'os-2-3-4', chapterId: 'os-2', title: '管程与条件变量',
+    keyConcepts: ['管程', 'Monitor', '条件变量', 'wait', 'signal', '封装', '入口等待队列'], relatedPoints: ['os-2-3-1', 'os-2-3-3'],
+    content: `## 为什么引入管程
+> 信号量机制虽然强大，但编程困难——PV操作顺序稍有不慎就死锁。
+> 管程将互斥和同步的复杂性**封装**起来，程序员只需调用过程。
+
+---
+## 管程的组成
+\`\`\`c
+monitor MonitorName {
+    // ① 局部于管程的共享数据（私有）
+    int count;
+    condition full, empty;
+    // ② 对共享数据操作的一组过程（公有方法）
+    void insert(Item item) { ... }
+    Item remove() { ... }
+    // ③ 初始化代码
+    { count = 0; }
+};
+\`\`\`
+> 管程 = **类**：共享数据 = 私有成员，过程 = 公有方法。
+
+---
+## 管程的核心特征
+| 特征 | 含义 |
+|------|------|
+| **封装性** | 局部数据只能被管程内的过程访问 |
+| **互斥性** | 每次**仅允许一个进程**在管程内执行——由编译器保证 |
+| **同步支持** | 通过**条件变量** + wait/signal 实现 |
+| **入口队列** | 请求进入管程的进程排队 |
+
+---
+## 条件变量 (Condition Variable)
+\`\`\`c
+condition x, y;         // 声明条件变量
+x.wait();               // 阻塞自己，释放管程，进入x的等待队列
+x.signal();             // 唤醒x等待队列中的一个进程
+\`\`\`
+> **wait vs signal**：wait 必然阻塞自己；signal 不阻塞自己（只是唤醒别人）。
+> 与信号量 PV 的关键区别：**signal 如果没有等待进程则什么也不做**（信号量 V 会 s.value++）。
+
+---
+## 管程解决生产者-消费者
+\`\`\`c
+monitor PC {
+    Item buffer[N];
+    int in=0, out=0, count=0;
+    condition full, empty;
+    void put(Item x) {
+        if (count == N) full.wait(); // 满则等
+        buffer[in] = x; in=(in+1)%N; count++;
+        empty.signal();              // 唤醒消费者
+    }
+    Item get() {
+        if (count == 0) empty.wait(); // 空则等
+        Item x = buffer[out]; out=(out+1)%N; count--;
+        full.signal();                // 唤醒生产者
+        return x;
+    }
+};
+\`\`\`
+
+---
+## 信号量 vs 管程
+| | 信号量 | 管程 |
+|------|--------|------|
+| 互斥实现 | 程序员手动 PV | **编译器自动保证** |
+| 同步机制 | P/V 原语 | wait/signal 条件变量 |
+| 易错性 | 高（P顺序错→死锁） | 低（编译器检查） |
+| 封装性 | 无 | 有（数据+操作封装在一起） |
+| 典型语言 | C/POSIX | **Java(synchronized)** |
+
+---
+## 考试辨析
+- 管程的互斥**由编译器实现**——程序员不用写PV操作
+- 条件变量与信号量的区别——wait/signal 没有"计数值"
+- 408 考管程较少（主要是概念选择题），但 PV 操作大题一直考
+- [[2014-选择27] [2020-选择28]]`,
+  },
+
   {
     id: 'os-2-4-1', chapterId: 'os-2', title: '死锁',
     keyConcepts: ['死锁', '必要条件', '预防', '避免', '银行家算法', '安全状态', '检测', '解除'], relatedPoints: ['os-2-3-1'],
