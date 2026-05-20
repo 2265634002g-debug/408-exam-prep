@@ -150,7 +150,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 5,
         title: '中央处理器',
         sections: [
-          { id: 'co-5-1', title: 'CPU 的功能和基本结构', knowledgePointIds: ['co-5-1-1'] },
+          { id: 'co-5-1', title: 'CPU 的功能和基本结构', knowledgePointIds: ['co-5-1-1', 'co-5-1-2', 'co-5-1-3'] },
           { id: 'co-5-2', title: '数据通路', knowledgePointIds: ['co-5-2-1'] },
           { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1'] },
           { id: 'co-5-4', title: '异常和中断', knowledgePointIds: ['co-5-4-1'] },
@@ -227,8 +227,8 @@ export const subjects: SubjectInfo[] = [
         title: '文件管理',
         sections: [
           { id: 'os-4-1', title: '文件系统基础', knowledgePointIds: ['os-4-1-1', 'os-4-1-2'] },
-          { id: 'os-4-2', title: '文件系统实现', knowledgePointIds: ['os-4-2-1'] },
-          { id: 'os-4-3', title: '磁盘组织与管理', knowledgePointIds: ['os-4-3-1'] },
+          { id: 'os-4-2', title: '文件系统实现', knowledgePointIds: ['os-4-2-1', 'os-4-2-2'] },
+          { id: 'os-4-3', title: '磁盘组织与管理', knowledgePointIds: ['os-4-3-1', 'os-4-3-2'] },
         ],
       },
       {
