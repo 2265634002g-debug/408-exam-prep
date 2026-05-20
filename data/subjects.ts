@@ -118,10 +118,10 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 2,
         title: '数据的表示和运算',
         sections: [
-          { id: 'co-2-1', title: '数制与编码', knowledgePointIds: ['co-2-1-1', 'co-2-1-2'] },
+          { id: 'co-2-1', title: '数制与编码', knowledgePointIds: ['co-2-1-1', 'co-2-1-2', 'co-2-1-3'] },
           { id: 'co-2-2', title: '定点数的表示与运算', knowledgePointIds: ['co-2-2-1', 'co-2-2-2'] },
           { id: 'co-2-3', title: '浮点数的表示与运算', knowledgePointIds: ['co-2-3-1', 'co-2-3-2'] },
-          { id: 'co-2-4', title: '算术逻辑单元 ALU', knowledgePointIds: ['co-2-4-1'] },
+          { id: 'co-2-4', title: '算术逻辑单元 ALU', knowledgePointIds: ['co-2-4-1', 'co-2-4-2'] },
         ],
       },
       {
@@ -129,7 +129,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 3,
         title: '存储系统',
         sections: [
-          { id: 'co-3-1', title: '存储器概述', knowledgePointIds: ['co-3-1-1'] },
+          { id: 'co-3-1', title: '存储器概述', knowledgePointIds: ['co-3-1-1', 'co-3-1-2'] },
           { id: 'co-3-2', title: '主存储器', knowledgePointIds: ['co-3-2-1', 'co-3-2-2'] },
           { id: 'co-3-3', title: '高速缓冲存储器 Cache', knowledgePointIds: ['co-3-3-1', 'co-3-3-2', 'co-3-3-3', 'co-3-3-4'] },
           { id: 'co-3-4', title: '虚拟存储器', knowledgePointIds: ['co-3-4-1', 'co-3-4-2'] },
@@ -154,7 +154,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'co-5-2', title: '数据通路', knowledgePointIds: ['co-5-2-1'] },
           { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1', 'co-5-3-2', 'co-5-3-3'] },
           { id: 'co-5-4', title: '异常和中断', knowledgePointIds: ['co-5-4-1'] },
-          { id: 'co-5-5', title: '指令流水线', knowledgePointIds: ['co-5-5-1', 'co-5-5-2'] },
+          { id: 'co-5-5', title: '指令流水线', knowledgePointIds: ['co-5-5-1', 'co-5-5-2', 'co-5-5-3'] },
           { id: 'co-5-6', title: '多处理器基本概念', knowledgePointIds: [] },
         ],
       },
