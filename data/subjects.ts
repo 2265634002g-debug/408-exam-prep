@@ -141,7 +141,7 @@ export const subjects: SubjectInfo[] = [
         title: '指令系统',
         sections: [
           { id: 'co-4-1', title: '指令格式', knowledgePointIds: ['co-4-1-1'] },
-          { id: 'co-4-2', title: '指令的寻址方式', knowledgePointIds: ['co-4-2-1'] },
+          { id: 'co-4-2', title: '指令的寻址方式', knowledgePointIds: ['co-4-2-1', 'co-4-2-2'] },
           { id: 'co-4-3', title: 'CISC 和 RISC', knowledgePointIds: ['co-4-3-1'] },
         ],
       },
@@ -152,7 +152,7 @@ export const subjects: SubjectInfo[] = [
         sections: [
           { id: 'co-5-1', title: 'CPU 的功能和基本结构', knowledgePointIds: ['co-5-1-1', 'co-5-1-2', 'co-5-1-3'] },
           { id: 'co-5-2', title: '数据通路', knowledgePointIds: ['co-5-2-1'] },
-          { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1', 'co-5-3-2'] },
+          { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1', 'co-5-3-2', 'co-5-3-3'] },
           { id: 'co-5-4', title: '异常和中断', knowledgePointIds: ['co-5-4-1'] },
           { id: 'co-5-5', title: '指令流水线', knowledgePointIds: ['co-5-5-1', 'co-5-5-2'] },
           { id: 'co-5-6', title: '多处理器基本概念', knowledgePointIds: [] },
@@ -226,7 +226,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 4,
         title: '文件管理',
         sections: [
-          { id: 'os-4-1', title: '文件系统基础', knowledgePointIds: ['os-4-1-1', 'os-4-1-2'] },
+          { id: 'os-4-1', title: '文件系统基础', knowledgePointIds: ['os-4-1-1', 'os-4-1-2', 'os-4-1-3'] },
           { id: 'os-4-2', title: '文件系统实现', knowledgePointIds: ['os-4-2-1', 'os-4-2-2'] },
           { id: 'os-4-3', title: '磁盘组织与管理', knowledgePointIds: ['os-4-3-1', 'os-4-3-2'] },
         ],
@@ -276,7 +276,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'cn-3-2', title: '组帧', knowledgePointIds: ['cn-3-2-1'] },
           { id: 'cn-3-3', title: '差错控制', knowledgePointIds: ['cn-3-3-1'] },
           { id: 'cn-3-4', title: '流量控制与可靠传输机制', knowledgePointIds: ['cn-3-4-1'] },
-          { id: 'cn-3-5', title: '介质访问控制', knowledgePointIds: ['cn-3-5-1'] },
+          { id: 'cn-3-5', title: '介质访问控制', knowledgePointIds: ['cn-3-5-1', 'cn-3-5-2'] },
           { id: 'cn-3-6', title: '局域网', knowledgePointIds: ['cn-3-6-1'] },
           { id: 'cn-3-7', title: '广域网', knowledgePointIds: ['cn-3-7-1'] },
           { id: 'cn-3-8', title: '数据链路层设备', knowledgePointIds: ['cn-3-8-1'] },
@@ -288,7 +288,7 @@ export const subjects: SubjectInfo[] = [
         title: '网络层',
         sections: [
           { id: 'cn-4-1', title: '网络层的功能', knowledgePointIds: ['cn-4-1-1'] },
-          { id: 'cn-4-2', title: 'IPv4', knowledgePointIds: ['cn-4-2-1'] },
+          { id: 'cn-4-2', title: 'IPv4', knowledgePointIds: ['cn-4-2-1', 'cn-4-2-2'] },
           { id: 'cn-4-3', title: 'IPv6', knowledgePointIds: ['cn-4-3-1'] },
           { id: 'cn-4-4', title: '路由算法与路由协议', knowledgePointIds: ['cn-4-4-1'] },
           { id: 'cn-4-5', title: 'IP 多播', knowledgePointIds: ['cn-4-5-1'] },
