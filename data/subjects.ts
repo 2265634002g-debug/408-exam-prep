@@ -204,7 +204,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 2,
         title: '进程管理',
         sections: [
-          { id: 'os-2-1', title: '进程与线程', knowledgePointIds: ['os-2-1-1'] },
+          { id: 'os-2-1', title: '进程与线程', knowledgePointIds: ['os-2-1-1', 'os-2-1-2', 'os-2-1-3'] },
           { id: 'os-2-2', title: 'CPU 调度', knowledgePointIds: ['os-2-2-1'] },
           { id: 'os-2-3', title: '同步与互斥', knowledgePointIds: ['os-2-3-1', 'os-2-3-2', 'os-2-3-3', 'os-2-3-4'] },
           { id: 'os-2-4', title: '死锁', knowledgePointIds: ['os-2-4-1'] },
