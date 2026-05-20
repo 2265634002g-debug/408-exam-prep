@@ -20,6 +20,9 @@ dist-ssr
 # Python temp scripts
 *.py
 
+# Screenshots for debugging
+*.png
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
