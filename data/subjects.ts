@@ -131,7 +131,7 @@ export const subjects: SubjectInfo[] = [
         sections: [
           { id: 'co-3-1', title: '存储器概述', knowledgePointIds: ['co-3-1-1'] },
           { id: 'co-3-2', title: '主存储器', knowledgePointIds: ['co-3-2-1', 'co-3-2-2'] },
-          { id: 'co-3-3', title: '高速缓冲存储器 Cache', knowledgePointIds: ['co-3-3-1', 'co-3-3-2', 'co-3-3-3'] },
+          { id: 'co-3-3', title: '高速缓冲存储器 Cache', knowledgePointIds: ['co-3-3-1', 'co-3-3-2', 'co-3-3-3', 'co-3-3-4'] },
           { id: 'co-3-4', title: '虚拟存储器', knowledgePointIds: ['co-3-4-1'] },
         ],
       },
@@ -154,7 +154,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'co-5-2', title: '数据通路', knowledgePointIds: ['co-5-2-1'] },
           { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1', 'co-5-3-2'] },
           { id: 'co-5-4', title: '异常和中断', knowledgePointIds: ['co-5-4-1'] },
-          { id: 'co-5-5', title: '指令流水线', knowledgePointIds: ['co-5-5-1'] },
+          { id: 'co-5-5', title: '指令流水线', knowledgePointIds: ['co-5-5-1', 'co-5-5-2'] },
           { id: 'co-5-6', title: '多处理器基本概念', knowledgePointIds: [] },
         ],
       },
@@ -207,7 +207,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'os-2-1', title: '进程与线程', knowledgePointIds: ['os-2-1-1', 'os-2-1-2', 'os-2-1-3'] },
           { id: 'os-2-2', title: 'CPU 调度', knowledgePointIds: ['os-2-2-1'] },
           { id: 'os-2-3', title: '同步与互斥', knowledgePointIds: ['os-2-3-1', 'os-2-3-2', 'os-2-3-3', 'os-2-3-4'] },
-          { id: 'os-2-4', title: '死锁', knowledgePointIds: ['os-2-4-1'] },
+          { id: 'os-2-4', title: '死锁', knowledgePointIds: ['os-2-4-1', 'os-2-4-2'] },
         ],
       },
       {
@@ -218,7 +218,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'os-3-1', title: '内存管理概念', knowledgePointIds: ['os-3-1-1'] },
           { id: 'os-3-2', title: '连续分配管理方式', knowledgePointIds: ['os-3-2-1'] },
           { id: 'os-3-3', title: '非连续分配管理方式', knowledgePointIds: ['os-3-3-1', 'os-3-3-2', 'os-3-3-3'] },
-          { id: 'os-3-4', title: '虚拟内存管理', knowledgePointIds: ['os-3-4-1', 'os-3-4-2'] },
+          { id: 'os-3-4', title: '虚拟内存管理', knowledgePointIds: ['os-3-4-1', 'os-3-4-2', 'os-3-4-3'] },
         ],
       },
       {
