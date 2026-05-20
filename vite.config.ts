@@ -3,7 +3,6 @@ import react from '@vitejs/plugin-react'
 import path from 'node:path'
 
 export default defineConfig({
-  base: '/408-exam-prep/',
   plugins: [react()],
   resolve: {
     alias: {

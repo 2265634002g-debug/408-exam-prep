@@ -1,131 +1,30 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import * as d3 from 'd3';
-import { allKnowledgePoints } from '@data/knowledge-points';
 import { subjects } from '@data/subjects';
+import { allKnowledgePoints, getKnowledgePointById } from '@data/knowledge-points';
 import { useAppContext } from '@/context/AppContext';
+import Markdown from '@/components/common/Markdown';
 import type { Subject } from '@/types/knowledge';
 import styles from './KnowledgeGraph.module.css';
 
-interface GraphNode {
-  id: string;
-  title: string;
-  subject: Subject;
-  chapterId: string;
-  completed: boolean;
-}
-
-interface GraphLink {
-  source: string;
-  target: string;
-}
-
 export default function KnowledgeGraph() {
-  const svgRef = useRef<SVGSVGElement>(null);
-  const { state } = useAppContext();
   const navigate = useNavigate();
+  const { state } = useAppContext();
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  const [selectedKP, setSelectedKP] = useState<string | null>(null);
   const [filter, setFilter] = useState<Subject | 'all'>('all');
 
-  useEffect(() => {
-    // Build graph data
-    const nodes: GraphNode[] = allKnowledgePoints.map(kp => {
-      const prefix = kp.id.split('-')[0] as Subject;
-      return {
-        id: kp.id,
-        title: kp.title,
-        subject: prefix,
-        chapterId: kp.chapterId,
-        completed: state.progress.completedPoints.includes(kp.id),
-      };
+  const filteredSubjects = filter === 'all' ? subjects : subjects.filter(s => s.id === filter);
+
+  const toggle = (id: string) => {
+    setExpanded(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      return next;
     });
+  };
 
-    const nodeIds = new Set(nodes.map(n => n.id));
-    const links: GraphLink[] = [];
-    for (const kp of allKnowledgePoints) {
-      for (const relId of kp.relatedPoints) {
-        if (nodeIds.has(relId)) {
-          links.push({ source: kp.id, target: relId });
-        }
-      }
-    }
-
-    // Filter
-    const filteredNodes = filter === 'all' ? nodes : nodes.filter(n => n.subject === filter);
-    const filteredIds = new Set(filteredNodes.map(n => n.id));
-    const filteredLinks = links.filter(l => filteredIds.has(l.source as string) && filteredIds.has(l.target as string));
-
-    const svg = d3.select(svgRef.current);
-    svg.selectAll('*').remove();
-
-    const width = 960;
-    const height = 680;
-    svg.attr('viewBox', `0 0 ${width} ${height}`);
-
-    const subjectColors: Record<string, string> = {};
-    subjects.forEach(s => { subjectColors[s.id] = s.color; });
-
-    const simulation = d3.forceSimulation(filteredNodes as any)
-      .force('link', d3.forceLink(filteredLinks).id((d: any) => d.id).distance(80))
-      .force('charge', d3.forceManyBody().strength(-150))
-      .force('center', d3.forceCenter(width / 2, height / 2))
-      .force('collision', d3.forceCollide().radius(20));
-
-    const g = svg.append('g');
-
-    const link = g.append('g')
-      .selectAll('line')
-      .data(filteredLinks)
-      .join('line')
-      .attr('stroke', '#ccc')
-      .attr('stroke-width', 1)
-      .attr('stroke-opacity', 0.6);
-
-    const node = g.append('g')
-      .selectAll('circle')
-      .data(filteredNodes)
-      .join('circle')
-      .attr('r', d => d.completed ? 6 : 5)
-      .attr('fill', d => d.completed ? '#16a34a' : (subjectColors[d.subject] ?? '#999'))
-      .attr('stroke', d => d.completed ? '#16a34a' : '#fff')
-      .attr('stroke-width', 1.5)
-      .attr('cursor', 'pointer')
-      .on('click', (_, d) => {
-        const kp = allKnowledgePoints.find(k => k.id === d.id);
-        if (kp) navigate(`/knowledge/${d.subject}/${kp.chapterId}/${d.id}`);
-      })
-      .call(d3.drag<any, any>()
-        .on('start', (event, d) => {
-          if (!event.active) simulation.alphaTarget(0.3).restart();
-          d.fx = d.x; d.fy = d.y;
-        })
-        .on('drag', (event, d) => { d.fx = event.x; d.fy = event.y; })
-        .on('end', (event, d) => {
-          if (!event.active) simulation.alphaTarget(0);
-          d.fx = null; d.fy = null;
-        }) as any);
-
-    const label = g.append('g')
-      .selectAll('text')
-      .data(filteredNodes)
-      .join('text')
-      .attr('font-size', '8px')
-      .attr('dx', 8)
-      .attr('dy', 3)
-      .attr('fill', '#555')
-      .text(d => d.title.length > 10 ? d.title.slice(0, 10) + '..' : d.title)
-      .append('title').text(d => d.title);
-
-    node.append('title').text(d => `[${d.subject.toUpperCase()}] ${d.title}`);
-
-    simulation.on('tick', () => {
-      link.attr('x1', (d: any) => d.source.x).attr('y1', (d: any) => d.source.y)
-        .attr('x2', (d: any) => d.target.x).attr('y2', (d: any) => d.target.y);
-      node.attr('cx', (d: any) => d.x).attr('cy', (d: any) => d.y);
-      label.attr('x', (d: any) => d.x).attr('y', (d: any) => d.y);
-    });
-
-    return () => { simulation.stop(); };
-  }, [filter, state.progress.completedPoints, navigate]);
+  const kp = selectedKP ? getKnowledgePointById(selectedKP) : null;
 
   return (
     <div className={styles.container}>
@@ -134,12 +33,101 @@ export default function KnowledgeGraph() {
         <button className={filter === 'all' ? styles.chipActive : styles.chip} onClick={() => setFilter('all')}>全部</button>
         {subjects.map(s => (
           <button key={s.id} className={filter === s.id ? styles.chipActive : styles.chip}
-            onClick={() => setFilter(s.id)} style={filter === s.id ? { background: s.color } : {}}>
+            onClick={() => setFilter(s.id)} style={filter === s.id ? { background: s.color, borderColor: s.color } : {}}>
             <span className={styles.dot} style={{ background: s.color }} />{s.name}
           </button>
         ))}
+        <span className={styles.count}>{allKnowledgePoints.filter(k => filter === 'all' || k.id.startsWith(filter)).length} 个知识点</span>
       </div>
-      <svg ref={svgRef} className={styles.svg} />
+
+      <div className={styles.mainArea}>
+        <div className={styles.treePanel}>
+          {filteredSubjects.map(subject => (
+            <div key={subject.id} className={styles.subjectBlock}>
+              <div className={styles.subjectHeader} onClick={() => toggle(subject.id)} style={{ borderLeftColor: subject.color }}>
+                <span className={styles.arrow}>{expanded.has(subject.id) ? '▼' : '▶'}</span>
+                <span className={styles.subjectDot} style={{ background: subject.color }} />
+                <span className={styles.subjectName}>{subject.fullName}</span>
+                <span className={styles.badge}>
+                  {subject.chapters.reduce((sum, ch) =>
+                    sum + ch.sections.reduce((s2, sec) => s2 + sec.knowledgePointIds.filter(id => state.progress.completedPoints.includes(id)).length, 0), 0)}
+                  /
+                  {subject.chapters.reduce((sum, ch) =>
+                    sum + ch.sections.reduce((s2, sec) => s2 + sec.knowledgePointIds.length, 0), 0)}
+                </span>
+              </div>
+
+              {expanded.has(subject.id) && subject.chapters.map(chapter => (
+                <div key={chapter.id} className={styles.chapterBlock}>
+                  <div className={styles.chapterHeader} onClick={() => toggle(chapter.id)}>
+                    <span className={styles.arrow}>{expanded.has(chapter.id) ? '▼' : '▶'}</span>
+                    <span className={styles.chapterName}>第{chapter.chapterNum}章 {chapter.title}</span>
+                  </div>
+
+                  {expanded.has(chapter.id) && chapter.sections.map(section => (
+                    <div key={section.id} className={styles.sectionBlock}>
+                      <div className={styles.sectionHeader} onClick={() => toggle(section.id)}>
+                        <span className={styles.arrow}>{expanded.has(section.id) ? '▼' : '▶'}</span>
+                        <span className={styles.sectionName}>{section.title}</span>
+                        <span className={styles.kpCount}>{section.knowledgePointIds.length}</span>
+                      </div>
+
+                      {expanded.has(section.id) && section.knowledgePointIds.map(kpId => {
+                        const kpData = allKnowledgePoints.find(k => k.id === kpId);
+                        const completed = state.progress.completedPoints.includes(kpId);
+                        return (
+                          <div
+                            key={kpId}
+                            className={`${styles.kpItem} ${selectedKP === kpId ? styles.kpSelected : ''} ${completed ? styles.kpCompleted : ''}`}
+                            onClick={() => setSelectedKP(kpId)}
+                          >
+                            <span className={styles.kpDot} style={{
+                              background: completed ? '#16a34a' : subject.color,
+                              opacity: completed ? 1 : 0.5,
+                            }} />
+                            <span className={styles.kpTitle}>{kpData?.title ?? kpId}</span>
+                            <span className={styles.kpTags}>
+                              {kpData?.keyConcepts.slice(0, 2).map(t => (
+                                <span key={t} className={styles.miniTag}>{t}</span>
+                              ))}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+
+        <div className={styles.detailPanel}>
+          {kp ? (
+            <>
+              <div className={styles.detailHeader}>
+                <h3 className={styles.detailTitle}>{kp.title}</h3>
+                <div className={styles.detailTags}>
+                  {kp.keyConcepts.map(tag => <span key={tag} className={styles.tag}>{tag}</span>)}
+                </div>
+                <button className={styles.detailBtn} onClick={() => {
+                  const prefix = kp.id.split('-')[0];
+                  navigate(`/knowledge/${prefix}/${kp.chapterId}/${kp.id}`);
+                }}>进入完整页面 →</button>
+              </div>
+              <div className={styles.detailContent}>
+                <Markdown content={kp.content} />
+              </div>
+            </>
+          ) : (
+            <div className={styles.emptyHint}>
+              <p>← 点击左侧知识点查看详情</p>
+              <p>展开科目 → 章节 → 节 → 知识点</p>
+              <p>绿色 = 已标记掌握</p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

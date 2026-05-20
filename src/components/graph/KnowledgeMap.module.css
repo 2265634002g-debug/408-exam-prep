@@ -1,36 +1,67 @@
-.container {
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  background: var(--color-card-bg);
-  border-radius: 12px;
-  padding: 16px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+.container { max-width: 780px; margin: 0 auto; }
+
+.notFound { text-align: center; padding: 40px; color: var(--color-text-secondary); }
+
+.chapterTitle {
+  font-size: 18px; font-weight: 700; padding: 12px 16px;
+  border-left: 4px solid; margin-bottom: 16px;
+  background: var(--color-card-bg); border-radius: 0 8px 8px 0;
 }
 
-.svg {
-  width: 100%;
-  height: auto;
-  display: block;
+.sectionBlock { margin-bottom: 20px; }
+
+.sectionHeader {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 0; margin-bottom: 8px;
+  border-bottom: 1px solid var(--color-border);
+}
+.sectionTitle { font-size: 15px; font-weight: 600; color: var(--color-text); }
+.sectionProgress { font-size: 12px; color: var(--color-text-secondary); }
+
+.kpList { display: flex; flex-direction: column; gap: 8px; }
+
+.kpCard {
+  display: flex; gap: 12px; padding: 14px 16px;
+  background: var(--color-card-bg); border: 1px solid var(--color-border);
+  border-radius: 10px; cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.kpCard:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 2px 8px rgba(79,70,229,0.1);
+}
+.kpCompleted { border-left: 3px solid #16a34a; }
+
+.kpLeft { padding-top: 2px; }
+.kpDot {
+  display: block; width: 10px; height: 10px; border-radius: 50%;
+  margin-top: 4px;
 }
 
-.link {
-  transition: stroke 0.15s;
+.kpRight { flex: 1; min-width: 0; }
+
+.kpTitleRow { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.kpTitle { font-size: 14px; font-weight: 600; color: var(--color-text); }
+.doneBadge {
+  font-size: 10px; background: #16a34a; color: white;
+  border-radius: 50%; width: 16px; height: 16px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
 
-.link:hover {
-  stroke: var(--color-primary) !important;
+.kpConcepts { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 6px; }
+.conceptTag {
+  font-size: 10px; padding: 2px 8px; background: var(--color-active);
+  color: var(--color-primary); border-radius: 10px;
 }
 
-.node {
-  cursor: pointer;
+.kpPreview {
+  font-size: 12px; color: var(--color-text-secondary);
+  line-height: 1.5; overflow: hidden; display: -webkit-box;
+  -webkit-line-clamp: 2; -webkit-box-orient: vertical;
 }
 
-.node circle {
-  transition: r 0.15s, fill 0.15s;
-}
-
-.node:hover circle {
-  r: 7;
-  fill: var(--color-primary) !important;
+.emptySection {
+  padding: 12px 16px; color: var(--color-text-secondary);
+  font-size: 13px; font-style: italic;
 }
