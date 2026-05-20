@@ -110,7 +110,7 @@ export const subjects: SubjectInfo[] = [
         sections: [
           { id: 'co-1-1', title: '计算机发展历程', knowledgePointIds: ['co-1-1-1'] },
           { id: 'co-1-2', title: '计算机系统层次结构', knowledgePointIds: ['co-1-2-1'] },
-          { id: 'co-1-3', title: '计算机性能指标', knowledgePointIds: ['co-1-3-1'] },
+          { id: 'co-1-3', title: '计算机性能指标', knowledgePointIds: ['co-1-3-1', 'co-1-3-2'] },
         ],
       },
       {
@@ -119,7 +119,7 @@ export const subjects: SubjectInfo[] = [
         title: '数据的表示和运算',
         sections: [
           { id: 'co-2-1', title: '数制与编码', knowledgePointIds: ['co-2-1-1', 'co-2-1-2', 'co-2-1-3', 'co-2-1-4'] },
-          { id: 'co-2-2', title: '定点数的表示与运算', knowledgePointIds: ['co-2-2-1', 'co-2-2-2'] },
+          { id: 'co-2-2', title: '定点数的表示与运算', knowledgePointIds: ['co-2-2-1', 'co-2-2-2', 'co-2-2-3'] },
           { id: 'co-2-3', title: '浮点数的表示与运算', knowledgePointIds: ['co-2-3-1', 'co-2-3-2'] },
           { id: 'co-2-4', title: '算术逻辑单元 ALU', knowledgePointIds: ['co-2-4-1', 'co-2-4-2'] },
         ],
@@ -275,7 +275,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'cn-3-1', title: '数据链路层的功能', knowledgePointIds: ['cn-3-1-1'] },
           { id: 'cn-3-2', title: '组帧', knowledgePointIds: ['cn-3-2-1'] },
           { id: 'cn-3-3', title: '差错控制', knowledgePointIds: ['cn-3-3-1'] },
-          { id: 'cn-3-4', title: '流量控制与可靠传输机制', knowledgePointIds: ['cn-3-4-1'] },
+          { id: 'cn-3-4', title: '流量控制与可靠传输机制', knowledgePointIds: ['cn-3-4-1', 'cn-3-4-2'] },
           { id: 'cn-3-5', title: '介质访问控制', knowledgePointIds: ['cn-3-5-1', 'cn-3-5-2'] },
           { id: 'cn-3-6', title: '局域网', knowledgePointIds: ['cn-3-6-1'] },
           { id: 'cn-3-7', title: '广域网', knowledgePointIds: ['cn-3-7-1'] },
