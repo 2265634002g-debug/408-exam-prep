@@ -782,4 +782,448 @@ $D(X \\pm Y) = D(X) + D(Y) \\pm 2Cov(X,Y)$
 - **独立 $\\Rightarrow$ 不相关**，但不相关 $\\nRightarrow$ 独立（正态分布例外）
 - $E(XY) = E(X)E(Y)$ 当且仅当 $X,Y$ 不相关`,
   },
+  {
+    id: 'ma-2-6-1', chapterId: 'ma-2', title: '函数的单调性与极值',
+    keyConcepts: ['单调性', '极值', '驻点', '临界点', '极值第一充分条件', '极值第二充分条件'], relatedPoints: ['ma-2-5-1'],
+    content: `## 单调性判定
+
+$f'(x) > 0$ 在区间 $I$ 上 $\\Rightarrow f(x)$ 在 $I$ 上严格单调递增
+$f'(x) < 0 \\Rightarrow$ 严格单调递减
+$f'(x) = 0$ 的点称为**驻点**
+
+---
+
+## 极值的充分条件
+
+### 第一充分条件
+$f'(x_0)=0$，$x$ 从左到右经过 $x_0$ 时：
+$f'(x)$ 由正变负 $\\Rightarrow f(x_0)$ 为极大值
+$f'(x)$ 由负变正 $\\Rightarrow f(x_0)$ 为极小值
+
+### 第二充分条件
+$f'(x_0)=0$，$f''(x_0) < 0 \\Rightarrow$ 极大值
+$f'(x_0)=0$，$f''(x_0) > 0 \\Rightarrow$ 极小值
+
+---
+
+## 闭区间上连续函数的最值
+1. 求区间内部的驻点和不可导点
+2. 计算这些点及端点的函数值
+3. 比较得最大/最小值
+
+---
+
+## 考试辨析
+- 驻点 ≠ 极值点（$f'(x_0)=0$ 只是极值的必要条件）
+- 极值点处的导数可能不存在（如 $y=|x|$ 在 $x=0$）
+- 最大值 ≠ 极大值（极值是局部的，最值是全局的）`,
+  },
+  {
+    id: 'ma-2-7-1', chapterId: 'ma-2', title: '函数的凹凸性与拐点',
+    keyConcepts: ['凹凸性', '拐点', '二阶导数', '凸函数', '凹函数'], relatedPoints: ['ma-2-6-1'],
+    content: `## 凹凸性判定
+$f''(x) > 0 \\Rightarrow$ 曲线**下凸**（凹向上，concave up）
+$f''(x) < 0 \\Rightarrow$ 曲线**上凸**（凹向下，concave down）
+
+---
+
+## 拐点
+拐点 = 曲线凹凸性发生改变的点
+
+**必要条件**：$f''(x_0)=0$ 或 $f''(x_0)$ 不存在
+**充分条件**：$f''(x)$ 在 $x_0$ 两侧变号
+
+---
+
+## 渐近线
+| 类型 | 条件 |
+|------|------|
+| 水平渐近线 | $\\lim_{x\\to\\infty} f(x) = A$ |
+| 垂直渐近线 | $\\lim_{x\\to x_0} f(x) = \\infty$ |
+| 斜渐近线 | $\\lim_{x\\to\\infty} \\frac{f(x)}{x} = k$, $\\lim_{x\\to\\infty}[f(x)-kx] = b$ |
+
+---
+
+## 考试辨析
+- $f''(x_0)=0$ 是拐点的**必要条件**（不是充分条件）
+- 拐点处 $f''(x)$ 必须**变号**
+- 渐近线是作图题的重要考点`,
+  },
+  {
+    id: 'ma-3-5-1', chapterId: 'ma-3', title: '广义积分（反常积分）',
+    keyConcepts: ['广义积分', '无穷区间', '无界函数', '收敛', '发散', '柯西主值'], relatedPoints: ['ma-3-3-1'],
+    content: `## 无穷区间上的广义积分
+
+$$\\int_a^\\infty f(x)dx = \\lim_{t\\to\\infty} \\int_a^t f(x)dx$$
+
+若极限存在 $\\Rightarrow$ 收敛；否则发散
+
+---
+
+## 无界函数的广义积分（瑕积分）
+
+$$\\int_a^b f(x)dx = \\lim_{t\\to b^-} \\int_a^t f(x)dx$$
+
+其中 $x=b$ 为 $f(x)$ 的瑕点（$f(x) \\to \\infty$）。
+
+---
+
+## p-积分的收敛性（必记）
+
+$\\int_1^\\infty \\frac{1}{x^p}dx$：$p>1$ 收敛，$p\\le 1$ 发散
+
+$\\int_0^1 \\frac{1}{x^p}dx$：$p<1$ 收敛，$p\\ge 1$ 发散
+
+---
+
+## 考试辨析
+- 广义积分 = 普通定积分 + 取极限
+- 必须先判断收敛性才能计算
+- p-积分的收敛条件是高频考点`,
+  },
+  {
+    id: 'ma-4-1-1', chapterId: 'ma-4', title: '多元函数的基本概念与偏导数',
+    keyConcepts: ['多元函数', '偏导数', '全微分', '方向导数', '梯度'], relatedPoints: ['ma-4-2-1'],
+    content: `## 偏导数
+
+$z=f(x,y)$ 对 $x$ 的偏导数：$\\frac{\\partial z}{\\partial x} = \\lim_{\\Delta x \\to 0} \\frac{f(x+\\Delta x, y) - f(x,y)}{\\Delta x}$
+
+对 $y$ 求偏导时将 $x$ 视为常数。
+
+---
+
+## 全微分
+
+$dz = \\frac{\\partial z}{\\partial x}dx + \\frac{\\partial z}{\\partial y}dy$
+
+**可微的充分条件**：偏导数存在且连续
+
+---
+
+## 方向导数与梯度
+
+方向导数：$\\frac{\\partial f}{\\partial l} = \\nabla f \\cdot \\vec{u}$
+
+梯度：$\\nabla f = (\\frac{\\partial f}{\\partial x}, \\frac{\\partial f}{\\partial y})$，指向函数增长最快的方向
+
+---
+
+## 考试辨析
+- 偏导数存在 $\\nRightarrow$ 可微
+- 偏导数连续 $\\Rightarrow$ 可微 $\\Rightarrow$ 偏导数存在
+- 梯度方向 = 函数增长最快方向`,
+  },
+  {
+    id: 'ma-4-5-1', chapterId: 'ma-4', title: '多元函数的极值与条件极值',
+    keyConcepts: ['无条件极值', '条件极值', '拉格朗日乘数法', 'Hessian矩阵'], relatedPoints: ['ma-4-1-1'],
+    content: `## 无条件极值
+
+驻点：$\\frac{\\partial f}{\\partial x}=0$ 且 $\\frac{\\partial f}{\\partial y}=0$
+
+Hessian判别法：$A=f_{xx}, B=f_{xy}, C=f_{yy}$
+
+$\\Delta = AC - B^2 > 0$：$A>0$极小，$A<0$极大
+$\\Delta < 0$：不是极值点
+$\\Delta = 0$：无法判断
+
+---
+
+## 条件极值（拉格朗日乘数法）
+
+求 $f(x,y)$ 在 $g(x,y)=0$ 条件下的极值：
+
+令 $L(x,y,\\lambda) = f(x,y) + \\lambda g(x,y)$
+
+解方程组：$\\frac{\\partial L}{\\partial x}=0, \\frac{\\partial L}{\\partial y}=0, \\frac{\\partial L}{\\partial \\lambda}=0$
+
+---
+
+## 考试辨析
+- 拉格朗日乘数法是数学一大题常考内容
+- 引入 $\\lambda$ 将条件极值转为无条件极值
+- 多个条件时添加多个 $\\lambda$`,
+  },
+  {
+    id: 'ma-5-1-1', chapterId: 'ma-5', title: '二重积分的概念与计算',
+    keyConcepts: ['二重积分', '直角坐标', '极坐标', '累次积分', '换序'], relatedPoints: ['ma-3-3-1', 'ma-4-1-1'],
+    content: `## 二重积分的定义
+
+$$\\iint_D f(x,y)d\\sigma = \\lim_{\\lambda \\to 0} \\sum f(\\xi_i,\\eta_i)\\Delta\\sigma_i$$
+
+---
+
+## 直角坐标下的计算
+
+### X型区域（先y后x）
+$\\iint_D f(x,y)dxdy = \\int_a^b \\left[\\int_{\\varphi_1(x)}^{\\varphi_2(x)} f(x,y)dy\\right]dx$
+
+### Y型区域（先x后y）
+$\\iint_D f(x,y)dxdy = \\int_c^d \\left[\\int_{\\psi_1(y)}^{\\psi_2(y)} f(x,y)dx\\right]dy$
+
+---
+
+## 极坐标下的计算
+
+$x = r\\cos\\theta, y = r\\sin\\theta, dxdy = r dr d\\theta$
+
+适用：积分区域为圆、扇形，或被积函数含 $x^2+y^2$
+
+$$\\iint_D f(x,y)dxdy = \\int_\\alpha^\\beta \\int_{r_1(\\theta)}^{r_2(\\theta)} f(r\\cos\\theta,r\\sin\\theta) r dr d\\theta$$
+
+---
+
+## 考试辨析
+- 换序积分 = 交换积分次序（先看区域再重写积分限）
+- 极坐标的 $r$ 很容易遗漏（$dxdy = r dr d\\theta$）
+- 对称性可简化积分（奇函数积分为0）`,
+  },
+  {
+    id: 'ma-6-2-1', chapterId: 'ma-6', title: '一阶微分方程的解法',
+    keyConcepts: ['可分离变量', '一阶线性', '齐次方程', '伯努利方程', '积分因子'], relatedPoints: ['ma-6-1-1'],
+    content: `## 可分离变量型
+
+$y' = f(x)g(y) \\Rightarrow \\int \\frac{dy}{g(y)} = \\int f(x)dx$
+
+---
+
+## 一阶线性
+
+$y' + P(x)y = Q(x)$
+
+通解：$y = e^{-\\int Pdx}\\left[\\int Q e^{\\int Pdx}dx + C\\right]$
+
+---
+
+## 齐次方程
+
+$y' = f(\\frac{y}{x})$
+
+令 $u = \\frac{y}{x} \\Rightarrow y = ux, y' = u + xu'$
+
+代入得可分离变量方程
+
+---
+
+## 伯努利方程
+
+$y' + P(x)y = Q(x)y^n$ $(n \\neq 0,1)$
+
+令 $z = y^{1-n}$，化为一阶线性方程
+
+---
+
+## 考试辨析
+- 识别方程类型是解题第一步
+- 一阶线性通解公式必须背熟
+- **别忘了 +C**`,
+  },
+  {
+    id: 'ma-6-3-1', chapterId: 'ma-6', title: '高阶常系数线性微分方程',
+    keyConcepts: ['二阶常系数齐次', '特征方程', '非齐次', '待定系数法'], relatedPoints: ['ma-6-2-1'],
+    content: `## 二阶常系数齐次线性方程
+
+$y'' + py' + qy = 0$
+
+**特征方程**：$r^2 + pr + q = 0$
+
+| 根的情况 | 通解 |
+|----------|------|
+| 两不等实根 $r_1,r_2$ | $y = C_1 e^{r_1 x} + C_2 e^{r_2 x}$ |
+| 两相等实根 $r$ | $y = (C_1 + C_2 x)e^{rx}$ |
+| 共轭复根 $\\alpha \\pm i\\beta$ | $y = e^{\\alpha x}(C_1\\cos\\beta x + C_2\\sin\\beta x)$ |
+
+---
+
+## 非齐次方程（待定系数法）
+
+$y'' + py' + qy = f(x)$
+
+通解 = 齐次通解 + 特解
+
+| $f(x)$ 形式 | 特解形式 |
+|------------|---------|
+| $P_n(x)$ | $Q_n(x)x^k$ |
+| $e^{\\lambda x}P_n(x)$ | $Q_n(x)e^{\\lambda x}x^k$ |
+| $A\\sin\\beta x + B\\cos\\beta x$ | $x^k(C\\sin\\beta x + D\\cos\\beta x)$ |
+
+$k$ = $\\lambda$ 是特征根的重数（0/1/2）
+
+---
+
+## 考试辨析
+- 特征方程法只适用于**常系数**方程
+- 待定系数法中 $x^k$ 的指数 $k$ 取决于 $\\lambda$ 与特征根的关系`,
+  },
+  {
+    id: 'ma-7-2-1', chapterId: 'ma-7', title: '正项级数的审敛法',
+    keyConcepts: ['正项级数', '比较审敛', '比值审敛', '根值审敛', 'p级数'], relatedPoints: ['ma-7-1-1'],
+    content: `## 正项级数审敛法
+
+正项级数：$a_n \\ge 0$，$\\sum a_n$
+
+---
+
+## 比较审敛法
+
+若 $a_n \\le b_n$，且 $\\sum b_n$ 收敛 $\\Rightarrow \\sum a_n$ 收敛
+若 $a_n \\ge b_n$，且 $\\sum b_n$ 发散 $\\Rightarrow \\sum a_n$ 发散
+
+**极限形式**：$\\lim \\frac{a_n}{b_n} = L$（$0<L<\\infty$）$\\Rightarrow$ 同敛散
+
+---
+
+## 比值审敛法（达朗贝尔判别法）
+
+$\\lim_{n\\to\\infty} \\left|\\frac{a_{n+1}}{a_n}\\right| = \\rho$
+
+$\\rho < 1$：收敛；$\\rho > 1$：发散；$\\rho = 1$：无法判定
+
+---
+
+## 根值审敛法（柯西判别法）
+
+$\\lim_{n\\to\\infty} \\sqrt[n]{|a_n|} = \\rho$
+
+判定条件同比值法
+
+---
+
+## 常用参考级数
+- **几何级数**：$\\sum aq^n$，$|q|<1$ 收敛
+- **p-级数**：$\\sum \\frac{1}{n^p}$，$p>1$ 收敛
+- $\\sum \\frac{1}{n}$ 发散（调和级数）
+
+---
+
+## 考试辨析
+- 比值/根值=1时无法判定——需换用比较法
+- $\\sum \\frac{1}{n}$ 发散但 $\\sum \\frac{1}{n^{1.0001}}$ 收敛`,
+  },
+  {
+    id: 'ma-8-5-1', chapterId: 'ma-8', title: '二次型',
+    keyConcepts: ['二次型', '正定', '负定', '惯性指数', '合同', '配方法', '正交变换'], relatedPoints: ['ma-8-4-1'],
+    content: `## 二次型的定义
+
+$f(x_1,x_2,\\cdots,x_n) = \\sum a_{ij}x_i x_j = x^T A x$
+
+其中 $A$ 为实对称矩阵
+
+---
+
+## 二次型的标准化
+
+### 正交变换法
+$A$ 实对称 $\\Rightarrow$ 存在正交矩阵 $Q$ 使 $Q^T A Q = \\Lambda$
+
+$f = x^T A x = y^T \\Lambda y = \\lambda_1 y_1^2 + \\lambda_2 y_2^2 + \\cdots$
+
+### 配方法
+逐步配方，化为平方和
+
+---
+
+## 惯性定理
+
+任意实二次型经可逆线性变换化为标准形后：
+**正惯性指数 $p$** 和 **负惯性指数 $q$** 不变
+$p+q = r(A)$
+
+---
+
+## 正定二次型
+
+$f$ 正定 $\\iff$ 所有特征值 $>0$
+$\\iff$ 各阶顺序主子式 $>0$
+
+---
+
+## 考试辨析
+- 正交变换 $\\neq$ 相似变换——正交变换保持度量不变
+- 标准形不唯一；规范形唯一（系数为±1或0）
+- 正定 = 所有特征值 > 0`,
+  },
+  {
+    id: 'ma-9-3-1', chapterId: 'ma-9', title: '多维随机变量',
+    keyConcepts: ['联合分布', '边缘分布', '条件分布', '独立性', '卷积公式'], relatedPoints: ['ma-9-2-1'],
+    content: `## 联合分布与边缘分布
+
+联合分布函数：$F(x,y) = P(X \\le x, Y \\le y)$
+
+边缘分布：$F_X(x) = F(x,+\\infty)$，$F_Y(y) = F(+\\infty, y)$
+
+---
+
+## 独立性
+
+$X$ 与 $Y$ 独立 $\\iff F(x,y) = F_X(x) \\cdot F_Y(y)$
+
+连续情况：$f(x,y) = f_X(x) \\cdot f_Y(y)$
+
+---
+
+## 二维连续分布
+
+边缘密度：$f_X(x) = \\int_{-\\infty}^{\\infty} f(x,y)dy$
+
+条件密度：$f_{X|Y}(x|y) = \\frac{f(x,y)}{f_Y(y)}$
+
+---
+
+## 独立变量和的分布（卷积公式）
+
+$Z = X + Y$，$X,Y$ 独立：
+
+$f_Z(z) = \\int_{-\\infty}^{\\infty} f_X(x) f_Y(z-x) dx$
+
+---
+
+## 考试辨析
+- 边缘分布由联合分布唯一确定（反过来不行）
+- 独立 $\\iff$ 联合 = 边缘乘积
+- 卷积公式用于求独立变量和的分布`,
+  },
+  {
+    id: 'ma-9-5-1', chapterId: 'ma-9', title: '大数定律与中心极限定理',
+    keyConcepts: ['切比雪夫不等式', '大数定律', '中心极限定理', '独立同分布'], relatedPoints: ['ma-9-4-1'],
+    content: `## 切比雪夫不等式
+
+$P(|X - EX| \\ge \\varepsilon) \\le \\frac{DX}{\\varepsilon^2}$
+
+对任意分布成立，给出了"大概率落在期望附近"的定量描述。
+
+---
+
+## 大数定律
+
+独立同分布，$EX = \\mu, DX = \\sigma^2$，则：
+
+$\\frac{1}{n}\\sum X_i \\xrightarrow{P} \\mu$（样本均值收敛到总体均值）
+
+**辛钦大数定律**：$EX$ 存在即成立（不用方差存在）
+
+---
+
+## 中心极限定理
+
+独立同分布，$EX = \\mu, DX = \\sigma^2$，$n$ 足够大时：
+
+$$\\frac{\\sum X_i - n\\mu}{\\sigma\\sqrt{n}} \\sim N(0,1)$$
+
+> 无论 $X_i$ 服从什么分布，均值近似正态分布
+
+---
+
+## 拉普拉斯中心极限定理
+
+$X \\sim B(n,p)$，$n$ 足够大时：
+
+$X \\stackrel{approx}{\\sim} N(np, np(1-p))$
+
+---
+
+## 考试辨析
+- 大数定律 = 样本均值稳定在期望附近
+- 中心极限定理 = 大量独立随机变量之和近似正态
+- 拉普拉斯定理是中心极限定理的二项分布特例`,
+  },
 ];
