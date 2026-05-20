@@ -13,15 +13,16 @@ dist-ssr
 *.local
 .claude/settings.local.json
 
-# Large reference PDFs (>100MB GitHub limit)
+# Large files
 *.pdf
-*.txt
-
-# Python temp scripts
-*.py
-
-# Screenshots for debugging
 *.png
+
+# Downloaded exam paper repo
+408-exam-papers/
+
+# Python temp scripts (keep extract_papers.py)
+*.py
+!extract_papers.py
 
 # Editor directories and files
 .vscode/*
