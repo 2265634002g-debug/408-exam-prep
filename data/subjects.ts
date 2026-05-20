@@ -130,7 +130,7 @@ export const subjects: SubjectInfo[] = [
         title: '存储系统',
         sections: [
           { id: 'co-3-1', title: '存储器概述', knowledgePointIds: ['co-3-1-1', 'co-3-1-2'] },
-          { id: 'co-3-2', title: '主存储器', knowledgePointIds: ['co-3-2-1', 'co-3-2-2'] },
+          { id: 'co-3-2', title: '主存储器', knowledgePointIds: ['co-3-2-1', 'co-3-2-2', 'co-3-2-3'] },
           { id: 'co-3-3', title: '高速缓冲存储器 Cache', knowledgePointIds: ['co-3-3-1', 'co-3-3-2', 'co-3-3-3', 'co-3-3-4'] },
           { id: 'co-3-4', title: '虚拟存储器', knowledgePointIds: ['co-3-4-1', 'co-3-4-2'] },
         ],
@@ -226,7 +226,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 4,
         title: '文件管理',
         sections: [
-          { id: 'os-4-1', title: '文件系统基础', knowledgePointIds: ['os-4-1-1', 'os-4-1-2', 'os-4-1-3'] },
+          { id: 'os-4-1', title: '文件系统基础', knowledgePointIds: ['os-4-1-1', 'os-4-1-2', 'os-4-1-3', 'os-4-1-4'] },
           { id: 'os-4-2', title: '文件系统实现', knowledgePointIds: ['os-4-2-1', 'os-4-2-2'] },
           { id: 'os-4-3', title: '磁盘组织与管理', knowledgePointIds: ['os-4-3-1', 'os-4-3-2'] },
         ],
@@ -262,7 +262,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 2,
         title: '物理层',
         sections: [
-          { id: 'cn-2-1', title: '通信基础', knowledgePointIds: ['cn-2-1-1'] },
+          { id: 'cn-2-1', title: '通信基础', knowledgePointIds: ['cn-2-1-1', 'cn-2-1-2'] },
           { id: 'cn-2-2', title: '传输介质', knowledgePointIds: ['cn-2-2-1'] },
           { id: 'cn-2-3', title: '物理层设备', knowledgePointIds: ['cn-2-3-1'] },
         ],
