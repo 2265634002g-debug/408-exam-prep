@@ -155,7 +155,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1', 'co-5-3-2', 'co-5-3-3'] },
           { id: 'co-5-4', title: '异常和中断', knowledgePointIds: ['co-5-4-1'] },
           { id: 'co-5-5', title: '指令流水线', knowledgePointIds: ['co-5-5-1', 'co-5-5-2', 'co-5-5-3'] },
-          { id: 'co-5-6', title: '多处理器基本概念', knowledgePointIds: [] },
+          { id: 'co-5-6', title: '多处理器基本概念', knowledgePointIds: ['co-5-6-1'] },
         ],
       },
       {
@@ -193,7 +193,7 @@ export const subjects: SubjectInfo[] = [
         chapterNum: 1,
         title: '计算机系统概述',
         sections: [
-          { id: 'os-1-1', title: '操作系统的基本概念', knowledgePointIds: ['os-1-1-1'] },
+          { id: 'os-1-1', title: '操作系统的基本概念', knowledgePointIds: ['os-1-1-1', 'os-1-1-2'] },
           { id: 'os-1-2', title: '操作系统的发展和分类', knowledgePointIds: ['os-1-2-1'] },
           { id: 'os-1-3', title: '操作系统的运行环境', knowledgePointIds: ['os-1-3-1'] },
           { id: 'os-1-4', title: '操作系统体系结构', knowledgePointIds: ['os-1-4-1'] },
