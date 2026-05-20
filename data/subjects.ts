@@ -196,7 +196,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'os-1-1', title: '操作系统的基本概念', knowledgePointIds: ['os-1-1-1', 'os-1-1-2'] },
           { id: 'os-1-2', title: '操作系统的发展和分类', knowledgePointIds: ['os-1-2-1'] },
           { id: 'os-1-3', title: '操作系统的运行环境', knowledgePointIds: ['os-1-3-1'] },
-          { id: 'os-1-4', title: '操作系统体系结构', knowledgePointIds: ['os-1-4-1'] },
+          { id: 'os-1-4', title: '操作系统体系结构', knowledgePointIds: ['os-1-4-1', 'os-1-4-2'] },
         ],
       },
       {
@@ -218,7 +218,7 @@ export const subjects: SubjectInfo[] = [
           { id: 'os-3-1', title: '内存管理概念', knowledgePointIds: ['os-3-1-1'] },
           { id: 'os-3-2', title: '连续分配管理方式', knowledgePointIds: ['os-3-2-1', 'os-3-2-2'] },
           { id: 'os-3-3', title: '非连续分配管理方式', knowledgePointIds: ['os-3-3-1', 'os-3-3-2', 'os-3-3-3'] },
-          { id: 'os-3-4', title: '虚拟内存管理', knowledgePointIds: ['os-3-4-1', 'os-3-4-2', 'os-3-4-3'] },
+          { id: 'os-3-4', title: '虚拟内存管理', knowledgePointIds: ['os-3-4-1', 'os-3-4-2', 'os-3-4-3', 'os-3-4-4'] },
         ],
       },
       {
