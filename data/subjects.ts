@@ -152,7 +152,7 @@ export const subjects: SubjectInfo[] = [
         sections: [
           { id: 'co-5-1', title: 'CPU 的功能和基本结构', knowledgePointIds: ['co-5-1-1', 'co-5-1-2', 'co-5-1-3'] },
           { id: 'co-5-2', title: '数据通路', knowledgePointIds: ['co-5-2-1'] },
-          { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1'] },
+          { id: 'co-5-3', title: '控制器', knowledgePointIds: ['co-5-3-1', 'co-5-3-2'] },
           { id: 'co-5-4', title: '异常和中断', knowledgePointIds: ['co-5-4-1'] },
           { id: 'co-5-5', title: '指令流水线', knowledgePointIds: ['co-5-5-1'] },
           { id: 'co-5-6', title: '多处理器基本概念', knowledgePointIds: [] },
@@ -237,7 +237,7 @@ export const subjects: SubjectInfo[] = [
         title: '输入/输出管理',
         sections: [
           { id: 'os-5-1', title: 'I/O 管理概述', knowledgePointIds: ['os-5-1-1', 'os-5-1-2'] },
-          { id: 'os-5-2', title: 'I/O 核心子系统', knowledgePointIds: ['os-5-2-1'] },
+          { id: 'os-5-2', title: 'I/O 核心子系统', knowledgePointIds: ['os-5-2-1', 'os-5-2-2'] },
         ],
       },
     ],
@@ -303,7 +303,7 @@ export const subjects: SubjectInfo[] = [
         sections: [
           { id: 'cn-5-1', title: '传输层提供的服务', knowledgePointIds: ['cn-5-1-1'] },
           { id: 'cn-5-2', title: 'UDP 协议', knowledgePointIds: ['cn-5-2-1'] },
-          { id: 'cn-5-3', title: 'TCP 协议', knowledgePointIds: ['cn-5-3-1'] },
+          { id: 'cn-5-3', title: 'TCP 协议', knowledgePointIds: ['cn-5-3-1', 'cn-5-3-2'] },
         ],
       },
       {
