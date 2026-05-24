@@ -8,7 +8,7 @@ Error generating stack: `+e.message+`
 `+e.stack}}var ke=Object.prototype.hasOwnProperty,Ae=t.unstable_scheduleCallback,je=t.unstable_cancelCallback,Me=t.unstable_shouldYield,Ne=t.unstable_requestPaint,Pe=t.unstable_now,Fe=t.unstable_getCurrentPriorityLevel,Ie=t.unstable_ImmediatePriority,Le=t.unstable_UserBlockingPriority,Re=t.unstable_NormalPriority,ze=t.unstable_LowPriority,Be=t.unstable_IdlePriority,Ve=t.log,He=t.unstable_setDisableYieldValue,Ue=null,We=null;function Ge(e){if(typeof Ve==`function`&&He(e),We&&typeof We.setStrictMode==`function`)try{We.setStrictMode(Ue,e)}catch{}}var Ke=Math.clz32?Math.clz32:Ye,qe=Math.log,Je=Math.LN2;function Ye(e){return e>>>=0,e===0?32:31-(qe(e)/Je|0)|0}var Xe=256,Ze=262144,Qe=4194304;function $e(e){var t=e&42;if(t!==0)return t;switch(e&-e){case 1:return 1;case 2:return 2;case 4:return 4;case 8:return 8;case 16:return 16;case 32:return 32;case 64:return 64;case 128:return 128;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:return e&261888;case 262144:case 524288:case 1048576:case 2097152:return e&3932160;case 4194304:case 8388608:case 16777216:case 33554432:return e&62914560;case 67108864:return 67108864;case 134217728:return 134217728;case 268435456:return 268435456;case 536870912:return 536870912;case 1073741824:return 0;default:return e}}function et(e,t,n){var r=e.pendingLanes;if(r===0)return 0;var i=0,a=e.suspendedLanes,o=e.pingedLanes;e=e.warmLanes;var s=r&134217727;return s===0?(s=r&~a,s===0?o===0?n||(n=r&~e,n!==0&&(i=$e(n))):i=$e(o):i=$e(s)):(r=s&~a,r===0?(o&=s,o===0?n||(n=s&~e,n!==0&&(i=$e(n))):i=$e(o)):i=$e(r)),i===0?0:t!==0&&t!==i&&(t&a)===0&&(a=i&-i,n=t&-t,a>=n||a===32&&n&4194048)?t:i}function tt(e,t){return(e.pendingLanes&~(e.suspendedLanes&~e.pingedLanes)&t)===0}function nt(e,t){switch(e){case 1:case 2:case 4:case 8:case 64:return t+250;case 16:case 32:case 128:case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:return t+5e3;case 4194304:case 8388608:case 16777216:case 33554432:return-1;case 67108864:case 134217728:case 268435456:case 536870912:case 1073741824:return-1;default:return-1}}function rt(){var e=Qe;return Qe<<=1,!(Qe&62914560)&&(Qe=4194304),e}function it(e){for(var t=[],n=0;31>n;n++)t.push(e);return t}function at(e,t){e.pendingLanes|=t,t!==268435456&&(e.suspendedLanes=0,e.pingedLanes=0,e.warmLanes=0)}function ot(e,t,n,r,i,a){var o=e.pendingLanes;e.pendingLanes=n,e.suspendedLanes=0,e.pingedLanes=0,e.warmLanes=0,e.expiredLanes&=n,e.entangledLanes&=n,e.errorRecoveryDisabledLanes&=n,e.shellSuspendCounter=0;var s=e.entanglements,c=e.expirationTimes,l=e.hiddenUpdates;for(n=o&~n;0<n;){var u=31-Ke(n),d=1<<u;s[u]=0,c[u]=-1;var f=l[u];if(f!==null)for(l[u]=null,u=0;u<f.length;u++){var p=f[u];p!==null&&(p.lane&=-536870913)}n&=~d}r!==0&&st(e,r,0),a!==0&&i===0&&e.tag!==0&&(e.suspendedLanes|=a&~(o&~t))}function st(e,t,n){e.pendingLanes|=t,e.suspendedLanes&=~t;var r=31-Ke(t);e.entangledLanes|=t,e.entanglements[r]=e.entanglements[r]|1073741824|n&261930}function ct(e,t){var n=e.entangledLanes|=t;for(e=e.entanglements;n;){var r=31-Ke(n),i=1<<r;i&t|e[r]&t&&(e[r]|=t),n&=~i}}function lt(e,t){var n=t&-t;return n=n&42?1:ut(n),(n&(e.suspendedLanes|t))===0?n:0}function ut(e){switch(e){case 2:e=1;break;case 8:e=4;break;case 32:e=16;break;case 256:case 512:case 1024:case 2048:case 4096:case 8192:case 16384:case 32768:case 65536:case 131072:case 262144:case 524288:case 1048576:case 2097152:case 4194304:case 8388608:case 16777216:case 33554432:e=128;break;case 268435456:e=134217728;break;default:e=0}return e}function dt(e){return e&=-e,2<e?8<e?e&134217727?32:268435456:8:2}function ft(){var e=se.p;return e===0?(e=window.event,e===void 0?32:gp(e.type)):e}function pt(e,t){var n=se.p;try{return se.p=e,t()}finally{se.p=n}}var mt=Math.random().toString(36).slice(2),ht=`__reactFiber$`+mt,gt=`__reactProps$`+mt,_t=`__reactContainer$`+mt,vt=`__reactEvents$`+mt,yt=`__reactListeners$`+mt,bt=`__reactHandles$`+mt,xt=`__reactResources$`+mt,St=`__reactMarker$`+mt;function Ct(e){delete e[ht],delete e[gt],delete e[vt],delete e[yt],delete e[bt]}function wt(e){var t=e[ht];if(t)return t;for(var n=e.parentNode;n;){if(t=n[_t]||n[ht]){if(n=t.alternate,t.child!==null||n!==null&&n.child!==null)for(e=gf(e);e!==null;){if(n=e[ht])return n;e=gf(e)}return t}e=n,n=e.parentNode}return null}function Tt(e){if(e=e[ht]||e[_t]){var t=e.tag;if(t===5||t===6||t===13||t===31||t===26||t===27||t===3)return e}return null}function Et(e){var t=e.tag;if(t===5||t===26||t===27||t===6)return e.stateNode;throw Error(i(33))}function Dt(e){var t=e[xt];return t||=e[xt]={hoistableStyles:new Map,hoistableScripts:new Map},t}function Ot(e){e[St]=!0}var kt=new Set,At={};function jt(e,t){Mt(e,t),Mt(e+`Capture`,t)}function Mt(e,t){for(At[e]=t,e=0;e<t.length;e++)kt.add(t[e])}var Nt=RegExp(`^[:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD][:A-Z_a-z\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u02FF\\u0370-\\u037D\\u037F-\\u1FFF\\u200C-\\u200D\\u2070-\\u218F\\u2C00-\\u2FEF\\u3001-\\uD7FF\\uF900-\\uFDCF\\uFDF0-\\uFFFD\\-.0-9\\u00B7\\u0300-\\u036F\\u203F-\\u2040]*$`),Pt={},Ft={};function It(e){return ke.call(Ft,e)?!0:ke.call(Pt,e)?!1:Nt.test(e)?Ft[e]=!0:(Pt[e]=!0,!1)}function Lt(e,t,n){if(It(t))if(n===null)e.removeAttribute(t);else{switch(typeof n){case`undefined`:case`function`:case`symbol`:e.removeAttribute(t);return;case`boolean`:var r=t.toLowerCase().slice(0,5);if(r!==`data-`&&r!==`aria-`){e.removeAttribute(t);return}}e.setAttribute(t,``+n)}}function Rt(e,t,n){if(n===null)e.removeAttribute(t);else{switch(typeof n){case`undefined`:case`function`:case`symbol`:case`boolean`:e.removeAttribute(t);return}e.setAttribute(t,``+n)}}function zt(e,t,n,r){if(r===null)e.removeAttribute(n);else{switch(typeof r){case`undefined`:case`function`:case`symbol`:case`boolean`:e.removeAttribute(n);return}e.setAttributeNS(t,n,``+r)}}function Bt(e){switch(typeof e){case`bigint`:case`boolean`:case`number`:case`string`:case`undefined`:return e;case`object`:return e;default:return``}}function Vt(e){var t=e.type;return(e=e.nodeName)&&e.toLowerCase()===`input`&&(t===`checkbox`||t===`radio`)}function Ht(e,t,n){var r=Object.getOwnPropertyDescriptor(e.constructor.prototype,t);if(!e.hasOwnProperty(t)&&r!==void 0&&typeof r.get==`function`&&typeof r.set==`function`){var i=r.get,a=r.set;return Object.defineProperty(e,t,{configurable:!0,get:function(){return i.call(this)},set:function(e){n=``+e,a.call(this,e)}}),Object.defineProperty(e,t,{enumerable:r.enumerable}),{getValue:function(){return n},setValue:function(e){n=``+e},stopTracking:function(){e._valueTracker=null,delete e[t]}}}}function Ut(e){if(!e._valueTracker){var t=Vt(e)?`checked`:`value`;e._valueTracker=Ht(e,t,``+e[t])}}function Wt(e){if(!e)return!1;var t=e._valueTracker;if(!t)return!0;var n=t.getValue(),r=``;return e&&(r=Vt(e)?e.checked?`true`:`false`:e.value),e=r,e===n?!1:(t.setValue(e),!0)}function Gt(e){if(e||=typeof document<`u`?document:void 0,e===void 0)return null;try{return e.activeElement||e.body}catch{return e.body}}var Kt=/[\n"\\]/g;function qt(e){return e.replace(Kt,function(e){return`\\`+e.charCodeAt(0).toString(16)+` `})}function Jt(e,t,n,r,i,a,o,s){e.name=``,o!=null&&typeof o!=`function`&&typeof o!=`symbol`&&typeof o!=`boolean`?e.type=o:e.removeAttribute(`type`),t==null?o!==`submit`&&o!==`reset`||e.removeAttribute(`value`):o===`number`?(t===0&&e.value===``||e.value!=t)&&(e.value=``+Bt(t)):e.value!==``+Bt(t)&&(e.value=``+Bt(t)),t==null?n==null?r!=null&&e.removeAttribute(`value`):Xt(e,o,Bt(n)):Xt(e,o,Bt(t)),i==null&&a!=null&&(e.defaultChecked=!!a),i!=null&&(e.checked=i&&typeof i!=`function`&&typeof i!=`symbol`),s!=null&&typeof s!=`function`&&typeof s!=`symbol`&&typeof s!=`boolean`?e.name=``+Bt(s):e.removeAttribute(`name`)}function Yt(e,t,n,r,i,a,o,s){if(a!=null&&typeof a!=`function`&&typeof a!=`symbol`&&typeof a!=`boolean`&&(e.type=a),t!=null||n!=null){if(!(a!==`submit`&&a!==`reset`||t!=null)){Ut(e);return}n=n==null?``:``+Bt(n),t=t==null?n:``+Bt(t),s||t===e.value||(e.value=t),e.defaultValue=t}r??=i,r=typeof r!=`function`&&typeof r!=`symbol`&&!!r,e.checked=s?e.checked:!!r,e.defaultChecked=!!r,o!=null&&typeof o!=`function`&&typeof o!=`symbol`&&typeof o!=`boolean`&&(e.name=o),Ut(e)}function Xt(e,t,n){t===`number`&&Gt(e.ownerDocument)===e||e.defaultValue===``+n||(e.defaultValue=``+n)}function Zt(e,t,n,r){if(e=e.options,t){t={};for(var i=0;i<n.length;i++)t[`$`+n[i]]=!0;for(n=0;n<e.length;n++)i=t.hasOwnProperty(`$`+e[n].value),e[n].selected!==i&&(e[n].selected=i),i&&r&&(e[n].defaultSelected=!0)}else{for(n=``+Bt(n),t=null,i=0;i<e.length;i++){if(e[i].value===n){e[i].selected=!0,r&&(e[i].defaultSelected=!0);return}t!==null||e[i].disabled||(t=e[i])}t!==null&&(t.selected=!0)}}function Qt(e,t,n){if(t!=null&&(t=``+Bt(t),t!==e.value&&(e.value=t),n==null)){e.defaultValue!==t&&(e.defaultValue=t);return}e.defaultValue=n==null?``:``+Bt(n)}function $t(e,t,n,r){if(t==null){if(r!=null){if(n!=null)throw Error(i(92));if(oe(r)){if(1<r.length)throw Error(i(93));r=r[0]}n=r}n??=``,t=n}n=Bt(t),e.defaultValue=n,r=e.textContent,r===n&&r!==``&&r!==null&&(e.value=r),Ut(e)}function en(e,t){if(t){var n=e.firstChild;if(n&&n===e.lastChild&&n.nodeType===3){n.nodeValue=t;return}}e.textContent=t}var tn=new Set(`animationIterationCount aspectRatio borderImageOutset borderImageSlice borderImageWidth boxFlex boxFlexGroup boxOrdinalGroup columnCount columns flex flexGrow flexPositive flexShrink flexNegative flexOrder gridArea gridRow gridRowEnd gridRowSpan gridRowStart gridColumn gridColumnEnd gridColumnSpan gridColumnStart fontWeight lineClamp lineHeight opacity order orphans scale tabSize widows zIndex zoom fillOpacity floodOpacity stopOpacity strokeDasharray strokeDashoffset strokeMiterlimit strokeOpacity strokeWidth MozAnimationIterationCount MozBoxFlex MozBoxFlexGroup MozLineClamp msAnimationIterationCount msFlex msZoom msFlexGrow msFlexNegative msFlexOrder msFlexPositive msFlexShrink msGridColumn msGridColumnSpan msGridRow msGridRowSpan WebkitAnimationIterationCount WebkitBoxFlex WebKitBoxFlexGroup WebkitBoxOrdinalGroup WebkitColumnCount WebkitColumns WebkitFlex WebkitFlexGrow WebkitFlexPositive WebkitFlexShrink WebkitLineClamp`.split(` `));function nn(e,t,n){var r=t.indexOf(`--`)===0;n==null||typeof n==`boolean`||n===``?r?e.setProperty(t,``):t===`float`?e.cssFloat=``:e[t]=``:r?e.setProperty(t,n):typeof n!=`number`||n===0||tn.has(t)?t===`float`?e.cssFloat=n:e[t]=(``+n).trim():e[t]=n+`px`}function rn(e,t,n){if(t!=null&&typeof t!=`object`)throw Error(i(62));if(e=e.style,n!=null){for(var r in n)!n.hasOwnProperty(r)||t!=null&&t.hasOwnProperty(r)||(r.indexOf(`--`)===0?e.setProperty(r,``):r===`float`?e.cssFloat=``:e[r]=``);for(var a in t)r=t[a],t.hasOwnProperty(a)&&n[a]!==r&&nn(e,a,r)}else for(var o in t)t.hasOwnProperty(o)&&nn(e,o,t[o])}function an(e){if(e.indexOf(`-`)===-1)return!1;switch(e){case`annotation-xml`:case`color-profile`:case`font-face`:case`font-face-src`:case`font-face-uri`:case`font-face-format`:case`font-face-name`:case`missing-glyph`:return!1;default:return!0}}var on=new Map([[`acceptCharset`,`accept-charset`],[`htmlFor`,`for`],[`httpEquiv`,`http-equiv`],[`crossOrigin`,`crossorigin`],[`accentHeight`,`accent-height`],[`alignmentBaseline`,`alignment-baseline`],[`arabicForm`,`arabic-form`],[`baselineShift`,`baseline-shift`],[`capHeight`,`cap-height`],[`clipPath`,`clip-path`],[`clipRule`,`clip-rule`],[`colorInterpolation`,`color-interpolation`],[`colorInterpolationFilters`,`color-interpolation-filters`],[`colorProfile`,`color-profile`],[`colorRendering`,`color-rendering`],[`dominantBaseline`,`dominant-baseline`],[`enableBackground`,`enable-background`],[`fillOpacity`,`fill-opacity`],[`fillRule`,`fill-rule`],[`floodColor`,`flood-color`],[`floodOpacity`,`flood-opacity`],[`fontFamily`,`font-family`],[`fontSize`,`font-size`],[`fontSizeAdjust`,`font-size-adjust`],[`fontStretch`,`font-stretch`],[`fontStyle`,`font-style`],[`fontVariant`,`font-variant`],[`fontWeight`,`font-weight`],[`glyphName`,`glyph-name`],[`glyphOrientationHorizontal`,`glyph-orientation-horizontal`],[`glyphOrientationVertical`,`glyph-orientation-vertical`],[`horizAdvX`,`horiz-adv-x`],[`horizOriginX`,`horiz-origin-x`],[`imageRendering`,`image-rendering`],[`letterSpacing`,`letter-spacing`],[`lightingColor`,`lighting-color`],[`markerEnd`,`marker-end`],[`markerMid`,`marker-mid`],[`markerStart`,`marker-start`],[`overlinePosition`,`overline-position`],[`overlineThickness`,`overline-thickness`],[`paintOrder`,`paint-order`],[`panose-1`,`panose-1`],[`pointerEvents`,`pointer-events`],[`renderingIntent`,`rendering-intent`],[`shapeRendering`,`shape-rendering`],[`stopColor`,`stop-color`],[`stopOpacity`,`stop-opacity`],[`strikethroughPosition`,`strikethrough-position`],[`strikethroughThickness`,`strikethrough-thickness`],[`strokeDasharray`,`stroke-dasharray`],[`strokeDashoffset`,`stroke-dashoffset`],[`strokeLinecap`,`stroke-linecap`],[`strokeLinejoin`,`stroke-linejoin`],[`strokeMiterlimit`,`stroke-miterlimit`],[`strokeOpacity`,`stroke-opacity`],[`strokeWidth`,`stroke-width`],[`textAnchor`,`text-anchor`],[`textDecoration`,`text-decoration`],[`textRendering`,`text-rendering`],[`transformOrigin`,`transform-origin`],[`underlinePosition`,`underline-position`],[`underlineThickness`,`underline-thickness`],[`unicodeBidi`,`unicode-bidi`],[`unicodeRange`,`unicode-range`],[`unitsPerEm`,`units-per-em`],[`vAlphabetic`,`v-alphabetic`],[`vHanging`,`v-hanging`],[`vIdeographic`,`v-ideographic`],[`vMathematical`,`v-mathematical`],[`vectorEffect`,`vector-effect`],[`vertAdvY`,`vert-adv-y`],[`vertOriginX`,`vert-origin-x`],[`vertOriginY`,`vert-origin-y`],[`wordSpacing`,`word-spacing`],[`writingMode`,`writing-mode`],[`xmlnsXlink`,`xmlns:xlink`],[`xHeight`,`x-height`]]),sn=/^[\u0000-\u001F ]*j[\r\n\t]*a[\r\n\t]*v[\r\n\t]*a[\r\n\t]*s[\r\n\t]*c[\r\n\t]*r[\r\n\t]*i[\r\n\t]*p[\r\n\t]*t[\r\n\t]*:/i;function cn(e){return sn.test(``+e)?`javascript:throw new Error('React has blocked a javascript: URL as a security precaution.')`:e}function ln(){}var un=null;function dn(e){return e=e.target||e.srcElement||window,e.correspondingUseElement&&(e=e.correspondingUseElement),e.nodeType===3?e.parentNode:e}var fn=null,pn=null;function mn(e){var t=Tt(e);if(t&&(e=t.stateNode)){var n=e[gt]||null;a:switch(e=t.stateNode,t.type){case`input`:if(Jt(e,n.value,n.defaultValue,n.defaultValue,n.checked,n.defaultChecked,n.type,n.name),t=n.name,n.type===`radio`&&t!=null){for(n=e;n.parentNode;)n=n.parentNode;for(n=n.querySelectorAll(`input[name="`+qt(``+t)+`"][type="radio"]`),t=0;t<n.length;t++){var r=n[t];if(r!==e&&r.form===e.form){var a=r[gt]||null;if(!a)throw Error(i(90));Jt(r,a.value,a.defaultValue,a.defaultValue,a.checked,a.defaultChecked,a.type,a.name)}}for(t=0;t<n.length;t++)r=n[t],r.form===e.form&&Wt(r)}break a;case`textarea`:Qt(e,n.value,n.defaultValue);break a;case`select`:t=n.value,t!=null&&Zt(e,!!n.multiple,t,!1)}}}var hn=!1;function gn(e,t,n){if(hn)return e(t,n);hn=!0;try{return e(t)}finally{if(hn=!1,(fn!==null||pn!==null)&&(Nu(),fn&&(t=fn,e=pn,pn=fn=null,mn(t),e)))for(t=0;t<e.length;t++)mn(e[t])}}function _n(e,t){var n=e.stateNode;if(n===null)return null;var r=n[gt]||null;if(r===null)return null;n=r[t];a:switch(t){case`onClick`:case`onClickCapture`:case`onDoubleClick`:case`onDoubleClickCapture`:case`onMouseDown`:case`onMouseDownCapture`:case`onMouseMove`:case`onMouseMoveCapture`:case`onMouseUp`:case`onMouseUpCapture`:case`onMouseEnter`:(r=!r.disabled)||(e=e.type,r=!(e===`button`||e===`input`||e===`select`||e===`textarea`)),e=!r;break a;default:e=!1}if(e)return null;if(n&&typeof n!=`function`)throw Error(i(231,t,typeof n));return n}var vn=!(typeof window>`u`||window.document===void 0||window.document.createElement===void 0),yn=!1;if(vn)try{var bn={};Object.defineProperty(bn,`passive`,{get:function(){yn=!0}}),window.addEventListener(`test`,bn,bn),window.removeEventListener(`test`,bn,bn)}catch{yn=!1}var xn=null,Sn=null,Cn=null;function wn(){if(Cn)return Cn;var e,t=Sn,n=t.length,r,i=`value`in xn?xn.value:xn.textContent,a=i.length;for(e=0;e<n&&t[e]===i[e];e++);var o=n-e;for(r=1;r<=o&&t[n-r]===i[a-r];r++);return Cn=i.slice(e,1<r?1-r:void 0)}function Tn(e){var t=e.keyCode;return`charCode`in e?(e=e.charCode,e===0&&t===13&&(e=13)):e=t,e===10&&(e=13),32<=e||e===13?e:0}function En(){return!0}function Dn(){return!1}function On(e){function t(t,n,r,i,a){for(var o in this._reactName=t,this._targetInst=r,this.type=n,this.nativeEvent=i,this.target=a,this.currentTarget=null,e)e.hasOwnProperty(o)&&(t=e[o],this[o]=t?t(i):i[o]);return this.isDefaultPrevented=(i.defaultPrevented==null?!1===i.returnValue:i.defaultPrevented)?En:Dn,this.isPropagationStopped=Dn,this}return m(t.prototype,{preventDefault:function(){this.defaultPrevented=!0;var e=this.nativeEvent;e&&(e.preventDefault?e.preventDefault():typeof e.returnValue!=`unknown`&&(e.returnValue=!1),this.isDefaultPrevented=En)},stopPropagation:function(){var e=this.nativeEvent;e&&(e.stopPropagation?e.stopPropagation():typeof e.cancelBubble!=`unknown`&&(e.cancelBubble=!0),this.isPropagationStopped=En)},persist:function(){},isPersistent:En}),t}var kn={eventPhase:0,bubbles:0,cancelable:0,timeStamp:function(e){return e.timeStamp||Date.now()},defaultPrevented:0,isTrusted:0},An=On(kn),jn=m({},kn,{view:0,detail:0}),Mn=On(jn),Nn,Pn,Fn,In=m({},jn,{screenX:0,screenY:0,clientX:0,clientY:0,pageX:0,pageY:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,getModifierState:qn,button:0,buttons:0,relatedTarget:function(e){return e.relatedTarget===void 0?e.fromElement===e.srcElement?e.toElement:e.fromElement:e.relatedTarget},movementX:function(e){return`movementX`in e?e.movementX:(e!==Fn&&(Fn&&e.type===`mousemove`?(Nn=e.screenX-Fn.screenX,Pn=e.screenY-Fn.screenY):Pn=Nn=0,Fn=e),Nn)},movementY:function(e){return`movementY`in e?e.movementY:Pn}}),Ln=On(In),Rn=On(m({},In,{dataTransfer:0})),zn=On(m({},jn,{relatedTarget:0})),Bn=On(m({},kn,{animationName:0,elapsedTime:0,pseudoElement:0})),Vn=On(m({},kn,{clipboardData:function(e){return`clipboardData`in e?e.clipboardData:window.clipboardData}})),Hn=On(m({},kn,{data:0})),Un={Esc:`Escape`,Spacebar:` `,Left:`ArrowLeft`,Up:`ArrowUp`,Right:`ArrowRight`,Down:`ArrowDown`,Del:`Delete`,Win:`OS`,Menu:`ContextMenu`,Apps:`ContextMenu`,Scroll:`ScrollLock`,MozPrintableKey:`Unidentified`},Wn={8:`Backspace`,9:`Tab`,12:`Clear`,13:`Enter`,16:`Shift`,17:`Control`,18:`Alt`,19:`Pause`,20:`CapsLock`,27:`Escape`,32:` `,33:`PageUp`,34:`PageDown`,35:`End`,36:`Home`,37:`ArrowLeft`,38:`ArrowUp`,39:`ArrowRight`,40:`ArrowDown`,45:`Insert`,46:`Delete`,112:`F1`,113:`F2`,114:`F3`,115:`F4`,116:`F5`,117:`F6`,118:`F7`,119:`F8`,120:`F9`,121:`F10`,122:`F11`,123:`F12`,144:`NumLock`,145:`ScrollLock`,224:`Meta`},Gn={Alt:`altKey`,Control:`ctrlKey`,Meta:`metaKey`,Shift:`shiftKey`};function Kn(e){var t=this.nativeEvent;return t.getModifierState?t.getModifierState(e):(e=Gn[e])?!!t[e]:!1}function qn(){return Kn}var Jn=On(m({},jn,{key:function(e){if(e.key){var t=Un[e.key]||e.key;if(t!==`Unidentified`)return t}return e.type===`keypress`?(e=Tn(e),e===13?`Enter`:String.fromCharCode(e)):e.type===`keydown`||e.type===`keyup`?Wn[e.keyCode]||`Unidentified`:``},code:0,location:0,ctrlKey:0,shiftKey:0,altKey:0,metaKey:0,repeat:0,locale:0,getModifierState:qn,charCode:function(e){return e.type===`keypress`?Tn(e):0},keyCode:function(e){return e.type===`keydown`||e.type===`keyup`?e.keyCode:0},which:function(e){return e.type===`keypress`?Tn(e):e.type===`keydown`||e.type===`keyup`?e.keyCode:0}})),Yn=On(m({},In,{pointerId:0,width:0,height:0,pressure:0,tangentialPressure:0,tiltX:0,tiltY:0,twist:0,pointerType:0,isPrimary:0})),Xn=On(m({},jn,{touches:0,targetTouches:0,changedTouches:0,altKey:0,metaKey:0,ctrlKey:0,shiftKey:0,getModifierState:qn})),Zn=On(m({},kn,{propertyName:0,elapsedTime:0,pseudoElement:0})),Qn=On(m({},In,{deltaX:function(e){return`deltaX`in e?e.deltaX:`wheelDeltaX`in e?-e.wheelDeltaX:0},deltaY:function(e){return`deltaY`in e?e.deltaY:`wheelDeltaY`in e?-e.wheelDeltaY:`wheelDelta`in e?-e.wheelDelta:0},deltaZ:0,deltaMode:0})),$n=On(m({},kn,{newState:0,oldState:0})),er=[9,13,27,32],tr=vn&&`CompositionEvent`in window,nr=null;vn&&`documentMode`in document&&(nr=document.documentMode);var rr=vn&&`TextEvent`in window&&!nr,ir=vn&&(!tr||nr&&8<nr&&11>=nr),ar=` `,or=!1;function A(e,t){switch(e){case`keyup`:return er.indexOf(t.keyCode)!==-1;case`keydown`:return t.keyCode!==229;case`keypress`:case`mousedown`:case`focusout`:return!0;default:return!1}}function sr(e){return e=e.detail,typeof e==`object`&&`data`in e?e.data:null}var cr=!1;function lr(e,t){switch(e){case`compositionend`:return sr(t);case`keypress`:return t.which===32?(or=!0,ar):null;case`textInput`:return e=t.data,e===ar&&or?null:e;default:return null}}function ur(e,t){if(cr)return e===`compositionend`||!tr&&A(e,t)?(e=wn(),Cn=Sn=xn=null,cr=!1,e):null;switch(e){case`paste`:return null;case`keypress`:if(!(t.ctrlKey||t.altKey||t.metaKey)||t.ctrlKey&&t.altKey){if(t.char&&1<t.char.length)return t.char;if(t.which)return String.fromCharCode(t.which)}return null;case`compositionend`:return ir&&t.locale!==`ko`?null:t.data;default:return null}}var dr={color:!0,date:!0,datetime:!0,"datetime-local":!0,email:!0,month:!0,number:!0,password:!0,range:!0,search:!0,tel:!0,text:!0,time:!0,url:!0,week:!0};function fr(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t===`input`?!!dr[e.type]:t===`textarea`}function pr(e,t,n,r){fn?pn?pn.push(r):pn=[r]:fn=r,t=zd(t,`onChange`),0<t.length&&(n=new An(`onChange`,`change`,null,n,r),e.push({event:n,listeners:t}))}var mr=null,hr=null;function gr(e){jd(e,0)}function _r(e){if(Wt(Et(e)))return e}function vr(e,t){if(e===`change`)return t}var yr=!1;if(vn){var br;if(vn){var xr=`oninput`in document;if(!xr){var Sr=document.createElement(`div`);Sr.setAttribute(`oninput`,`return;`),xr=typeof Sr.oninput==`function`}br=xr}else br=!1;yr=br&&(!document.documentMode||9<document.documentMode)}function Cr(){mr&&(mr.detachEvent(`onpropertychange`,wr),hr=mr=null)}function wr(e){if(e.propertyName===`value`&&_r(hr)){var t=[];pr(t,hr,e,dn(e)),gn(gr,t)}}function Tr(e,t,n){e===`focusin`?(Cr(),mr=t,hr=n,mr.attachEvent(`onpropertychange`,wr)):e===`focusout`&&Cr()}function Er(e){if(e===`selectionchange`||e===`keyup`||e===`keydown`)return _r(hr)}function Dr(e,t){if(e===`click`)return _r(t)}function Or(e,t){if(e===`input`||e===`change`)return _r(t)}function kr(e,t){return e===t&&(e!==0||1/e==1/t)||e!==e&&t!==t}var Ar=typeof Object.is==`function`?Object.is:kr;function jr(e,t){if(Ar(e,t))return!0;if(typeof e!=`object`||!e||typeof t!=`object`||!t)return!1;var n=Object.keys(e),r=Object.keys(t);if(n.length!==r.length)return!1;for(r=0;r<n.length;r++){var i=n[r];if(!ke.call(t,i)||!Ar(e[i],t[i]))return!1}return!0}function Mr(e){for(;e&&e.firstChild;)e=e.firstChild;return e}function Nr(e,t){var n=Mr(e);e=0;for(var r;n;){if(n.nodeType===3){if(r=e+n.textContent.length,e<=t&&r>=t)return{node:n,offset:t-e};e=r}a:{for(;n;){if(n.nextSibling){n=n.nextSibling;break a}n=n.parentNode}n=void 0}n=Mr(n)}}function Pr(e,t){return e&&t?e===t?!0:e&&e.nodeType===3?!1:t&&t.nodeType===3?Pr(e,t.parentNode):`contains`in e?e.contains(t):e.compareDocumentPosition?!!(e.compareDocumentPosition(t)&16):!1:!1}function Fr(e){e=e!=null&&e.ownerDocument!=null&&e.ownerDocument.defaultView!=null?e.ownerDocument.defaultView:window;for(var t=Gt(e.document);t instanceof e.HTMLIFrameElement;){try{var n=typeof t.contentWindow.location.href==`string`}catch{n=!1}if(n)e=t.contentWindow;else break;t=Gt(e.document)}return t}function Ir(e){var t=e&&e.nodeName&&e.nodeName.toLowerCase();return t&&(t===`input`&&(e.type===`text`||e.type===`search`||e.type===`tel`||e.type===`url`||e.type===`password`)||t===`textarea`||e.contentEditable===`true`)}var Lr=vn&&`documentMode`in document&&11>=document.documentMode,Rr=null,zr=null,Br=null,Vr=!1;function Hr(e,t,n){var r=n.window===n?n.document:n.nodeType===9?n:n.ownerDocument;Vr||Rr==null||Rr!==Gt(r)||(r=Rr,`selectionStart`in r&&Ir(r)?r={start:r.selectionStart,end:r.selectionEnd}:(r=(r.ownerDocument&&r.ownerDocument.defaultView||window).getSelection(),r={anchorNode:r.anchorNode,anchorOffset:r.anchorOffset,focusNode:r.focusNode,focusOffset:r.focusOffset}),Br&&jr(Br,r)||(Br=r,r=zd(zr,`onSelect`),0<r.length&&(t=new An(`onSelect`,`select`,null,t,n),e.push({event:t,listeners:r}),t.target=Rr)))}function Ur(e,t){var n={};return n[e.toLowerCase()]=t.toLowerCase(),n[`Webkit`+e]=`webkit`+t,n[`Moz`+e]=`moz`+t,n}var Wr={animationend:Ur(`Animation`,`AnimationEnd`),animationiteration:Ur(`Animation`,`AnimationIteration`),animationstart:Ur(`Animation`,`AnimationStart`),transitionrun:Ur(`Transition`,`TransitionRun`),transitionstart:Ur(`Transition`,`TransitionStart`),transitioncancel:Ur(`Transition`,`TransitionCancel`),transitionend:Ur(`Transition`,`TransitionEnd`)},Gr={},Kr={};vn&&(Kr=document.createElement(`div`).style,`AnimationEvent`in window||(delete Wr.animationend.animation,delete Wr.animationiteration.animation,delete Wr.animationstart.animation),`TransitionEvent`in window||delete Wr.transitionend.transition);function j(e){if(Gr[e])return Gr[e];if(!Wr[e])return e;var t=Wr[e],n;for(n in t)if(t.hasOwnProperty(n)&&n in Kr)return Gr[e]=t[n];return e}var qr=j(`animationend`),Jr=j(`animationiteration`),M=j(`animationstart`),Yr=j(`transitionrun`),Xr=j(`transitionstart`),Zr=j(`transitioncancel`),Qr=j(`transitionend`),$r=new Map,ei=`abort auxClick beforeToggle cancel canPlay canPlayThrough click close contextMenu copy cut drag dragEnd dragEnter dragExit dragLeave dragOver dragStart drop durationChange emptied encrypted ended error gotPointerCapture input invalid keyDown keyPress keyUp load loadedData loadedMetadata loadStart lostPointerCapture mouseDown mouseMove mouseOut mouseOver mouseUp paste pause play playing pointerCancel pointerDown pointerMove pointerOut pointerOver pointerUp progress rateChange reset resize seeked seeking stalled submit suspend timeUpdate touchCancel touchEnd touchStart volumeChange scroll toggle touchMove waiting wheel`.split(` `);ei.push(`scrollEnd`);function ti(e,t){$r.set(e,t),jt(t,[e])}var ni=typeof reportError==`function`?reportError:function(e){if(typeof window==`object`&&typeof window.ErrorEvent==`function`){var t=new window.ErrorEvent(`error`,{bubbles:!0,cancelable:!0,message:typeof e==`object`&&e&&typeof e.message==`string`?String(e.message):String(e),error:e});if(!window.dispatchEvent(t))return}else if(typeof process==`object`&&typeof process.emit==`function`){process.emit(`uncaughtException`,e);return}console.error(e)},ri=[],ii=0,ai=0;function oi(){for(var e=ii,t=ai=ii=0;t<e;){var n=ri[t];ri[t++]=null;var r=ri[t];ri[t++]=null;var i=ri[t];ri[t++]=null;var a=ri[t];if(ri[t++]=null,r!==null&&i!==null){var o=r.pending;o===null?i.next=i:(i.next=o.next,o.next=i),r.pending=i}a!==0&&ui(n,i,a)}}function si(e,t,n,r){ri[ii++]=e,ri[ii++]=t,ri[ii++]=n,ri[ii++]=r,ai|=r,e.lanes|=r,e=e.alternate,e!==null&&(e.lanes|=r)}function ci(e,t,n,r){return si(e,t,n,r),di(e)}function li(e,t){return si(e,null,null,t),di(e)}function ui(e,t,n){e.lanes|=n;var r=e.alternate;r!==null&&(r.lanes|=n);for(var i=!1,a=e.return;a!==null;)a.childLanes|=n,r=a.alternate,r!==null&&(r.childLanes|=n),a.tag===22&&(e=a.stateNode,e===null||e._visibility&1||(i=!0)),e=a,a=a.return;return e.tag===3?(a=e.stateNode,i&&t!==null&&(i=31-Ke(n),e=a.hiddenUpdates,r=e[i],r===null?e[i]=[t]:r.push(t),t.lane=n|536870912),a):null}function di(e){if(50<Tu)throw Tu=0,Eu=null,Error(i(185));for(var t=e.return;t!==null;)e=t,t=e.return;return e.tag===3?e.stateNode:null}var fi={};function pi(e,t,n,r){this.tag=e,this.key=n,this.sibling=this.child=this.return=this.stateNode=this.type=this.elementType=null,this.index=0,this.refCleanup=this.ref=null,this.pendingProps=t,this.dependencies=this.memoizedState=this.updateQueue=this.memoizedProps=null,this.mode=r,this.subtreeFlags=this.flags=0,this.deletions=null,this.childLanes=this.lanes=0,this.alternate=null}function mi(e,t,n,r){return new pi(e,t,n,r)}function hi(e){return e=e.prototype,!(!e||!e.isReactComponent)}function gi(e,t){var n=e.alternate;return n===null?(n=mi(e.tag,t,e.key,e.mode),n.elementType=e.elementType,n.type=e.type,n.stateNode=e.stateNode,n.alternate=e,e.alternate=n):(n.pendingProps=t,n.type=e.type,n.flags=0,n.subtreeFlags=0,n.deletions=null),n.flags=e.flags&65011712,n.childLanes=e.childLanes,n.lanes=e.lanes,n.child=e.child,n.memoizedProps=e.memoizedProps,n.memoizedState=e.memoizedState,n.updateQueue=e.updateQueue,t=e.dependencies,n.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext},n.sibling=e.sibling,n.index=e.index,n.ref=e.ref,n.refCleanup=e.refCleanup,n}function _i(e,t){e.flags&=65011714;var n=e.alternate;return n===null?(e.childLanes=0,e.lanes=t,e.child=null,e.subtreeFlags=0,e.memoizedProps=null,e.memoizedState=null,e.updateQueue=null,e.dependencies=null,e.stateNode=null):(e.childLanes=n.childLanes,e.lanes=n.lanes,e.child=n.child,e.subtreeFlags=0,e.deletions=null,e.memoizedProps=n.memoizedProps,e.memoizedState=n.memoizedState,e.updateQueue=n.updateQueue,e.type=n.type,t=n.dependencies,e.dependencies=t===null?null:{lanes:t.lanes,firstContext:t.firstContext}),e}function vi(e,t,n,r,a,o){var s=0;if(r=e,typeof e==`function`)hi(e)&&(s=1);else if(typeof e==`string`)s=X(e,n,me.current)?26:e===`html`||e===`head`||e===`body`?27:5;else a:switch(e){case ee:return e=mi(31,n,t,a),e.elementType=ee,e.lanes=o,e;case y:return yi(n.children,a,o,t);case b:s=8,a|=24;break;case x:return e=mi(12,n,t,a|2),e.elementType=x,e.lanes=o,e;case T:return e=mi(13,n,t,a),e.elementType=T,e.lanes=o,e;case E:return e=mi(19,n,t,a),e.elementType=E,e.lanes=o,e;default:if(typeof e==`object`&&e)switch(e.$$typeof){case C:s=10;break a;case S:s=9;break a;case w:s=11;break a;case D:s=14;break a;case O:s=16,r=null;break a}s=29,n=Error(i(130,e===null?`null`:typeof e,``)),r=null}return t=mi(s,n,t,a),t.elementType=e,t.type=r,t.lanes=o,t}function yi(e,t,n,r){return e=mi(7,e,r,t),e.lanes=n,e}function bi(e,t,n){return e=mi(6,e,null,t),e.lanes=n,e}function xi(e){var t=mi(18,null,null,0);return t.stateNode=e,t}function Si(e,t,n){return t=mi(4,e.children===null?[]:e.children,e.key,t),t.lanes=n,t.stateNode={containerInfo:e.containerInfo,pendingChildren:null,implementation:e.implementation},t}var Ci=new WeakMap;function wi(e,t){if(typeof e==`object`&&e){var n=Ci.get(e);return n===void 0?(t={value:e,source:t,stack:Oe(t)},Ci.set(e,t),t):n}return{value:e,source:t,stack:Oe(t)}}var Ti=[],Ei=0,Di=null,Oi=0,ki=[],Ai=0,ji=null,Mi=1,Ni=``;function Pi(e,t){Ti[Ei++]=Oi,Ti[Ei++]=Di,Di=e,Oi=t}function Fi(e,t,n){ki[Ai++]=Mi,ki[Ai++]=Ni,ki[Ai++]=ji,ji=e;var r=Mi;e=Ni;var i=32-Ke(r)-1;r&=~(1<<i),n+=1;var a=32-Ke(t)+i;if(30<a){var o=i-i%5;a=(r&(1<<o)-1).toString(32),r>>=o,i-=o,Mi=1<<32-Ke(t)+i|n<<i|r,Ni=a+e}else Mi=1<<a|n<<i|r,Ni=e}function Ii(e){e.return!==null&&(Pi(e,1),Fi(e,1,0))}function Li(e){for(;e===Di;)Di=Ti[--Ei],Ti[Ei]=null,Oi=Ti[--Ei],Ti[Ei]=null;for(;e===ji;)ji=ki[--Ai],ki[Ai]=null,Ni=ki[--Ai],ki[Ai]=null,Mi=ki[--Ai],ki[Ai]=null}function Ri(e,t){ki[Ai++]=Mi,ki[Ai++]=Ni,ki[Ai++]=ji,Mi=t.id,Ni=t.overflow,ji=e}var zi=null,Bi=null,Vi=!1,Hi=null,Ui=!1,Wi=Error(i(519));function Gi(e){throw Zi(wi(Error(i(418,1<arguments.length&&arguments[1]!==void 0&&arguments[1]?`text`:`HTML`,``)),e)),Wi}function Ki(e){var t=e.stateNode,n=e.type,r=e.memoizedProps;switch(t[ht]=e,t[gt]=r,n){case`dialog`:Md(`cancel`,t),Md(`close`,t);break;case`iframe`:case`object`:case`embed`:Md(`load`,t);break;case`video`:case`audio`:for(n=0;n<kd.length;n++)Md(kd[n],t);break;case`source`:Md(`error`,t);break;case`img`:case`image`:case`link`:Md(`error`,t),Md(`load`,t);break;case`details`:Md(`toggle`,t);break;case`input`:Md(`invalid`,t),Yt(t,r.value,r.defaultValue,r.checked,r.defaultChecked,r.type,r.name,!0);break;case`select`:Md(`invalid`,t);break;case`textarea`:Md(`invalid`,t),$t(t,r.value,r.defaultValue,r.children)}n=r.children,typeof n!=`string`&&typeof n!=`number`&&typeof n!=`bigint`||t.textContent===``+n||!0===r.suppressHydrationWarning||Gd(t.textContent,n)?(r.popover!=null&&(Md(`beforetoggle`,t),Md(`toggle`,t)),r.onScroll!=null&&Md(`scroll`,t),r.onScrollEnd!=null&&Md(`scrollend`,t),r.onClick!=null&&(t.onclick=ln),t=!0):t=!1,t||Gi(e,!0)}function qi(e){for(zi=e.return;zi;)switch(zi.tag){case 5:case 31:case 13:Ui=!1;return;case 27:case 3:Ui=!0;return;default:zi=zi.return}}function Ji(e){if(e!==zi)return!1;if(!Vi)return qi(e),Vi=!0,!1;var t=e.tag,n;if((n=t!==3&&t!==27)&&((n=t===5)&&(n=e.type,n=!(n!==`form`&&n!==`button`)||W(e.type,e.memoizedProps)),n=!n),n&&Bi&&Gi(e),qi(e),t===13){if(e=e.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(317));Bi=hf(e)}else if(t===31){if(e=e.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(317));Bi=hf(e)}else t===27?(t=Bi,af(e.type)?(e=mf,mf=null,Bi=e):Bi=t):Bi=zi?pf(e.stateNode.nextSibling):null;return!0}function Yi(){Bi=zi=null,Vi=!1}function Xi(){var e=Hi;return e!==null&&(du===null?du=e:du.push.apply(du,e),Hi=null),e}function Zi(e){Hi===null?Hi=[e]:Hi.push(e)}var Qi=de(null),$i=null,ea=null;function ta(e,t,n){pe(Qi,t._currentValue),t._currentValue=n}function na(e){e._currentValue=Qi.current,fe(Qi)}function ra(e,t,n){for(;e!==null;){var r=e.alternate;if((e.childLanes&t)===t?r!==null&&(r.childLanes&t)!==t&&(r.childLanes|=t):(e.childLanes|=t,r!==null&&(r.childLanes|=t)),e===n)break;e=e.return}}function ia(e,t,n,r){var a=e.child;for(a!==null&&(a.return=e);a!==null;){var o=a.dependencies;if(o!==null){var s=a.child;o=o.firstContext;a:for(;o!==null;){var c=o;o=a;for(var l=0;l<t.length;l++)if(c.context===t[l]){o.lanes|=n,c=o.alternate,c!==null&&(c.lanes|=n),ra(o.return,n,e),r||(s=null);break a}o=c.next}}else if(a.tag===18){if(s=a.return,s===null)throw Error(i(341));s.lanes|=n,o=s.alternate,o!==null&&(o.lanes|=n),ra(s,n,e),s=null}else s=a.child;if(s!==null)s.return=a;else for(s=a;s!==null;){if(s===e){s=null;break}if(a=s.sibling,a!==null){a.return=s.return,s=a;break}s=s.return}a=s}}function aa(e,t,n,r){e=null;for(var a=t,o=!1;a!==null;){if(!o){if(a.flags&524288)o=!0;else if(a.flags&262144)break}if(a.tag===10){var s=a.alternate;if(s===null)throw Error(i(387));if(s=s.memoizedProps,s!==null){var c=a.type;Ar(a.pendingProps.value,s.value)||(e===null?e=[c]:e.push(c))}}else if(a===_e.current){if(s=a.alternate,s===null)throw Error(i(387));s.memoizedState.memoizedState!==a.memoizedState.memoizedState&&(e===null?e=[tp]:e.push(tp))}a=a.return}e!==null&&ia(t,e,n,r),t.flags|=262144}function oa(e){for(e=e.firstContext;e!==null;){if(!Ar(e.context._currentValue,e.memoizedValue))return!0;e=e.next}return!1}function sa(e){$i=e,ea=null,e=e.dependencies,e!==null&&(e.firstContext=null)}function ca(e){return ua($i,e)}function la(e,t){return $i===null&&sa(e),ua(e,t)}function ua(e,t){var n=t._currentValue;if(t={context:t,memoizedValue:n,next:null},ea===null){if(e===null)throw Error(i(308));ea=t,e.dependencies={lanes:0,firstContext:t},e.flags|=524288}else ea=ea.next=t;return n}var da=typeof AbortController<`u`?AbortController:function(){var e=[],t=this.signal={aborted:!1,addEventListener:function(t,n){e.push(n)}};this.abort=function(){t.aborted=!0,e.forEach(function(e){return e()})}},fa=t.unstable_scheduleCallback,pa=t.unstable_NormalPriority,ma={$$typeof:C,Consumer:null,Provider:null,_currentValue:null,_currentValue2:null,_threadCount:0};function ha(){return{controller:new da,data:new Map,refCount:0}}function ga(e){e.refCount--,e.refCount===0&&fa(pa,function(){e.controller.abort()})}var _a=null,va=0,ya=0,ba=null;function xa(e,t){if(_a===null){var n=_a=[];va=0,ya=wd(),ba={status:`pending`,value:void 0,then:function(e){n.push(e)}}}return va++,t.then(Sa,Sa),t}function Sa(){if(--va===0&&_a!==null){ba!==null&&(ba.status=`fulfilled`);var e=_a;_a=null,ya=0,ba=null;for(var t=0;t<e.length;t++)(0,e[t])()}}function Ca(e,t){var n=[],r={status:`pending`,value:null,reason:null,then:function(e){n.push(e)}};return e.then(function(){r.status=`fulfilled`,r.value=t;for(var e=0;e<n.length;e++)(0,n[e])(t)},function(e){for(r.status=`rejected`,r.reason=e,e=0;e<n.length;e++)(0,n[e])(void 0)}),r}var wa=k.S;k.S=function(e,t){mu=Pe(),typeof t==`object`&&t&&typeof t.then==`function`&&xa(e,t),wa!==null&&wa(e,t)};var Ta=de(null);function Ea(){var e=Ta.current;return e===null?Yl.pooledCache:e}function Da(e,t){t===null?pe(Ta,Ta.current):pe(Ta,t.pool)}function Oa(){var e=Ea();return e===null?null:{parent:ma._currentValue,pool:e}}var ka=Error(i(460)),Aa=Error(i(474)),ja=Error(i(542)),Ma={then:function(){}};function N(e){return e=e.status,e===`fulfilled`||e===`rejected`}function Na(e,t,n){switch(n=e[n],n===void 0?e.push(t):n!==t&&(t.then(ln,ln),t=n),t.status){case`fulfilled`:return t.value;case`rejected`:throw e=t.reason,Ia(e),e;default:if(typeof t.status==`string`)t.then(ln,ln);else{if(e=Yl,e!==null&&100<e.shellSuspendCounter)throw Error(i(482));e=t,e.status=`pending`,e.then(function(e){if(t.status===`pending`){var n=t;n.status=`fulfilled`,n.value=e}},function(e){if(t.status===`pending`){var n=t;n.status=`rejected`,n.reason=e}})}switch(t.status){case`fulfilled`:return t.value;case`rejected`:throw e=t.reason,Ia(e),e}throw Pa=t,ka}}function P(e){try{var t=e._init;return t(e._payload)}catch(e){throw typeof e==`object`&&e&&typeof e.then==`function`?(Pa=e,ka):e}}var Pa=null;function Fa(){if(Pa===null)throw Error(i(459));var e=Pa;return Pa=null,e}function Ia(e){if(e===ka||e===ja)throw Error(i(483))}var La=null,F=0;function Ra(e){var t=F;return F+=1,La===null&&(La=[]),Na(La,e,t)}function za(e,t){t=t.props.ref,e.ref=t===void 0?null:t}function Ba(e,t){throw t.$$typeof===g?Error(i(525)):(e=Object.prototype.toString.call(t),Error(i(31,e===`[object Object]`?`object with keys {`+Object.keys(t).join(`, `)+`}`:e)))}function Va(e){function t(t,n){if(e){var r=t.deletions;r===null?(t.deletions=[n],t.flags|=16):r.push(n)}}function n(n,r){if(!e)return null;for(;r!==null;)t(n,r),r=r.sibling;return null}function r(e){for(var t=new Map;e!==null;)e.key===null?t.set(e.index,e):t.set(e.key,e),e=e.sibling;return t}function a(e,t){return e=gi(e,t),e.index=0,e.sibling=null,e}function o(t,n,r){return t.index=r,e?(r=t.alternate,r===null?(t.flags|=67108866,n):(r=r.index,r<n?(t.flags|=67108866,n):r)):(t.flags|=1048576,n)}function s(t){return e&&t.alternate===null&&(t.flags|=67108866),t}function c(e,t,n,r){return t===null||t.tag!==6?(t=bi(n,e.mode,r),t.return=e,t):(t=a(t,n),t.return=e,t)}function l(e,t,n,r){var i=n.type;return i===y?d(e,t,n.props.children,r,n.key):t!==null&&(t.elementType===i||typeof i==`object`&&i&&i.$$typeof===O&&P(i)===t.type)?(t=a(t,n.props),za(t,n),t.return=e,t):(t=vi(n.type,n.key,n.props,null,e.mode,r),za(t,n),t.return=e,t)}function u(e,t,n,r){return t===null||t.tag!==4||t.stateNode.containerInfo!==n.containerInfo||t.stateNode.implementation!==n.implementation?(t=Si(n,e.mode,r),t.return=e,t):(t=a(t,n.children||[]),t.return=e,t)}function d(e,t,n,r,i){return t===null||t.tag!==7?(t=yi(n,e.mode,r,i),t.return=e,t):(t=a(t,n),t.return=e,t)}function f(e,t,n){if(typeof t==`string`&&t!==``||typeof t==`number`||typeof t==`bigint`)return t=bi(``+t,e.mode,n),t.return=e,t;if(typeof t==`object`&&t){switch(t.$$typeof){case _:return n=vi(t.type,t.key,t.props,null,e.mode,n),za(n,t),n.return=e,n;case v:return t=Si(t,e.mode,n),t.return=e,t;case O:return t=P(t),f(e,t,n)}if(oe(t)||re(t))return t=yi(t,e.mode,n,null),t.return=e,t;if(typeof t.then==`function`)return f(e,Ra(t),n);if(t.$$typeof===C)return f(e,la(e,t),n);Ba(e,t)}return null}function p(e,t,n,r){var i=t===null?null:t.key;if(typeof n==`string`&&n!==``||typeof n==`number`||typeof n==`bigint`)return i===null?c(e,t,``+n,r):null;if(typeof n==`object`&&n){switch(n.$$typeof){case _:return n.key===i?l(e,t,n,r):null;case v:return n.key===i?u(e,t,n,r):null;case O:return n=P(n),p(e,t,n,r)}if(oe(n)||re(n))return i===null?d(e,t,n,r,null):null;if(typeof n.then==`function`)return p(e,t,Ra(n),r);if(n.$$typeof===C)return p(e,t,la(e,n),r);Ba(e,n)}return null}function m(e,t,n,r,i){if(typeof r==`string`&&r!==``||typeof r==`number`||typeof r==`bigint`)return e=e.get(n)||null,c(t,e,``+r,i);if(typeof r==`object`&&r){switch(r.$$typeof){case _:return e=e.get(r.key===null?n:r.key)||null,l(t,e,r,i);case v:return e=e.get(r.key===null?n:r.key)||null,u(t,e,r,i);case O:return r=P(r),m(e,t,n,r,i)}if(oe(r)||re(r))return e=e.get(n)||null,d(t,e,r,i,null);if(typeof r.then==`function`)return m(e,t,n,Ra(r),i);if(r.$$typeof===C)return m(e,t,n,la(t,r),i);Ba(t,r)}return null}function h(i,a,s,c){for(var l=null,u=null,d=a,h=a=0,g=null;d!==null&&h<s.length;h++){d.index>h?(g=d,d=null):g=d.sibling;var _=p(i,d,s[h],c);if(_===null){d===null&&(d=g);break}e&&d&&_.alternate===null&&t(i,d),a=o(_,a,h),u===null?l=_:u.sibling=_,u=_,d=g}if(h===s.length)return n(i,d),Vi&&Pi(i,h),l;if(d===null){for(;h<s.length;h++)d=f(i,s[h],c),d!==null&&(a=o(d,a,h),u===null?l=d:u.sibling=d,u=d);return Vi&&Pi(i,h),l}for(d=r(d);h<s.length;h++)g=m(d,i,h,s[h],c),g!==null&&(e&&g.alternate!==null&&d.delete(g.key===null?h:g.key),a=o(g,a,h),u===null?l=g:u.sibling=g,u=g);return e&&d.forEach(function(e){return t(i,e)}),Vi&&Pi(i,h),l}function g(a,s,c,l){if(c==null)throw Error(i(151));for(var u=null,d=null,h=s,g=s=0,_=null,v=c.next();h!==null&&!v.done;g++,v=c.next()){h.index>g?(_=h,h=null):_=h.sibling;var y=p(a,h,v.value,l);if(y===null){h===null&&(h=_);break}e&&h&&y.alternate===null&&t(a,h),s=o(y,s,g),d===null?u=y:d.sibling=y,d=y,h=_}if(v.done)return n(a,h),Vi&&Pi(a,g),u;if(h===null){for(;!v.done;g++,v=c.next())v=f(a,v.value,l),v!==null&&(s=o(v,s,g),d===null?u=v:d.sibling=v,d=v);return Vi&&Pi(a,g),u}for(h=r(h);!v.done;g++,v=c.next())v=m(h,a,g,v.value,l),v!==null&&(e&&v.alternate!==null&&h.delete(v.key===null?g:v.key),s=o(v,s,g),d===null?u=v:d.sibling=v,d=v);return e&&h.forEach(function(e){return t(a,e)}),Vi&&Pi(a,g),u}function b(e,r,o,c){if(typeof o==`object`&&o&&o.type===y&&o.key===null&&(o=o.props.children),typeof o==`object`&&o){switch(o.$$typeof){case _:a:{for(var l=o.key;r!==null;){if(r.key===l){if(l=o.type,l===y){if(r.tag===7){n(e,r.sibling),c=a(r,o.props.children),c.return=e,e=c;break a}}else if(r.elementType===l||typeof l==`object`&&l&&l.$$typeof===O&&P(l)===r.type){n(e,r.sibling),c=a(r,o.props),za(c,o),c.return=e,e=c;break a}n(e,r);break}else t(e,r);r=r.sibling}o.type===y?(c=yi(o.props.children,e.mode,c,o.key),c.return=e,e=c):(c=vi(o.type,o.key,o.props,null,e.mode,c),za(c,o),c.return=e,e=c)}return s(e);case v:a:{for(l=o.key;r!==null;){if(r.key===l)if(r.tag===4&&r.stateNode.containerInfo===o.containerInfo&&r.stateNode.implementation===o.implementation){n(e,r.sibling),c=a(r,o.children||[]),c.return=e,e=c;break a}else{n(e,r);break}else t(e,r);r=r.sibling}c=Si(o,e.mode,c),c.return=e,e=c}return s(e);case O:return o=P(o),b(e,r,o,c)}if(oe(o))return h(e,r,o,c);if(re(o)){if(l=re(o),typeof l!=`function`)throw Error(i(150));return o=l.call(o),g(e,r,o,c)}if(typeof o.then==`function`)return b(e,r,Ra(o),c);if(o.$$typeof===C)return b(e,r,la(e,o),c);Ba(e,o)}return typeof o==`string`&&o!==``||typeof o==`number`||typeof o==`bigint`?(o=``+o,r!==null&&r.tag===6?(n(e,r.sibling),c=a(r,o),c.return=e,e=c):(n(e,r),c=bi(o,e.mode,c),c.return=e,e=c),s(e)):n(e,r)}return function(e,t,n,r){try{F=0;var i=b(e,t,n,r);return La=null,i}catch(t){if(t===ka||t===ja)throw t;var a=mi(29,t,null,e.mode);return a.lanes=r,a.return=e,a}}}var Ha=Va(!0),Ua=Va(!1),Wa=!1;function Ga(e){e.updateQueue={baseState:e.memoizedState,firstBaseUpdate:null,lastBaseUpdate:null,shared:{pending:null,lanes:0,hiddenCallbacks:null},callbacks:null}}function Ka(e,t){e=e.updateQueue,t.updateQueue===e&&(t.updateQueue={baseState:e.baseState,firstBaseUpdate:e.firstBaseUpdate,lastBaseUpdate:e.lastBaseUpdate,shared:e.shared,callbacks:null})}function qa(e){return{lane:e,tag:0,payload:null,callback:null,next:null}}function Ja(e,t,n){var r=e.updateQueue;if(r===null)return null;if(r=r.shared,Jl&2){var i=r.pending;return i===null?t.next=t:(t.next=i.next,i.next=t),r.pending=t,t=di(e),ui(e,null,n),t}return si(e,r,t,n),di(e)}function Ya(e,t,n){if(t=t.updateQueue,t!==null&&(t=t.shared,n&4194048)){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,ct(e,n)}}function Xa(e,t){var n=e.updateQueue,r=e.alternate;if(r!==null&&(r=r.updateQueue,n===r)){var i=null,a=null;if(n=n.firstBaseUpdate,n!==null){do{var o={lane:n.lane,tag:n.tag,payload:n.payload,callback:null,next:null};a===null?i=a=o:a=a.next=o,n=n.next}while(n!==null);a===null?i=a=t:a=a.next=t}else i=a=t;n={baseState:r.baseState,firstBaseUpdate:i,lastBaseUpdate:a,shared:r.shared,callbacks:r.callbacks},e.updateQueue=n;return}e=n.lastBaseUpdate,e===null?n.firstBaseUpdate=t:e.next=t,n.lastBaseUpdate=t}var Za=!1;function Qa(){if(Za){var e=ba;if(e!==null)throw e}}function $a(e,t,n,r){Za=!1;var i=e.updateQueue;Wa=!1;var a=i.firstBaseUpdate,o=i.lastBaseUpdate,s=i.shared.pending;if(s!==null){i.shared.pending=null;var c=s,l=c.next;c.next=null,o===null?a=l:o.next=l,o=c;var u=e.alternate;u!==null&&(u=u.updateQueue,s=u.lastBaseUpdate,s!==o&&(s===null?u.firstBaseUpdate=l:s.next=l,u.lastBaseUpdate=c))}if(a!==null){var d=i.baseState;o=0,u=l=c=null,s=a;do{var f=s.lane&-536870913,p=f!==s.lane;if(p?(Zl&f)===f:(r&f)===f){f!==0&&f===ya&&(Za=!0),u!==null&&(u=u.next={lane:0,tag:s.tag,payload:s.payload,callback:null,next:null});a:{var h=e,g=s;f=t;var _=n;switch(g.tag){case 1:if(h=g.payload,typeof h==`function`){d=h.call(_,d,f);break a}d=h;break a;case 3:h.flags=h.flags&-65537|128;case 0:if(h=g.payload,f=typeof h==`function`?h.call(_,d,f):h,f==null)break a;d=m({},d,f);break a;case 2:Wa=!0}}f=s.callback,f!==null&&(e.flags|=64,p&&(e.flags|=8192),p=i.callbacks,p===null?i.callbacks=[f]:p.push(f))}else p={lane:f,tag:s.tag,payload:s.payload,callback:s.callback,next:null},u===null?(l=u=p,c=d):u=u.next=p,o|=f;if(s=s.next,s===null){if(s=i.shared.pending,s===null)break;p=s,s=p.next,p.next=null,i.lastBaseUpdate=p,i.shared.pending=null}}while(1);u===null&&(c=d),i.baseState=c,i.firstBaseUpdate=l,i.lastBaseUpdate=u,a===null&&(i.shared.lanes=0),au|=o,e.lanes=o,e.memoizedState=d}}function eo(e,t){if(typeof e!=`function`)throw Error(i(191,e));e.call(t)}function to(e,t){var n=e.callbacks;if(n!==null)for(e.callbacks=null,e=0;e<n.length;e++)eo(n[e],t)}var no=de(null),ro=de(0);function io(e,t){e=ru,pe(ro,e),pe(no,t),ru=e|t.baseLanes}function ao(){pe(ro,ru),pe(no,no.current)}function oo(){ru=ro.current,fe(no),fe(ro)}var so=de(null),co=null;function lo(e){var t=e.alternate;pe(ho,ho.current&1),pe(so,e),co===null&&(t===null||no.current!==null||t.memoizedState!==null)&&(co=e)}function uo(e){pe(ho,ho.current),pe(so,e),co===null&&(co=e)}function fo(e){e.tag===22?(pe(ho,ho.current),pe(so,e),co===null&&(co=e)):po(e)}function po(){pe(ho,ho.current),pe(so,so.current)}function mo(e){fe(so),co===e&&(co=null),fe(ho)}var ho=de(0);function go(e){for(var t=e;t!==null;){if(t.tag===13){var n=t.memoizedState;if(n!==null&&(n=n.dehydrated,n===null||uf(n)||df(n)))return t}else if(t.tag===19&&(t.memoizedProps.revealOrder===`forwards`||t.memoizedProps.revealOrder===`backwards`||t.memoizedProps.revealOrder===`unstable_legacy-backwards`||t.memoizedProps.revealOrder===`together`)){if(t.flags&128)return t}else if(t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return null;t=t.return}t.sibling.return=t.return,t=t.sibling}return null}var _o=0,I=null,vo=null,yo=null,bo=!1,xo=!1,So=!1,Co=0,wo=0,To=null,Eo=0;function Do(){throw Error(i(321))}function Oo(e,t){if(t===null)return!1;for(var n=0;n<t.length&&n<e.length;n++)if(!Ar(e[n],t[n]))return!1;return!0}function ko(e,t,n,r,i,a){return _o=a,I=t,t.memoizedState=null,t.updateQueue=null,t.lanes=0,k.H=e===null||e.memoizedState===null?Ks:qs,So=!1,a=n(r,i),So=!1,xo&&(a=jo(t,n,r,i)),Ao(e),a}function Ao(e){k.H=Gs;var t=vo!==null&&vo.next!==null;if(_o=0,yo=vo=I=null,bo=!1,wo=0,To=null,t)throw Error(i(300));e===null||uc||(e=e.dependencies,e!==null&&oa(e)&&(uc=!0))}function jo(e,t,n,r){I=e;var a=0;do{if(xo&&(To=null),wo=0,xo=!1,25<=a)throw Error(i(301));if(a+=1,yo=vo=null,e.updateQueue!=null){var o=e.updateQueue;o.lastEffect=null,o.events=null,o.stores=null,o.memoCache!=null&&(o.memoCache.index=0)}k.H=Js,o=t(n,r)}while(xo);return o}function Mo(){var e=k.H,t=e.useState()[0];return t=typeof t.then==`function`?zo(t):t,e=e.useState()[0],(vo===null?null:vo.memoizedState)!==e&&(I.flags|=1024),t}function No(){var e=Co!==0;return Co=0,e}function Po(e,t,n){t.updateQueue=e.updateQueue,t.flags&=-2053,e.lanes&=~n}function Fo(e){if(bo){for(e=e.memoizedState;e!==null;){var t=e.queue;t!==null&&(t.pending=null),e=e.next}bo=!1}_o=0,yo=vo=I=null,xo=!1,wo=Co=0,To=null}function Io(){var e={memoizedState:null,baseState:null,baseQueue:null,queue:null,next:null};return yo===null?I.memoizedState=yo=e:yo=yo.next=e,yo}function Lo(){if(vo===null){var e=I.alternate;e=e===null?null:e.memoizedState}else e=vo.next;var t=yo===null?I.memoizedState:yo.next;if(t!==null)yo=t,vo=e;else{if(e===null)throw I.alternate===null?Error(i(467)):Error(i(310));vo=e,e={memoizedState:vo.memoizedState,baseState:vo.baseState,baseQueue:vo.baseQueue,queue:vo.queue,next:null},yo===null?I.memoizedState=yo=e:yo=yo.next=e}return yo}function Ro(){return{lastEffect:null,events:null,stores:null,memoCache:null}}function zo(e){var t=wo;return wo+=1,To===null&&(To=[]),e=Na(To,e,t),t=I,(yo===null?t.memoizedState:yo.next)===null&&(t=t.alternate,k.H=t===null||t.memoizedState===null?Ks:qs),e}function Bo(e){if(typeof e==`object`&&e){if(typeof e.then==`function`)return zo(e);if(e.$$typeof===C)return ca(e)}throw Error(i(438,String(e)))}function Vo(e){var t=null,n=I.updateQueue;if(n!==null&&(t=n.memoCache),t==null){var r=I.alternate;r!==null&&(r=r.updateQueue,r!==null&&(r=r.memoCache,r!=null&&(t={data:r.data.map(function(e){return e.slice()}),index:0})))}if(t??={data:[],index:0},n===null&&(n=Ro(),I.updateQueue=n),n.memoCache=t,n=t.data[t.index],n===void 0)for(n=t.data[t.index]=Array(e),r=0;r<e;r++)n[r]=te;return t.index++,n}function Ho(e,t){return typeof t==`function`?t(e):t}function Uo(e){return Wo(Lo(),vo,e)}function Wo(e,t,n){var r=e.queue;if(r===null)throw Error(i(311));r.lastRenderedReducer=n;var a=e.baseQueue,o=r.pending;if(o!==null){if(a!==null){var s=a.next;a.next=o.next,o.next=s}t.baseQueue=a=o,r.pending=null}if(o=e.baseState,a===null)e.memoizedState=o;else{t=a.next;var c=s=null,l=null,u=t,d=!1;do{var f=u.lane&-536870913;if(f===u.lane?(_o&f)===f:(Zl&f)===f){var p=u.revertLane;if(p===0)l!==null&&(l=l.next={lane:0,revertLane:0,gesture:null,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null}),f===ya&&(d=!0);else if((_o&p)===p){u=u.next,p===ya&&(d=!0);continue}else f={lane:0,revertLane:u.revertLane,gesture:null,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null},l===null?(c=l=f,s=o):l=l.next=f,I.lanes|=p,au|=p;f=u.action,So&&n(o,f),o=u.hasEagerState?u.eagerState:n(o,f)}else p={lane:f,revertLane:u.revertLane,gesture:u.gesture,action:u.action,hasEagerState:u.hasEagerState,eagerState:u.eagerState,next:null},l===null?(c=l=p,s=o):l=l.next=p,I.lanes|=f,au|=f;u=u.next}while(u!==null&&u!==t);if(l===null?s=o:l.next=c,!Ar(o,e.memoizedState)&&(uc=!0,d&&(n=ba,n!==null)))throw n;e.memoizedState=o,e.baseState=s,e.baseQueue=l,r.lastRenderedState=o}return a===null&&(r.lanes=0),[e.memoizedState,r.dispatch]}function Go(e){var t=Lo(),n=t.queue;if(n===null)throw Error(i(311));n.lastRenderedReducer=e;var r=n.dispatch,a=n.pending,o=t.memoizedState;if(a!==null){n.pending=null;var s=a=a.next;do o=e(o,s.action),s=s.next;while(s!==a);Ar(o,t.memoizedState)||(uc=!0),t.memoizedState=o,t.baseQueue===null&&(t.baseState=o),n.lastRenderedState=o}return[o,r]}function Ko(e,t,n){var r=I,a=Lo(),o=Vi;if(o){if(n===void 0)throw Error(i(407));n=n()}else n=t();var s=!Ar((vo||a).memoizedState,n);if(s&&(a.memoizedState=n,uc=!0),a=a.queue,_s(Yo.bind(null,r,a,e),[e]),a.getSnapshot!==t||s||yo!==null&&yo.memoizedState.tag&1){if(r.flags|=2048,fs(9,{destroy:void 0},Jo.bind(null,r,a,n,t),null),Yl===null)throw Error(i(349));o||_o&127||qo(r,t,n)}return n}function qo(e,t,n){e.flags|=16384,e={getSnapshot:t,value:n},t=I.updateQueue,t===null?(t=Ro(),I.updateQueue=t,t.stores=[e]):(n=t.stores,n===null?t.stores=[e]:n.push(e))}function Jo(e,t,n,r){t.value=n,t.getSnapshot=r,Xo(t)&&Zo(e)}function Yo(e,t,n){return n(function(){Xo(t)&&Zo(e)})}function Xo(e){var t=e.getSnapshot;e=e.value;try{var n=t();return!Ar(e,n)}catch{return!0}}function Zo(e){var t=li(e,2);t!==null&&L(t,e,2)}function Qo(e){var t=Io();if(typeof e==`function`){var n=e;if(e=n(),So){Ge(!0);try{n()}finally{Ge(!1)}}}return t.memoizedState=t.baseState=e,t.queue={pending:null,lanes:0,dispatch:null,lastRenderedReducer:Ho,lastRenderedState:e},t}function $o(e,t,n,r){return e.baseState=n,Wo(e,vo,typeof r==`function`?r:Ho)}function es(e,t,n,r,a){if(Hs(e))throw Error(i(485));if(e=t.action,e!==null){var o={payload:a,action:e,next:null,isTransition:!0,status:`pending`,value:null,reason:null,listeners:[],then:function(e){o.listeners.push(e)}};k.T===null?o.isTransition=!1:n(!0),r(o),n=t.pending,n===null?(o.next=t.pending=o,ts(t,o)):(o.next=n.next,t.pending=n.next=o)}}function ts(e,t){var n=t.action,r=t.payload,i=e.state;if(t.isTransition){var a=k.T,o={};k.T=o;try{var s=n(i,r),c=k.S;c!==null&&c(o,s),ns(e,t,s)}catch(n){is(e,t,n)}finally{a!==null&&o.types!==null&&(a.types=o.types),k.T=a}}else try{a=n(i,r),ns(e,t,a)}catch(n){is(e,t,n)}}function ns(e,t,n){typeof n==`object`&&n&&typeof n.then==`function`?n.then(function(n){rs(e,t,n)},function(n){return is(e,t,n)}):rs(e,t,n)}function rs(e,t,n){t.status=`fulfilled`,t.value=n,as(t),e.state=n,t=e.pending,t!==null&&(n=t.next,n===t?e.pending=null:(n=n.next,t.next=n,ts(e,n)))}function is(e,t,n){var r=e.pending;if(e.pending=null,r!==null){r=r.next;do t.status=`rejected`,t.reason=n,as(t),t=t.next;while(t!==r)}e.action=null}function as(e){e=e.listeners;for(var t=0;t<e.length;t++)(0,e[t])()}function os(e,t){return t}function ss(e,t){if(Vi){var n=Yl.formState;if(n!==null){a:{var r=I;if(Vi){if(Bi){b:{for(var i=Bi,a=Ui;i.nodeType!==8;){if(!a){i=null;break b}if(i=pf(i.nextSibling),i===null){i=null;break b}}a=i.data,i=a===`F!`||a===`F`?i:null}if(i){Bi=pf(i.nextSibling),r=i.data===`F!`;break a}}Gi(r)}r=!1}r&&(t=n[0])}}return n=Io(),n.memoizedState=n.baseState=t,r={pending:null,lanes:0,dispatch:null,lastRenderedReducer:os,lastRenderedState:t},n.queue=r,n=zs.bind(null,I,r),r.dispatch=n,r=Qo(!1),a=Vs.bind(null,I,!1,r.queue),r=Io(),i={state:t,dispatch:null,action:e,pending:null},r.queue=i,n=es.bind(null,I,i,a,n),i.dispatch=n,r.memoizedState=e,[t,n,!1]}function cs(e){return ls(Lo(),vo,e)}function ls(e,t,n){if(t=Wo(e,t,os)[0],e=Uo(Ho)[0],typeof t==`object`&&t&&typeof t.then==`function`)try{var r=zo(t)}catch(e){throw e===ka?ja:e}else r=t;t=Lo();var i=t.queue,a=i.dispatch;return n!==t.memoizedState&&(I.flags|=2048,fs(9,{destroy:void 0},us.bind(null,i,n),null)),[r,a,e]}function us(e,t){e.action=t}function ds(e){var t=Lo(),n=vo;if(n!==null)return ls(t,n,e);Lo(),t=t.memoizedState,n=Lo();var r=n.queue.dispatch;return n.memoizedState=e,[t,r,!1]}function fs(e,t,n,r){return e={tag:e,create:n,deps:r,inst:t,next:null},t=I.updateQueue,t===null&&(t=Ro(),I.updateQueue=t),n=t.lastEffect,n===null?t.lastEffect=e.next=e:(r=n.next,n.next=e,e.next=r,t.lastEffect=e),e}function ps(){return Lo().memoizedState}function ms(e,t,n,r){var i=Io();I.flags|=e,i.memoizedState=fs(1|t,{destroy:void 0},n,r===void 0?null:r)}function hs(e,t,n,r){var i=Lo();r=r===void 0?null:r;var a=i.memoizedState.inst;vo!==null&&r!==null&&Oo(r,vo.memoizedState.deps)?i.memoizedState=fs(t,a,n,r):(I.flags|=e,i.memoizedState=fs(1|t,a,n,r))}function gs(e,t){ms(8390656,8,e,t)}function _s(e,t){hs(2048,8,e,t)}function vs(e){I.flags|=4;var t=I.updateQueue;if(t===null)t=Ro(),I.updateQueue=t,t.events=[e];else{var n=t.events;n===null?t.events=[e]:n.push(e)}}function ys(e){var t=Lo().memoizedState;return vs({ref:t,nextImpl:e}),function(){if(Jl&2)throw Error(i(440));return t.impl.apply(void 0,arguments)}}function bs(e,t){return hs(4,2,e,t)}function xs(e,t){return hs(4,4,e,t)}function Ss(e,t){if(typeof t==`function`){e=e();var n=t(e);return function(){typeof n==`function`?n():t(null)}}if(t!=null)return e=e(),t.current=e,function(){t.current=null}}function Cs(e,t,n){n=n==null?null:n.concat([e]),hs(4,4,Ss.bind(null,t,e),n)}function ws(){}function Ts(e,t){var n=Lo();t=t===void 0?null:t;var r=n.memoizedState;return t!==null&&Oo(t,r[1])?r[0]:(n.memoizedState=[e,t],e)}function Es(e,t){var n=Lo();t=t===void 0?null:t;var r=n.memoizedState;if(t!==null&&Oo(t,r[1]))return r[0];if(r=e(),So){Ge(!0);try{e()}finally{Ge(!1)}}return n.memoizedState=[r,t],r}function Ds(e,t,n){return n===void 0||_o&1073741824&&!(Zl&261930)?e.memoizedState=t:(e.memoizedState=n,e=Ou(),I.lanes|=e,au|=e,n)}function Os(e,t,n,r){return Ar(n,t)?n:no.current===null?!(_o&42)||_o&1073741824&&!(Zl&261930)?(uc=!0,e.memoizedState=n):(e=Ou(),I.lanes|=e,au|=e,t):(e=Ds(e,n,r),Ar(e,t)||(uc=!0),e)}function ks(e,t,n,r,i){var a=se.p;se.p=a!==0&&8>a?a:8;var o=k.T,s={};k.T=s,Vs(e,!1,t,n);try{var c=i(),l=k.S;l!==null&&l(s,c),typeof c==`object`&&c&&typeof c.then==`function`?Bs(e,t,Ca(c,r),Du(e)):Bs(e,t,r,Du(e))}catch(n){Bs(e,t,{then:function(){},status:`rejected`,reason:n},Du())}finally{se.p=a,o!==null&&s.types!==null&&(o.types=s.types),k.T=o}}function As(){}function js(e,t,n,r){if(e.tag!==5)throw Error(i(476));var a=Ms(e).queue;ks(e,a,t,ce,n===null?As:function(){return Ns(e),n(r)})}function Ms(e){var t=e.memoizedState;if(t!==null)return t;t={memoizedState:ce,baseState:ce,baseQueue:null,queue:{pending:null,lanes:0,dispatch:null,lastRenderedReducer:Ho,lastRenderedState:ce},next:null};var n={};return t.next={memoizedState:n,baseState:n,baseQueue:null,queue:{pending:null,lanes:0,dispatch:null,lastRenderedReducer:Ho,lastRenderedState:n},next:null},e.memoizedState=t,e=e.alternate,e!==null&&(e.memoizedState=t),t}function Ns(e){var t=Ms(e);t.next===null&&(t=e.alternate.memoizedState),Bs(e,t.next.queue,{},Du())}function Ps(){return ca(tp)}function Fs(){return Lo().memoizedState}function Is(){return Lo().memoizedState}function Ls(e){for(var t=e.return;t!==null;){switch(t.tag){case 24:case 3:var n=Du();e=qa(n);var r=Ja(t,e,n);r!==null&&(L(r,t,n),Ya(r,t,n)),t={cache:ha()},e.payload=t;return}t=t.return}}function Rs(e,t,n){var r=Du();n={lane:r,revertLane:0,gesture:null,action:n,hasEagerState:!1,eagerState:null,next:null},Hs(e)?Us(t,n):(n=ci(e,t,n,r),n!==null&&(L(n,e,r),Ws(n,t,r)))}function zs(e,t,n){Bs(e,t,n,Du())}function Bs(e,t,n,r){var i={lane:r,revertLane:0,gesture:null,action:n,hasEagerState:!1,eagerState:null,next:null};if(Hs(e))Us(t,i);else{var a=e.alternate;if(e.lanes===0&&(a===null||a.lanes===0)&&(a=t.lastRenderedReducer,a!==null))try{var o=t.lastRenderedState,s=a(o,n);if(i.hasEagerState=!0,i.eagerState=s,Ar(s,o))return si(e,t,i,0),Yl===null&&oi(),!1}catch{}if(n=ci(e,t,i,r),n!==null)return L(n,e,r),Ws(n,t,r),!0}return!1}function Vs(e,t,n,r){if(r={lane:2,revertLane:wd(),gesture:null,action:r,hasEagerState:!1,eagerState:null,next:null},Hs(e)){if(t)throw Error(i(479))}else t=ci(e,n,r,2),t!==null&&L(t,e,2)}function Hs(e){var t=e.alternate;return e===I||t!==null&&t===I}function Us(e,t){xo=bo=!0;var n=e.pending;n===null?t.next=t:(t.next=n.next,n.next=t),e.pending=t}function Ws(e,t,n){if(n&4194048){var r=t.lanes;r&=e.pendingLanes,n|=r,t.lanes=n,ct(e,n)}}var Gs={readContext:ca,use:Bo,useCallback:Do,useContext:Do,useEffect:Do,useImperativeHandle:Do,useLayoutEffect:Do,useInsertionEffect:Do,useMemo:Do,useReducer:Do,useRef:Do,useState:Do,useDebugValue:Do,useDeferredValue:Do,useTransition:Do,useSyncExternalStore:Do,useId:Do,useHostTransitionStatus:Do,useFormState:Do,useActionState:Do,useOptimistic:Do,useMemoCache:Do,useCacheRefresh:Do};Gs.useEffectEvent=Do;var Ks={readContext:ca,use:Bo,useCallback:function(e,t){return Io().memoizedState=[e,t===void 0?null:t],e},useContext:ca,useEffect:gs,useImperativeHandle:function(e,t,n){n=n==null?null:n.concat([e]),ms(4194308,4,Ss.bind(null,t,e),n)},useLayoutEffect:function(e,t){return ms(4194308,4,e,t)},useInsertionEffect:function(e,t){ms(4,2,e,t)},useMemo:function(e,t){var n=Io();t=t===void 0?null:t;var r=e();if(So){Ge(!0);try{e()}finally{Ge(!1)}}return n.memoizedState=[r,t],r},useReducer:function(e,t,n){var r=Io();if(n!==void 0){var i=n(t);if(So){Ge(!0);try{n(t)}finally{Ge(!1)}}}else i=t;return r.memoizedState=r.baseState=i,e={pending:null,lanes:0,dispatch:null,lastRenderedReducer:e,lastRenderedState:i},r.queue=e,e=e.dispatch=Rs.bind(null,I,e),[r.memoizedState,e]},useRef:function(e){var t=Io();return e={current:e},t.memoizedState=e},useState:function(e){e=Qo(e);var t=e.queue,n=zs.bind(null,I,t);return t.dispatch=n,[e.memoizedState,n]},useDebugValue:ws,useDeferredValue:function(e,t){return Ds(Io(),e,t)},useTransition:function(){var e=Qo(!1);return e=ks.bind(null,I,e.queue,!0,!1),Io().memoizedState=e,[!1,e]},useSyncExternalStore:function(e,t,n){var r=I,a=Io();if(Vi){if(n===void 0)throw Error(i(407));n=n()}else{if(n=t(),Yl===null)throw Error(i(349));Zl&127||qo(r,t,n)}a.memoizedState=n;var o={value:n,getSnapshot:t};return a.queue=o,gs(Yo.bind(null,r,o,e),[e]),r.flags|=2048,fs(9,{destroy:void 0},Jo.bind(null,r,o,n,t),null),n},useId:function(){var e=Io(),t=Yl.identifierPrefix;if(Vi){var n=Ni,r=Mi;n=(r&~(1<<32-Ke(r)-1)).toString(32)+n,t=`_`+t+`R_`+n,n=Co++,0<n&&(t+=`H`+n.toString(32)),t+=`_`}else n=Eo++,t=`_`+t+`r_`+n.toString(32)+`_`;return e.memoizedState=t},useHostTransitionStatus:Ps,useFormState:ss,useActionState:ss,useOptimistic:function(e){var t=Io();t.memoizedState=t.baseState=e;var n={pending:null,lanes:0,dispatch:null,lastRenderedReducer:null,lastRenderedState:null};return t.queue=n,t=Vs.bind(null,I,!0,n),n.dispatch=t,[e,t]},useMemoCache:Vo,useCacheRefresh:function(){return Io().memoizedState=Ls.bind(null,I)},useEffectEvent:function(e){var t=Io(),n={impl:e};return t.memoizedState=n,function(){if(Jl&2)throw Error(i(440));return n.impl.apply(void 0,arguments)}}},qs={readContext:ca,use:Bo,useCallback:Ts,useContext:ca,useEffect:_s,useImperativeHandle:Cs,useInsertionEffect:bs,useLayoutEffect:xs,useMemo:Es,useReducer:Uo,useRef:ps,useState:function(){return Uo(Ho)},useDebugValue:ws,useDeferredValue:function(e,t){return Os(Lo(),vo.memoizedState,e,t)},useTransition:function(){var e=Uo(Ho)[0],t=Lo().memoizedState;return[typeof e==`boolean`?e:zo(e),t]},useSyncExternalStore:Ko,useId:Fs,useHostTransitionStatus:Ps,useFormState:cs,useActionState:cs,useOptimistic:function(e,t){return $o(Lo(),vo,e,t)},useMemoCache:Vo,useCacheRefresh:Is};qs.useEffectEvent=ys;var Js={readContext:ca,use:Bo,useCallback:Ts,useContext:ca,useEffect:_s,useImperativeHandle:Cs,useInsertionEffect:bs,useLayoutEffect:xs,useMemo:Es,useReducer:Go,useRef:ps,useState:function(){return Go(Ho)},useDebugValue:ws,useDeferredValue:function(e,t){var n=Lo();return vo===null?Ds(n,e,t):Os(n,vo.memoizedState,e,t)},useTransition:function(){var e=Go(Ho)[0],t=Lo().memoizedState;return[typeof e==`boolean`?e:zo(e),t]},useSyncExternalStore:Ko,useId:Fs,useHostTransitionStatus:Ps,useFormState:ds,useActionState:ds,useOptimistic:function(e,t){var n=Lo();return vo===null?(n.baseState=e,[e,n.queue.dispatch]):$o(n,vo,e,t)},useMemoCache:Vo,useCacheRefresh:Is};Js.useEffectEvent=ys;function Ys(e,t,n,r){t=e.memoizedState,n=n(r,t),n=n==null?t:m({},t,n),e.memoizedState=n,e.lanes===0&&(e.updateQueue.baseState=n)}var Xs={enqueueSetState:function(e,t,n){e=e._reactInternals;var r=Du(),i=qa(r);i.payload=t,n!=null&&(i.callback=n),t=Ja(e,i,r),t!==null&&(L(t,e,r),Ya(t,e,r))},enqueueReplaceState:function(e,t,n){e=e._reactInternals;var r=Du(),i=qa(r);i.tag=1,i.payload=t,n!=null&&(i.callback=n),t=Ja(e,i,r),t!==null&&(L(t,e,r),Ya(t,e,r))},enqueueForceUpdate:function(e,t){e=e._reactInternals;var n=Du(),r=qa(n);r.tag=2,t!=null&&(r.callback=t),t=Ja(e,r,n),t!==null&&(L(t,e,n),Ya(t,e,n))}};function Zs(e,t,n,r,i,a,o){return e=e.stateNode,typeof e.shouldComponentUpdate==`function`?e.shouldComponentUpdate(r,a,o):t.prototype&&t.prototype.isPureReactComponent?!jr(n,r)||!jr(i,a):!0}function Qs(e,t,n,r){e=t.state,typeof t.componentWillReceiveProps==`function`&&t.componentWillReceiveProps(n,r),typeof t.UNSAFE_componentWillReceiveProps==`function`&&t.UNSAFE_componentWillReceiveProps(n,r),t.state!==e&&Xs.enqueueReplaceState(t,t.state,null)}function $s(e,t){var n=t;if(`ref`in t)for(var r in n={},t)r!==`ref`&&(n[r]=t[r]);if(e=e.defaultProps)for(var i in n===t&&(n=m({},n)),e)n[i]===void 0&&(n[i]=e[i]);return n}function ec(e){ni(e)}function tc(e){console.error(e)}function nc(e){ni(e)}function rc(e,t){try{var n=e.onUncaughtError;n(t.value,{componentStack:t.stack})}catch(e){setTimeout(function(){throw e})}}function ic(e,t,n){try{var r=e.onCaughtError;r(n.value,{componentStack:n.stack,errorBoundary:t.tag===1?t.stateNode:null})}catch(e){setTimeout(function(){throw e})}}function ac(e,t,n){return n=qa(n),n.tag=3,n.payload={element:null},n.callback=function(){rc(e,t)},n}function oc(e){return e=qa(e),e.tag=3,e}function sc(e,t,n,r){var i=n.type.getDerivedStateFromError;if(typeof i==`function`){var a=r.value;e.payload=function(){return i(a)},e.callback=function(){ic(t,n,r)}}var o=n.stateNode;o!==null&&typeof o.componentDidCatch==`function`&&(e.callback=function(){ic(t,n,r),typeof i!=`function`&&(_u===null?_u=new Set([this]):_u.add(this));var e=r.stack;this.componentDidCatch(r.value,{componentStack:e===null?``:e})})}function cc(e,t,n,r,a){if(n.flags|=32768,typeof r==`object`&&r&&typeof r.then==`function`){if(t=n.alternate,t!==null&&aa(t,n,a,!0),n=so.current,n!==null){switch(n.tag){case 31:case 13:return co===null?Bu():n.alternate===null&&iu===0&&(iu=3),n.flags&=-257,n.flags|=65536,n.lanes=a,r===Ma?n.flags|=16384:(t=n.updateQueue,t===null?n.updateQueue=new Set([r]):t.add(r),R(e,r,a)),!1;case 22:return n.flags|=65536,r===Ma?n.flags|=16384:(t=n.updateQueue,t===null?(t={transitions:null,markerInstances:null,retryQueue:new Set([r])},n.updateQueue=t):(n=t.retryQueue,n===null?t.retryQueue=new Set([r]):n.add(r)),R(e,r,a)),!1}throw Error(i(435,n.tag))}return R(e,r,a),Bu(),!1}if(Vi)return t=so.current,t===null?(r!==Wi&&(t=Error(i(423),{cause:r}),Zi(wi(t,n))),e=e.current.alternate,e.flags|=65536,a&=-a,e.lanes|=a,r=wi(r,n),a=ac(e.stateNode,r,a),Xa(e,a),iu!==4&&(iu=2)):(!(t.flags&65536)&&(t.flags|=256),t.flags|=65536,t.lanes=a,r!==Wi&&(e=Error(i(422),{cause:r}),Zi(wi(e,n)))),!1;var o=Error(i(520),{cause:r});if(o=wi(o,n),uu===null?uu=[o]:uu.push(o),iu!==4&&(iu=2),t===null)return!0;r=wi(r,n),n=t;do{switch(n.tag){case 3:return n.flags|=65536,e=a&-a,n.lanes|=e,e=ac(n.stateNode,r,e),Xa(n,e),!1;case 1:if(t=n.type,o=n.stateNode,!(n.flags&128)&&(typeof t.getDerivedStateFromError==`function`||o!==null&&typeof o.componentDidCatch==`function`&&(_u===null||!_u.has(o))))return n.flags|=65536,a&=-a,n.lanes|=a,a=oc(a),sc(a,e,n,r),Xa(n,a),!1}n=n.return}while(n!==null);return!1}var lc=Error(i(461)),uc=!1;function dc(e,t,n,r){t.child=e===null?Ua(t,null,n,r):Ha(t,e.child,n,r)}function fc(e,t,n,r,i){n=n.render;var a=t.ref;if(`ref`in r){var o={};for(var s in r)s!==`ref`&&(o[s]=r[s])}else o=r;return sa(t),r=ko(e,t,n,o,a,i),s=No(),e!==null&&!uc?(Po(e,t,i),Ic(e,t,i)):(Vi&&s&&Ii(t),t.flags|=1,dc(e,t,r,i),t.child)}function pc(e,t,n,r,i){if(e===null){var a=n.type;return typeof a==`function`&&!hi(a)&&a.defaultProps===void 0&&n.compare===null?(t.tag=15,t.type=a,mc(e,t,a,r,i)):(e=vi(n.type,null,r,t,t.mode,i),e.ref=t.ref,e.return=t,t.child=e)}if(a=e.child,!Lc(e,i)){var o=a.memoizedProps;if(n=n.compare,n=n===null?jr:n,n(o,r)&&e.ref===t.ref)return Ic(e,t,i)}return t.flags|=1,e=gi(a,r),e.ref=t.ref,e.return=t,t.child=e}function mc(e,t,n,r,i){if(e!==null){var a=e.memoizedProps;if(jr(a,r)&&e.ref===t.ref)if(uc=!1,t.pendingProps=r=a,Lc(e,i))e.flags&131072&&(uc=!0);else return t.lanes=e.lanes,Ic(e,t,i)}return Sc(e,t,n,r,i)}function hc(e,t,n,r){var i=r.children,a=e===null?null:e.memoizedState;if(e===null&&t.stateNode===null&&(t.stateNode={_visibility:1,_pendingMarkers:null,_retryCache:null,_transitions:null}),r.mode===`hidden`){if(t.flags&128){if(a=a===null?n:a.baseLanes|n,e!==null){for(r=t.child=e.child,i=0;r!==null;)i=i|r.lanes|r.childLanes,r=r.sibling;r=i&~a}else r=0,t.child=null;return _c(e,t,a,n,r)}if(n&536870912)t.memoizedState={baseLanes:0,cachePool:null},e!==null&&Da(t,a===null?null:a.cachePool),a===null?ao():io(t,a),fo(t);else return r=t.lanes=536870912,_c(e,t,a===null?n:a.baseLanes|n,n,r)}else a===null?(e!==null&&Da(t,null),ao(),po(t)):(Da(t,a.cachePool),io(t,a),po(t),t.memoizedState=null);return dc(e,t,i,n),t.child}function gc(e,t){return e!==null&&e.tag===22||t.stateNode!==null||(t.stateNode={_visibility:1,_pendingMarkers:null,_retryCache:null,_transitions:null}),t.sibling}function _c(e,t,n,r,i){var a=Ea();return a=a===null?null:{parent:ma._currentValue,pool:a},t.memoizedState={baseLanes:n,cachePool:a},e!==null&&Da(t,null),ao(),fo(t),e!==null&&aa(e,t,r,!0),t.childLanes=i,null}function vc(e,t){return t=jc({mode:t.mode,children:t.children},e.mode),t.ref=e.ref,e.child=t,t.return=e,t}function yc(e,t,n){return Ha(t,e.child,null,n),e=vc(t,t.pendingProps),e.flags|=2,mo(t),t.memoizedState=null,e}function bc(e,t,n){var r=t.pendingProps,a=(t.flags&128)!=0;if(t.flags&=-129,e===null){if(Vi){if(r.mode===`hidden`)return e=vc(t,r),t.lanes=536870912,gc(null,e);if(uo(t),(e=Bi)?(e=lf(e,Ui),e=e!==null&&e.data===`&`?e:null,e!==null&&(t.memoizedState={dehydrated:e,treeContext:ji===null?null:{id:Mi,overflow:Ni},retryLane:536870912,hydrationErrors:null},n=xi(e),n.return=t,t.child=n,zi=t,Bi=null)):e=null,e===null)throw Gi(t);return t.lanes=536870912,null}return vc(t,r)}var o=e.memoizedState;if(o!==null){var s=o.dehydrated;if(uo(t),a)if(t.flags&256)t.flags&=-257,t=yc(e,t,n);else if(t.memoizedState!==null)t.child=e.child,t.flags|=128,t=null;else throw Error(i(558));else if(uc||aa(e,t,n,!1),a=(n&e.childLanes)!==0,uc||a){if(r=Yl,r!==null&&(s=lt(r,n),s!==0&&s!==o.retryLane))throw o.retryLane=s,li(e,s),L(r,e,s),lc;Bu(),t=yc(e,t,n)}else e=o.treeContext,Bi=pf(s.nextSibling),zi=t,Vi=!0,Hi=null,Ui=!1,e!==null&&Ri(t,e),t=vc(t,r),t.flags|=4096;return t}return e=gi(e.child,{mode:r.mode,children:r.children}),e.ref=t.ref,t.child=e,e.return=t,e}function xc(e,t){var n=t.ref;if(n===null)e!==null&&e.ref!==null&&(t.flags|=4194816);else{if(typeof n!=`function`&&typeof n!=`object`)throw Error(i(284));(e===null||e.ref!==n)&&(t.flags|=4194816)}}function Sc(e,t,n,r,i){return sa(t),n=ko(e,t,n,r,void 0,i),r=No(),e!==null&&!uc?(Po(e,t,i),Ic(e,t,i)):(Vi&&r&&Ii(t),t.flags|=1,dc(e,t,n,i),t.child)}function Cc(e,t,n,r,i,a){return sa(t),t.updateQueue=null,n=jo(t,r,n,i),Ao(e),r=No(),e!==null&&!uc?(Po(e,t,a),Ic(e,t,a)):(Vi&&r&&Ii(t),t.flags|=1,dc(e,t,n,a),t.child)}function wc(e,t,n,r,i){if(sa(t),t.stateNode===null){var a=fi,o=n.contextType;typeof o==`object`&&o&&(a=ca(o)),a=new n(r,a),t.memoizedState=a.state!==null&&a.state!==void 0?a.state:null,a.updater=Xs,t.stateNode=a,a._reactInternals=t,a=t.stateNode,a.props=r,a.state=t.memoizedState,a.refs={},Ga(t),o=n.contextType,a.context=typeof o==`object`&&o?ca(o):fi,a.state=t.memoizedState,o=n.getDerivedStateFromProps,typeof o==`function`&&(Ys(t,n,o,r),a.state=t.memoizedState),typeof n.getDerivedStateFromProps==`function`||typeof a.getSnapshotBeforeUpdate==`function`||typeof a.UNSAFE_componentWillMount!=`function`&&typeof a.componentWillMount!=`function`||(o=a.state,typeof a.componentWillMount==`function`&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount==`function`&&a.UNSAFE_componentWillMount(),o!==a.state&&Xs.enqueueReplaceState(a,a.state,null),$a(t,r,a,i),Qa(),a.state=t.memoizedState),typeof a.componentDidMount==`function`&&(t.flags|=4194308),r=!0}else if(e===null){a=t.stateNode;var s=t.memoizedProps,c=$s(n,s);a.props=c;var l=a.context,u=n.contextType;o=fi,typeof u==`object`&&u&&(o=ca(u));var d=n.getDerivedStateFromProps;u=typeof d==`function`||typeof a.getSnapshotBeforeUpdate==`function`,s=t.pendingProps!==s,u||typeof a.UNSAFE_componentWillReceiveProps!=`function`&&typeof a.componentWillReceiveProps!=`function`||(s||l!==o)&&Qs(t,a,r,o),Wa=!1;var f=t.memoizedState;a.state=f,$a(t,r,a,i),Qa(),l=t.memoizedState,s||f!==l||Wa?(typeof d==`function`&&(Ys(t,n,d,r),l=t.memoizedState),(c=Wa||Zs(t,n,c,r,f,l,o))?(u||typeof a.UNSAFE_componentWillMount!=`function`&&typeof a.componentWillMount!=`function`||(typeof a.componentWillMount==`function`&&a.componentWillMount(),typeof a.UNSAFE_componentWillMount==`function`&&a.UNSAFE_componentWillMount()),typeof a.componentDidMount==`function`&&(t.flags|=4194308)):(typeof a.componentDidMount==`function`&&(t.flags|=4194308),t.memoizedProps=r,t.memoizedState=l),a.props=r,a.state=l,a.context=o,r=c):(typeof a.componentDidMount==`function`&&(t.flags|=4194308),r=!1)}else{a=t.stateNode,Ka(e,t),o=t.memoizedProps,u=$s(n,o),a.props=u,d=t.pendingProps,f=a.context,l=n.contextType,c=fi,typeof l==`object`&&l&&(c=ca(l)),s=n.getDerivedStateFromProps,(l=typeof s==`function`||typeof a.getSnapshotBeforeUpdate==`function`)||typeof a.UNSAFE_componentWillReceiveProps!=`function`&&typeof a.componentWillReceiveProps!=`function`||(o!==d||f!==c)&&Qs(t,a,r,c),Wa=!1,f=t.memoizedState,a.state=f,$a(t,r,a,i),Qa();var p=t.memoizedState;o!==d||f!==p||Wa||e!==null&&e.dependencies!==null&&oa(e.dependencies)?(typeof s==`function`&&(Ys(t,n,s,r),p=t.memoizedState),(u=Wa||Zs(t,n,u,r,f,p,c)||e!==null&&e.dependencies!==null&&oa(e.dependencies))?(l||typeof a.UNSAFE_componentWillUpdate!=`function`&&typeof a.componentWillUpdate!=`function`||(typeof a.componentWillUpdate==`function`&&a.componentWillUpdate(r,p,c),typeof a.UNSAFE_componentWillUpdate==`function`&&a.UNSAFE_componentWillUpdate(r,p,c)),typeof a.componentDidUpdate==`function`&&(t.flags|=4),typeof a.getSnapshotBeforeUpdate==`function`&&(t.flags|=1024)):(typeof a.componentDidUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=4),typeof a.getSnapshotBeforeUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=1024),t.memoizedProps=r,t.memoizedState=p),a.props=r,a.state=p,a.context=c,r=u):(typeof a.componentDidUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=4),typeof a.getSnapshotBeforeUpdate!=`function`||o===e.memoizedProps&&f===e.memoizedState||(t.flags|=1024),r=!1)}return a=r,xc(e,t),r=(t.flags&128)!=0,a||r?(a=t.stateNode,n=r&&typeof n.getDerivedStateFromError!=`function`?null:a.render(),t.flags|=1,e!==null&&r?(t.child=Ha(t,e.child,null,i),t.child=Ha(t,null,n,i)):dc(e,t,n,i),t.memoizedState=a.state,e=t.child):e=Ic(e,t,i),e}function Tc(e,t,n,r){return Yi(),t.flags|=256,dc(e,t,n,r),t.child}var Ec={dehydrated:null,treeContext:null,retryLane:0,hydrationErrors:null};function Dc(e){return{baseLanes:e,cachePool:Oa()}}function Oc(e,t,n){return e=e===null?0:e.childLanes&~n,t&&(e|=cu),e}function kc(e,t,n){var r=t.pendingProps,a=!1,o=(t.flags&128)!=0,s;if((s=o)||(s=e!==null&&e.memoizedState===null?!1:(ho.current&2)!=0),s&&(a=!0,t.flags&=-129),s=(t.flags&32)!=0,t.flags&=-33,e===null){if(Vi){if(a?lo(t):po(t),(e=Bi)?(e=lf(e,Ui),e=e!==null&&e.data!==`&`?e:null,e!==null&&(t.memoizedState={dehydrated:e,treeContext:ji===null?null:{id:Mi,overflow:Ni},retryLane:536870912,hydrationErrors:null},n=xi(e),n.return=t,t.child=n,zi=t,Bi=null)):e=null,e===null)throw Gi(t);return df(e)?t.lanes=32:t.lanes=536870912,null}var c=r.children;return r=r.fallback,a?(po(t),a=t.mode,c=jc({mode:`hidden`,children:c},a),r=yi(r,a,n,null),c.return=t,r.return=t,c.sibling=r,t.child=c,r=t.child,r.memoizedState=Dc(n),r.childLanes=Oc(e,s,n),t.memoizedState=Ec,gc(null,r)):(lo(t),Ac(t,c))}var l=e.memoizedState;if(l!==null&&(c=l.dehydrated,c!==null)){if(o)t.flags&256?(lo(t),t.flags&=-257,t=Mc(e,t,n)):t.memoizedState===null?(po(t),c=r.fallback,a=t.mode,r=jc({mode:`visible`,children:r.children},a),c=yi(c,a,n,null),c.flags|=2,r.return=t,c.return=t,r.sibling=c,t.child=r,Ha(t,e.child,null,n),r=t.child,r.memoizedState=Dc(n),r.childLanes=Oc(e,s,n),t.memoizedState=Ec,t=gc(null,r)):(po(t),t.child=e.child,t.flags|=128,t=null);else if(lo(t),df(c)){if(s=c.nextSibling&&c.nextSibling.dataset,s)var u=s.dgst;s=u,r=Error(i(419)),r.stack=``,r.digest=s,Zi({value:r,source:null,stack:null}),t=Mc(e,t,n)}else if(uc||aa(e,t,n,!1),s=(n&e.childLanes)!==0,uc||s){if(s=Yl,s!==null&&(r=lt(s,n),r!==0&&r!==l.retryLane))throw l.retryLane=r,li(e,r),L(s,e,r),lc;uf(c)||Bu(),t=Mc(e,t,n)}else uf(c)?(t.flags|=192,t.child=e.child,t=null):(e=l.treeContext,Bi=pf(c.nextSibling),zi=t,Vi=!0,Hi=null,Ui=!1,e!==null&&Ri(t,e),t=Ac(t,r.children),t.flags|=4096);return t}return a?(po(t),c=r.fallback,a=t.mode,l=e.child,u=l.sibling,r=gi(l,{mode:`hidden`,children:r.children}),r.subtreeFlags=l.subtreeFlags&65011712,u===null?(c=yi(c,a,n,null),c.flags|=2):c=gi(u,c),c.return=t,r.return=t,r.sibling=c,t.child=r,gc(null,r),r=t.child,c=e.child.memoizedState,c===null?c=Dc(n):(a=c.cachePool,a===null?a=Oa():(l=ma._currentValue,a=a.parent===l?a:{parent:l,pool:l}),c={baseLanes:c.baseLanes|n,cachePool:a}),r.memoizedState=c,r.childLanes=Oc(e,s,n),t.memoizedState=Ec,gc(e.child,r)):(lo(t),n=e.child,e=n.sibling,n=gi(n,{mode:`visible`,children:r.children}),n.return=t,n.sibling=null,e!==null&&(s=t.deletions,s===null?(t.deletions=[e],t.flags|=16):s.push(e)),t.child=n,t.memoizedState=null,n)}function Ac(e,t){return t=jc({mode:`visible`,children:t},e.mode),t.return=e,e.child=t}function jc(e,t){return e=mi(22,e,null,t),e.lanes=0,e}function Mc(e,t,n){return Ha(t,e.child,null,n),e=Ac(t,t.pendingProps.children),e.flags|=2,t.memoizedState=null,e}function Nc(e,t,n){e.lanes|=t;var r=e.alternate;r!==null&&(r.lanes|=t),ra(e.return,t,n)}function Pc(e,t,n,r,i,a){var o=e.memoizedState;o===null?e.memoizedState={isBackwards:t,rendering:null,renderingStartTime:0,last:r,tail:n,tailMode:i,treeForkCount:a}:(o.isBackwards=t,o.rendering=null,o.renderingStartTime=0,o.last=r,o.tail=n,o.tailMode=i,o.treeForkCount=a)}function Fc(e,t,n){var r=t.pendingProps,i=r.revealOrder,a=r.tail;r=r.children;var o=ho.current,s=(o&2)!=0;if(s?(o=o&1|2,t.flags|=128):o&=1,pe(ho,o),dc(e,t,r,n),r=Vi?Oi:0,!s&&e!==null&&e.flags&128)a:for(e=t.child;e!==null;){if(e.tag===13)e.memoizedState!==null&&Nc(e,n,t);else if(e.tag===19)Nc(e,n,t);else if(e.child!==null){e.child.return=e,e=e.child;continue}if(e===t)break a;for(;e.sibling===null;){if(e.return===null||e.return===t)break a;e=e.return}e.sibling.return=e.return,e=e.sibling}switch(i){case`forwards`:for(n=t.child,i=null;n!==null;)e=n.alternate,e!==null&&go(e)===null&&(i=n),n=n.sibling;n=i,n===null?(i=t.child,t.child=null):(i=n.sibling,n.sibling=null),Pc(t,!1,i,n,a,r);break;case`backwards`:case`unstable_legacy-backwards`:for(n=null,i=t.child,t.child=null;i!==null;){if(e=i.alternate,e!==null&&go(e)===null){t.child=i;break}e=i.sibling,i.sibling=n,n=i,i=e}Pc(t,!0,n,null,a,r);break;case`together`:Pc(t,!1,null,null,void 0,r);break;default:t.memoizedState=null}return t.child}function Ic(e,t,n){if(e!==null&&(t.dependencies=e.dependencies),au|=t.lanes,(n&t.childLanes)===0)if(e!==null){if(aa(e,t,n,!1),(n&t.childLanes)===0)return null}else return null;if(e!==null&&t.child!==e.child)throw Error(i(153));if(t.child!==null){for(e=t.child,n=gi(e,e.pendingProps),t.child=n,n.return=t;e.sibling!==null;)e=e.sibling,n=n.sibling=gi(e,e.pendingProps),n.return=t;n.sibling=null}return t.child}function Lc(e,t){return(e.lanes&t)===0?(e=e.dependencies,!!(e!==null&&oa(e))):!0}function Rc(e,t,n){switch(t.tag){case 3:ve(t,t.stateNode.containerInfo),ta(t,ma,e.memoizedState.cache),Yi();break;case 27:case 5:be(t);break;case 4:ve(t,t.stateNode.containerInfo);break;case 10:ta(t,t.type,t.memoizedProps.value);break;case 31:if(t.memoizedState!==null)return t.flags|=128,uo(t),null;break;case 13:var r=t.memoizedState;if(r!==null)return r.dehydrated===null?(n&t.child.childLanes)===0?(lo(t),e=Ic(e,t,n),e===null?null:e.sibling):kc(e,t,n):(lo(t),t.flags|=128,null);lo(t);break;case 19:var i=(e.flags&128)!=0;if(r=(n&t.childLanes)!==0,r||=(aa(e,t,n,!1),(n&t.childLanes)!==0),i){if(r)return Fc(e,t,n);t.flags|=128}if(i=t.memoizedState,i!==null&&(i.rendering=null,i.tail=null,i.lastEffect=null),pe(ho,ho.current),r)break;return null;case 22:return t.lanes=0,hc(e,t,n,t.pendingProps);case 24:ta(t,ma,e.memoizedState.cache)}return Ic(e,t,n)}function zc(e,t,n){if(e!==null)if(e.memoizedProps!==t.pendingProps)uc=!0;else{if(!Lc(e,n)&&!(t.flags&128))return uc=!1,Rc(e,t,n);uc=!!(e.flags&131072)}else uc=!1,Vi&&t.flags&1048576&&Fi(t,Oi,t.index);switch(t.lanes=0,t.tag){case 16:a:{var r=t.pendingProps;if(e=P(t.elementType),t.type=e,typeof e==`function`)hi(e)?(r=$s(e,r),t.tag=1,t=wc(null,t,e,r,n)):(t.tag=0,t=Sc(null,t,e,r,n));else{if(e!=null){var a=e.$$typeof;if(a===w){t.tag=11,t=fc(null,t,e,r,n);break a}else if(a===D){t.tag=14,t=pc(null,t,e,r,n);break a}}throw t=ae(e)||e,Error(i(306,t,``))}}return t;case 0:return Sc(e,t,t.type,t.pendingProps,n);case 1:return r=t.type,a=$s(r,t.pendingProps),wc(e,t,r,a,n);case 3:a:{if(ve(t,t.stateNode.containerInfo),e===null)throw Error(i(387));r=t.pendingProps;var o=t.memoizedState;a=o.element,Ka(e,t),$a(t,r,null,n);var s=t.memoizedState;if(r=s.cache,ta(t,ma,r),r!==o.cache&&ia(t,[ma],n,!0),Qa(),r=s.element,o.isDehydrated)if(o={element:r,isDehydrated:!1,cache:s.cache},t.updateQueue.baseState=o,t.memoizedState=o,t.flags&256){t=Tc(e,t,r,n);break a}else if(r!==a){a=wi(Error(i(424)),t),Zi(a),t=Tc(e,t,r,n);break a}else{switch(e=t.stateNode.containerInfo,e.nodeType){case 9:e=e.body;break;default:e=e.nodeName===`HTML`?e.ownerDocument.body:e}for(Bi=pf(e.firstChild),zi=t,Vi=!0,Hi=null,Ui=!0,n=Ua(t,null,r,n),t.child=n;n;)n.flags=n.flags&-3|4096,n=n.sibling}else{if(Yi(),r===a){t=Ic(e,t,n);break a}dc(e,t,r,n)}t=t.child}return t;case 26:return xc(e,t),e===null?(n=Nf(t.type,null,t.pendingProps,null))?t.memoizedState=n:Vi||(n=t.type,e=t.pendingProps,r=V(ge.current).createElement(n),r[ht]=t,r[gt]=e,Jd(r,n,e),Ot(r),t.stateNode=r):t.memoizedState=Nf(t.type,e.memoizedProps,t.pendingProps,e.memoizedState),null;case 27:return be(t),e===null&&Vi&&(r=t.stateNode=Y(t.type,t.pendingProps,ge.current),zi=t,Ui=!0,a=Bi,af(t.type)?(mf=a,Bi=pf(r.firstChild)):Bi=a),dc(e,t,t.pendingProps.children,n),xc(e,t),e===null&&(t.flags|=4194304),t.child;case 5:return e===null&&Vi&&((a=r=Bi)&&(r=sf(r,t.type,t.pendingProps,Ui),r===null?a=!1:(t.stateNode=r,zi=t,Bi=pf(r.firstChild),Ui=!1,a=!0)),a||Gi(t)),be(t),a=t.type,o=t.pendingProps,s=e===null?null:e.memoizedProps,r=o.children,W(a,o)?r=null:s!==null&&W(a,s)&&(t.flags|=32),t.memoizedState!==null&&(a=ko(e,t,Mo,null,null,n),tp._currentValue=a),xc(e,t),dc(e,t,r,n),t.child;case 6:return e===null&&Vi&&((e=n=Bi)&&(n=cf(n,t.pendingProps,Ui),n===null?e=!1:(t.stateNode=n,zi=t,Bi=null,e=!0)),e||Gi(t)),null;case 13:return kc(e,t,n);case 4:return ve(t,t.stateNode.containerInfo),r=t.pendingProps,e===null?t.child=Ha(t,null,r,n):dc(e,t,r,n),t.child;case 11:return fc(e,t,t.type,t.pendingProps,n);case 7:return dc(e,t,t.pendingProps,n),t.child;case 8:return dc(e,t,t.pendingProps.children,n),t.child;case 12:return dc(e,t,t.pendingProps.children,n),t.child;case 10:return r=t.pendingProps,ta(t,t.type,r.value),dc(e,t,r.children,n),t.child;case 9:return a=t.type._context,r=t.pendingProps.children,sa(t),a=ca(a),r=r(a),t.flags|=1,dc(e,t,r,n),t.child;case 14:return pc(e,t,t.type,t.pendingProps,n);case 15:return mc(e,t,t.type,t.pendingProps,n);case 19:return Fc(e,t,n);case 31:return bc(e,t,n);case 22:return hc(e,t,n,t.pendingProps);case 24:return sa(t),r=ca(ma),e===null?(a=Ea(),a===null&&(a=Yl,o=ha(),a.pooledCache=o,o.refCount++,o!==null&&(a.pooledCacheLanes|=n),a=o),t.memoizedState={parent:r,cache:a},Ga(t),ta(t,ma,a)):((e.lanes&n)!==0&&(Ka(e,t),$a(t,null,null,n),Qa()),a=e.memoizedState,o=t.memoizedState,a.parent===r?(r=o.cache,ta(t,ma,r),r!==a.cache&&ia(t,[ma],n,!0)):(a={parent:r,cache:r},t.memoizedState=a,t.lanes===0&&(t.memoizedState=t.updateQueue.baseState=a),ta(t,ma,r))),dc(e,t,t.pendingProps.children,n),t.child;case 29:throw t.pendingProps}throw Error(i(156,t.tag))}function Bc(e){e.flags|=4}function Vc(e,t,n,r,i){if((t=(e.mode&32)!=0)&&(t=!1),t){if(e.flags|=16777216,(i&335544128)===i)if(e.stateNode.complete)e.flags|=8192;else if(Lu())e.flags|=8192;else throw Pa=Ma,Aa}else e.flags&=-16777217}function Hc(e,t){if(t.type!==`stylesheet`||t.state.loading&4)e.flags&=-16777217;else if(e.flags|=16777216,!qf(t))if(Lu())e.flags|=8192;else throw Pa=Ma,Aa}function Uc(e,t){t!==null&&(e.flags|=4),e.flags&16384&&(t=e.tag===22?536870912:rt(),e.lanes|=t,lu|=t)}function Wc(e,t){if(!Vi)switch(e.tailMode){case`hidden`:t=e.tail;for(var n=null;t!==null;)t.alternate!==null&&(n=t),t=t.sibling;n===null?e.tail=null:n.sibling=null;break;case`collapsed`:n=e.tail;for(var r=null;n!==null;)n.alternate!==null&&(r=n),n=n.sibling;r===null?t||e.tail===null?e.tail=null:e.tail.sibling=null:r.sibling=null}}function Gc(e){var t=e.alternate!==null&&e.alternate.child===e.child,n=0,r=0;if(t)for(var i=e.child;i!==null;)n|=i.lanes|i.childLanes,r|=i.subtreeFlags&65011712,r|=i.flags&65011712,i.return=e,i=i.sibling;else for(i=e.child;i!==null;)n|=i.lanes|i.childLanes,r|=i.subtreeFlags,r|=i.flags,i.return=e,i=i.sibling;return e.subtreeFlags|=r,e.childLanes=n,t}function Kc(e,t,n){var r=t.pendingProps;switch(Li(t),t.tag){case 16:case 15:case 0:case 11:case 7:case 8:case 12:case 9:case 14:return Gc(t),null;case 1:return Gc(t),null;case 3:return n=t.stateNode,r=null,e!==null&&(r=e.memoizedState.cache),t.memoizedState.cache!==r&&(t.flags|=2048),na(ma),ye(),n.pendingContext&&(n.context=n.pendingContext,n.pendingContext=null),(e===null||e.child===null)&&(Ji(t)?Bc(t):e===null||e.memoizedState.isDehydrated&&!(t.flags&256)||(t.flags|=1024,Xi())),Gc(t),null;case 26:var a=t.type,o=t.memoizedState;return e===null?(Bc(t),o===null?(Gc(t),Vc(t,a,null,r,n)):(Gc(t),Hc(t,o))):o?o===e.memoizedState?(Gc(t),t.flags&=-16777217):(Bc(t),Gc(t),Hc(t,o)):(e=e.memoizedProps,e!==r&&Bc(t),Gc(t),Vc(t,a,e,r,n)),null;case 27:if(xe(t),n=ge.current,a=t.type,e!==null&&t.stateNode!=null)e.memoizedProps!==r&&Bc(t);else{if(!r){if(t.stateNode===null)throw Error(i(166));return Gc(t),null}e=me.current,Ji(t)?Ki(t,e):(e=Y(a,r,n),t.stateNode=e,Bc(t))}return Gc(t),null;case 5:if(xe(t),a=t.type,e!==null&&t.stateNode!=null)e.memoizedProps!==r&&Bc(t);else{if(!r){if(t.stateNode===null)throw Error(i(166));return Gc(t),null}if(o=me.current,Ji(t))Ki(t,o);else{var s=V(ge.current);switch(o){case 1:o=s.createElementNS(`http://www.w3.org/2000/svg`,a);break;case 2:o=s.createElementNS(`http://www.w3.org/1998/Math/MathML`,a);break;default:switch(a){case`svg`:o=s.createElementNS(`http://www.w3.org/2000/svg`,a);break;case`math`:o=s.createElementNS(`http://www.w3.org/1998/Math/MathML`,a);break;case`script`:o=s.createElement(`div`),o.innerHTML=`<script><\/script>`,o=o.removeChild(o.firstChild);break;case`select`:o=typeof r.is==`string`?s.createElement(`select`,{is:r.is}):s.createElement(`select`),r.multiple?o.multiple=!0:r.size&&(o.size=r.size);break;default:o=typeof r.is==`string`?s.createElement(a,{is:r.is}):s.createElement(a)}}o[ht]=t,o[gt]=r;a:for(s=t.child;s!==null;){if(s.tag===5||s.tag===6)o.appendChild(s.stateNode);else if(s.tag!==4&&s.tag!==27&&s.child!==null){s.child.return=s,s=s.child;continue}if(s===t)break a;for(;s.sibling===null;){if(s.return===null||s.return===t)break a;s=s.return}s.sibling.return=s.return,s=s.sibling}t.stateNode=o;a:switch(Jd(o,a,r),a){case`button`:case`input`:case`select`:case`textarea`:r=!!r.autoFocus;break a;case`img`:r=!0;break a;default:r=!1}r&&Bc(t)}}return Gc(t),Vc(t,t.type,e===null?null:e.memoizedProps,t.pendingProps,n),null;case 6:if(e&&t.stateNode!=null)e.memoizedProps!==r&&Bc(t);else{if(typeof r!=`string`&&t.stateNode===null)throw Error(i(166));if(e=ge.current,Ji(t)){if(e=t.stateNode,n=t.memoizedProps,r=null,a=zi,a!==null)switch(a.tag){case 27:case 5:r=a.memoizedProps}e[ht]=t,e=!!(e.nodeValue===n||r!==null&&!0===r.suppressHydrationWarning||Gd(e.nodeValue,n)),e||Gi(t,!0)}else e=V(e).createTextNode(r),e[ht]=t,t.stateNode=e}return Gc(t),null;case 31:if(n=t.memoizedState,e===null||e.memoizedState!==null){if(r=Ji(t),n!==null){if(e===null){if(!r)throw Error(i(318));if(e=t.memoizedState,e=e===null?null:e.dehydrated,!e)throw Error(i(557));e[ht]=t}else Yi(),!(t.flags&128)&&(t.memoizedState=null),t.flags|=4;Gc(t),e=!1}else n=Xi(),e!==null&&e.memoizedState!==null&&(e.memoizedState.hydrationErrors=n),e=!0;if(!e)return t.flags&256?(mo(t),t):(mo(t),null);if(t.flags&128)throw Error(i(558))}return Gc(t),null;case 13:if(r=t.memoizedState,e===null||e.memoizedState!==null&&e.memoizedState.dehydrated!==null){if(a=Ji(t),r!==null&&r.dehydrated!==null){if(e===null){if(!a)throw Error(i(318));if(a=t.memoizedState,a=a===null?null:a.dehydrated,!a)throw Error(i(317));a[ht]=t}else Yi(),!(t.flags&128)&&(t.memoizedState=null),t.flags|=4;Gc(t),a=!1}else a=Xi(),e!==null&&e.memoizedState!==null&&(e.memoizedState.hydrationErrors=a),a=!0;if(!a)return t.flags&256?(mo(t),t):(mo(t),null)}return mo(t),t.flags&128?(t.lanes=n,t):(n=r!==null,e=e!==null&&e.memoizedState!==null,n&&(r=t.child,a=null,r.alternate!==null&&r.alternate.memoizedState!==null&&r.alternate.memoizedState.cachePool!==null&&(a=r.alternate.memoizedState.cachePool.pool),o=null,r.memoizedState!==null&&r.memoizedState.cachePool!==null&&(o=r.memoizedState.cachePool.pool),o!==a&&(r.flags|=2048)),n!==e&&n&&(t.child.flags|=8192),Uc(t,t.updateQueue),Gc(t),null);case 4:return ye(),e===null&&Fd(t.stateNode.containerInfo),Gc(t),null;case 10:return na(t.type),Gc(t),null;case 19:if(fe(ho),r=t.memoizedState,r===null)return Gc(t),null;if(a=(t.flags&128)!=0,o=r.rendering,o===null)if(a)Wc(r,!1);else{if(iu!==0||e!==null&&e.flags&128)for(e=t.child;e!==null;){if(o=go(e),o!==null){for(t.flags|=128,Wc(r,!1),e=o.updateQueue,t.updateQueue=e,Uc(t,e),t.subtreeFlags=0,e=n,n=t.child;n!==null;)_i(n,e),n=n.sibling;return pe(ho,ho.current&1|2),Vi&&Pi(t,r.treeForkCount),t.child}e=e.sibling}r.tail!==null&&Pe()>hu&&(t.flags|=128,a=!0,Wc(r,!1),t.lanes=4194304)}else{if(!a)if(e=go(o),e!==null){if(t.flags|=128,a=!0,e=e.updateQueue,t.updateQueue=e,Uc(t,e),Wc(r,!0),r.tail===null&&r.tailMode===`hidden`&&!o.alternate&&!Vi)return Gc(t),null}else 2*Pe()-r.renderingStartTime>hu&&n!==536870912&&(t.flags|=128,a=!0,Wc(r,!1),t.lanes=4194304);r.isBackwards?(o.sibling=t.child,t.child=o):(e=r.last,e===null?t.child=o:e.sibling=o,r.last=o)}return r.tail===null?(Gc(t),null):(e=r.tail,r.rendering=e,r.tail=e.sibling,r.renderingStartTime=Pe(),e.sibling=null,n=ho.current,pe(ho,a?n&1|2:n&1),Vi&&Pi(t,r.treeForkCount),e);case 22:case 23:return mo(t),oo(),r=t.memoizedState!==null,e===null?r&&(t.flags|=8192):e.memoizedState!==null!==r&&(t.flags|=8192),r?n&536870912&&!(t.flags&128)&&(Gc(t),t.subtreeFlags&6&&(t.flags|=8192)):Gc(t),n=t.updateQueue,n!==null&&Uc(t,n.retryQueue),n=null,e!==null&&e.memoizedState!==null&&e.memoizedState.cachePool!==null&&(n=e.memoizedState.cachePool.pool),r=null,t.memoizedState!==null&&t.memoizedState.cachePool!==null&&(r=t.memoizedState.cachePool.pool),r!==n&&(t.flags|=2048),e!==null&&fe(Ta),null;case 24:return n=null,e!==null&&(n=e.memoizedState.cache),t.memoizedState.cache!==n&&(t.flags|=2048),na(ma),Gc(t),null;case 25:return null;case 30:return null}throw Error(i(156,t.tag))}function qc(e,t){switch(Li(t),t.tag){case 1:return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 3:return na(ma),ye(),e=t.flags,e&65536&&!(e&128)?(t.flags=e&-65537|128,t):null;case 26:case 27:case 5:return xe(t),null;case 31:if(t.memoizedState!==null){if(mo(t),t.alternate===null)throw Error(i(340));Yi()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 13:if(mo(t),e=t.memoizedState,e!==null&&e.dehydrated!==null){if(t.alternate===null)throw Error(i(340));Yi()}return e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 19:return fe(ho),null;case 4:return ye(),null;case 10:return na(t.type),null;case 22:case 23:return mo(t),oo(),e!==null&&fe(Ta),e=t.flags,e&65536?(t.flags=e&-65537|128,t):null;case 24:return na(ma),null;case 25:return null;default:return null}}function Jc(e,t){switch(Li(t),t.tag){case 3:na(ma),ye();break;case 26:case 27:case 5:xe(t);break;case 4:ye();break;case 31:t.memoizedState!==null&&mo(t);break;case 13:mo(t);break;case 19:fe(ho);break;case 10:na(t.type);break;case 22:case 23:mo(t),oo(),e!==null&&fe(Ta);break;case 24:na(ma)}}function Yc(e,t){try{var n=t.updateQueue,r=n===null?null:n.lastEffect;if(r!==null){var i=r.next;n=i;do{if((n.tag&e)===e){r=void 0;var a=n.create,o=n.inst;r=a(),o.destroy=r}n=n.next}while(n!==i)}}catch(e){id(t,t.return,e)}}function Xc(e,t,n){try{var r=t.updateQueue,i=r===null?null:r.lastEffect;if(i!==null){var a=i.next;r=a;do{if((r.tag&e)===e){var o=r.inst,s=o.destroy;if(s!==void 0){o.destroy=void 0,i=t;var c=n,l=s;try{l()}catch(e){id(i,c,e)}}}r=r.next}while(r!==a)}}catch(e){id(t,t.return,e)}}function Zc(e){var t=e.updateQueue;if(t!==null){var n=e.stateNode;try{to(t,n)}catch(t){id(e,e.return,t)}}}function Qc(e,t,n){n.props=$s(e.type,e.memoizedProps),n.state=e.memoizedState;try{n.componentWillUnmount()}catch(n){id(e,t,n)}}function $c(e,t){try{var n=e.ref;if(n!==null){switch(e.tag){case 26:case 27:case 5:var r=e.stateNode;break;case 30:r=e.stateNode;break;default:r=e.stateNode}typeof n==`function`?e.refCleanup=n(r):n.current=r}}catch(n){id(e,t,n)}}function el(e,t){var n=e.ref,r=e.refCleanup;if(n!==null)if(typeof r==`function`)try{r()}catch(n){id(e,t,n)}finally{e.refCleanup=null,e=e.alternate,e!=null&&(e.refCleanup=null)}else if(typeof n==`function`)try{n(null)}catch(n){id(e,t,n)}else n.current=null}function tl(e){var t=e.type,n=e.memoizedProps,r=e.stateNode;try{a:switch(t){case`button`:case`input`:case`select`:case`textarea`:n.autoFocus&&r.focus();break a;case`img`:n.src?r.src=n.src:n.srcSet&&(r.srcset=n.srcSet)}}catch(t){id(e,e.return,t)}}function nl(e,t,n){try{var r=e.stateNode;Yd(r,e.type,n,t),r[gt]=t}catch(t){id(e,e.return,t)}}function rl(e){return e.tag===5||e.tag===3||e.tag===26||e.tag===27&&af(e.type)||e.tag===4}function il(e){a:for(;;){for(;e.sibling===null;){if(e.return===null||rl(e.return))return null;e=e.return}for(e.sibling.return=e.return,e=e.sibling;e.tag!==5&&e.tag!==6&&e.tag!==18;){if(e.tag===27&&af(e.type)||e.flags&2||e.child===null||e.tag===4)continue a;e.child.return=e,e=e.child}if(!(e.flags&2))return e.stateNode}}function al(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?(n.nodeType===9?n.body:n.nodeName===`HTML`?n.ownerDocument.body:n).insertBefore(e,t):(t=n.nodeType===9?n.body:n.nodeName===`HTML`?n.ownerDocument.body:n,t.appendChild(e),n=n._reactRootContainer,n!=null||t.onclick!==null||(t.onclick=ln));else if(r!==4&&(r===27&&af(e.type)&&(n=e.stateNode,t=null),e=e.child,e!==null))for(al(e,t,n),e=e.sibling;e!==null;)al(e,t,n),e=e.sibling}function ol(e,t,n){var r=e.tag;if(r===5||r===6)e=e.stateNode,t?n.insertBefore(e,t):n.appendChild(e);else if(r!==4&&(r===27&&af(e.type)&&(n=e.stateNode),e=e.child,e!==null))for(ol(e,t,n),e=e.sibling;e!==null;)ol(e,t,n),e=e.sibling}function sl(e){var t=e.stateNode,n=e.memoizedProps;try{for(var r=e.type,i=t.attributes;i.length;)t.removeAttributeNode(i[0]);Jd(t,r,n),t[ht]=e,t[gt]=n}catch(t){id(e,e.return,t)}}var cl=!1,ll=!1,ul=!1,dl=typeof WeakSet==`function`?WeakSet:Set,fl=null;function pl(e,t){if(e=e.containerInfo,Qd=up,e=Fr(e),Ir(e)){if(`selectionStart`in e)var n={start:e.selectionStart,end:e.selectionEnd};else a:{n=(n=e.ownerDocument)&&n.defaultView||window;var r=n.getSelection&&n.getSelection();if(r&&r.rangeCount!==0){n=r.anchorNode;var a=r.anchorOffset,o=r.focusNode;r=r.focusOffset;try{n.nodeType,o.nodeType}catch{n=null;break a}var s=0,c=-1,l=-1,u=0,d=0,f=e,p=null;b:for(;;){for(var m;f!==n||a!==0&&f.nodeType!==3||(c=s+a),f!==o||r!==0&&f.nodeType!==3||(l=s+r),f.nodeType===3&&(s+=f.nodeValue.length),(m=f.firstChild)!==null;)p=f,f=m;for(;;){if(f===e)break b;if(p===n&&++u===a&&(c=s),p===o&&++d===r&&(l=s),(m=f.nextSibling)!==null)break;f=p,p=f.parentNode}f=m}n=c===-1||l===-1?null:{start:c,end:l}}else n=null}n||={start:0,end:0}}else n=null;for(B={focusedElem:e,selectionRange:n},up=!1,fl=t;fl!==null;)if(t=fl,e=t.child,t.subtreeFlags&1028&&e!==null)e.return=t,fl=e;else for(;fl!==null;){switch(t=fl,o=t.alternate,e=t.flags,t.tag){case 0:if(e&4&&(e=t.updateQueue,e=e===null?null:e.events,e!==null))for(n=0;n<e.length;n++)a=e[n],a.ref.impl=a.nextImpl;break;case 11:case 15:break;case 1:if(e&1024&&o!==null){e=void 0,n=t,a=o.memoizedProps,o=o.memoizedState,r=n.stateNode;try{var h=$s(n.type,a);e=r.getSnapshotBeforeUpdate(h,o),r.__reactInternalSnapshotBeforeUpdate=e}catch(e){id(n,n.return,e)}}break;case 3:if(e&1024){if(e=t.stateNode.containerInfo,n=e.nodeType,n===9)J(e);else if(n===1)switch(e.nodeName){case`HEAD`:case`HTML`:case`BODY`:J(e);break;default:e.textContent=``}}break;case 5:case 26:case 27:case 6:case 4:case 17:break;default:if(e&1024)throw Error(i(163))}if(e=t.sibling,e!==null){e.return=t.return,fl=e;break}fl=t.return}}function ml(e,t,n){var r=n.flags;switch(n.tag){case 0:case 11:case 15:kl(e,n),r&4&&Yc(5,n);break;case 1:if(kl(e,n),r&4)if(e=n.stateNode,t===null)try{e.componentDidMount()}catch(e){id(n,n.return,e)}else{var i=$s(n.type,t.memoizedProps);t=t.memoizedState;try{e.componentDidUpdate(i,t,e.__reactInternalSnapshotBeforeUpdate)}catch(e){id(n,n.return,e)}}r&64&&Zc(n),r&512&&$c(n,n.return);break;case 3:if(kl(e,n),r&64&&(e=n.updateQueue,e!==null)){if(t=null,n.child!==null)switch(n.child.tag){case 27:case 5:t=n.child.stateNode;break;case 1:t=n.child.stateNode}try{to(e,t)}catch(e){id(n,n.return,e)}}break;case 27:t===null&&r&4&&sl(n);case 26:case 5:kl(e,n),t===null&&r&4&&tl(n),r&512&&$c(n,n.return);break;case 12:kl(e,n);break;case 31:kl(e,n),r&4&&bl(e,n);break;case 13:kl(e,n),r&4&&xl(e,n),r&64&&(e=n.memoizedState,e!==null&&(e=e.dehydrated,e!==null&&(n=sd.bind(null,n),ff(e,n))));break;case 22:if(r=n.memoizedState!==null||cl,!r){t=t!==null&&t.memoizedState!==null||ll,i=cl;var a=ll;cl=r,(ll=t)&&!a?jl(e,n,(n.subtreeFlags&8772)!=0):kl(e,n),cl=i,ll=a}break;case 30:break;default:kl(e,n)}}function hl(e){var t=e.alternate;t!==null&&(e.alternate=null,hl(t)),e.child=null,e.deletions=null,e.sibling=null,e.tag===5&&(t=e.stateNode,t!==null&&Ct(t)),e.stateNode=null,e.return=null,e.dependencies=null,e.memoizedProps=null,e.memoizedState=null,e.pendingProps=null,e.stateNode=null,e.updateQueue=null}var gl=null,_l=!1;function vl(e,t,n){for(n=n.child;n!==null;)yl(e,t,n),n=n.sibling}function yl(e,t,n){if(We&&typeof We.onCommitFiberUnmount==`function`)try{We.onCommitFiberUnmount(Ue,n)}catch{}switch(n.tag){case 26:ll||el(n,t),vl(e,t,n),n.memoizedState?n.memoizedState.count--:n.stateNode&&(n=n.stateNode,n.parentNode.removeChild(n));break;case 27:ll||el(n,t);var r=gl,i=_l;af(n.type)&&(gl=n.stateNode,_l=!1),vl(e,t,n),_f(n.stateNode),gl=r,_l=i;break;case 5:ll||el(n,t);case 6:if(r=gl,i=_l,gl=null,vl(e,t,n),gl=r,_l=i,gl!==null)if(_l)try{(gl.nodeType===9?gl.body:gl.nodeName===`HTML`?gl.ownerDocument.body:gl).removeChild(n.stateNode)}catch(e){id(n,t,e)}else try{gl.removeChild(n.stateNode)}catch(e){id(n,t,e)}break;case 18:gl!==null&&(_l?(e=gl,q(e.nodeType===9?e.body:e.nodeName===`HTML`?e.ownerDocument.body:e,n.stateNode),Pp(e)):q(gl,n.stateNode));break;case 4:r=gl,i=_l,gl=n.stateNode.containerInfo,_l=!0,vl(e,t,n),gl=r,_l=i;break;case 0:case 11:case 14:case 15:Xc(2,n,t),ll||Xc(4,n,t),vl(e,t,n);break;case 1:ll||(el(n,t),r=n.stateNode,typeof r.componentWillUnmount==`function`&&Qc(n,t,r)),vl(e,t,n);break;case 21:vl(e,t,n);break;case 22:ll=(r=ll)||n.memoizedState!==null,vl(e,t,n),ll=r;break;default:vl(e,t,n)}}function bl(e,t){if(t.memoizedState===null&&(e=t.alternate,e!==null&&(e=e.memoizedState,e!==null))){e=e.dehydrated;try{Pp(e)}catch(e){id(t,t.return,e)}}}function xl(e,t){if(t.memoizedState===null&&(e=t.alternate,e!==null&&(e=e.memoizedState,e!==null&&(e=e.dehydrated,e!==null))))try{Pp(e)}catch(e){id(t,t.return,e)}}function Sl(e){switch(e.tag){case 31:case 13:case 19:var t=e.stateNode;return t===null&&(t=e.stateNode=new dl),t;case 22:return e=e.stateNode,t=e._retryCache,t===null&&(t=e._retryCache=new dl),t;default:throw Error(i(435,e.tag))}}function Cl(e,t){var n=Sl(e);t.forEach(function(t){if(!n.has(t)){n.add(t);var r=cd.bind(null,e,t);t.then(r,r)}})}function wl(e,t){var n=t.deletions;if(n!==null)for(var r=0;r<n.length;r++){var a=n[r],o=e,s=t,c=s;a:for(;c!==null;){switch(c.tag){case 27:if(af(c.type)){gl=c.stateNode,_l=!1;break a}break;case 5:gl=c.stateNode,_l=!1;break a;case 3:case 4:gl=c.stateNode.containerInfo,_l=!0;break a}c=c.return}if(gl===null)throw Error(i(160));yl(o,s,a),gl=null,_l=!1,o=a.alternate,o!==null&&(o.return=null),a.return=null}if(t.subtreeFlags&13886)for(t=t.child;t!==null;)El(t,e),t=t.sibling}var Tl=null;function El(e,t){var n=e.alternate,r=e.flags;switch(e.tag){case 0:case 11:case 14:case 15:wl(t,e),Dl(e),r&4&&(Xc(3,e,e.return),Yc(3,e),Xc(5,e,e.return));break;case 1:wl(t,e),Dl(e),r&512&&(ll||n===null||el(n,n.return)),r&64&&cl&&(e=e.updateQueue,e!==null&&(r=e.callbacks,r!==null&&(n=e.shared.hiddenCallbacks,e.shared.hiddenCallbacks=n===null?r:n.concat(r))));break;case 26:var a=Tl;if(wl(t,e),Dl(e),r&512&&(ll||n===null||el(n,n.return)),r&4){var o=n===null?null:n.memoizedState;if(r=e.memoizedState,n===null)if(r===null)if(e.stateNode===null){a:{r=e.type,n=e.memoizedProps,a=a.ownerDocument||a;b:switch(r){case`title`:o=a.getElementsByTagName(`title`)[0],(!o||o[St]||o[ht]||o.namespaceURI===`http://www.w3.org/2000/svg`||o.hasAttribute(`itemprop`))&&(o=a.createElement(r),a.head.insertBefore(o,a.querySelector(`head > title`))),Jd(o,r,n),o[ht]=e,Ot(o),r=o;break a;case`link`:var s=Gf(`link`,`href`,a).get(r+(n.href||``));if(s){for(var c=0;c<s.length;c++)if(o=s[c],o.getAttribute(`href`)===(n.href==null||n.href===``?null:n.href)&&o.getAttribute(`rel`)===(n.rel==null?null:n.rel)&&o.getAttribute(`title`)===(n.title==null?null:n.title)&&o.getAttribute(`crossorigin`)===(n.crossOrigin==null?null:n.crossOrigin)){s.splice(c,1);break b}}o=a.createElement(r),Jd(o,r,n),a.head.appendChild(o);break;case`meta`:if(s=Gf(`meta`,`content`,a).get(r+(n.content||``))){for(c=0;c<s.length;c++)if(o=s[c],o.getAttribute(`content`)===(n.content==null?null:``+n.content)&&o.getAttribute(`name`)===(n.name==null?null:n.name)&&o.getAttribute(`property`)===(n.property==null?null:n.property)&&o.getAttribute(`http-equiv`)===(n.httpEquiv==null?null:n.httpEquiv)&&o.getAttribute(`charset`)===(n.charSet==null?null:n.charSet)){s.splice(c,1);break b}}o=a.createElement(r),Jd(o,r,n),a.head.appendChild(o);break;default:throw Error(i(468,r))}o[ht]=e,Ot(o),r=o}e.stateNode=r}else Kf(a,e.type,e.stateNode);else e.stateNode=Bf(a,r,e.memoizedProps);else o===r?r===null&&e.stateNode!==null&&nl(e,e.memoizedProps,n.memoizedProps):(o===null?n.stateNode!==null&&(n=n.stateNode,n.parentNode.removeChild(n)):o.count--,r===null?Kf(a,e.type,e.stateNode):Bf(a,r,e.memoizedProps))}break;case 27:wl(t,e),Dl(e),r&512&&(ll||n===null||el(n,n.return)),n!==null&&r&4&&nl(e,e.memoizedProps,n.memoizedProps);break;case 5:if(wl(t,e),Dl(e),r&512&&(ll||n===null||el(n,n.return)),e.flags&32){a=e.stateNode;try{en(a,``)}catch(t){id(e,e.return,t)}}r&4&&e.stateNode!=null&&(a=e.memoizedProps,nl(e,a,n===null?a:n.memoizedProps)),r&1024&&(ul=!0);break;case 6:if(wl(t,e),Dl(e),r&4){if(e.stateNode===null)throw Error(i(162));r=e.memoizedProps,n=e.stateNode;try{n.nodeValue=r}catch(t){id(e,e.return,t)}}break;case 3:if(Wf=null,a=Tl,Tl=bf(t.containerInfo),wl(t,e),Tl=a,Dl(e),r&4&&n!==null&&n.memoizedState.isDehydrated)try{Pp(t.containerInfo)}catch(t){id(e,e.return,t)}ul&&(ul=!1,Ol(e));break;case 4:r=Tl,Tl=bf(e.stateNode.containerInfo),wl(t,e),Dl(e),Tl=r;break;case 12:wl(t,e),Dl(e);break;case 31:wl(t,e),Dl(e),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,Cl(e,r)));break;case 13:wl(t,e),Dl(e),e.child.flags&8192&&e.memoizedState!==null!=(n!==null&&n.memoizedState!==null)&&(pu=Pe()),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,Cl(e,r)));break;case 22:a=e.memoizedState!==null;var l=n!==null&&n.memoizedState!==null,u=cl,d=ll;if(cl=u||a,ll=d||l,wl(t,e),ll=d,cl=u,Dl(e),r&8192)a:for(t=e.stateNode,t._visibility=a?t._visibility&-2:t._visibility|1,a&&(n===null||l||cl||ll||Al(e)),n=null,t=e;;){if(t.tag===5||t.tag===26){if(n===null){l=n=t;try{if(o=l.stateNode,a)s=o.style,typeof s.setProperty==`function`?s.setProperty(`display`,`none`,`important`):s.display=`none`;else{c=l.stateNode;var f=l.memoizedProps.style,p=f!=null&&f.hasOwnProperty(`display`)?f.display:null;c.style.display=p==null||typeof p==`boolean`?``:(``+p).trim()}}catch(e){id(l,l.return,e)}}}else if(t.tag===6){if(n===null){l=t;try{l.stateNode.nodeValue=a?``:l.memoizedProps}catch(e){id(l,l.return,e)}}}else if(t.tag===18){if(n===null){l=t;try{var m=l.stateNode;a?of(m,!0):of(l.stateNode,!1)}catch(e){id(l,l.return,e)}}}else if((t.tag!==22&&t.tag!==23||t.memoizedState===null||t===e)&&t.child!==null){t.child.return=t,t=t.child;continue}if(t===e)break a;for(;t.sibling===null;){if(t.return===null||t.return===e)break a;n===t&&(n=null),t=t.return}n===t&&(n=null),t.sibling.return=t.return,t=t.sibling}r&4&&(r=e.updateQueue,r!==null&&(n=r.retryQueue,n!==null&&(r.retryQueue=null,Cl(e,n))));break;case 19:wl(t,e),Dl(e),r&4&&(r=e.updateQueue,r!==null&&(e.updateQueue=null,Cl(e,r)));break;case 30:break;case 21:break;default:wl(t,e),Dl(e)}}function Dl(e){var t=e.flags;if(t&2){try{for(var n,r=e.return;r!==null;){if(rl(r)){n=r;break}r=r.return}if(n==null)throw Error(i(160));switch(n.tag){case 27:var a=n.stateNode;ol(e,il(e),a);break;case 5:var o=n.stateNode;n.flags&32&&(en(o,``),n.flags&=-33),ol(e,il(e),o);break;case 3:case 4:var s=n.stateNode.containerInfo;al(e,il(e),s);break;default:throw Error(i(161))}}catch(t){id(e,e.return,t)}e.flags&=-3}t&4096&&(e.flags&=-4097)}function Ol(e){if(e.subtreeFlags&1024)for(e=e.child;e!==null;){var t=e;Ol(t),t.tag===5&&t.flags&1024&&t.stateNode.reset(),e=e.sibling}}function kl(e,t){if(t.subtreeFlags&8772)for(t=t.child;t!==null;)ml(e,t.alternate,t),t=t.sibling}function Al(e){for(e=e.child;e!==null;){var t=e;switch(t.tag){case 0:case 11:case 14:case 15:Xc(4,t,t.return),Al(t);break;case 1:el(t,t.return);var n=t.stateNode;typeof n.componentWillUnmount==`function`&&Qc(t,t.return,n),Al(t);break;case 27:_f(t.stateNode);case 26:case 5:el(t,t.return),Al(t);break;case 22:t.memoizedState===null&&Al(t);break;case 30:Al(t);break;default:Al(t)}e=e.sibling}}function jl(e,t,n){for(n&&=(t.subtreeFlags&8772)!=0,t=t.child;t!==null;){var r=t.alternate,i=e,a=t,o=a.flags;switch(a.tag){case 0:case 11:case 15:jl(i,a,n),Yc(4,a);break;case 1:if(jl(i,a,n),r=a,i=r.stateNode,typeof i.componentDidMount==`function`)try{i.componentDidMount()}catch(e){id(r,r.return,e)}if(r=a,i=r.updateQueue,i!==null){var s=r.stateNode;try{var c=i.shared.hiddenCallbacks;if(c!==null)for(i.shared.hiddenCallbacks=null,i=0;i<c.length;i++)eo(c[i],s)}catch(e){id(r,r.return,e)}}n&&o&64&&Zc(a),$c(a,a.return);break;case 27:sl(a);case 26:case 5:jl(i,a,n),n&&r===null&&o&4&&tl(a),$c(a,a.return);break;case 12:jl(i,a,n);break;case 31:jl(i,a,n),n&&o&4&&bl(i,a);break;case 13:jl(i,a,n),n&&o&4&&xl(i,a);break;case 22:a.memoizedState===null&&jl(i,a,n),$c(a,a.return);break;case 30:break;default:jl(i,a,n)}t=t.sibling}}function Ml(e,t){var n=null;e!==null&&e.memoizedState!==null&&e.memoizedState.cachePool!==null&&(n=e.memoizedState.cachePool.pool),e=null,t.memoizedState!==null&&t.memoizedState.cachePool!==null&&(e=t.memoizedState.cachePool.pool),e!==n&&(e!=null&&e.refCount++,n!=null&&ga(n))}function Nl(e,t){e=null,t.alternate!==null&&(e=t.alternate.memoizedState.cache),t=t.memoizedState.cache,t!==e&&(t.refCount++,e!=null&&ga(e))}function Pl(e,t,n,r){if(t.subtreeFlags&10256)for(t=t.child;t!==null;)Fl(e,t,n,r),t=t.sibling}function Fl(e,t,n,r){var i=t.flags;switch(t.tag){case 0:case 11:case 15:Pl(e,t,n,r),i&2048&&Yc(9,t);break;case 1:Pl(e,t,n,r);break;case 3:Pl(e,t,n,r),i&2048&&(e=null,t.alternate!==null&&(e=t.alternate.memoizedState.cache),t=t.memoizedState.cache,t!==e&&(t.refCount++,e!=null&&ga(e)));break;case 12:if(i&2048){Pl(e,t,n,r),e=t.stateNode;try{var a=t.memoizedProps,o=a.id,s=a.onPostCommit;typeof s==`function`&&s(o,t.alternate===null?`mount`:`update`,e.passiveEffectDuration,-0)}catch(e){id(t,t.return,e)}}else Pl(e,t,n,r);break;case 31:Pl(e,t,n,r);break;case 13:Pl(e,t,n,r);break;case 23:break;case 22:a=t.stateNode,o=t.alternate,t.memoizedState===null?a._visibility&2?Pl(e,t,n,r):(a._visibility|=2,Il(e,t,n,r,(t.subtreeFlags&10256)!=0||!1)):a._visibility&2?Pl(e,t,n,r):Ll(e,t),i&2048&&Ml(o,t);break;case 24:Pl(e,t,n,r),i&2048&&Nl(t.alternate,t);break;default:Pl(e,t,n,r)}}function Il(e,t,n,r,i){for(i&&=(t.subtreeFlags&10256)!=0||!1,t=t.child;t!==null;){var a=e,o=t,s=n,c=r,l=o.flags;switch(o.tag){case 0:case 11:case 15:Il(a,o,s,c,i),Yc(8,o);break;case 23:break;case 22:var u=o.stateNode;o.memoizedState===null?(u._visibility|=2,Il(a,o,s,c,i)):u._visibility&2?Il(a,o,s,c,i):Ll(a,o),i&&l&2048&&Ml(o.alternate,o);break;case 24:Il(a,o,s,c,i),i&&l&2048&&Nl(o.alternate,o);break;default:Il(a,o,s,c,i)}t=t.sibling}}function Ll(e,t){if(t.subtreeFlags&10256)for(t=t.child;t!==null;){var n=e,r=t,i=r.flags;switch(r.tag){case 22:Ll(n,r),i&2048&&Ml(r.alternate,r);break;case 24:Ll(n,r),i&2048&&Nl(r.alternate,r);break;default:Ll(n,r)}t=t.sibling}}var Rl=8192;function zl(e,t,n){if(e.subtreeFlags&Rl)for(e=e.child;e!==null;)Bl(e,t,n),e=e.sibling}function Bl(e,t,n){switch(e.tag){case 26:zl(e,t,n),e.flags&Rl&&e.memoizedState!==null&&Jf(n,Tl,e.memoizedState,e.memoizedProps);break;case 5:zl(e,t,n);break;case 3:case 4:var r=Tl;Tl=bf(e.stateNode.containerInfo),zl(e,t,n),Tl=r;break;case 22:e.memoizedState===null&&(r=e.alternate,r!==null&&r.memoizedState!==null?(r=Rl,Rl=16777216,zl(e,t,n),Rl=r):zl(e,t,n));break;default:zl(e,t,n)}}function Vl(e){var t=e.alternate;if(t!==null&&(e=t.child,e!==null)){t.child=null;do t=e.sibling,e.sibling=null,e=t;while(e!==null)}}function Hl(e){var t=e.deletions;if(e.flags&16){if(t!==null)for(var n=0;n<t.length;n++){var r=t[n];fl=r,Gl(r,e)}Vl(e)}if(e.subtreeFlags&10256)for(e=e.child;e!==null;)Ul(e),e=e.sibling}function Ul(e){switch(e.tag){case 0:case 11:case 15:Hl(e),e.flags&2048&&Xc(9,e,e.return);break;case 3:Hl(e);break;case 12:Hl(e);break;case 22:var t=e.stateNode;e.memoizedState!==null&&t._visibility&2&&(e.return===null||e.return.tag!==13)?(t._visibility&=-3,Wl(e)):Hl(e);break;default:Hl(e)}}function Wl(e){var t=e.deletions;if(e.flags&16){if(t!==null)for(var n=0;n<t.length;n++){var r=t[n];fl=r,Gl(r,e)}Vl(e)}for(e=e.child;e!==null;){switch(t=e,t.tag){case 0:case 11:case 15:Xc(8,t,t.return),Wl(t);break;case 22:n=t.stateNode,n._visibility&2&&(n._visibility&=-3,Wl(t));break;default:Wl(t)}e=e.sibling}}function Gl(e,t){for(;fl!==null;){var n=fl;switch(n.tag){case 0:case 11:case 15:Xc(8,n,t);break;case 23:case 22:if(n.memoizedState!==null&&n.memoizedState.cachePool!==null){var r=n.memoizedState.cachePool.pool;r!=null&&r.refCount++}break;case 24:ga(n.memoizedState.cache)}if(r=n.child,r!==null)r.return=n,fl=r;else a:for(n=e;fl!==null;){r=fl;var i=r.sibling,a=r.return;if(hl(r),r===n){fl=null;break a}if(i!==null){i.return=a,fl=i;break a}fl=a}}}var Kl={getCacheForType:function(e){var t=ca(ma),n=t.data.get(e);return n===void 0&&(n=e(),t.data.set(e,n)),n},cacheSignal:function(){return ca(ma).controller.signal}},ql=typeof WeakMap==`function`?WeakMap:Map,Jl=0,Yl=null,Xl=null,Zl=0,Ql=0,$l=null,eu=!1,tu=!1,nu=!1,ru=0,iu=0,au=0,ou=0,su=0,cu=0,lu=0,uu=null,du=null,fu=!1,pu=0,mu=0,hu=1/0,gu=null,_u=null,vu=0,yu=null,bu=null,xu=0,Su=0,Cu=null,wu=null,Tu=0,Eu=null;function Du(){return Jl&2&&Zl!==0?Zl&-Zl:k.T===null?ft():wd()}function Ou(){if(cu===0)if(!(Zl&536870912)||Vi){var e=Ze;Ze<<=1,!(Ze&3932160)&&(Ze=262144),cu=e}else cu=536870912;return e=so.current,e!==null&&(e.flags|=32),cu}function L(e,t,n){(e===Yl&&(Ql===2||Ql===9)||e.cancelPendingCommit!==null)&&(Fu(e,0),Mu(e,Zl,cu,!1)),at(e,n),(!(Jl&2)||e!==Yl)&&(e===Yl&&(!(Jl&2)&&(ou|=n),iu===4&&Mu(e,Zl,cu,!1)),gd(e))}function ku(e,t,n){if(Jl&6)throw Error(i(327));var r=!n&&(t&127)==0&&(t&e.expiredLanes)===0||tt(e,t),a=r?Uu(e,t):Vu(e,t,!0),o=r;do{if(a===0){tu&&!r&&Mu(e,t,0,!1);break}else{if(n=e.current.alternate,o&&!ju(n)){a=Vu(e,t,!1),o=!1;continue}if(a===2){if(o=t,e.errorRecoveryDisabledLanes&o)var s=0;else s=e.pendingLanes&-536870913,s=s===0?s&536870912?536870912:0:s;if(s!==0){t=s;a:{var c=e;a=uu;var l=c.current.memoizedState.isDehydrated;if(l&&(Fu(c,s).flags|=256),s=Vu(c,s,!1),s!==2){if(nu&&!l){c.errorRecoveryDisabledLanes|=o,ou|=o,a=4;break a}o=du,du=a,o!==null&&(du===null?du=o:du.push.apply(du,o))}a=s}if(o=!1,a!==2)continue}}if(a===1){Fu(e,0),Mu(e,t,0,!0);break}a:{switch(r=e,o=a,o){case 0:case 1:throw Error(i(345));case 4:if((t&4194048)!==t)break;case 6:Mu(r,t,cu,!eu);break a;case 2:du=null;break;case 3:case 5:break;default:throw Error(i(329))}if((t&62914560)===t&&(a=pu+300-Pe(),10<a)){if(Mu(r,t,cu,!eu),et(r,0,!0)!==0)break a;xu=t,r.timeoutHandle=ef(Au.bind(null,r,n,du,gu,fu,t,cu,ou,lu,eu,o,`Throttled`,-0,0),a);break a}Au(r,n,du,gu,fu,t,cu,ou,lu,eu,o,null,-0,0)}}break}while(1);gd(e)}function Au(e,t,n,r,i,a,o,s,c,l,u,d,f,p){if(e.timeoutHandle=-1,d=t.subtreeFlags,d&8192||(d&16785408)==16785408){d={stylesheets:null,count:0,imgCount:0,imgBytes:0,suspenseyImages:[],waitingForImages:!0,waitingForViewTransition:!1,unsuspend:ln},Bl(t,a,d);var m=(a&62914560)===a?pu-Pe():(a&4194048)===a?mu-Pe():0;if(m=Xf(d,m),m!==null){xu=a,e.cancelPendingCommit=m(Xu.bind(null,e,t,a,n,r,i,o,s,c,u,d,null,f,p)),Mu(e,a,o,!l);return}}Xu(e,t,a,n,r,i,o,s,c)}function ju(e){for(var t=e;;){var n=t.tag;if((n===0||n===11||n===15)&&t.flags&16384&&(n=t.updateQueue,n!==null&&(n=n.stores,n!==null)))for(var r=0;r<n.length;r++){var i=n[r],a=i.getSnapshot;i=i.value;try{if(!Ar(a(),i))return!1}catch{return!1}}if(n=t.child,t.subtreeFlags&16384&&n!==null)n.return=t,t=n;else{if(t===e)break;for(;t.sibling===null;){if(t.return===null||t.return===e)return!0;t=t.return}t.sibling.return=t.return,t=t.sibling}}return!0}function Mu(e,t,n,r){t&=~su,t&=~ou,e.suspendedLanes|=t,e.pingedLanes&=~t,r&&(e.warmLanes|=t),r=e.expirationTimes;for(var i=t;0<i;){var a=31-Ke(i),o=1<<a;r[a]=-1,i&=~o}n!==0&&st(e,n,t)}function Nu(){return Jl&6?!0:(_d(0,!1),!1)}function Pu(){if(Xl!==null){if(Ql===0)var e=Xl.return;else e=Xl,ea=$i=null,Fo(e),La=null,F=0,e=Xl;for(;e!==null;)Jc(e.alternate,e),e=e.return;Xl=null}}function Fu(e,t){var n=e.timeoutHandle;n!==-1&&(e.timeoutHandle=-1,tf(n)),n=e.cancelPendingCommit,n!==null&&(e.cancelPendingCommit=null,n()),xu=0,Pu(),Yl=e,Xl=n=gi(e.current,null),Zl=t,Ql=0,$l=null,eu=!1,tu=tt(e,t),nu=!1,lu=cu=su=ou=au=iu=0,du=uu=null,fu=!1,t&8&&(t|=t&32);var r=e.entangledLanes;if(r!==0)for(e=e.entanglements,r&=t;0<r;){var i=31-Ke(r),a=1<<i;t|=e[i],r&=~a}return ru=t,oi(),n}function Iu(e,t){I=null,k.H=Gs,t===ka||t===ja?(t=Fa(),Ql=3):t===Aa?(t=Fa(),Ql=4):Ql=t===lc?8:typeof t==`object`&&t&&typeof t.then==`function`?6:1,$l=t,Xl===null&&(iu=1,rc(e,wi(t,e.current)))}function Lu(){var e=so.current;return e===null?!0:(Zl&4194048)===Zl?co===null:(Zl&62914560)===Zl||Zl&536870912?e===co:!1}function Ru(){var e=k.H;return k.H=Gs,e===null?Gs:e}function zu(){var e=k.A;return k.A=Kl,e}function Bu(){iu=4,eu||(Zl&4194048)!==Zl&&so.current!==null||(tu=!0),!(au&134217727)&&!(ou&134217727)||Yl===null||Mu(Yl,Zl,cu,!1)}function Vu(e,t,n){var r=Jl;Jl|=2;var i=Ru(),a=zu();(Yl!==e||Zl!==t)&&(gu=null,Fu(e,t)),t=!1;var o=iu;a:do try{if(Ql!==0&&Xl!==null){var s=Xl,c=$l;switch(Ql){case 8:Pu(),o=6;break a;case 3:case 2:case 9:case 6:so.current===null&&(t=!0);var l=Ql;if(Ql=0,$l=null,qu(e,s,c,l),n&&tu){o=0;break a}break;default:l=Ql,Ql=0,$l=null,qu(e,s,c,l)}}Hu(),o=iu;break}catch(t){Iu(e,t)}while(1);return t&&e.shellSuspendCounter++,ea=$i=null,Jl=r,k.H=i,k.A=a,Xl===null&&(Yl=null,Zl=0,oi()),o}function Hu(){for(;Xl!==null;)Gu(Xl)}function Uu(e,t){var n=Jl;Jl|=2;var r=Ru(),a=zu();Yl!==e||Zl!==t?(gu=null,hu=Pe()+500,Fu(e,t)):tu=tt(e,t);a:do try{if(Ql!==0&&Xl!==null){t=Xl;var o=$l;b:switch(Ql){case 1:Ql=0,$l=null,qu(e,t,o,1);break;case 2:case 9:if(N(o)){Ql=0,$l=null,Ku(t);break}t=function(){Ql!==2&&Ql!==9||Yl!==e||(Ql=7),gd(e)},o.then(t,t);break a;case 3:Ql=7;break a;case 4:Ql=5;break a;case 7:N(o)?(Ql=0,$l=null,Ku(t)):(Ql=0,$l=null,qu(e,t,o,7));break;case 5:var s=null;switch(Xl.tag){case 26:s=Xl.memoizedState;case 5:case 27:var c=Xl;if(s?qf(s):c.stateNode.complete){Ql=0,$l=null;var l=c.sibling;if(l!==null)Xl=l;else{var u=c.return;u===null?Xl=null:(Xl=u,Ju(u))}break b}}Ql=0,$l=null,qu(e,t,o,5);break;case 6:Ql=0,$l=null,qu(e,t,o,6);break;case 8:Pu(),iu=6;break a;default:throw Error(i(462))}}Wu();break}catch(t){Iu(e,t)}while(1);return ea=$i=null,k.H=r,k.A=a,Jl=n,Xl===null?(Yl=null,Zl=0,oi(),iu):0}function Wu(){for(;Xl!==null&&!Me();)Gu(Xl)}function Gu(e){var t=zc(e.alternate,e,ru);e.memoizedProps=e.pendingProps,t===null?Ju(e):Xl=t}function Ku(e){var t=e,n=t.alternate;switch(t.tag){case 15:case 0:t=Cc(n,t,t.pendingProps,t.type,void 0,Zl);break;case 11:t=Cc(n,t,t.pendingProps,t.type.render,t.ref,Zl);break;case 5:Fo(t);default:Jc(n,t),t=Xl=_i(t,ru),t=zc(n,t,ru)}e.memoizedProps=e.pendingProps,t===null?Ju(e):Xl=t}function qu(e,t,n,r){ea=$i=null,Fo(t),La=null,F=0;var i=t.return;try{if(cc(e,i,t,n,Zl)){iu=1,rc(e,wi(n,e.current)),Xl=null;return}}catch(t){if(i!==null)throw Xl=i,t;iu=1,rc(e,wi(n,e.current)),Xl=null;return}t.flags&32768?(Vi||r===1?e=!0:tu||Zl&536870912?e=!1:(eu=e=!0,(r===2||r===9||r===3||r===6)&&(r=so.current,r!==null&&r.tag===13&&(r.flags|=16384))),Yu(t,e)):Ju(t)}function Ju(e){var t=e;do{if(t.flags&32768){Yu(t,eu);return}e=t.return;var n=Kc(t.alternate,t,ru);if(n!==null){Xl=n;return}if(t=t.sibling,t!==null){Xl=t;return}Xl=t=e}while(t!==null);iu===0&&(iu=5)}function Yu(e,t){do{var n=qc(e.alternate,e);if(n!==null){n.flags&=32767,Xl=n;return}if(n=e.return,n!==null&&(n.flags|=32768,n.subtreeFlags=0,n.deletions=null),!t&&(e=e.sibling,e!==null)){Xl=e;return}Xl=e=n}while(e!==null);iu=6,Xl=null}function Xu(e,t,n,r,a,o,s,c,l){e.cancelPendingCommit=null;do td();while(vu!==0);if(Jl&6)throw Error(i(327));if(t!==null){if(t===e.current)throw Error(i(177));if(o=t.lanes|t.childLanes,o|=ai,ot(e,n,o,s,c,l),e===Yl&&(Xl=Yl=null,Zl=0),bu=t,yu=e,xu=n,Su=o,Cu=a,wu=r,t.subtreeFlags&10256||t.flags&10256?(e.callbackNode=null,e.callbackPriority=0,ld(Re,function(){return nd(),null})):(e.callbackNode=null,e.callbackPriority=0),r=(t.flags&13878)!=0,t.subtreeFlags&13878||r){r=k.T,k.T=null,a=se.p,se.p=2,s=Jl,Jl|=4;try{pl(e,t,n)}finally{Jl=s,se.p=a,k.T=r}}vu=1,Zu(),Qu(),$u()}}function Zu(){if(vu===1){vu=0;var e=yu,t=bu,n=(t.flags&13878)!=0;if(t.subtreeFlags&13878||n){n=k.T,k.T=null;var r=se.p;se.p=2;var i=Jl;Jl|=4;try{El(t,e);var a=B,o=Fr(e.containerInfo),s=a.focusedElem,c=a.selectionRange;if(o!==s&&s&&s.ownerDocument&&Pr(s.ownerDocument.documentElement,s)){if(c!==null&&Ir(s)){var l=c.start,u=c.end;if(u===void 0&&(u=l),`selectionStart`in s)s.selectionStart=l,s.selectionEnd=Math.min(u,s.value.length);else{var d=s.ownerDocument||document,f=d&&d.defaultView||window;if(f.getSelection){var p=f.getSelection(),m=s.textContent.length,h=Math.min(c.start,m),g=c.end===void 0?h:Math.min(c.end,m);!p.extend&&h>g&&(o=g,g=h,h=o);var _=Nr(s,h),v=Nr(s,g);if(_&&v&&(p.rangeCount!==1||p.anchorNode!==_.node||p.anchorOffset!==_.offset||p.focusNode!==v.node||p.focusOffset!==v.offset)){var y=d.createRange();y.setStart(_.node,_.offset),p.removeAllRanges(),h>g?(p.addRange(y),p.extend(v.node,v.offset)):(y.setEnd(v.node,v.offset),p.addRange(y))}}}}for(d=[],p=s;p=p.parentNode;)p.nodeType===1&&d.push({element:p,left:p.scrollLeft,top:p.scrollTop});for(typeof s.focus==`function`&&s.focus(),s=0;s<d.length;s++){var b=d[s];b.element.scrollLeft=b.left,b.element.scrollTop=b.top}}up=!!Qd,B=Qd=null}finally{Jl=i,se.p=r,k.T=n}}e.current=t,vu=2}}function Qu(){if(vu===2){vu=0;var e=yu,t=bu,n=(t.flags&8772)!=0;if(t.subtreeFlags&8772||n){n=k.T,k.T=null;var r=se.p;se.p=2;var i=Jl;Jl|=4;try{ml(e,t.alternate,t)}finally{Jl=i,se.p=r,k.T=n}}vu=3}}function $u(){if(vu===4||vu===3){vu=0,Ne();var e=yu,t=bu,n=xu,r=wu;t.subtreeFlags&10256||t.flags&10256?vu=5:(vu=0,bu=yu=null,ed(e,e.pendingLanes));var i=e.pendingLanes;if(i===0&&(_u=null),dt(n),t=t.stateNode,We&&typeof We.onCommitFiberRoot==`function`)try{We.onCommitFiberRoot(Ue,t,void 0,(t.current.flags&128)==128)}catch{}if(r!==null){t=k.T,i=se.p,se.p=2,k.T=null;try{for(var a=e.onRecoverableError,o=0;o<r.length;o++){var s=r[o];a(s.value,{componentStack:s.stack})}}finally{k.T=t,se.p=i}}xu&3&&td(),gd(e),i=e.pendingLanes,n&261930&&i&42?e===Eu?Tu++:(Tu=0,Eu=e):Tu=0,_d(0,!1)}}function ed(e,t){(e.pooledCacheLanes&=t)===0&&(t=e.pooledCache,t!=null&&(e.pooledCache=null,ga(t)))}function td(){return Zu(),Qu(),$u(),nd()}function nd(){if(vu!==5)return!1;var e=yu,t=Su;Su=0;var n=dt(xu),r=k.T,a=se.p;try{se.p=32>n?32:n,k.T=null,n=Cu,Cu=null;var o=yu,s=xu;if(vu=0,bu=yu=null,xu=0,Jl&6)throw Error(i(331));var c=Jl;if(Jl|=4,Ul(o.current),Fl(o,o.current,s,n),Jl=c,_d(0,!1),We&&typeof We.onPostCommitFiberRoot==`function`)try{We.onPostCommitFiberRoot(Ue,o)}catch{}return!0}finally{se.p=a,k.T=r,ed(e,t)}}function rd(e,t,n){t=wi(n,t),t=ac(e.stateNode,t,2),e=Ja(e,t,2),e!==null&&(at(e,2),gd(e))}function id(e,t,n){if(e.tag===3)rd(e,e,n);else for(;t!==null;){if(t.tag===3){rd(t,e,n);break}else if(t.tag===1){var r=t.stateNode;if(typeof t.type.getDerivedStateFromError==`function`||typeof r.componentDidCatch==`function`&&(_u===null||!_u.has(r))){e=wi(n,e),n=oc(2),r=Ja(t,n,2),r!==null&&(sc(n,r,t,e),at(r,2),gd(r));break}}t=t.return}}function R(e,t,n){var r=e.pingCache;if(r===null){r=e.pingCache=new ql;var i=new Set;r.set(t,i)}else i=r.get(t),i===void 0&&(i=new Set,r.set(t,i));i.has(n)||(nu=!0,i.add(n),e=ad.bind(null,e,t,n),t.then(e,e))}function ad(e,t,n){var r=e.pingCache;r!==null&&r.delete(t),e.pingedLanes|=e.suspendedLanes&n,e.warmLanes&=~n,Yl===e&&(Zl&n)===n&&(iu===4||iu===3&&(Zl&62914560)===Zl&&300>Pe()-pu?!(Jl&2)&&Fu(e,0):su|=n,lu===Zl&&(lu=0)),gd(e)}function od(e,t){t===0&&(t=rt()),e=li(e,t),e!==null&&(at(e,t),gd(e))}function sd(e){var t=e.memoizedState,n=0;t!==null&&(n=t.retryLane),od(e,n)}function cd(e,t){var n=0;switch(e.tag){case 31:case 13:var r=e.stateNode,a=e.memoizedState;a!==null&&(n=a.retryLane);break;case 19:r=e.stateNode;break;case 22:r=e.stateNode._retryCache;break;default:throw Error(i(314))}r!==null&&r.delete(t),od(e,n)}function ld(e,t){return Ae(e,t)}var ud=null,dd=null,fd=!1,pd=!1,md=!1,hd=0;function gd(e){e!==dd&&e.next===null&&(dd===null?ud=dd=e:dd=dd.next=e),pd=!0,fd||(fd=!0,Cd())}function _d(e,t){if(!md&&pd){md=!0;do for(var n=!1,r=ud;r!==null;){if(!t)if(e!==0){var i=r.pendingLanes;if(i===0)var a=0;else{var o=r.suspendedLanes,s=r.pingedLanes;a=(1<<31-Ke(42|e)+1)-1,a&=i&~(o&~s),a=a&201326741?a&201326741|1:a?a|2:0}a!==0&&(n=!0,Sd(r,a))}else a=Zl,a=et(r,r===Yl?a:0,r.cancelPendingCommit!==null||r.timeoutHandle!==-1),!(a&3)||tt(r,a)||(n=!0,Sd(r,a));r=r.next}while(n);md=!1}}function vd(){yd()}function yd(){pd=fd=!1;var e=0;hd!==0&&G()&&(e=hd);for(var t=Pe(),n=null,r=ud;r!==null;){var i=r.next,a=bd(r,t);a===0?(r.next=null,n===null?ud=i:n.next=i,i===null&&(dd=n)):(n=r,(e!==0||a&3)&&(pd=!0)),r=i}vu!==0&&vu!==5||_d(e,!1),hd!==0&&(hd=0)}function bd(e,t){for(var n=e.suspendedLanes,r=e.pingedLanes,i=e.expirationTimes,a=e.pendingLanes&-62914561;0<a;){var o=31-Ke(a),s=1<<o,c=i[o];c===-1?((s&n)===0||(s&r)!==0)&&(i[o]=nt(s,t)):c<=t&&(e.expiredLanes|=s),a&=~s}if(t=Yl,n=Zl,n=et(e,e===t?n:0,e.cancelPendingCommit!==null||e.timeoutHandle!==-1),r=e.callbackNode,n===0||e===t&&(Ql===2||Ql===9)||e.cancelPendingCommit!==null)return r!==null&&r!==null&&je(r),e.callbackNode=null,e.callbackPriority=0;if(!(n&3)||tt(e,n)){if(t=n&-n,t===e.callbackPriority)return t;switch(r!==null&&je(r),dt(n)){case 2:case 8:n=Le;break;case 32:n=Re;break;case 268435456:n=Be;break;default:n=Re}return r=xd.bind(null,e),n=Ae(n,r),e.callbackPriority=t,e.callbackNode=n,t}return r!==null&&r!==null&&je(r),e.callbackPriority=2,e.callbackNode=null,2}function xd(e,t){if(vu!==0&&vu!==5)return e.callbackNode=null,e.callbackPriority=0,null;var n=e.callbackNode;if(td()&&e.callbackNode!==n)return null;var r=Zl;return r=et(e,e===Yl?r:0,e.cancelPendingCommit!==null||e.timeoutHandle!==-1),r===0?null:(ku(e,r,t),bd(e,Pe()),e.callbackNode!=null&&e.callbackNode===n?xd.bind(null,e):null)}function Sd(e,t){if(td())return null;ku(e,t,!0)}function Cd(){nf(function(){Jl&6?Ae(Ie,vd):yd()})}function wd(){if(hd===0){var e=ya;e===0&&(e=Xe,Xe<<=1,!(Xe&261888)&&(Xe=256)),hd=e}return hd}function Td(e){return e==null||typeof e==`symbol`||typeof e==`boolean`?null:typeof e==`function`?e:cn(``+e)}function Ed(e,t){var n=t.ownerDocument.createElement(`input`);return n.name=t.name,n.value=t.value,e.id&&n.setAttribute(`form`,e.id),t.parentNode.insertBefore(n,t),e=new FormData(e),n.parentNode.removeChild(n),e}function Dd(e,t,n,r,i){if(t===`submit`&&n&&n.stateNode===i){var a=Td((i[gt]||null).action),o=r.submitter;o&&(t=(t=o[gt]||null)?Td(t.formAction):o.getAttribute(`formAction`),t!==null&&(a=t,o=null));var s=new An(`action`,`action`,null,r,i);e.push({event:s,listeners:[{instance:null,listener:function(){if(r.defaultPrevented){if(hd!==0){var e=o?Ed(i,o):new FormData(i);js(n,{pending:!0,data:e,method:i.method,action:a},null,e)}}else typeof a==`function`&&(s.preventDefault(),e=o?Ed(i,o):new FormData(i),js(n,{pending:!0,data:e,method:i.method,action:a},a,e))},currentTarget:i}]})}}for(var z=0;z<ei.length;z++){var Od=ei[z];ti(Od.toLowerCase(),`on`+(Od[0].toUpperCase()+Od.slice(1)))}ti(qr,`onAnimationEnd`),ti(Jr,`onAnimationIteration`),ti(M,`onAnimationStart`),ti(`dblclick`,`onDoubleClick`),ti(`focusin`,`onFocus`),ti(`focusout`,`onBlur`),ti(Yr,`onTransitionRun`),ti(Xr,`onTransitionStart`),ti(Zr,`onTransitionCancel`),ti(Qr,`onTransitionEnd`),Mt(`onMouseEnter`,[`mouseout`,`mouseover`]),Mt(`onMouseLeave`,[`mouseout`,`mouseover`]),Mt(`onPointerEnter`,[`pointerout`,`pointerover`]),Mt(`onPointerLeave`,[`pointerout`,`pointerover`]),jt(`onChange`,`change click focusin focusout input keydown keyup selectionchange`.split(` `)),jt(`onSelect`,`focusout contextmenu dragend focusin keydown keyup mousedown mouseup selectionchange`.split(` `)),jt(`onBeforeInput`,[`compositionend`,`keypress`,`textInput`,`paste`]),jt(`onCompositionEnd`,`compositionend focusout keydown keypress keyup mousedown`.split(` `)),jt(`onCompositionStart`,`compositionstart focusout keydown keypress keyup mousedown`.split(` `)),jt(`onCompositionUpdate`,`compositionupdate focusout keydown keypress keyup mousedown`.split(` `));var kd=`abort canplay canplaythrough durationchange emptied encrypted ended error loadeddata loadedmetadata loadstart pause play playing progress ratechange resize seeked seeking stalled suspend timeupdate volumechange waiting`.split(` `),Ad=new Set(`beforetoggle cancel close invalid load scroll scrollend toggle`.split(` `).concat(kd));function jd(e,t){t=(t&4)!=0;for(var n=0;n<e.length;n++){var r=e[n],i=r.event;r=r.listeners;a:{var a=void 0;if(t)for(var o=r.length-1;0<=o;o--){var s=r[o],c=s.instance,l=s.currentTarget;if(s=s.listener,c!==a&&i.isPropagationStopped())break a;a=s,i.currentTarget=l;try{a(i)}catch(e){ni(e)}i.currentTarget=null,a=c}else for(o=0;o<r.length;o++){if(s=r[o],c=s.instance,l=s.currentTarget,s=s.listener,c!==a&&i.isPropagationStopped())break a;a=s,i.currentTarget=l;try{a(i)}catch(e){ni(e)}i.currentTarget=null,a=c}}}}function Md(e,t){var n=t[vt];n===void 0&&(n=t[vt]=new Set);var r=e+`__bubble`;n.has(r)||(Id(t,e,2,!1),n.add(r))}function Nd(e,t,n){var r=0;t&&(r|=4),Id(n,e,r,t)}var Pd=`_reactListening`+Math.random().toString(36).slice(2);function Fd(e){if(!e[Pd]){e[Pd]=!0,kt.forEach(function(t){t!==`selectionchange`&&(Ad.has(t)||Nd(t,!1,e),Nd(t,!0,e))});var t=e.nodeType===9?e:e.ownerDocument;t===null||t[Pd]||(t[Pd]=!0,Nd(`selectionchange`,!1,t))}}function Id(e,t,n,r){switch(gp(t)){case 2:var i=dp;break;case 8:i=fp;break;default:i=Z}n=i.bind(null,t,n,e),i=void 0,!yn||t!==`touchstart`&&t!==`touchmove`&&t!==`wheel`||(i=!0),r?i===void 0?e.addEventListener(t,n,!0):e.addEventListener(t,n,{capture:!0,passive:i}):i===void 0?e.addEventListener(t,n,!1):e.addEventListener(t,n,{passive:i})}function Ld(e,t,n,r,i){var a=r;if(!(t&1)&&!(t&2)&&r!==null)a:for(;;){if(r===null)return;var s=r.tag;if(s===3||s===4){var c=r.stateNode.containerInfo;if(c===i)break;if(s===4)for(s=r.return;s!==null;){var l=s.tag;if((l===3||l===4)&&s.stateNode.containerInfo===i)return;s=s.return}for(;c!==null;){if(s=wt(c),s===null)return;if(l=s.tag,l===5||l===6||l===26||l===27){r=a=s;continue a}c=c.parentNode}}r=r.return}gn(function(){var r=a,i=dn(n),s=[];a:{var c=$r.get(e);if(c!==void 0){var l=An,u=e;switch(e){case`keypress`:if(Tn(n)===0)break a;case`keydown`:case`keyup`:l=Jn;break;case`focusin`:u=`focus`,l=zn;break;case`focusout`:u=`blur`,l=zn;break;case`beforeblur`:case`afterblur`:l=zn;break;case`click`:if(n.button===2)break a;case`auxclick`:case`dblclick`:case`mousedown`:case`mousemove`:case`mouseup`:case`mouseout`:case`mouseover`:case`contextmenu`:l=Ln;break;case`drag`:case`dragend`:case`dragenter`:case`dragexit`:case`dragleave`:case`dragover`:case`dragstart`:case`drop`:l=Rn;break;case`touchcancel`:case`touchend`:case`touchmove`:case`touchstart`:l=Xn;break;case qr:case Jr:case M:l=Bn;break;case Qr:l=Zn;break;case`scroll`:case`scrollend`:l=Mn;break;case`wheel`:l=Qn;break;case`copy`:case`cut`:case`paste`:l=Vn;break;case`gotpointercapture`:case`lostpointercapture`:case`pointercancel`:case`pointerdown`:case`pointermove`:case`pointerout`:case`pointerover`:case`pointerup`:l=Yn;break;case`toggle`:case`beforetoggle`:l=$n}var d=(t&4)!=0,f=!d&&(e===`scroll`||e===`scrollend`),p=d?c===null?null:c+`Capture`:c;d=[];for(var m=r,h;m!==null;){var g=m;if(h=g.stateNode,g=g.tag,g!==5&&g!==26&&g!==27||h===null||p===null||(g=_n(m,p),g!=null&&d.push(Rd(m,g,h))),f)break;m=m.return}0<d.length&&(c=new l(c,u,null,n,i),s.push({event:c,listeners:d}))}}if(!(t&7)){a:{if(c=e===`mouseover`||e===`pointerover`,l=e===`mouseout`||e===`pointerout`,c&&n!==un&&(u=n.relatedTarget||n.fromElement)&&(wt(u)||u[_t]))break a;if((l||c)&&(c=i.window===i?i:(c=i.ownerDocument)?c.defaultView||c.parentWindow:window,l?(u=n.relatedTarget||n.toElement,l=r,u=u?wt(u):null,u!==null&&(f=o(u),d=u.tag,u!==f||d!==5&&d!==27&&d!==6)&&(u=null)):(l=null,u=r),l!==u)){if(d=Ln,g=`onMouseLeave`,p=`onMouseEnter`,m=`mouse`,(e===`pointerout`||e===`pointerover`)&&(d=Yn,g=`onPointerLeave`,p=`onPointerEnter`,m=`pointer`),f=l==null?c:Et(l),h=u==null?c:Et(u),c=new d(g,m+`leave`,l,n,i),c.target=f,c.relatedTarget=h,g=null,wt(i)===r&&(d=new d(p,m+`enter`,u,n,i),d.target=h,d.relatedTarget=f,g=d),f=g,l&&u)b:{for(d=Bd,p=l,m=u,h=0,g=p;g;g=d(g))h++;g=0;for(var _=m;_;_=d(_))g++;for(;0<h-g;)p=d(p),h--;for(;0<g-h;)m=d(m),g--;for(;h--;){if(p===m||m!==null&&p===m.alternate){d=p;break b}p=d(p),m=d(m)}d=null}else d=null;l!==null&&Vd(s,c,l,d,!1),u!==null&&f!==null&&Vd(s,f,u,d,!0)}}a:{if(c=r?Et(r):window,l=c.nodeName&&c.nodeName.toLowerCase(),l===`select`||l===`input`&&c.type===`file`)var v=vr;else if(fr(c))if(yr)v=Or;else{v=Er;var y=Tr}else l=c.nodeName,!l||l.toLowerCase()!==`input`||c.type!==`checkbox`&&c.type!==`radio`?r&&an(r.elementType)&&(v=vr):v=Dr;if(v&&=v(e,r)){pr(s,v,n,i);break a}y&&y(e,c,r),e===`focusout`&&r&&c.type===`number`&&r.memoizedProps.value!=null&&Xt(c,`number`,c.value)}switch(y=r?Et(r):window,e){case`focusin`:(fr(y)||y.contentEditable===`true`)&&(Rr=y,zr=r,Br=null);break;case`focusout`:Br=zr=Rr=null;break;case`mousedown`:Vr=!0;break;case`contextmenu`:case`mouseup`:case`dragend`:Vr=!1,Hr(s,n,i);break;case`selectionchange`:if(Lr)break;case`keydown`:case`keyup`:Hr(s,n,i)}var b;if(tr)b:{switch(e){case`compositionstart`:var x=`onCompositionStart`;break b;case`compositionend`:x=`onCompositionEnd`;break b;case`compositionupdate`:x=`onCompositionUpdate`;break b}x=void 0}else cr?A(e,n)&&(x=`onCompositionEnd`):e===`keydown`&&n.keyCode===229&&(x=`onCompositionStart`);x&&(ir&&n.locale!==`ko`&&(cr||x!==`onCompositionStart`?x===`onCompositionEnd`&&cr&&(b=wn()):(xn=i,Sn=`value`in xn?xn.value:xn.textContent,cr=!0)),y=zd(r,x),0<y.length&&(x=new Hn(x,e,null,n,i),s.push({event:x,listeners:y}),b?x.data=b:(b=sr(n),b!==null&&(x.data=b)))),(b=rr?lr(e,n):ur(e,n))&&(x=zd(r,`onBeforeInput`),0<x.length&&(y=new Hn(`onBeforeInput`,`beforeinput`,null,n,i),s.push({event:y,listeners:x}),y.data=b)),Dd(s,e,r,n,i)}jd(s,t)})}function Rd(e,t,n){return{instance:e,listener:t,currentTarget:n}}function zd(e,t){for(var n=t+`Capture`,r=[];e!==null;){var i=e,a=i.stateNode;if(i=i.tag,i!==5&&i!==26&&i!==27||a===null||(i=_n(e,n),i!=null&&r.unshift(Rd(e,i,a)),i=_n(e,t),i!=null&&r.push(Rd(e,i,a))),e.tag===3)return r;e=e.return}return[]}function Bd(e){if(e===null)return null;do e=e.return;while(e&&e.tag!==5&&e.tag!==27);return e||null}function Vd(e,t,n,r,i){for(var a=t._reactName,o=[];n!==null&&n!==r;){var s=n,c=s.alternate,l=s.stateNode;if(s=s.tag,c!==null&&c===r)break;s!==5&&s!==26&&s!==27||l===null||(c=l,i?(l=_n(n,a),l!=null&&o.unshift(Rd(n,l,c))):i||(l=_n(n,a),l!=null&&o.push(Rd(n,l,c)))),n=n.return}o.length!==0&&e.push({event:t,listeners:o})}var Hd=/\r\n?/g,Ud=/\u0000|\uFFFD/g;function Wd(e){return(typeof e==`string`?e:``+e).replace(Hd,`
 `).replace(Ud,``)}function Gd(e,t){return t=Wd(t),Wd(e)===t}function Kd(e,t,n,r,a,o){switch(n){case`children`:typeof r==`string`?t===`body`||t===`textarea`&&r===``||en(e,r):(typeof r==`number`||typeof r==`bigint`)&&t!==`body`&&en(e,``+r);break;case`className`:Rt(e,`class`,r);break;case`tabIndex`:Rt(e,`tabindex`,r);break;case`dir`:case`role`:case`viewBox`:case`width`:case`height`:Rt(e,n,r);break;case`style`:rn(e,r,o);break;case`data`:if(t!==`object`){Rt(e,`data`,r);break}case`src`:case`href`:if(r===``&&(t!==`a`||n!==`href`)){e.removeAttribute(n);break}if(r==null||typeof r==`function`||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=cn(``+r),e.setAttribute(n,r);break;case`action`:case`formAction`:if(typeof r==`function`){e.setAttribute(n,`javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')`);break}else typeof o==`function`&&(n===`formAction`?(t!==`input`&&Kd(e,t,`name`,a.name,a,null),Kd(e,t,`formEncType`,a.formEncType,a,null),Kd(e,t,`formMethod`,a.formMethod,a,null),Kd(e,t,`formTarget`,a.formTarget,a,null)):(Kd(e,t,`encType`,a.encType,a,null),Kd(e,t,`method`,a.method,a,null),Kd(e,t,`target`,a.target,a,null)));if(r==null||typeof r==`symbol`||typeof r==`boolean`){e.removeAttribute(n);break}r=cn(``+r),e.setAttribute(n,r);break;case`onClick`:r!=null&&(e.onclick=ln);break;case`onScroll`:r!=null&&Md(`scroll`,e);break;case`onScrollEnd`:r!=null&&Md(`scrollend`,e);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`multiple`:e.multiple=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`muted`:e.muted=r&&typeof r!=`function`&&typeof r!=`symbol`;break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`defaultValue`:case`defaultChecked`:case`innerHTML`:case`ref`:break;case`autoFocus`:break;case`xlinkHref`:if(r==null||typeof r==`function`||typeof r==`boolean`||typeof r==`symbol`){e.removeAttribute(`xlink:href`);break}n=cn(``+r),e.setAttributeNS(`http://www.w3.org/1999/xlink`,`xlink:href`,n);break;case`contentEditable`:case`spellCheck`:case`draggable`:case`value`:case`autoReverse`:case`externalResourcesRequired`:case`focusable`:case`preserveAlpha`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``+r):e.removeAttribute(n);break;case`inert`:case`allowFullScreen`:case`async`:case`autoPlay`:case`controls`:case`default`:case`defer`:case`disabled`:case`disablePictureInPicture`:case`disableRemotePlayback`:case`formNoValidate`:case`hidden`:case`loop`:case`noModule`:case`noValidate`:case`open`:case`playsInline`:case`readOnly`:case`required`:case`reversed`:case`scoped`:case`seamless`:case`itemScope`:r&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,``):e.removeAttribute(n);break;case`capture`:case`download`:!0===r?e.setAttribute(n,``):!1!==r&&r!=null&&typeof r!=`function`&&typeof r!=`symbol`?e.setAttribute(n,r):e.removeAttribute(n);break;case`cols`:case`rows`:case`size`:case`span`:r!=null&&typeof r!=`function`&&typeof r!=`symbol`&&!isNaN(r)&&1<=r?e.setAttribute(n,r):e.removeAttribute(n);break;case`rowSpan`:case`start`:r==null||typeof r==`function`||typeof r==`symbol`||isNaN(r)?e.removeAttribute(n):e.setAttribute(n,r);break;case`popover`:Md(`beforetoggle`,e),Md(`toggle`,e),Lt(e,`popover`,r);break;case`xlinkActuate`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:actuate`,r);break;case`xlinkArcrole`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:arcrole`,r);break;case`xlinkRole`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:role`,r);break;case`xlinkShow`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:show`,r);break;case`xlinkTitle`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:title`,r);break;case`xlinkType`:zt(e,`http://www.w3.org/1999/xlink`,`xlink:type`,r);break;case`xmlBase`:zt(e,`http://www.w3.org/XML/1998/namespace`,`xml:base`,r);break;case`xmlLang`:zt(e,`http://www.w3.org/XML/1998/namespace`,`xml:lang`,r);break;case`xmlSpace`:zt(e,`http://www.w3.org/XML/1998/namespace`,`xml:space`,r);break;case`is`:Lt(e,`is`,r);break;case`innerText`:case`textContent`:break;default:(!(2<n.length)||n[0]!==`o`&&n[0]!==`O`||n[1]!==`n`&&n[1]!==`N`)&&(n=on.get(n)||n,Lt(e,n,r))}}function qd(e,t,n,r,a,o){switch(n){case`style`:rn(e,r,o);break;case`dangerouslySetInnerHTML`:if(r!=null){if(typeof r!=`object`||!(`__html`in r))throw Error(i(61));if(n=r.__html,n!=null){if(a.children!=null)throw Error(i(60));e.innerHTML=n}}break;case`children`:typeof r==`string`?en(e,r):(typeof r==`number`||typeof r==`bigint`)&&en(e,``+r);break;case`onScroll`:r!=null&&Md(`scroll`,e);break;case`onScrollEnd`:r!=null&&Md(`scrollend`,e);break;case`onClick`:r!=null&&(e.onclick=ln);break;case`suppressContentEditableWarning`:case`suppressHydrationWarning`:case`innerHTML`:case`ref`:break;case`innerText`:case`textContent`:break;default:if(!At.hasOwnProperty(n))a:{if(n[0]===`o`&&n[1]===`n`&&(a=n.endsWith(`Capture`),t=n.slice(2,a?n.length-7:void 0),o=e[gt]||null,o=o==null?null:o[n],typeof o==`function`&&e.removeEventListener(t,o,a),typeof r==`function`)){typeof o!=`function`&&o!==null&&(n in e?e[n]=null:e.hasAttribute(n)&&e.removeAttribute(n)),e.addEventListener(t,r,a);break a}n in e?e[n]=r:!0===r?e.setAttribute(n,``):Lt(e,n,r)}}}function Jd(e,t,n){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`img`:Md(`error`,e),Md(`load`,e);var r=!1,a=!1,o;for(o in n)if(n.hasOwnProperty(o)){var s=n[o];if(s!=null)switch(o){case`src`:r=!0;break;case`srcSet`:a=!0;break;case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:Kd(e,t,o,s,n,null)}}a&&Kd(e,t,`srcSet`,n.srcSet,n,null),r&&Kd(e,t,`src`,n.src,n,null);return;case`input`:Md(`invalid`,e);var c=o=s=a=null,l=null,u=null;for(r in n)if(n.hasOwnProperty(r)){var d=n[r];if(d!=null)switch(r){case`name`:a=d;break;case`type`:s=d;break;case`checked`:l=d;break;case`defaultChecked`:u=d;break;case`value`:o=d;break;case`defaultValue`:c=d;break;case`children`:case`dangerouslySetInnerHTML`:if(d!=null)throw Error(i(137,t));break;default:Kd(e,t,r,d,n,null)}}Yt(e,o,c,l,u,s,a,!1);return;case`select`:for(a in Md(`invalid`,e),r=s=o=null,n)if(n.hasOwnProperty(a)&&(c=n[a],c!=null))switch(a){case`value`:o=c;break;case`defaultValue`:s=c;break;case`multiple`:r=c;default:Kd(e,t,a,c,n,null)}t=o,n=s,e.multiple=!!r,t==null?n!=null&&Zt(e,!!r,n,!0):Zt(e,!!r,t,!1);return;case`textarea`:for(s in Md(`invalid`,e),o=a=r=null,n)if(n.hasOwnProperty(s)&&(c=n[s],c!=null))switch(s){case`value`:r=c;break;case`defaultValue`:a=c;break;case`children`:o=c;break;case`dangerouslySetInnerHTML`:if(c!=null)throw Error(i(91));break;default:Kd(e,t,s,c,n,null)}$t(e,r,a,o);return;case`option`:for(l in n)if(n.hasOwnProperty(l)&&(r=n[l],r!=null))switch(l){case`selected`:e.selected=r&&typeof r!=`function`&&typeof r!=`symbol`;break;default:Kd(e,t,l,r,n,null)}return;case`dialog`:Md(`beforetoggle`,e),Md(`toggle`,e),Md(`cancel`,e),Md(`close`,e);break;case`iframe`:case`object`:Md(`load`,e);break;case`video`:case`audio`:for(r=0;r<kd.length;r++)Md(kd[r],e);break;case`image`:Md(`error`,e),Md(`load`,e);break;case`details`:Md(`toggle`,e);break;case`embed`:case`source`:case`link`:Md(`error`,e),Md(`load`,e);case`area`:case`base`:case`br`:case`col`:case`hr`:case`keygen`:case`meta`:case`param`:case`track`:case`wbr`:case`menuitem`:for(u in n)if(n.hasOwnProperty(u)&&(r=n[u],r!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:throw Error(i(137,t));default:Kd(e,t,u,r,n,null)}return;default:if(an(t)){for(d in n)n.hasOwnProperty(d)&&(r=n[d],r!==void 0&&qd(e,t,d,r,n,void 0));return}}for(c in n)n.hasOwnProperty(c)&&(r=n[c],r!=null&&Kd(e,t,c,r,n,null))}function Yd(e,t,n,r){switch(t){case`div`:case`span`:case`svg`:case`path`:case`a`:case`g`:case`p`:case`li`:break;case`input`:var a=null,o=null,s=null,c=null,l=null,u=null,d=null;for(m in n){var f=n[m];if(n.hasOwnProperty(m)&&f!=null)switch(m){case`checked`:break;case`value`:break;case`defaultValue`:l=f;default:r.hasOwnProperty(m)||Kd(e,t,m,null,r,f)}}for(var p in r){var m=r[p];if(f=n[p],r.hasOwnProperty(p)&&(m!=null||f!=null))switch(p){case`type`:o=m;break;case`name`:a=m;break;case`checked`:u=m;break;case`defaultChecked`:d=m;break;case`value`:s=m;break;case`defaultValue`:c=m;break;case`children`:case`dangerouslySetInnerHTML`:if(m!=null)throw Error(i(137,t));break;default:m!==f&&Kd(e,t,p,m,r,f)}}Jt(e,s,c,l,u,d,o,a);return;case`select`:for(o in m=s=c=p=null,n)if(l=n[o],n.hasOwnProperty(o)&&l!=null)switch(o){case`value`:break;case`multiple`:m=l;default:r.hasOwnProperty(o)||Kd(e,t,o,null,r,l)}for(a in r)if(o=r[a],l=n[a],r.hasOwnProperty(a)&&(o!=null||l!=null))switch(a){case`value`:p=o;break;case`defaultValue`:c=o;break;case`multiple`:s=o;default:o!==l&&Kd(e,t,a,o,r,l)}t=c,n=s,r=m,p==null?!!r!=!!n&&(t==null?Zt(e,!!n,n?[]:``,!1):Zt(e,!!n,t,!0)):Zt(e,!!n,p,!1);return;case`textarea`:for(c in m=p=null,n)if(a=n[c],n.hasOwnProperty(c)&&a!=null&&!r.hasOwnProperty(c))switch(c){case`value`:break;case`children`:break;default:Kd(e,t,c,null,r,a)}for(s in r)if(a=r[s],o=n[s],r.hasOwnProperty(s)&&(a!=null||o!=null))switch(s){case`value`:p=a;break;case`defaultValue`:m=a;break;case`children`:break;case`dangerouslySetInnerHTML`:if(a!=null)throw Error(i(91));break;default:a!==o&&Kd(e,t,s,a,r,o)}Qt(e,p,m);return;case`option`:for(var h in n)if(p=n[h],n.hasOwnProperty(h)&&p!=null&&!r.hasOwnProperty(h))switch(h){case`selected`:e.selected=!1;break;default:Kd(e,t,h,null,r,p)}for(l in r)if(p=r[l],m=n[l],r.hasOwnProperty(l)&&p!==m&&(p!=null||m!=null))switch(l){case`selected`:e.selected=p&&typeof p!=`function`&&typeof p!=`symbol`;break;default:Kd(e,t,l,p,r,m)}return;case`img`:case`link`:case`area`:case`base`:case`br`:case`col`:case`embed`:case`hr`:case`keygen`:case`meta`:case`param`:case`source`:case`track`:case`wbr`:case`menuitem`:for(var g in n)p=n[g],n.hasOwnProperty(g)&&p!=null&&!r.hasOwnProperty(g)&&Kd(e,t,g,null,r,p);for(u in r)if(p=r[u],m=n[u],r.hasOwnProperty(u)&&p!==m&&(p!=null||m!=null))switch(u){case`children`:case`dangerouslySetInnerHTML`:if(p!=null)throw Error(i(137,t));break;default:Kd(e,t,u,p,r,m)}return;default:if(an(t)){for(var _ in n)p=n[_],n.hasOwnProperty(_)&&p!==void 0&&!r.hasOwnProperty(_)&&qd(e,t,_,void 0,r,p);for(d in r)p=r[d],m=n[d],!r.hasOwnProperty(d)||p===m||p===void 0&&m===void 0||qd(e,t,d,p,r,m);return}}for(var v in n)p=n[v],n.hasOwnProperty(v)&&p!=null&&!r.hasOwnProperty(v)&&Kd(e,t,v,null,r,p);for(f in r)p=r[f],m=n[f],!r.hasOwnProperty(f)||p===m||p==null&&m==null||Kd(e,t,f,p,r,m)}function Xd(e){switch(e){case`css`:case`script`:case`font`:case`img`:case`image`:case`input`:case`link`:return!0;default:return!1}}function Zd(){if(typeof performance.getEntriesByType==`function`){for(var e=0,t=0,n=performance.getEntriesByType(`resource`),r=0;r<n.length;r++){var i=n[r],a=i.transferSize,o=i.initiatorType,s=i.duration;if(a&&s&&Xd(o)){for(o=0,s=i.responseEnd,r+=1;r<n.length;r++){var c=n[r],l=c.startTime;if(l>s)break;var u=c.transferSize,d=c.initiatorType;u&&Xd(d)&&(c=c.responseEnd,o+=u*(c<s?1:(s-l)/(c-l)))}if(--r,t+=8*(a+o)/(i.duration/1e3),e++,10<e)break}}if(0<e)return t/e/1e6}return navigator.connection&&(e=navigator.connection.downlink,typeof e==`number`)?e:5}var Qd=null,B=null;function V(e){return e.nodeType===9?e:e.ownerDocument}function H(e){switch(e){case`http://www.w3.org/2000/svg`:return 1;case`http://www.w3.org/1998/Math/MathML`:return 2;default:return 0}}function U(e,t){if(e===0)switch(t){case`svg`:return 1;case`math`:return 2;default:return 0}return e===1&&t===`foreignObject`?0:e}function W(e,t){return e===`textarea`||e===`noscript`||typeof t.children==`string`||typeof t.children==`number`||typeof t.children==`bigint`||typeof t.dangerouslySetInnerHTML==`object`&&t.dangerouslySetInnerHTML!==null&&t.dangerouslySetInnerHTML.__html!=null}var $d=null;function G(){var e=window.event;return e&&e.type===`popstate`?e===$d?!1:($d=e,!0):($d=null,!1)}var ef=typeof setTimeout==`function`?setTimeout:void 0,tf=typeof clearTimeout==`function`?clearTimeout:void 0,K=typeof Promise==`function`?Promise:void 0,nf=typeof queueMicrotask==`function`?queueMicrotask:K===void 0?ef:function(e){return K.resolve(null).then(e).catch(rf)};function rf(e){setTimeout(function(){throw e})}function af(e){return e===`head`}function q(e,t){var n=t,r=0;do{var i=n.nextSibling;if(e.removeChild(n),i&&i.nodeType===8)if(n=i.data,n===`/$`||n===`/&`){if(r===0){e.removeChild(i),Pp(t);return}r--}else if(n===`$`||n===`$?`||n===`$~`||n===`$!`||n===`&`)r++;else if(n===`html`)_f(e.ownerDocument.documentElement);else if(n===`head`){n=e.ownerDocument.head,_f(n);for(var a=n.firstChild;a;){var o=a.nextSibling,s=a.nodeName;a[St]||s===`SCRIPT`||s===`STYLE`||s===`LINK`&&a.rel.toLowerCase()===`stylesheet`||n.removeChild(a),a=o}}else n===`body`&&_f(e.ownerDocument.body);n=i}while(n);Pp(t)}function of(e,t){var n=e;e=0;do{var r=n.nextSibling;if(n.nodeType===1?t?(n._stashedDisplay=n.style.display,n.style.display=`none`):(n.style.display=n._stashedDisplay||``,n.getAttribute(`style`)===``&&n.removeAttribute(`style`)):n.nodeType===3&&(t?(n._stashedText=n.nodeValue,n.nodeValue=``):n.nodeValue=n._stashedText||``),r&&r.nodeType===8)if(n=r.data,n===`/$`){if(e===0)break;e--}else n!==`$`&&n!==`$?`&&n!==`$~`&&n!==`$!`||e++;n=r}while(n)}function J(e){var t=e.firstChild;for(t&&t.nodeType===10&&(t=t.nextSibling);t;){var n=t;switch(t=t.nextSibling,n.nodeName){case`HTML`:case`HEAD`:case`BODY`:J(n),Ct(n);continue;case`SCRIPT`:case`STYLE`:continue;case`LINK`:if(n.rel.toLowerCase()===`stylesheet`)continue}e.removeChild(n)}}function sf(e,t,n,r){for(;e.nodeType===1;){var i=n;if(e.nodeName.toLowerCase()!==t.toLowerCase()){if(!r&&(e.nodeName!==`INPUT`||e.type!==`hidden`))break}else if(!r)if(t===`input`&&e.type===`hidden`){var a=i.name==null?null:``+i.name;if(i.type===`hidden`&&e.getAttribute(`name`)===a)return e}else return e;else if(!e[St])switch(t){case`meta`:if(!e.hasAttribute(`itemprop`))break;return e;case`link`:if(a=e.getAttribute(`rel`),a===`stylesheet`&&e.hasAttribute(`data-precedence`)||a!==i.rel||e.getAttribute(`href`)!==(i.href==null||i.href===``?null:i.href)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin)||e.getAttribute(`title`)!==(i.title==null?null:i.title))break;return e;case`style`:if(e.hasAttribute(`data-precedence`))break;return e;case`script`:if(a=e.getAttribute(`src`),(a!==(i.src==null?null:i.src)||e.getAttribute(`type`)!==(i.type==null?null:i.type)||e.getAttribute(`crossorigin`)!==(i.crossOrigin==null?null:i.crossOrigin))&&a&&e.hasAttribute(`async`)&&!e.hasAttribute(`itemprop`))break;return e;default:return e}if(e=pf(e.nextSibling),e===null)break}return null}function cf(e,t,n){if(t===``)return null;for(;e.nodeType!==3;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!n||(e=pf(e.nextSibling),e===null))return null;return e}function lf(e,t){for(;e.nodeType!==8;)if((e.nodeType!==1||e.nodeName!==`INPUT`||e.type!==`hidden`)&&!t||(e=pf(e.nextSibling),e===null))return null;return e}function uf(e){return e.data===`$?`||e.data===`$~`}function df(e){return e.data===`$!`||e.data===`$?`&&e.ownerDocument.readyState!==`loading`}function ff(e,t){var n=e.ownerDocument;if(e.data===`$~`)e._reactRetry=t;else if(e.data!==`$?`||n.readyState!==`loading`)t();else{var r=function(){t(),n.removeEventListener(`DOMContentLoaded`,r)};n.addEventListener(`DOMContentLoaded`,r),e._reactRetry=r}}function pf(e){for(;e!=null;e=e.nextSibling){var t=e.nodeType;if(t===1||t===3)break;if(t===8){if(t=e.data,t===`$`||t===`$!`||t===`$?`||t===`$~`||t===`&`||t===`F!`||t===`F`)break;if(t===`/$`||t===`/&`)return null}}return e}var mf=null;function hf(e){e=e.nextSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`/$`||n===`/&`){if(t===0)return pf(e.nextSibling);t--}else n!==`$`&&n!==`$!`&&n!==`$?`&&n!==`$~`&&n!==`&`||t++}e=e.nextSibling}return null}function gf(e){e=e.previousSibling;for(var t=0;e;){if(e.nodeType===8){var n=e.data;if(n===`$`||n===`$!`||n===`$?`||n===`$~`||n===`&`){if(t===0)return e;t--}else n!==`/$`&&n!==`/&`||t++}e=e.previousSibling}return null}function Y(e,t,n){switch(t=V(n),e){case`html`:if(e=t.documentElement,!e)throw Error(i(452));return e;case`head`:if(e=t.head,!e)throw Error(i(453));return e;case`body`:if(e=t.body,!e)throw Error(i(454));return e;default:throw Error(i(451))}}function _f(e){for(var t=e.attributes;t.length;)e.removeAttributeNode(t[0]);Ct(e)}var vf=new Map,yf=new Set;function bf(e){return typeof e.getRootNode==`function`?e.getRootNode():e.nodeType===9?e:e.ownerDocument}var xf=se.d;se.d={f:Sf,r:Cf,D:Ef,C:Df,L:Of,m:kf,X:jf,S:Af,M:Mf};function Sf(){var e=xf.f(),t=Nu();return e||t}function Cf(e){var t=Tt(e);t!==null&&t.tag===5&&t.type===`form`?Ns(t):xf.r(e)}var wf=typeof document>`u`?null:document;function Tf(e,t,n){var r=wf;if(r&&typeof t==`string`&&t){var i=qt(t);i=`link[rel="`+e+`"][href="`+i+`"]`,typeof n==`string`&&(i+=`[crossorigin="`+n+`"]`),yf.has(i)||(yf.add(i),e={rel:e,crossOrigin:n,href:t},r.querySelector(i)===null&&(t=r.createElement(`link`),Jd(t,`link`,e),Ot(t),r.head.appendChild(t)))}}function Ef(e){xf.D(e),Tf(`dns-prefetch`,e,null)}function Df(e,t){xf.C(e,t),Tf(`preconnect`,e,t)}function Of(e,t,n){xf.L(e,t,n);var r=wf;if(r&&e&&t){var i=`link[rel="preload"][as="`+qt(t)+`"]`;t===`image`&&n&&n.imageSrcSet?(i+=`[imagesrcset="`+qt(n.imageSrcSet)+`"]`,typeof n.imageSizes==`string`&&(i+=`[imagesizes="`+qt(n.imageSizes)+`"]`)):i+=`[href="`+qt(e)+`"]`;var a=i;switch(t){case`style`:a=Pf(e);break;case`script`:a=Rf(e)}vf.has(a)||(e=m({rel:`preload`,href:t===`image`&&n&&n.imageSrcSet?void 0:e,as:t},n),vf.set(a,e),r.querySelector(i)!==null||t===`style`&&r.querySelector(Ff(a))||t===`script`&&r.querySelector(zf(a))||(t=r.createElement(`link`),Jd(t,`link`,e),Ot(t),r.head.appendChild(t)))}}function kf(e,t){xf.m(e,t);var n=wf;if(n&&e){var r=t&&typeof t.as==`string`?t.as:`script`,i=`link[rel="modulepreload"][as="`+qt(r)+`"][href="`+qt(e)+`"]`,a=i;switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:a=Rf(e)}if(!vf.has(a)&&(e=m({rel:`modulepreload`,href:e},t),vf.set(a,e),n.querySelector(i)===null)){switch(r){case`audioworklet`:case`paintworklet`:case`serviceworker`:case`sharedworker`:case`worker`:case`script`:if(n.querySelector(zf(a)))return}r=n.createElement(`link`),Jd(r,`link`,e),Ot(r),n.head.appendChild(r)}}}function Af(e,t,n){xf.S(e,t,n);var r=wf;if(r&&e){var i=Dt(r).hoistableStyles,a=Pf(e);t||=`default`;var o=i.get(a);if(!o){var s={loading:0,preload:null};if(o=r.querySelector(Ff(a)))s.loading=5;else{e=m({rel:`stylesheet`,href:e,"data-precedence":t},n),(n=vf.get(a))&&Hf(e,n);var c=o=r.createElement(`link`);Ot(c),Jd(c,`link`,e),c._p=new Promise(function(e,t){c.onload=e,c.onerror=t}),c.addEventListener(`load`,function(){s.loading|=1}),c.addEventListener(`error`,function(){s.loading|=2}),s.loading|=4,Vf(o,t,r)}o={type:`stylesheet`,instance:o,count:1,state:s},i.set(a,o)}}}function jf(e,t){xf.X(e,t);var n=wf;if(n&&e){var r=Dt(n).hoistableScripts,i=Rf(e),a=r.get(i);a||(a=n.querySelector(zf(i)),a||(e=m({src:e,async:!0},t),(t=vf.get(i))&&Uf(e,t),a=n.createElement(`script`),Ot(a),Jd(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function Mf(e,t){xf.M(e,t);var n=wf;if(n&&e){var r=Dt(n).hoistableScripts,i=Rf(e),a=r.get(i);a||(a=n.querySelector(zf(i)),a||(e=m({src:e,async:!0,type:`module`},t),(t=vf.get(i))&&Uf(e,t),a=n.createElement(`script`),Ot(a),Jd(a,`link`,e),n.head.appendChild(a)),a={type:`script`,instance:a,count:1,state:null},r.set(i,a))}}function Nf(e,t,n,r){var a=(a=ge.current)?bf(a):null;if(!a)throw Error(i(446));switch(e){case`meta`:case`title`:return null;case`style`:return typeof n.precedence==`string`&&typeof n.href==`string`?(t=Pf(n.href),n=Dt(a).hoistableStyles,r=n.get(t),r||(r={type:`style`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};case`link`:if(n.rel===`stylesheet`&&typeof n.href==`string`&&typeof n.precedence==`string`){e=Pf(n.href);var o=Dt(a).hoistableStyles,s=o.get(e);if(s||(a=a.ownerDocument||a,s={type:`stylesheet`,instance:null,count:0,state:{loading:0,preload:null}},o.set(e,s),(o=a.querySelector(Ff(e)))&&!o._p&&(s.instance=o,s.state.loading=5),vf.has(e)||(n={rel:`preload`,as:`style`,href:n.href,crossOrigin:n.crossOrigin,integrity:n.integrity,media:n.media,hrefLang:n.hrefLang,referrerPolicy:n.referrerPolicy},vf.set(e,n),o||Lf(a,e,n,s.state))),t&&r===null)throw Error(i(528,``));return s}if(t&&r!==null)throw Error(i(529,``));return null;case`script`:return t=n.async,n=n.src,typeof n==`string`&&t&&typeof t!=`function`&&typeof t!=`symbol`?(t=Rf(n),n=Dt(a).hoistableScripts,r=n.get(t),r||(r={type:`script`,instance:null,count:0,state:null},n.set(t,r)),r):{type:`void`,instance:null,count:0,state:null};default:throw Error(i(444,e))}}function Pf(e){return`href="`+qt(e)+`"`}function Ff(e){return`link[rel="stylesheet"][`+e+`]`}function If(e){return m({},e,{"data-precedence":e.precedence,precedence:null})}function Lf(e,t,n,r){e.querySelector(`link[rel="preload"][as="style"][`+t+`]`)?r.loading=1:(t=e.createElement(`link`),r.preload=t,t.addEventListener(`load`,function(){return r.loading|=1}),t.addEventListener(`error`,function(){return r.loading|=2}),Jd(t,`link`,n),Ot(t),e.head.appendChild(t))}function Rf(e){return`[src="`+qt(e)+`"]`}function zf(e){return`script[async]`+e}function Bf(e,t,n){if(t.count++,t.instance===null)switch(t.type){case`style`:var r=e.querySelector(`style[data-href~="`+qt(n.href)+`"]`);if(r)return t.instance=r,Ot(r),r;var a=m({},n,{"data-href":n.href,"data-precedence":n.precedence,href:null,precedence:null});return r=(e.ownerDocument||e).createElement(`style`),Ot(r),Jd(r,`style`,a),Vf(r,n.precedence,e),t.instance=r;case`stylesheet`:a=Pf(n.href);var o=e.querySelector(Ff(a));if(o)return t.state.loading|=4,t.instance=o,Ot(o),o;r=If(n),(a=vf.get(a))&&Hf(r,a),o=(e.ownerDocument||e).createElement(`link`),Ot(o);var s=o;return s._p=new Promise(function(e,t){s.onload=e,s.onerror=t}),Jd(o,`link`,r),t.state.loading|=4,Vf(o,n.precedence,e),t.instance=o;case`script`:return o=Rf(n.src),(a=e.querySelector(zf(o)))?(t.instance=a,Ot(a),a):(r=n,(a=vf.get(o))&&(r=m({},n),Uf(r,a)),e=e.ownerDocument||e,a=e.createElement(`script`),Ot(a),Jd(a,`link`,r),e.head.appendChild(a),t.instance=a);case`void`:return null;default:throw Error(i(443,t.type))}else t.type===`stylesheet`&&!(t.state.loading&4)&&(r=t.instance,t.state.loading|=4,Vf(r,n.precedence,e));return t.instance}function Vf(e,t,n){for(var r=n.querySelectorAll(`link[rel="stylesheet"][data-precedence],style[data-precedence]`),i=r.length?r[r.length-1]:null,a=i,o=0;o<r.length;o++){var s=r[o];if(s.dataset.precedence===t)a=s;else if(a!==i)break}a?a.parentNode.insertBefore(e,a.nextSibling):(t=n.nodeType===9?n.head:n,t.insertBefore(e,t.firstChild))}function Hf(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.title??=t.title}function Uf(e,t){e.crossOrigin??=t.crossOrigin,e.referrerPolicy??=t.referrerPolicy,e.integrity??=t.integrity}var Wf=null;function Gf(e,t,n){if(Wf===null){var r=new Map,i=Wf=new Map;i.set(n,r)}else i=Wf,r=i.get(n),r||(r=new Map,i.set(n,r));if(r.has(e))return r;for(r.set(e,null),n=n.getElementsByTagName(e),i=0;i<n.length;i++){var a=n[i];if(!(a[St]||a[ht]||e===`link`&&a.getAttribute(`rel`)===`stylesheet`)&&a.namespaceURI!==`http://www.w3.org/2000/svg`){var o=a.getAttribute(t)||``;o=e+o;var s=r.get(o);s?s.push(a):r.set(o,[a])}}return r}function Kf(e,t,n){e=e.ownerDocument||e,e.head.insertBefore(n,t===`title`?e.querySelector(`head > title`):null)}function X(e,t,n){if(n===1||t.itemProp!=null)return!1;switch(e){case`meta`:case`title`:return!0;case`style`:if(typeof t.precedence!=`string`||typeof t.href!=`string`||t.href===``)break;return!0;case`link`:if(typeof t.rel!=`string`||typeof t.href!=`string`||t.href===``||t.onLoad||t.onError)break;switch(t.rel){case`stylesheet`:return e=t.disabled,typeof t.precedence==`string`&&e==null;default:return!0}case`script`:if(t.async&&typeof t.async!=`function`&&typeof t.async!=`symbol`&&!t.onLoad&&!t.onError&&t.src&&typeof t.src==`string`)return!0}return!1}function qf(e){return!(e.type===`stylesheet`&&!(e.state.loading&3))}function Jf(e,t,n,r){if(n.type===`stylesheet`&&(typeof r.media!=`string`||!1!==matchMedia(r.media).matches)&&!(n.state.loading&4)){if(n.instance===null){var i=Pf(r.href),a=t.querySelector(Ff(i));if(a){t=a._p,typeof t==`object`&&t&&typeof t.then==`function`&&(e.count++,e=Zf.bind(e),t.then(e,e)),n.state.loading|=4,n.instance=a,Ot(a);return}a=t.ownerDocument||t,r=If(r),(i=vf.get(i))&&Hf(r,i),a=a.createElement(`link`),Ot(a);var o=a;o._p=new Promise(function(e,t){o.onload=e,o.onerror=t}),Jd(a,`link`,r),n.instance=a}e.stylesheets===null&&(e.stylesheets=new Map),e.stylesheets.set(n,t),(t=n.state.preload)&&!(n.state.loading&3)&&(e.count++,n=Zf.bind(e),t.addEventListener(`load`,n),t.addEventListener(`error`,n))}}var Yf=0;function Xf(e,t){return e.stylesheets&&e.count===0&&$f(e,e.stylesheets),0<e.count||0<e.imgCount?function(n){var r=setTimeout(function(){if(e.stylesheets&&$f(e,e.stylesheets),e.unsuspend){var t=e.unsuspend;e.unsuspend=null,t()}},6e4+t);0<e.imgBytes&&Yf===0&&(Yf=62500*Zd());var i=setTimeout(function(){if(e.waitingForImages=!1,e.count===0&&(e.stylesheets&&$f(e,e.stylesheets),e.unsuspend)){var t=e.unsuspend;e.unsuspend=null,t()}},(e.imgBytes>Yf?50:800)+t);return e.unsuspend=n,function(){e.unsuspend=null,clearTimeout(r),clearTimeout(i)}}:null}function Zf(){if(this.count--,this.count===0&&(this.imgCount===0||!this.waitingForImages)){if(this.stylesheets)$f(this,this.stylesheets);else if(this.unsuspend){var e=this.unsuspend;this.unsuspend=null,e()}}}var Qf=null;function $f(e,t){e.stylesheets=null,e.unsuspend!==null&&(e.count++,Qf=new Map,t.forEach(ep,e),Qf=null,Zf.call(e))}function ep(e,t){if(!(t.state.loading&4)){var n=Qf.get(e);if(n)var r=n.get(null);else{n=new Map,Qf.set(e,n);for(var i=e.querySelectorAll(`link[data-precedence],style[data-precedence]`),a=0;a<i.length;a++){var o=i[a];(o.nodeName===`LINK`||o.getAttribute(`media`)!==`not all`)&&(n.set(o.dataset.precedence,o),r=o)}r&&n.set(null,r)}i=t.instance,o=i.getAttribute(`data-precedence`),a=n.get(o)||r,a===r&&n.set(null,i),n.set(o,i),this.count++,r=Zf.bind(this),i.addEventListener(`load`,r),i.addEventListener(`error`,r),a?a.parentNode.insertBefore(i,a.nextSibling):(e=e.nodeType===9?e.head:e,e.insertBefore(i,e.firstChild)),t.state.loading|=4}}var tp={$$typeof:C,Provider:null,Consumer:null,_currentValue:ce,_currentValue2:ce,_threadCount:0};function np(e,t,n,r,i,a,o,s,c){this.tag=1,this.containerInfo=e,this.pingCache=this.current=this.pendingChildren=null,this.timeoutHandle=-1,this.callbackNode=this.next=this.pendingContext=this.context=this.cancelPendingCommit=null,this.callbackPriority=0,this.expirationTimes=it(-1),this.entangledLanes=this.shellSuspendCounter=this.errorRecoveryDisabledLanes=this.expiredLanes=this.warmLanes=this.pingedLanes=this.suspendedLanes=this.pendingLanes=0,this.entanglements=it(0),this.hiddenUpdates=it(null),this.identifierPrefix=r,this.onUncaughtError=i,this.onCaughtError=a,this.onRecoverableError=o,this.pooledCache=null,this.pooledCacheLanes=0,this.formState=c,this.incompleteTransitions=new Map}function rp(e,t,n,r,i,a,o,s,c,l,u,d){return e=new np(e,t,n,o,c,l,u,d,s),t=1,!0===a&&(t|=24),a=mi(3,null,null,t),e.current=a,a.stateNode=e,t=ha(),t.refCount++,e.pooledCache=t,t.refCount++,a.memoizedState={element:r,isDehydrated:n,cache:t},Ga(a),e}function ip(e){return e?(e=fi,e):fi}function ap(e,t,n,r,i,a){i=ip(i),r.context===null?r.context=i:r.pendingContext=i,r=qa(t),r.payload={element:n},a=a===void 0?null:a,a!==null&&(r.callback=a),n=Ja(e,r,t),n!==null&&(L(n,e,t),Ya(n,e,t))}function op(e,t){if(e=e.memoizedState,e!==null&&e.dehydrated!==null){var n=e.retryLane;e.retryLane=n!==0&&n<t?n:t}}function sp(e,t){op(e,t),(e=e.alternate)&&op(e,t)}function cp(e){if(e.tag===13||e.tag===31){var t=li(e,67108864);t!==null&&L(t,e,67108864),sp(e,67108864)}}function lp(e){if(e.tag===13||e.tag===31){var t=Du();t=ut(t);var n=li(e,t);n!==null&&L(n,e,t),sp(e,t)}}var up=!0;function dp(e,t,n,r){var i=k.T;k.T=null;var a=se.p;try{se.p=2,Z(e,t,n,r)}finally{se.p=a,k.T=i}}function fp(e,t,n,r){var i=k.T;k.T=null;var a=se.p;try{se.p=8,Z(e,t,n,r)}finally{se.p=a,k.T=i}}function Z(e,t,n,r){if(up){var i=pp(r);if(i===null)Ld(e,t,r,mp,n),Tp(e,r);else if(Dp(i,e,t,n,r))r.stopPropagation();else if(Tp(e,r),t&4&&-1<wp.indexOf(e)){for(;i!==null;){var a=Tt(i);if(a!==null)switch(a.tag){case 3:if(a=a.stateNode,a.current.memoizedState.isDehydrated){var o=$e(a.pendingLanes);if(o!==0){var s=a;for(s.pendingLanes|=2,s.entangledLanes|=2;o;){var c=1<<31-Ke(o);s.entanglements[1]|=c,o&=~c}gd(a),!(Jl&6)&&(hu=Pe()+500,_d(0,!1))}}break;case 31:case 13:s=li(a,2),s!==null&&L(s,a,2),Nu(),sp(a,2)}if(a=pp(r),a===null&&Ld(e,t,r,mp,n),a===i)break;i=a}i!==null&&r.stopPropagation()}else Ld(e,t,r,null,n)}}function pp(e){return e=dn(e),hp(e)}var mp=null;function hp(e){if(mp=null,e=wt(e),e!==null){var t=o(e);if(t===null)e=null;else{var n=t.tag;if(n===13){if(e=s(t),e!==null)return e;e=null}else if(n===31){if(e=c(t),e!==null)return e;e=null}else if(n===3){if(t.stateNode.current.memoizedState.isDehydrated)return t.tag===3?t.stateNode.containerInfo:null;e=null}else t!==e&&(e=null)}}return mp=e,null}function gp(e){switch(e){case`beforetoggle`:case`cancel`:case`click`:case`close`:case`contextmenu`:case`copy`:case`cut`:case`auxclick`:case`dblclick`:case`dragend`:case`dragstart`:case`drop`:case`focusin`:case`focusout`:case`input`:case`invalid`:case`keydown`:case`keypress`:case`keyup`:case`mousedown`:case`mouseup`:case`paste`:case`pause`:case`play`:case`pointercancel`:case`pointerdown`:case`pointerup`:case`ratechange`:case`reset`:case`resize`:case`seeked`:case`submit`:case`toggle`:case`touchcancel`:case`touchend`:case`touchstart`:case`volumechange`:case`change`:case`selectionchange`:case`textInput`:case`compositionstart`:case`compositionend`:case`compositionupdate`:case`beforeblur`:case`afterblur`:case`beforeinput`:case`blur`:case`fullscreenchange`:case`focus`:case`hashchange`:case`popstate`:case`select`:case`selectstart`:return 2;case`drag`:case`dragenter`:case`dragexit`:case`dragleave`:case`dragover`:case`mousemove`:case`mouseout`:case`mouseover`:case`pointermove`:case`pointerout`:case`pointerover`:case`scroll`:case`touchmove`:case`wheel`:case`mouseenter`:case`mouseleave`:case`pointerenter`:case`pointerleave`:return 8;case`message`:switch(Fe()){case Ie:return 2;case Le:return 8;case Re:case ze:return 32;case Be:return 268435456;default:return 32}default:return 32}}var _p=!1,vp=null,yp=null,bp=null,xp=new Map,Sp=new Map,Cp=[],wp=`mousedown mouseup touchcancel touchend touchstart auxclick dblclick pointercancel pointerdown pointerup dragend dragstart drop compositionend compositionstart keydown keypress keyup input textInput copy cut paste click change contextmenu reset`.split(` `);function Tp(e,t){switch(e){case`focusin`:case`focusout`:vp=null;break;case`dragenter`:case`dragleave`:yp=null;break;case`mouseover`:case`mouseout`:bp=null;break;case`pointerover`:case`pointerout`:xp.delete(t.pointerId);break;case`gotpointercapture`:case`lostpointercapture`:Sp.delete(t.pointerId)}}function Ep(e,t,n,r,i,a){return e===null||e.nativeEvent!==a?(e={blockedOn:t,domEventName:n,eventSystemFlags:r,nativeEvent:a,targetContainers:[i]},t!==null&&(t=Tt(t),t!==null&&cp(t)),e):(e.eventSystemFlags|=r,t=e.targetContainers,i!==null&&t.indexOf(i)===-1&&t.push(i),e)}function Dp(e,t,n,r,i){switch(t){case`focusin`:return vp=Ep(vp,e,t,n,r,i),!0;case`dragenter`:return yp=Ep(yp,e,t,n,r,i),!0;case`mouseover`:return bp=Ep(bp,e,t,n,r,i),!0;case`pointerover`:var a=i.pointerId;return xp.set(a,Ep(xp.get(a)||null,e,t,n,r,i)),!0;case`gotpointercapture`:return a=i.pointerId,Sp.set(a,Ep(Sp.get(a)||null,e,t,n,r,i)),!0}return!1}function Op(e){var t=wt(e.target);if(t!==null){var n=o(t);if(n!==null){if(t=n.tag,t===13){if(t=s(n),t!==null){e.blockedOn=t,pt(e.priority,function(){lp(n)});return}}else if(t===31){if(t=c(n),t!==null){e.blockedOn=t,pt(e.priority,function(){lp(n)});return}}else if(t===3&&n.stateNode.current.memoizedState.isDehydrated){e.blockedOn=n.tag===3?n.stateNode.containerInfo:null;return}}}e.blockedOn=null}function kp(e){if(e.blockedOn!==null)return!1;for(var t=e.targetContainers;0<t.length;){var n=pp(e.nativeEvent);if(n===null){n=e.nativeEvent;var r=new n.constructor(n.type,n);un=r,n.target.dispatchEvent(r),un=null}else return t=Tt(n),t!==null&&cp(t),e.blockedOn=n,!1;t.shift()}return!0}function Q(e,t,n){kp(e)&&n.delete(t)}function Ap(){_p=!1,vp!==null&&kp(vp)&&(vp=null),yp!==null&&kp(yp)&&(yp=null),bp!==null&&kp(bp)&&(bp=null),xp.forEach(Q),Sp.forEach(Q)}function jp(e,n){e.blockedOn===n&&(e.blockedOn=null,_p||(_p=!0,t.unstable_scheduleCallback(t.unstable_NormalPriority,Ap)))}var Mp=null;function Np(e){Mp!==e&&(Mp=e,t.unstable_scheduleCallback(t.unstable_NormalPriority,function(){Mp===e&&(Mp=null);for(var t=0;t<e.length;t+=3){var n=e[t],r=e[t+1],i=e[t+2];if(typeof r!=`function`){if(hp(r||n)===null)continue;break}var a=Tt(n);a!==null&&(e.splice(t,3),t-=3,js(a,{pending:!0,data:i,method:n.method,action:r},r,i))}}))}function Pp(e){function t(t){return jp(t,e)}vp!==null&&jp(vp,e),yp!==null&&jp(yp,e),bp!==null&&jp(bp,e),xp.forEach(t),Sp.forEach(t);for(var n=0;n<Cp.length;n++){var r=Cp[n];r.blockedOn===e&&(r.blockedOn=null)}for(;0<Cp.length&&(n=Cp[0],n.blockedOn===null);)Op(n),n.blockedOn===null&&Cp.shift();if(n=(e.ownerDocument||e).$$reactFormReplay,n!=null)for(r=0;r<n.length;r+=3){var i=n[r],a=n[r+1],o=i[gt]||null;if(typeof a==`function`)o||Np(n);else if(o){var s=null;if(a&&a.hasAttribute(`formAction`)){if(i=a,o=a[gt]||null)s=o.formAction;else if(hp(i)!==null)continue}else s=o.action;typeof s==`function`?n[r+1]=s:(n.splice(r,3),r-=3),Np(n)}}}function Fp(){function e(e){e.canIntercept&&e.info===`react-transition`&&e.intercept({handler:function(){return new Promise(function(e){return i=e})},focusReset:`manual`,scroll:`manual`})}function t(){i!==null&&(i(),i=null),r||setTimeout(n,20)}function n(){if(!r&&!navigation.transition){var e=navigation.currentEntry;e&&e.url!=null&&navigation.navigate(e.url,{state:e.getState(),info:`react-transition`,history:`replace`})}}if(typeof navigation==`object`){var r=!1,i=null;return navigation.addEventListener(`navigate`,e),navigation.addEventListener(`navigatesuccess`,t),navigation.addEventListener(`navigateerror`,t),setTimeout(n,100),function(){r=!0,navigation.removeEventListener(`navigate`,e),navigation.removeEventListener(`navigatesuccess`,t),navigation.removeEventListener(`navigateerror`,t),i!==null&&(i(),i=null)}}}function Ip(e){this._internalRoot=e}Lp.prototype.render=Ip.prototype.render=function(e){var t=this._internalRoot;if(t===null)throw Error(i(409));var n=t.current;ap(n,Du(),e,t,null,null)},Lp.prototype.unmount=Ip.prototype.unmount=function(){var e=this._internalRoot;if(e!==null){this._internalRoot=null;var t=e.containerInfo;ap(e.current,2,null,e,null,null),Nu(),t[_t]=null}};function Lp(e){this._internalRoot=e}Lp.prototype.unstable_scheduleHydration=function(e){if(e){var t=ft();e={blockedOn:null,target:e,priority:t};for(var n=0;n<Cp.length&&t!==0&&t<Cp[n].priority;n++);Cp.splice(n,0,e),n===0&&Op(e)}};var Rp=n.version;if(Rp!==`19.2.6`)throw Error(i(527,Rp,`19.2.6`));se.findDOMNode=function(e){var t=e._reactInternals;if(t===void 0)throw typeof e.render==`function`?Error(i(188)):(e=Object.keys(e).join(`,`),Error(i(268,e)));return e=u(t),e=e===null?null:f(e),e=e===null?null:e.stateNode,e};var zp={bundleType:0,version:`19.2.6`,rendererPackageName:`react-dom`,currentDispatcherRef:k,reconcilerVersion:`19.2.6`};if(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__<`u`){var Bp=__REACT_DEVTOOLS_GLOBAL_HOOK__;if(!Bp.isDisabled&&Bp.supportsFiber)try{Ue=Bp.inject(zp),We=Bp}catch{}}e.createRoot=function(e,t){if(!a(e))throw Error(i(299));var n=!1,r=``,o=ec,s=tc,c=nc;return t!=null&&(!0===t.unstable_strictMode&&(n=!0),t.identifierPrefix!==void 0&&(r=t.identifierPrefix),t.onUncaughtError!==void 0&&(o=t.onUncaughtError),t.onCaughtError!==void 0&&(s=t.onCaughtError),t.onRecoverableError!==void 0&&(c=t.onRecoverableError)),t=rp(e,1,!1,null,null,n,r,null,o,s,c,Fp),e[_t]=t.current,Fd(e),new Ip(t)}})),_=o(((e,t)=>{function n(){if(!(typeof __REACT_DEVTOOLS_GLOBAL_HOOK__>`u`||typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE!=`function`))try{__REACT_DEVTOOLS_GLOBAL_HOOK__.checkDCE(n)}catch(e){console.error(e)}}n(),t.exports=g()})),v=l(d(),1),y=_(),b=`modulepreload`,x=function(e){return`/408-exam-prep/`+e},S={},C=function(e,t,n){let r=Promise.resolve();if(t&&t.length>0){let e=document.getElementsByTagName(`link`),i=document.querySelector(`meta[property=csp-nonce]`),a=i?.nonce||i?.getAttribute(`nonce`);function o(e){return Promise.all(e.map(e=>Promise.resolve(e).then(e=>({status:`fulfilled`,value:e}),e=>({status:`rejected`,reason:e}))))}r=o(t.map(t=>{if(t=x(t,n),t in S)return;S[t]=!0;let r=t.endsWith(`.css`),i=r?`[rel="stylesheet"]`:``;if(n)for(let n=e.length-1;n>=0;n--){let i=e[n];if(i.href===t&&(!r||i.rel===`stylesheet`))return}else if(document.querySelector(`link[href="${t}"]${i}`))return;let o=document.createElement(`link`);if(o.rel=r?`stylesheet`:b,r||(o.as=`script`),o.crossOrigin=``,o.href=t,a&&o.setAttribute(`nonce`,a),document.head.appendChild(o),r)return new Promise((e,n)=>{o.addEventListener(`load`,e),o.addEventListener(`error`,()=>n(Error(`Unable to preload CSS for ${t}`)))})}))}function i(e){let t=new Event(`vite:preloadError`,{cancelable:!0});if(t.payload=e,window.dispatchEvent(t),!t.defaultPrevented)throw e}return r.then(t=>{for(let e of t||[])e.status===`rejected`&&i(e.reason);return e().catch(i)})},w=`popstate`;function T(e){return typeof e==`object`&&!!e&&`pathname`in e&&`search`in e&&`hash`in e&&`state`in e&&`key`in e}function E(e={}){function t(e,t){let n=t.state?.masked,{pathname:r,search:i,hash:a}=n||e.location;return ne(``,{pathname:r,search:i,hash:a},t.state&&t.state.usr||null,t.state&&t.state.key||`default`,n?{pathname:e.location.pathname,search:e.location.search,hash:e.location.hash}:void 0)}function n(e,t){return typeof t==`string`?t:re(t)}return ae(t,n,null,e)}function D(e,t){if(e===!1||e==null)throw Error(t)}function O(e,t){if(!e){typeof console<`u`&&console.warn(t);try{throw Error(t)}catch{}}}function ee(){return Math.random().toString(36).substring(2,10)}function te(e,t){return{usr:e.state,key:e.key,idx:t,masked:e.mask?{pathname:e.pathname,search:e.search,hash:e.hash}:void 0}}function ne(e,t,n=null,r,i){return{pathname:typeof e==`string`?e:e.pathname,search:``,hash:``,...typeof t==`string`?ie(t):t,state:n,key:t&&t.key||r||ee(),mask:i}}function re({pathname:e=`/`,search:t=``,hash:n=``}){return t&&t!==`?`&&(e+=t.charAt(0)===`?`?t:`?`+t),n&&n!==`#`&&(e+=n.charAt(0)===`#`?n:`#`+n),e}function ie(e){let t={};if(e){let n=e.indexOf(`#`);n>=0&&(t.hash=e.substring(n),e=e.substring(0,n));let r=e.indexOf(`?`);r>=0&&(t.search=e.substring(r),e=e.substring(0,r)),e&&(t.pathname=e)}return t}function ae(e,t,n,r={}){let{window:i=document.defaultView,v5Compat:a=!1}=r,o=i.history,s=`POP`,c=null,l=u();l??(l=0,o.replaceState({...o.state,idx:l},``));function u(){return(o.state||{idx:null}).idx}function d(){s=`POP`;let e=u(),t=e==null?null:e-l;l=e,c&&c({action:s,location:h.location,delta:t})}function f(e,t){s=`PUSH`;let r=T(e)?e:ne(h.location,e,t);n&&n(r,e),l=u()+1;let d=te(r,l),f=h.createHref(r.mask||r);try{o.pushState(d,``,f)}catch(e){if(e instanceof DOMException&&e.name===`DataCloneError`)throw e;i.location.assign(f)}a&&c&&c({action:s,location:h.location,delta:1})}function p(e,t){s=`REPLACE`;let r=T(e)?e:ne(h.location,e,t);n&&n(r,e),l=u();let i=te(r,l),d=h.createHref(r.mask||r);o.replaceState(i,``,d),a&&c&&c({action:s,location:h.location,delta:0})}function m(e){return oe(e)}let h={get action(){return s},get location(){return e(i,o)},listen(e){if(c)throw Error(`A history only accepts one active listener`);return i.addEventListener(w,d),c=e,()=>{i.removeEventListener(w,d),c=null}},createHref(e){return t(i,e)},createURL:m,encodeLocation(e){let t=m(e);return{pathname:t.pathname,search:t.search,hash:t.hash}},push:f,replace:p,go(e){return o.go(e)}};return h}function oe(e,t=!1){let n=`http://localhost`;typeof window<`u`&&(n=window.location.origin===`null`?window.location.href:window.location.origin),D(n,`No window.location.(origin|href) available to create URL`);let r=typeof e==`string`?e:re(e);return r=r.replace(/ $/,`%20`),!t&&r.startsWith(`//`)&&(r=n+r),new URL(r,n)}function k(e,t,n=`/`){return se(e,t,n,!1)}function se(e,t,n,r,i){let a=Ee((typeof t==`string`?ie(t):t).pathname||`/`,n);if(a==null)return null;let o=i??le(e),s=null,c=Te(a);for(let e=0;s==null&&e<o.length;++e)s=Se(o[e],c,r);return s}function ce(e,t){let{route:n,pathname:r,params:i}=e;return{id:n.id,pathname:r,params:i,data:t[n.id],loaderData:t[n.id],handle:n.handle}}function le(e){let t=ue(e);return fe(t),t}function ue(e,t=[],n=[],r=``,i=!1){let a=(e,a,o=i,s)=>{let c={relativePath:s===void 0?e.path||``:s,caseSensitive:e.caseSensitive===!0,childrenIndex:a,route:e};if(c.relativePath.startsWith(`/`)){if(!c.relativePath.startsWith(r)&&o)return;D(c.relativePath.startsWith(r),`Absolute route path "${c.relativePath}" nested under path "${r}" is not valid. An absolute child route path must start with the combined path of all its parent routes.`),c.relativePath=c.relativePath.slice(r.length)}let l=Fe([r,c.relativePath]),u=n.concat(c);e.children&&e.children.length>0&&(D(e.index!==!0,`Index routes must not have child routes. Please remove all child routes from route path "${l}".`),ue(e.children,t,u,l,o)),!(e.path==null&&!e.index)&&t.push({path:l,score:be(l,e.index),routesMeta:u})};return e.forEach((e,t)=>{if(e.path===``||!e.path?.includes(`?`))a(e,t);else for(let n of de(e.path))a(e,t,!0,n)}),t}function de(e){let t=e.split(`/`);if(t.length===0)return[];let[n,...r]=t,i=n.endsWith(`?`),a=n.replace(/\?$/,``);if(r.length===0)return i?[a,``]:[a];let o=de(r.join(`/`)),s=[];return s.push(...o.map(e=>e===``?a:[a,e].join(`/`))),i&&s.push(...o),s.map(t=>e.startsWith(`/`)&&t===``?`/`:t)}function fe(e){e.sort((e,t)=>e.score===t.score?xe(e.routesMeta.map(e=>e.childrenIndex),t.routesMeta.map(e=>e.childrenIndex)):t.score-e.score)}var pe=/^:[\w-]+$/,me=3,he=2,ge=1,_e=10,ve=-2,ye=e=>e===`*`;function be(e,t){let n=e.split(`/`),r=n.length;return n.some(ye)&&(r+=ve),t&&(r+=he),n.filter(e=>!ye(e)).reduce((e,t)=>e+(pe.test(t)?me:t===``?ge:_e),r)}function xe(e,t){return e.length===t.length&&e.slice(0,-1).every((e,n)=>e===t[n])?e[e.length-1]-t[t.length-1]:0}function Se(e,t,n=!1){let{routesMeta:r}=e,i={},a=`/`,o=[];for(let e=0;e<r.length;++e){let s=r[e],c=e===r.length-1,l=a===`/`?t:t.slice(a.length)||`/`,u=Ce({path:s.relativePath,caseSensitive:s.caseSensitive,end:c},l),d=s.route;if(!u&&c&&n&&!r[r.length-1].route.index&&(u=Ce({path:s.relativePath,caseSensitive:s.caseSensitive,end:!1},l)),!u)return null;Object.assign(i,u.params),o.push({params:i,pathname:Fe([a,u.pathname]),pathnameBase:Le(Fe([a,u.pathnameBase])),route:d}),u.pathnameBase!==`/`&&(a=Fe([a,u.pathnameBase]))}return o}function Ce(e,t){typeof e==`string`&&(e={path:e,caseSensitive:!1,end:!0});let[n,r]=we(e.path,e.caseSensitive,e.end),i=t.match(n);if(!i)return null;let a=i[0],o=a.replace(/(.)\/+$/,`$1`),s=i.slice(1);return{params:r.reduce((e,{paramName:t,isOptional:n},r)=>{if(t===`*`){let e=s[r]||``;o=a.slice(0,a.length-e.length).replace(/(.)\/+$/,`$1`)}let i=s[r];return n&&!i?e[t]=void 0:e[t]=(i||``).replace(/%2F/g,`/`),e},{}),pathname:a,pathnameBase:o,pattern:e}}function we(e,t=!1,n=!0){O(e===`*`||!e.endsWith(`*`)||e.endsWith(`/*`),`Route path "${e}" will be treated as if it were "${e.replace(/\*$/,`/*`)}" because the \`*\` character must always follow a \`/\` in the pattern. To get rid of this warning, please change the route path to "${e.replace(/\*$/,`/*`)}".`);let r=[],i=`^`+e.replace(/\/*\*?$/,``).replace(/^\/*/,`/`).replace(/[\\.*+^${}|()[\]]/g,`\\$&`).replace(/\/:([\w-]+)(\?)?/g,(e,t,n,i,a)=>{if(r.push({paramName:t,isOptional:n!=null}),n){let t=a.charAt(i+e.length);return t&&t!==`/`?`/([^\\/]*)`:`(?:/([^\\/]*))?`}return`/([^\\/]+)`}).replace(/\/([\w-]+)\?(\/|$)/g,`(/$1)?$2`);return e.endsWith(`*`)?(r.push({paramName:`*`}),i+=e===`*`||e===`/*`?`(.*)$`:`(?:\\/(.+)|\\/*)$`):n?i+=`\\/*$`:e!==``&&e!==`/`&&(i+=`(?:(?=\\/|$))`),[new RegExp(i,t?void 0:`i`),r]}function Te(e){try{return e.split(`/`).map(e=>decodeURIComponent(e).replace(/\//g,`%2F`)).join(`/`)}catch(t){return O(!1,`The URL path "${e}" could not be decoded because it is a malformed URL segment. This is probably due to a bad percent encoding (${t}).`),e}}function Ee(e,t){if(t===`/`)return e;if(!e.toLowerCase().startsWith(t.toLowerCase()))return null;let n=t.endsWith(`/`)?t.length-1:t.length,r=e.charAt(n);return r&&r!==`/`?null:e.slice(n)||`/`}var De=/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i;function Oe(e,t=`/`){let{pathname:n,search:r=``,hash:i=``}=typeof e==`string`?ie(e):e,a;return n?(n=Pe(n),a=n.startsWith(`/`)?ke(n.substring(1),`/`):ke(n,t)):a=t,{pathname:a,search:Re(r),hash:ze(i)}}function ke(e,t){let n=Ie(t).split(`/`);return e.split(`/`).forEach(e=>{e===`..`?n.length>1&&n.pop():e!==`.`&&n.push(e)}),n.length>1?n.join(`/`):`/`}function Ae(e,t,n,r){return`Cannot include a '${e}' character in a manually specified \`to.${t}\` field [${JSON.stringify(r)}].  Please separate it out to the \`to.${n}\` field. Alternatively you may provide the full path as a string in <Link to="..."> and the router will parse it for you.`}function je(e){return e.filter((e,t)=>t===0||e.route.path&&e.route.path.length>0)}function Me(e){let t=je(e);return t.map((e,n)=>n===t.length-1?e.pathname:e.pathnameBase)}function Ne(e,t,n,r=!1){let i;typeof e==`string`?i=ie(e):(i={...e},D(!i.pathname||!i.pathname.includes(`?`),Ae(`?`,`pathname`,`search`,i)),D(!i.pathname||!i.pathname.includes(`#`),Ae(`#`,`pathname`,`hash`,i)),D(!i.search||!i.search.includes(`#`),Ae(`#`,`search`,`hash`,i)));let a=e===``||i.pathname===``,o=a?`/`:i.pathname,s;if(o==null)s=n;else{let e=t.length-1;if(!r&&o.startsWith(`..`)){let t=o.split(`/`);for(;t[0]===`..`;)t.shift(),--e;i.pathname=t.join(`/`)}s=e>=0?t[e]:`/`}let c=Oe(i,s),l=o&&o!==`/`&&o.endsWith(`/`),u=(a||o===`.`)&&n.endsWith(`/`);return!c.pathname.endsWith(`/`)&&(l||u)&&(c.pathname+=`/`),c}var Pe=e=>e.replace(/\/\/+/g,`/`),Fe=e=>Pe(e.join(`/`)),Ie=e=>e.replace(/\/+$/,``),Le=e=>Ie(e).replace(/^\/*/,`/`),Re=e=>!e||e===`?`?``:e.startsWith(`?`)?e:`?`+e,ze=e=>!e||e===`#`?``:e.startsWith(`#`)?e:`#`+e,Be=class{constructor(e,t,n,r=!1){this.status=e,this.statusText=t||``,this.internal=r,n instanceof Error?(this.data=n.toString(),this.error=n):this.data=n}};function Ve(e){return e!=null&&typeof e.status==`number`&&typeof e.statusText==`string`&&typeof e.internal==`boolean`&&`data`in e}function He(e){return Fe(e.map(e=>e.route.path).filter(Boolean))||`/`}var Ue=typeof window<`u`&&window.document!==void 0&&window.document.createElement!==void 0;function We(e,t){let n=e;if(typeof n!=`string`||!De.test(n))return{absoluteURL:void 0,isExternal:!1,to:n};let r=n,i=!1;if(Ue)try{let e=new URL(window.location.href),r=n.startsWith(`//`)?new URL(e.protocol+n):new URL(n),a=Ee(r.pathname,t);r.origin===e.origin&&a!=null?n=a+r.search+r.hash:i=!0}catch{O(!1,`<Link to="${n}"> contains an invalid URL which will probably break when clicked - please update to a valid URL path.`)}return{absoluteURL:r,isExternal:i,to:n}}Object.getOwnPropertyNames(Object.prototype).sort().join(`\0`);var Ge=[`POST`,`PUT`,`PATCH`,`DELETE`];new Set(Ge);var Ke=[`GET`,...Ge];new Set(Ke);var qe=v.createContext(null);qe.displayName=`DataRouter`;var Je=v.createContext(null);Je.displayName=`DataRouterState`;var Ye=v.createContext(!1);function Xe(){return v.useContext(Ye)}var Ze=v.createContext({isTransitioning:!1});Ze.displayName=`ViewTransition`;var Qe=v.createContext(new Map);Qe.displayName=`Fetchers`;var $e=v.createContext(null);$e.displayName=`Await`;var et=v.createContext(null);et.displayName=`Navigation`;var tt=v.createContext(null);tt.displayName=`Location`;var nt=v.createContext({outlet:null,matches:[],isDataRoute:!1});nt.displayName=`Route`;var rt=v.createContext(null);rt.displayName=`RouteError`;var it=`REACT_ROUTER_ERROR`,at=`REDIRECT`,ot=`ROUTE_ERROR_RESPONSE`;function st(e){if(e.startsWith(`${it}:${at}:{`))try{let t=JSON.parse(e.slice(28));if(typeof t==`object`&&t&&typeof t.status==`number`&&typeof t.statusText==`string`&&typeof t.location==`string`&&typeof t.reloadDocument==`boolean`&&typeof t.replace==`boolean`)return t}catch{}}function ct(e){if(e.startsWith(`${it}:${ot}:{`))try{let t=JSON.parse(e.slice(40));if(typeof t==`object`&&t&&typeof t.status==`number`&&typeof t.statusText==`string`)return new Be(t.status,t.statusText,t.data)}catch{}}function lt(e,{relative:t}={}){D(ut(),`useHref() may be used only in the context of a <Router> component.`);let{basename:n,navigator:r}=v.useContext(et),{hash:i,pathname:a,search:o}=yt(e,{relative:t}),s=a;return n!==`/`&&(s=a===`/`?n:Fe([n,a])),r.createHref({pathname:s,search:o,hash:i})}function ut(){return v.useContext(tt)!=null}function dt(){return D(ut(),`useLocation() may be used only in the context of a <Router> component.`),v.useContext(tt).location}var ft=`You should call navigate() in a React.useEffect(), not when your component is first rendered.`;function pt(e){v.useContext(et).static||v.useLayoutEffect(e)}function mt(){let{isDataRoute:e}=v.useContext(nt);return e?Rt():ht()}function ht(){D(ut(),`useNavigate() may be used only in the context of a <Router> component.`);let e=v.useContext(qe),{basename:t,navigator:n}=v.useContext(et),{matches:r}=v.useContext(nt),{pathname:i}=dt(),a=JSON.stringify(Me(r)),o=v.useRef(!1);return pt(()=>{o.current=!0}),v.useCallback((r,s={})=>{if(O(o.current,ft),!o.current)return;if(typeof r==`number`){n.go(r);return}let c=Ne(r,JSON.parse(a),i,s.relative===`path`);e==null&&t!==`/`&&(c.pathname=c.pathname===`/`?t:Fe([t,c.pathname])),(s.replace?n.replace:n.push)(c,s.state,s)},[t,n,a,i,e])}var gt=v.createContext(null);function _t(e){let t=v.useContext(nt).outlet;return v.useMemo(()=>t&&v.createElement(gt.Provider,{value:e},t),[t,e])}function vt(){let{matches:e}=v.useContext(nt);return e[e.length-1]?.params??{}}function yt(e,{relative:t}={}){let{matches:n}=v.useContext(nt),{pathname:r}=dt(),i=JSON.stringify(Me(n));return v.useMemo(()=>Ne(e,JSON.parse(i),r,t===`path`),[e,i,r,t])}function bt(e,t){return xt(e,t)}function xt(e,t,n){D(ut(),`useRoutes() may be used only in the context of a <Router> component.`);let{navigator:r}=v.useContext(et),{matches:i}=v.useContext(nt),a=i[i.length-1],o=a?a.params:{},s=a?a.pathname:`/`,c=a?a.pathnameBase:`/`,l=a&&a.route;{let e=l&&l.path||``;Bt(s,!l||e.endsWith(`*`)||e.endsWith(`*?`),`You rendered descendant <Routes> (or called \`useRoutes()\`) at "${s}" (under <Route path="${e}">) but the parent route path has no trailing "*". This means if you navigate deeper, the parent won't match anymore and therefore the child routes will never render.
 
-Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}/*`}">.`)}let u=dt(),d;if(t){let e=typeof t==`string`?ie(t):t;D(c===`/`||e.pathname?.startsWith(c),`When overriding the location using \`<Routes location>\` or \`useRoutes(routes, location)\`, the location pathname must begin with the portion of the URL pathname that was matched by all parent routes. The current pathname base is "${c}" but pathname "${e.pathname}" was given in the \`location\` prop.`),d=e}else d=u;let f=d.pathname||`/`,p=f;if(c!==`/`){let e=c.replace(/^\//,``).split(`/`);p=`/`+f.replace(/^\//,``).split(`/`).slice(e.length).join(`/`)}let m=n&&n.state.matches.length?n.state.matches.map(e=>Object.assign(e,{route:n.manifest[e.route.id]||e.route})):k(e,{pathname:p});O(l||m!=null,`No routes matched location "${d.pathname}${d.search}${d.hash}" `),O(m==null||m[m.length-1].route.element!==void 0||m[m.length-1].route.Component!==void 0||m[m.length-1].route.lazy!==void 0,`Matched leaf route at location "${d.pathname}${d.search}${d.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);let h=Ot(m&&m.map(e=>Object.assign({},e,{params:Object.assign({},o,e.params),pathname:Fe([c,r.encodeLocation?r.encodeLocation(e.pathname.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathname]),pathnameBase:e.pathnameBase===`/`?c:Fe([c,r.encodeLocation?r.encodeLocation(e.pathnameBase.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathnameBase])})),i,n);return t&&h?v.createElement(tt.Provider,{value:{location:{pathname:`/`,search:``,hash:``,state:null,key:`default`,mask:void 0,...d},navigationType:`POP`}},h):h}function St(){let e=Lt(),t=Ve(e)?`${e.status} ${e.statusText}`:e instanceof Error?e.message:JSON.stringify(e),n=e instanceof Error?e.stack:null,r=`rgba(200,200,200, 0.5)`,i={padding:`0.5rem`,backgroundColor:r},a={padding:`2px 4px`,backgroundColor:r},o=null;return console.error(`Error handled by React Router default ErrorBoundary:`,e),o=v.createElement(v.Fragment,null,v.createElement(`p`,null,`💿 Hey developer 👋`),v.createElement(`p`,null,`You can provide a way better UX than this when your app throws errors by providing your own `,v.createElement(`code`,{style:a},`ErrorBoundary`),` or`,` `,v.createElement(`code`,{style:a},`errorElement`),` prop on your route.`)),v.createElement(v.Fragment,null,v.createElement(`h2`,null,`Unexpected Application Error!`),v.createElement(`h3`,{style:{fontStyle:`italic`}},t),n?v.createElement(`pre`,{style:i},n):null,o)}var Ct=v.createElement(St,null),wt=class extends v.Component{constructor(e){super(e),this.state={location:e.location,revalidation:e.revalidation,error:e.error}}static getDerivedStateFromError(e){return{error:e}}static getDerivedStateFromProps(e,t){return t.location!==e.location||t.revalidation!==`idle`&&e.revalidation===`idle`?{error:e.error,location:e.location,revalidation:e.revalidation}:{error:e.error===void 0?t.error:e.error,location:t.location,revalidation:e.revalidation||t.revalidation}}componentDidCatch(e,t){this.props.onError?this.props.onError(e,t):console.error(`React Router caught the following error during render`,e)}render(){let e=this.state.error;if(this.context&&typeof e==`object`&&e&&`digest`in e&&typeof e.digest==`string`){let t=ct(e.digest);t&&(e=t)}let t=e===void 0?this.props.children:v.createElement(nt.Provider,{value:this.props.routeContext},v.createElement(rt.Provider,{value:e,children:this.props.component}));return this.context?v.createElement(Et,{error:e},t):t}};wt.contextType=Ye;var Tt=new WeakMap;function Et({children:e,error:t}){let{basename:n}=v.useContext(et);if(typeof t==`object`&&t&&`digest`in t&&typeof t.digest==`string`){let e=st(t.digest);if(e){let r=Tt.get(t);if(r)throw r;let i=We(e.location,n);if(Ue&&!Tt.get(t))if(i.isExternal||e.reloadDocument)window.location.href=i.absoluteURL||i.to;else{let n=Promise.resolve().then(()=>window.__reactRouterDataRouter.navigate(i.to,{replace:e.replace}));throw Tt.set(t,n),n}return v.createElement(`meta`,{httpEquiv:`refresh`,content:`0;url=${i.absoluteURL||i.to}`})}}return e}function Dt({routeContext:e,match:t,children:n}){let r=v.useContext(qe);return r&&r.static&&r.staticContext&&(t.route.errorElement||t.route.ErrorBoundary)&&(r.staticContext._deepestRenderedBoundaryId=t.route.id),v.createElement(nt.Provider,{value:e},n)}function Ot(e,t=[],n){let r=n?.state;if(e==null){if(!r)return null;if(r.errors)e=r.matches;else if(t.length===0&&!r.initialized&&r.matches.length>0)e=r.matches;else return null}let i=e,a=r?.errors;if(a!=null){let e=i.findIndex(e=>e.route.id&&a?.[e.route.id]!==void 0);D(e>=0,`Could not find a matching route for errors on route IDs: ${Object.keys(a).join(`,`)}`),i=i.slice(0,Math.min(i.length,e+1))}let o=!1,s=-1;if(n&&r){o=r.renderFallback;for(let e=0;e<i.length;e++){let t=i[e];if((t.route.HydrateFallback||t.route.hydrateFallbackElement)&&(s=e),t.route.id){let{loaderData:e,errors:a}=r,c=t.route.loader&&!e.hasOwnProperty(t.route.id)&&(!a||a[t.route.id]===void 0);if(t.route.lazy||c){n.isStatic&&(o=!0),i=s>=0?i.slice(0,s+1):[i[0]];break}}}}let c=n?.onError,l=r&&c?(e,t)=>{c(e,{location:r.location,params:r.matches?.[0]?.params??{},pattern:He(r.matches),errorInfo:t})}:void 0;return i.reduceRight((e,n,c)=>{let u,d=!1,f=null,p=null;r&&(u=a&&n.route.id?a[n.route.id]:void 0,f=n.route.errorElement||Ct,o&&(s<0&&c===0?(Bt(`route-fallback`,!1,"No `HydrateFallback` element provided to render during initial hydration"),d=!0,p=null):s===c&&(d=!0,p=n.route.hydrateFallbackElement||null)));let m=t.concat(i.slice(0,c+1)),h=()=>{let t;return t=u?f:d?p:n.route.Component?v.createElement(n.route.Component,null):n.route.element?n.route.element:e,v.createElement(Dt,{match:n,routeContext:{outlet:e,matches:m,isDataRoute:r!=null},children:t})};return r&&(n.route.ErrorBoundary||n.route.errorElement||c===0)?v.createElement(wt,{location:r.location,revalidation:r.revalidation,component:f,error:u,children:h(),routeContext:{outlet:null,matches:m,isDataRoute:!0},onError:l}):h()},null)}function kt(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function At(e){let t=v.useContext(qe);return D(t,kt(e)),t}function jt(e){let t=v.useContext(Je);return D(t,kt(e)),t}function Mt(e){let t=v.useContext(nt);return D(t,kt(e)),t}function Nt(e){let t=Mt(e),n=t.matches[t.matches.length-1];return D(n.route.id,`${e} can only be used on routes that contain a unique "id"`),n.route.id}function Pt(){return Nt(`useRouteId`)}function Ft(){let e=jt(`useNavigation`);return v.useMemo(()=>{let{matches:t,historyAction:n,...r}=e.navigation;return r},[e.navigation])}function It(){let{matches:e,loaderData:t}=jt(`useMatches`);return v.useMemo(()=>e.map(e=>ce(e,t)),[e,t])}function Lt(){let e=v.useContext(rt),t=jt(`useRouteError`),n=Nt(`useRouteError`);return e===void 0?t.errors?.[n]:e}function Rt(){let{router:e}=At(`useNavigate`),t=Nt(`useNavigate`),n=v.useRef(!1);return pt(()=>{n.current=!0}),v.useCallback(async(r,i={})=>{O(n.current,ft),n.current&&(typeof r==`number`?await e.navigate(r):await e.navigate(r,{fromRouteId:t,...i}))},[e,t])}var zt={};function Bt(e,t,n){!t&&!zt[e]&&(zt[e]=!0,O(!1,n))}v.memo(Vt);function Vt({routes:e,manifest:t,future:n,state:r,isStatic:i,onError:a}){return xt(e,void 0,{manifest:t,state:r,isStatic:i,onError:a,future:n})}function Ht(e){return _t(e.context)}function Ut(e){D(!1,`A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.`)}function Wt({basename:e=`/`,children:t=null,location:n,navigationType:r=`POP`,navigator:i,static:a=!1,useTransitions:o}){D(!ut(),`You cannot render a <Router> inside another <Router>. You should never have more than one in your app.`);let s=e.replace(/^\/*/,`/`),c=v.useMemo(()=>({basename:s,navigator:i,static:a,useTransitions:o,future:{}}),[s,i,a,o]);typeof n==`string`&&(n=ie(n));let{pathname:l=`/`,search:u=``,hash:d=``,state:f=null,key:p=`default`,mask:m}=n,h=v.useMemo(()=>{let e=Ee(l,s);return e==null?null:{location:{pathname:e,search:u,hash:d,state:f,key:p,mask:m},navigationType:r}},[s,l,u,d,f,p,r,m]);return O(h!=null,`<Router basename="${s}"> is not able to match the URL "${l}${u}${d}" because it does not start with the basename, so the <Router> won't render anything.`),h==null?null:v.createElement(et.Provider,{value:c},v.createElement(tt.Provider,{children:t,value:h}))}function Gt({children:e,location:t}){return bt(Kt(e),t)}v.Component;function Kt(e,t=[]){let n=[];return v.Children.forEach(e,(e,r)=>{if(!v.isValidElement(e))return;let i=[...t,r];if(e.type===v.Fragment){n.push.apply(n,Kt(e.props.children,i));return}D(e.type===Ut,`[${typeof e.type==`string`?e.type:e.type.name}] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`),D(!e.props.index||!e.props.children,`An index route cannot have child routes.`);let a={id:e.props.id||i.join(`-`),caseSensitive:e.props.caseSensitive,element:e.props.element,Component:e.props.Component,index:e.props.index,path:e.props.path,middleware:e.props.middleware,loader:e.props.loader,action:e.props.action,hydrateFallbackElement:e.props.hydrateFallbackElement,HydrateFallback:e.props.HydrateFallback,errorElement:e.props.errorElement,ErrorBoundary:e.props.ErrorBoundary,hasErrorBoundary:e.props.hasErrorBoundary===!0||e.props.ErrorBoundary!=null||e.props.errorElement!=null,shouldRevalidate:e.props.shouldRevalidate,handle:e.props.handle,lazy:e.props.lazy};e.props.children&&(a.children=Kt(e.props.children,i)),n.push(a)}),n}var qt=`get`,Jt=`application/x-www-form-urlencoded`;function Yt(e){return typeof HTMLElement<`u`&&e instanceof HTMLElement}function Xt(e){return Yt(e)&&e.tagName.toLowerCase()===`button`}function Zt(e){return Yt(e)&&e.tagName.toLowerCase()===`form`}function Qt(e){return Yt(e)&&e.tagName.toLowerCase()===`input`}function $t(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}function en(e,t){return e.button===0&&(!t||t===`_self`)&&!$t(e)}function tn(e=``){return new URLSearchParams(typeof e==`string`||Array.isArray(e)||e instanceof URLSearchParams?e:Object.keys(e).reduce((t,n)=>{let r=e[n];return t.concat(Array.isArray(r)?r.map(e=>[n,e]):[[n,r]])},[]))}function nn(e,t){let n=tn(e);return t&&t.forEach((e,r)=>{n.has(r)||t.getAll(r).forEach(e=>{n.append(r,e)})}),n}var rn=null;function an(){if(rn===null)try{new FormData(document.createElement(`form`),0),rn=!1}catch{rn=!0}return rn}var on=new Set([`application/x-www-form-urlencoded`,`multipart/form-data`,`text/plain`]);function sn(e){return e!=null&&!on.has(e)?(O(!1,`"${e}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${Jt}"`),null):e}function cn(e,t){let n,r,i,a,o;if(Zt(e)){let o=e.getAttribute(`action`);r=o?Ee(o,t):null,n=e.getAttribute(`method`)||qt,i=sn(e.getAttribute(`enctype`))||Jt,a=new FormData(e)}else if(Xt(e)||Qt(e)&&(e.type===`submit`||e.type===`image`)){let o=e.form;if(o==null)throw Error(`Cannot submit a <button> or <input type="submit"> without a <form>`);let s=e.getAttribute(`formaction`)||o.getAttribute(`action`);if(r=s?Ee(s,t):null,n=e.getAttribute(`formmethod`)||o.getAttribute(`method`)||qt,i=sn(e.getAttribute(`formenctype`))||sn(o.getAttribute(`enctype`))||Jt,a=new FormData(o,e),!an()){let{name:t,type:n,value:r}=e;if(n===`image`){let e=t?`${t}.`:``;a.append(`${e}x`,`0`),a.append(`${e}y`,`0`)}else t&&a.append(t,r)}}else if(Yt(e))throw Error(`Cannot submit element that is not <form>, <button>, or <input type="submit|image">`);else n=qt,r=null,i=Jt,o=e;return a&&i===`text/plain`&&(o=a,a=void 0),{action:r,method:n.toLowerCase(),encType:i,formData:a,body:o}}Object.getOwnPropertyNames(Object.prototype).sort().join(`\0`);var ln={"&":`\\u0026`,">":`\\u003e`,"<":`\\u003c`,"\u2028":`\\u2028`,"\u2029":`\\u2029`},un=/[&><\u2028\u2029]/g;function dn(e){return e.replace(un,e=>ln[e])}function fn(e,t){if(e===!1||e==null)throw Error(t)}function pn(e,t,n,r){let i=typeof e==`string`?new URL(e,typeof window>`u`?`server://singlefetch/`:window.location.origin):e;return n?i.pathname.endsWith(`/`)?i.pathname=`${i.pathname}_.${r}`:i.pathname=`${i.pathname}.${r}`:i.pathname===`/`?i.pathname=`_root.${r}`:t&&Ee(i.pathname,t)===`/`?i.pathname=`${Ie(t)}/_root.${r}`:i.pathname=`${Ie(i.pathname)}.${r}`,i}async function mn(e,t){if(e.id in t)return t[e.id];try{let n=await C(()=>import(e.module),[]);return t[e.id]=n,n}catch(t){return console.error(`Error loading route module \`${e.module}\`, reloading page...`),console.error(t),window.__reactRouterContext&&window.__reactRouterContext.isSpaMode,window.location.reload(),new Promise(()=>{})}}function hn(e){return e!=null&&typeof e.page==`string`}function gn(e){return e==null?!1:e.href==null?e.rel===`preload`&&typeof e.imageSrcSet==`string`&&typeof e.imageSizes==`string`:typeof e.rel==`string`&&typeof e.href==`string`}async function _n(e,t,n){return Sn((await Promise.all(e.map(async e=>{let r=t.routes[e.route.id];if(r){let e=await mn(r,n);return e.links?e.links():[]}return[]}))).flat(1).filter(gn).filter(e=>e.rel===`stylesheet`||e.rel===`preload`).map(e=>e.rel===`stylesheet`?{...e,rel:`prefetch`,as:`style`}:{...e,rel:`prefetch`}))}function vn(e,t,n,r,i,a){let o=(e,t)=>n[t]?e.route.id!==n[t].route.id:!0,s=(e,t)=>n[t].pathname!==e.pathname||n[t].route.path?.endsWith(`*`)&&n[t].params[`*`]!==e.params[`*`];return a===`assets`?t.filter((e,t)=>o(e,t)||s(e,t)):a===`data`?t.filter((t,a)=>{let c=r.routes[t.route.id];if(!c||!c.hasLoader)return!1;if(o(t,a)||s(t,a))return!0;if(t.route.shouldRevalidate){let r=t.route.shouldRevalidate({currentUrl:new URL(i.pathname+i.search+i.hash,window.origin),currentParams:n[0]?.params||{},nextUrl:new URL(e,window.origin),nextParams:t.params,defaultShouldRevalidate:!0});if(typeof r==`boolean`)return r}return!0}):[]}function yn(e,t,{includeHydrateFallback:n}={}){return bn(e.map(e=>{let r=t.routes[e.route.id];if(!r)return[];let i=[r.module];return r.clientActionModule&&(i=i.concat(r.clientActionModule)),r.clientLoaderModule&&(i=i.concat(r.clientLoaderModule)),n&&r.hydrateFallbackModule&&(i=i.concat(r.hydrateFallbackModule)),r.imports&&(i=i.concat(r.imports)),i}).flat(1))}function bn(e){return[...new Set(e)]}function xn(e){let t={},n=Object.keys(e).sort();for(let r of n)t[r]=e[r];return t}function Sn(e,t){let n=new Set,r=new Set(t);return e.reduce((e,i)=>{if(t&&!hn(i)&&i.as===`script`&&i.href&&r.has(i.href))return e;let a=JSON.stringify(xn(i));return n.has(a)||(n.add(a),e.push({key:a,link:i})),e},[])}function Cn(){let e=v.useContext(qe);return fn(e,`You must render this element inside a <DataRouterContext.Provider> element`),e}function wn(){let e=v.useContext(Je);return fn(e,`You must render this element inside a <DataRouterStateContext.Provider> element`),e}var Tn=v.createContext(void 0);Tn.displayName=`FrameworkContext`;function En(){let e=v.useContext(Tn);return fn(e,`You must render this element inside a <HydratedRouter> element`),e}function Dn(e,t){let n=v.useContext(Tn),[r,i]=v.useState(!1),[a,o]=v.useState(!1),{onFocus:s,onBlur:c,onMouseEnter:l,onMouseLeave:u,onTouchStart:d}=t,f=v.useRef(null);v.useEffect(()=>{if(e===`render`&&o(!0),e===`viewport`){let e=new IntersectionObserver(e=>{e.forEach(e=>{o(e.isIntersecting)})},{threshold:.5});return f.current&&e.observe(f.current),()=>{e.disconnect()}}},[e]),v.useEffect(()=>{if(r){let e=setTimeout(()=>{o(!0)},100);return()=>{clearTimeout(e)}}},[r]);let p=()=>{i(!0)},m=()=>{i(!1),o(!1)};return n?e===`intent`?[a,f,{onFocus:On(s,p),onBlur:On(c,m),onMouseEnter:On(l,p),onMouseLeave:On(u,m),onTouchStart:On(d,p)}]:[a,f,{}]:[!1,f,{}]}function On(e,t){return n=>{e&&e(n),n.defaultPrevented||t(n)}}function kn({page:e,...t}){let n=Xe(),{router:r}=Cn(),i=v.useMemo(()=>k(r.routes,e,r.basename),[r.routes,e,r.basename]);return i?n?v.createElement(jn,{page:e,matches:i,...t}):v.createElement(Mn,{page:e,matches:i,...t}):null}function An(e){let{manifest:t,routeModules:n}=En(),[r,i]=v.useState([]);return v.useEffect(()=>{let r=!1;return _n(e,t,n).then(e=>{r||i(e)}),()=>{r=!0}},[e,t,n]),r}function jn({page:e,matches:t,...n}){let r=dt(),{future:i}=En(),{basename:a}=Cn(),o=v.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=pn(e,a,i.unstable_trailingSlashAwareDataRequests,`rsc`),o=!1,s=[];for(let e of t)typeof e.route.shouldRevalidate==`function`?o=!0:s.push(e.route.id);return o&&s.length>0&&n.searchParams.set(`_routes`,s.join(`,`)),[n.pathname+n.search]},[a,i.unstable_trailingSlashAwareDataRequests,e,r,t]);return v.createElement(v.Fragment,null,o.map(e=>v.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})))}function Mn({page:e,matches:t,...n}){let r=dt(),{future:i,manifest:a,routeModules:o}=En(),{basename:s}=Cn(),{loaderData:c,matches:l}=wn(),u=v.useMemo(()=>vn(e,t,l,a,r,`data`),[e,t,l,a,r]),d=v.useMemo(()=>vn(e,t,l,a,r,`assets`),[e,t,l,a,r]),f=v.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=new Set,l=!1;if(t.forEach(e=>{let t=a.routes[e.route.id];!t||!t.hasLoader||(!u.some(t=>t.route.id===e.route.id)&&e.route.id in c&&o[e.route.id]?.shouldRevalidate||t.hasClientLoader?l=!0:n.add(e.route.id))}),n.size===0)return[];let d=pn(e,s,i.unstable_trailingSlashAwareDataRequests,`data`);return l&&n.size>0&&d.searchParams.set(`_routes`,t.filter(e=>n.has(e.route.id)).map(e=>e.route.id).join(`,`)),[d.pathname+d.search]},[s,i.unstable_trailingSlashAwareDataRequests,c,r,a,u,t,e,o]),p=v.useMemo(()=>yn(d,a),[d,a]),m=An(d);return v.createElement(v.Fragment,null,f.map(e=>v.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})),p.map(e=>v.createElement(`link`,{key:e,rel:`modulepreload`,href:e,...n})),m.map(({key:e,link:t})=>v.createElement(`link`,{key:e,nonce:n.nonce,...t,crossOrigin:t.crossOrigin??n.crossOrigin})))}function Nn(...e){return t=>{e.forEach(e=>{typeof e==`function`?e(t):e!=null&&(e.current=t)})}}v.Component;var Pn=typeof window<`u`&&window.document!==void 0&&window.document.createElement!==void 0;try{Pn&&(window.__reactRouterVersion=`7.15.1`)}catch{}function Fn({basename:e,children:t,useTransitions:n,window:r}){let i=v.useRef();i.current??=E({window:r,v5Compat:!0});let a=i.current,[o,s]=v.useState({action:a.action,location:a.location}),c=v.useCallback(e=>{n===!1?s(e):v.startTransition(()=>s(e))},[n]);return v.useLayoutEffect(()=>a.listen(c),[a,c]),v.createElement(Wt,{basename:e,children:t,location:o.location,navigationType:o.action,navigator:a,useTransitions:n})}function In({basename:e,children:t,history:n,useTransitions:r}){let[i,a]=v.useState({action:n.action,location:n.location}),o=v.useCallback(e=>{r===!1?a(e):v.startTransition(()=>a(e))},[r]);return v.useLayoutEffect(()=>n.listen(o),[n,o]),v.createElement(Wt,{basename:e,children:t,location:i.location,navigationType:i.action,navigator:n,useTransitions:r})}In.displayName=`unstable_HistoryRouter`;var Ln=/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,Rn=v.forwardRef(function({onClick:e,discover:t=`render`,prefetch:n=`none`,relative:r,reloadDocument:i,replace:a,mask:o,state:s,target:c,to:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m){let{basename:h,navigator:g,useTransitions:_}=v.useContext(et),y=typeof l==`string`&&Ln.test(l),b=We(l,h);l=b.to;let x=lt(l,{relative:r}),S=dt(),C=null;if(o){let e=Ne(o,[],S.mask?S.mask.pathname:`/`,!0);h!==`/`&&(e.pathname=e.pathname===`/`?h:Fe([h,e.pathname])),C=g.createHref(e)}let[w,T,E]=Dn(n,p),D=Gn(l,{replace:a,mask:o,state:s,target:c,preventScrollReset:u,relative:r,viewTransition:d,defaultShouldRevalidate:f,useTransitions:_});function O(t){e&&e(t),t.defaultPrevented||D(t)}let ee=!(b.isExternal||i),te=v.createElement(`a`,{...p,...E,href:(ee?C:void 0)||b.absoluteURL||x,onClick:ee?O:e,ref:Nn(m,T),target:c,"data-discover":!y&&t===`render`?`true`:void 0});return w&&!y?v.createElement(v.Fragment,null,te,v.createElement(kn,{page:x})):te});Rn.displayName=`Link`;var zn=v.forwardRef(function({"aria-current":e=`page`,caseSensitive:t=!1,className:n=``,end:r=!1,style:i,to:a,viewTransition:o,children:s,...c},l){let u=yt(a,{relative:c.relative}),d=dt(),f=v.useContext(Je),{navigator:p,basename:m}=v.useContext(et),h=f!=null&&nr(u)&&o===!0,g=p.encodeLocation?p.encodeLocation(u).pathname:u.pathname,_=d.pathname,y=f&&f.navigation&&f.navigation.location?f.navigation.location.pathname:null;t||(_=_.toLowerCase(),y=y?y.toLowerCase():null,g=g.toLowerCase()),y&&m&&(y=Ee(y,m)||y);let b=g!==`/`&&g.endsWith(`/`)?g.length-1:g.length,x=_===g||!r&&_.startsWith(g)&&_.charAt(b)===`/`,S=y!=null&&(y===g||!r&&y.startsWith(g)&&y.charAt(g.length)===`/`),C={isActive:x,isPending:S,isTransitioning:h},w=x?e:void 0,T;T=typeof n==`function`?n(C):[n,x?`active`:null,S?`pending`:null,h?`transitioning`:null].filter(Boolean).join(` `);let E=typeof i==`function`?i(C):i;return v.createElement(Rn,{...c,"aria-current":w,className:T,ref:l,style:E,to:a,viewTransition:o},typeof s==`function`?s(C):s)});zn.displayName=`NavLink`;var Bn=v.forwardRef(({discover:e=`render`,fetcherKey:t,navigate:n,reloadDocument:r,replace:i,state:a,method:o=qt,action:s,onSubmit:c,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m)=>{let{useTransitions:h}=v.useContext(et),g=Yn(),_=Xn(s,{relative:l}),y=o.toLowerCase()===`get`?`get`:`post`,b=typeof s==`string`&&Ln.test(s);return v.createElement(`form`,{ref:m,method:y,action:_,onSubmit:r?c:e=>{if(c&&c(e),e.defaultPrevented)return;e.preventDefault();let r=e.nativeEvent.submitter,s=r?.getAttribute(`formmethod`)||o,p=()=>g(r||e.currentTarget,{fetcherKey:t,method:s,navigate:n,replace:i,state:a,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f});h&&n!==!1?v.startTransition(()=>p()):p()},...p,"data-discover":!b&&e===`render`?`true`:void 0})});Bn.displayName=`Form`;function Vn({getKey:e,storageKey:t,...n}){let r=v.useContext(Tn),{basename:i}=v.useContext(et),a=dt(),o=It();er({getKey:e,storageKey:t});let s=v.useMemo(()=>{if(!r||!e)return null;let t=$n(a,o,i,e);return t===a.key?null:t},[]);if(!r||r.isSpaMode)return null;let c=((e,t)=>{if(!window.history.state||!window.history.state.key){let e=Math.random().toString(32).slice(2);window.history.replaceState({key:e},``)}try{let n=JSON.parse(sessionStorage.getItem(e)||`{}`)[t||window.history.state.key];typeof n==`number`&&window.scrollTo(0,n)}catch(t){console.error(t),sessionStorage.removeItem(e)}}).toString();return v.createElement(`script`,{...n,suppressHydrationWarning:!0,dangerouslySetInnerHTML:{__html:`(${c})(${dn(JSON.stringify(t||Zn))}, ${dn(JSON.stringify(s))})`}})}Vn.displayName=`ScrollRestoration`;function Hn(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function Un(e){let t=v.useContext(qe);return D(t,Hn(e)),t}function Wn(e){let t=v.useContext(Je);return D(t,Hn(e)),t}function Gn(e,{target:t,replace:n,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c,useTransitions:l}={}){let u=mt(),d=dt(),f=yt(e,{relative:o});return v.useCallback(p=>{if(en(p,t)){p.preventDefault();let t=n===void 0?re(d)===re(f):n,m=()=>u(e,{replace:t,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c});l?v.startTransition(()=>m()):m()}},[d,u,f,n,r,i,t,e,a,o,s,c,l])}function Kn(e){O(typeof URLSearchParams<`u`,"You cannot use the `useSearchParams` hook in a browser that does not support the URLSearchParams API. If you need to support Internet Explorer 11, we recommend you load a polyfill such as https://github.com/ungap/url-search-params.");let t=v.useRef(tn(e)),n=v.useRef(!1),r=dt(),i=v.useMemo(()=>nn(r.search,n.current?null:t.current),[r.search]),a=mt();return[i,v.useCallback((e,t)=>{let r=tn(typeof e==`function`?e(new URLSearchParams(i)):e);n.current=!0,a(`?`+r,t)},[a,i])]}var qn=0,Jn=()=>`__${String(++qn)}__`;function Yn(){let{router:e}=Un(`useSubmit`),{basename:t}=v.useContext(et),n=Pt(),r=e.fetch,i=e.navigate;return v.useCallback(async(e,a={})=>{let{action:o,method:s,encType:c,formData:l,body:u}=cn(e,t);a.navigate===!1?await r(a.fetcherKey||Jn(),n,a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,flushSync:a.flushSync}):await i(a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,replace:a.replace,state:a.state,fromRouteId:n,flushSync:a.flushSync,viewTransition:a.viewTransition})},[r,i,t,n])}function Xn(e,{relative:t}={}){let{basename:n}=v.useContext(et),r=v.useContext(nt);D(r,`useFormAction must be used inside a RouteContext`);let[i]=r.matches.slice(-1),a={...yt(e||`.`,{relative:t})},o=dt();if(e==null){a.search=o.search;let e=new URLSearchParams(a.search),t=e.getAll(`index`);if(t.some(e=>e===``)){e.delete(`index`),t.filter(e=>e).forEach(t=>e.append(`index`,t));let n=e.toString();a.search=n?`?${n}`:``}}return(!e||e===`.`)&&i.route.index&&(a.search=a.search?a.search.replace(/^\?/,`?index&`):`?index`),n!==`/`&&(a.pathname=a.pathname===`/`?n:Fe([n,a.pathname])),re(a)}var Zn=`react-router-scroll-positions`,Qn={};function $n(e,t,n,r){let i=null;return r&&(i=r(n===`/`?e:{...e,pathname:Ee(e.pathname,n)||e.pathname},t)),i??=e.key,i}function er({getKey:e,storageKey:t}={}){let{router:n}=Un(`useScrollRestoration`),{restoreScrollPosition:r,preventScrollReset:i}=Wn(`useScrollRestoration`),{basename:a}=v.useContext(et),o=dt(),s=It(),c=Ft();v.useEffect(()=>(window.history.scrollRestoration=`manual`,()=>{window.history.scrollRestoration=`auto`}),[]),tr(v.useCallback(()=>{if(c.state===`idle`){let t=$n(o,s,a,e);Qn[t]=window.scrollY}try{sessionStorage.setItem(t||Zn,JSON.stringify(Qn))}catch(e){O(!1,`Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (${e}).`)}window.history.scrollRestoration=`auto`},[c.state,e,a,o,s,t])),typeof document<`u`&&(v.useLayoutEffect(()=>{try{let e=sessionStorage.getItem(t||Zn);e&&(Qn=JSON.parse(e))}catch{}},[t]),v.useLayoutEffect(()=>{let t=n?.enableScrollRestoration(Qn,()=>window.scrollY,e?(t,n)=>$n(t,n,a,e):void 0);return()=>t&&t()},[n,a,e]),v.useLayoutEffect(()=>{if(r!==!1){if(typeof r==`number`){window.scrollTo(0,r);return}try{if(o.hash){let e=document.getElementById(decodeURIComponent(o.hash.slice(1)));if(e){e.scrollIntoView();return}}}catch{O(!1,`"${o.hash.slice(1)}" is not a decodable element ID. The view will not scroll to it.`)}i!==!0&&window.scrollTo(0,0)}},[o,r,i]))}function tr(e,t){let{capture:n}=t||{};v.useEffect(()=>{let t=n==null?void 0:{capture:n};return window.addEventListener(`pagehide`,e,t),()=>{window.removeEventListener(`pagehide`,e,t)}},[e,n])}function nr(e,{relative:t}={}){let n=v.useContext(Ze);D(n!=null,"`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?");let{basename:r}=Un(`useViewTransitionState`),i=yt(e,{relative:t});if(!n.isTransitioning)return!1;let a=Ee(n.currentLocation.pathname,r)||n.currentLocation.pathname,o=Ee(n.nextLocation.pathname,r)||n.nextLocation.pathname;return Ce(i.pathname,o)!=null||Ce(i.pathname,a)!=null}var rr=`408-exam-prep-progress`;function ir(){try{let e=localStorage.getItem(rr);return e?JSON.parse(e):null}catch{return null}}function ar(e){try{localStorage.setItem(rr,JSON.stringify(e))}catch{}}var or=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),A=o(((e,t)=>{t.exports=or()}))();function sr(){return{completedPoints:[],quizHistory:[],errorBook:[]}}function cr(e,t){switch(t.type){case`COMPLETE_POINT`:return e.progress.completedPoints.includes(t.pointId)?e:{...e,progress:{...e.progress,completedPoints:[...e.progress.completedPoints,t.pointId]}};case`ADD_QUIZ_RESULT`:return{...e,progress:{...e.progress,quizHistory:[...e.progress.quizHistory,t.result]}};case`ADD_ERROR_ITEM`:return e.progress.errorBook.find(e=>e.questionId===t.questionId)?{...e,progress:{...e.progress,errorBook:e.progress.errorBook.map(e=>e.questionId===t.questionId?{...e,wrongCount:e.wrongCount+1,lastWrongDate:new Date().toISOString(),userAnswers:[...e.userAnswers,t.userAnswer]}:e)}}:{...e,progress:{...e.progress,errorBook:[...e.progress.errorBook,{questionId:t.questionId,wrongCount:1,lastWrongDate:new Date().toISOString(),mastered:!1,userAnswers:[t.userAnswer]}]}};case`MASTER_ERROR`:return{...e,progress:{...e.progress,errorBook:e.progress.errorBook.map(e=>e.questionId===t.questionId?{...e,mastered:!0}:e)}};case`RESET_PROGRESS`:return{progress:sr()};default:return e}}var lr=(0,v.createContext)(null);function ur({children:e}){let[t,n]=(0,v.useReducer)(cr,{progress:ir()||sr()});(0,v.useEffect)(()=>{ar(t.progress)},[t.progress]);let r=t.progress.errorBook,i=r.filter(e=>!e.mastered);return(0,A.jsx)(lr.Provider,{value:{state:t,dispatch:n,errorBook:r,activeErrors:i},children:e})}function dr(){let e=(0,v.useContext)(lr);if(!e)throw Error(`useAppContext must be used within AppProvider`);return e}var fr=[{id:`ds`,name:`数据结构`,fullName:`数据结构`,color:`#4f46e5`,chapters:[{id:`ds-1`,chapterNum:1,title:`绪论`,sections:[{id:`ds-1-1`,title:`数据结构的基本概念`,knowledgePointIds:[`ds-1-1-1`,`ds-1-1-2`,`ds-1-1-3`]},{id:`ds-1-2`,title:`算法和算法评价`,knowledgePointIds:[`ds-1-2-1`,`ds-1-2-2`,`ds-1-2-3`]}]},{id:`ds-2`,chapterNum:2,title:`线性表`,sections:[{id:`ds-2-1`,title:`线性表的定义和基本操作`,knowledgePointIds:[`ds-2-1-1`,`ds-2-1-2`]},{id:`ds-2-2`,title:`线性表的顺序表示`,knowledgePointIds:[`ds-2-2-1`,`ds-2-2-2`,`ds-2-2-3`,`ds-2-2-4`]},{id:`ds-2-3`,title:`线性表的链式表示`,knowledgePointIds:[`ds-2-3-1`,`ds-2-3-2`,`ds-2-3-3`,`ds-2-3-4`,`ds-2-3-5`,`ds-2-3-6`]}]},{id:`ds-3`,chapterNum:3,title:`栈、队列和数组`,sections:[{id:`ds-3-1`,title:`栈`,knowledgePointIds:[`ds-3-1-1`,`ds-3-1-2`,`ds-3-1-3`,`ds-3-1-4`]},{id:`ds-3-2`,title:`队列`,knowledgePointIds:[`ds-3-2-1`,`ds-3-2-2`,`ds-3-2-3`,`ds-3-2-4`]},{id:`ds-3-3`,title:`栈和队列的应用`,knowledgePointIds:[`ds-3-3-1`,`ds-3-3-2`,`ds-3-3-3`,`ds-3-3-4`]},{id:`ds-3-4`,title:`数组和特殊矩阵`,knowledgePointIds:[`ds-3-4-1`,`ds-3-4-2`,`ds-3-4-3`]}]},{id:`ds-4`,chapterNum:4,title:`串`,sections:[{id:`ds-4-1`,title:`串的定义和基本操作`,knowledgePointIds:[`ds-4-1-1`,`ds-4-1-2`]},{id:`ds-4-2`,title:`串的模式匹配`,knowledgePointIds:[`ds-4-2-1`,`ds-4-2-2`,`ds-4-2-3`]}]},{id:`ds-5`,chapterNum:5,title:`树与二叉树`,sections:[{id:`ds-5-1`,title:`树的基本概念`,knowledgePointIds:[`ds-5-1-1`,`ds-5-1-2`]},{id:`ds-5-2`,title:`二叉树的概念`,knowledgePointIds:[`ds-5-2-1`,`ds-5-2-2`,`ds-5-2-3`]},{id:`ds-5-3`,title:`二叉树的遍历和线索二叉树`,knowledgePointIds:[`ds-5-3-1`,`ds-5-3-2`,`ds-5-3-3`,`ds-5-3-4`]},{id:`ds-5-4`,title:`树、森林`,knowledgePointIds:[`ds-5-4-1`,`ds-5-4-2`,`ds-5-4-3`]},{id:`ds-5-5`,title:`树与二叉树的应用`,knowledgePointIds:[`ds-5-5-1`,`ds-5-5-2`,`ds-5-5-3`]}]},{id:`ds-6`,chapterNum:6,title:`图`,sections:[{id:`ds-6-1`,title:`图的基本概念`,knowledgePointIds:[`ds-6-1-1`]},{id:`ds-6-2`,title:`图的存储及基本操作`,knowledgePointIds:[`ds-6-2-1`,`ds-6-2-2`,`ds-6-2-3`]},{id:`ds-6-3`,title:`图的遍历`,knowledgePointIds:[`ds-6-3-1`,`ds-6-3-2`]},{id:`ds-6-4`,title:`图的应用`,knowledgePointIds:[`ds-6-4-1`,`ds-6-4-2`,`ds-6-4-3`,`ds-6-4-4`,`ds-6-4-5`]}]},{id:`ds-7`,chapterNum:7,title:`查找`,sections:[{id:`ds-7-1`,title:`查找的基本概念`,knowledgePointIds:[`ds-7-1-1`]},{id:`ds-7-2`,title:`顺序查找和折半查找`,knowledgePointIds:[`ds-7-2-1`,`ds-7-2-2`]},{id:`ds-7-3`,title:`树型查找`,knowledgePointIds:[`ds-7-3-1`,`ds-7-3-2`,`ds-7-3-3`]},{id:`ds-7-4`,title:`散列表`,knowledgePointIds:[`ds-7-4-1`,`ds-7-4-2`,`ds-7-4-3`,`ds-7-4-4`]},{id:`ds-7-5`,title:`串的匹配`,knowledgePointIds:[`ds-7-5-1`]}]},{id:`ds-8`,chapterNum:8,title:`排序`,sections:[{id:`ds-8-1`,title:`排序的基本概念`,knowledgePointIds:[`ds-8-1-1`]},{id:`ds-8-2`,title:`插入排序`,knowledgePointIds:[`ds-8-2-1`,`ds-8-2-2`]},{id:`ds-8-3`,title:`交换排序`,knowledgePointIds:[`ds-8-3-1`,`ds-8-3-2`]},{id:`ds-8-4`,title:`选择排序`,knowledgePointIds:[`ds-8-4-1`]},{id:`ds-8-5`,title:`归并排序和基数排序`,knowledgePointIds:[`ds-8-5-1`,`ds-8-5-2`]},{id:`ds-8-6`,title:`各种内部排序算法的比较`,knowledgePointIds:[`ds-8-6-1`,`ds-8-6-2`]},{id:`ds-8-7`,title:`外部排序`,knowledgePointIds:[`ds-8-7-1`]}]}]},{id:`co`,name:`计组`,fullName:`计算机组成原理`,color:`#dc2626`,chapters:[{id:`co-1`,chapterNum:1,title:`计算机系统概述`,sections:[{id:`co-1-1`,title:`计算机发展历程`,knowledgePointIds:[`co-1-1-1`]},{id:`co-1-2`,title:`计算机系统层次结构`,knowledgePointIds:[`co-1-2-1`]},{id:`co-1-3`,title:`计算机性能指标`,knowledgePointIds:[`co-1-3-1`,`co-1-3-2`]}]},{id:`co-2`,chapterNum:2,title:`数据的表示和运算`,sections:[{id:`co-2-1`,title:`数制与编码`,knowledgePointIds:[`co-2-1-1`,`co-2-1-2`,`co-2-1-3`,`co-2-1-4`]},{id:`co-2-2`,title:`定点数的表示与运算`,knowledgePointIds:[`co-2-2-1`,`co-2-2-2`,`co-2-2-3`]},{id:`co-2-3`,title:`浮点数的表示与运算`,knowledgePointIds:[`co-2-3-1`,`co-2-3-2`]},{id:`co-2-4`,title:`算术逻辑单元 ALU`,knowledgePointIds:[`co-2-4-1`,`co-2-4-2`]}]},{id:`co-3`,chapterNum:3,title:`存储系统`,sections:[{id:`co-3-1`,title:`存储器概述`,knowledgePointIds:[`co-3-1-1`,`co-3-1-2`]},{id:`co-3-2`,title:`主存储器`,knowledgePointIds:[`co-3-2-1`,`co-3-2-2`,`co-3-2-3`]},{id:`co-3-3`,title:`高速缓冲存储器 Cache`,knowledgePointIds:[`co-3-3-1`,`co-3-3-2`,`co-3-3-3`,`co-3-3-4`]},{id:`co-3-4`,title:`虚拟存储器`,knowledgePointIds:[`co-3-4-1`,`co-3-4-2`]}]},{id:`co-4`,chapterNum:4,title:`指令系统`,sections:[{id:`co-4-1`,title:`指令格式`,knowledgePointIds:[`co-4-1-1`]},{id:`co-4-2`,title:`指令的寻址方式`,knowledgePointIds:[`co-4-2-1`,`co-4-2-2`]},{id:`co-4-3`,title:`CISC 和 RISC`,knowledgePointIds:[`co-4-3-1`]}]},{id:`co-5`,chapterNum:5,title:`中央处理器`,sections:[{id:`co-5-1`,title:`CPU 的功能和基本结构`,knowledgePointIds:[`co-5-1-1`,`co-5-1-2`,`co-5-1-3`]},{id:`co-5-2`,title:`数据通路`,knowledgePointIds:[`co-5-2-1`]},{id:`co-5-3`,title:`控制器`,knowledgePointIds:[`co-5-3-1`,`co-5-3-2`,`co-5-3-3`]},{id:`co-5-4`,title:`异常和中断`,knowledgePointIds:[`co-5-4-1`]},{id:`co-5-5`,title:`指令流水线`,knowledgePointIds:[`co-5-5-1`,`co-5-5-2`,`co-5-5-3`]},{id:`co-5-6`,title:`多处理器基本概念`,knowledgePointIds:[`co-5-6-1`]}]},{id:`co-6`,chapterNum:6,title:`总线`,sections:[{id:`co-6-1`,title:`总线概述`,knowledgePointIds:[`co-6-1-1`]},{id:`co-6-2`,title:`总线仲裁`,knowledgePointIds:[`co-6-2-1`]},{id:`co-6-3`,title:`总线操作和定时`,knowledgePointIds:[`co-6-3-1`]},{id:`co-6-4`,title:`总线标准`,knowledgePointIds:[`co-6-4-1`]}]},{id:`co-7`,chapterNum:7,title:`输入/输出系统`,sections:[{id:`co-7-1`,title:`I/O 系统基本概念`,knowledgePointIds:[`co-7-1-1`,`co-7-1-2`]},{id:`co-7-2`,title:`程序查询方式`,knowledgePointIds:[`co-7-2-1`]},{id:`co-7-3`,title:`程序中断方式`,knowledgePointIds:[`co-7-3-1`,`co-7-3-2`]},{id:`co-7-4`,title:`DMA 方式`,knowledgePointIds:[`co-7-4-1`]}]}]},{id:`os`,name:`操作系统`,fullName:`操作系统`,color:`#16a34a`,chapters:[{id:`os-1`,chapterNum:1,title:`计算机系统概述`,sections:[{id:`os-1-1`,title:`操作系统的基本概念`,knowledgePointIds:[`os-1-1-1`,`os-1-1-2`]},{id:`os-1-2`,title:`操作系统的发展和分类`,knowledgePointIds:[`os-1-2-1`]},{id:`os-1-3`,title:`操作系统的运行环境`,knowledgePointIds:[`os-1-3-1`]},{id:`os-1-4`,title:`操作系统体系结构`,knowledgePointIds:[`os-1-4-1`,`os-1-4-2`]}]},{id:`os-2`,chapterNum:2,title:`进程管理`,sections:[{id:`os-2-1`,title:`进程与线程`,knowledgePointIds:[`os-2-1-1`,`os-2-1-2`,`os-2-1-3`]},{id:`os-2-2`,title:`CPU 调度`,knowledgePointIds:[`os-2-2-1`]},{id:`os-2-3`,title:`同步与互斥`,knowledgePointIds:[`os-2-3-1`,`os-2-3-2`,`os-2-3-3`,`os-2-3-4`,`os-2-3-5`]},{id:`os-2-4`,title:`死锁`,knowledgePointIds:[`os-2-4-1`,`os-2-4-2`]}]},{id:`os-3`,chapterNum:3,title:`内存管理`,sections:[{id:`os-3-1`,title:`内存管理概念`,knowledgePointIds:[`os-3-1-1`]},{id:`os-3-2`,title:`连续分配管理方式`,knowledgePointIds:[`os-3-2-1`,`os-3-2-2`]},{id:`os-3-3`,title:`非连续分配管理方式`,knowledgePointIds:[`os-3-3-1`,`os-3-3-2`,`os-3-3-3`]},{id:`os-3-4`,title:`虚拟内存管理`,knowledgePointIds:[`os-3-4-1`,`os-3-4-2`,`os-3-4-3`,`os-3-4-4`]}]},{id:`os-4`,chapterNum:4,title:`文件管理`,sections:[{id:`os-4-1`,title:`文件系统基础`,knowledgePointIds:[`os-4-1-1`,`os-4-1-2`,`os-4-1-3`,`os-4-1-4`,`os-4-1-5`]},{id:`os-4-2`,title:`文件系统实现`,knowledgePointIds:[`os-4-2-1`,`os-4-2-2`]},{id:`os-4-3`,title:`磁盘组织与管理`,knowledgePointIds:[`os-4-3-1`,`os-4-3-2`]}]},{id:`os-5`,chapterNum:5,title:`输入/输出管理`,sections:[{id:`os-5-1`,title:`I/O 管理概述`,knowledgePointIds:[`os-5-1-1`,`os-5-1-2`]},{id:`os-5-2`,title:`I/O 核心子系统`,knowledgePointIds:[`os-5-2-1`,`os-5-2-2`]}]}]},{id:`cn`,name:`计网`,fullName:`计算机网络`,color:`#ca8a04`,chapters:[{id:`cn-1`,chapterNum:1,title:`计算机网络体系结构`,sections:[{id:`cn-1-1`,title:`计算机网络概述`,knowledgePointIds:[`cn-1-1-1`]},{id:`cn-1-2`,title:`计算机网络体系结构与参考模型`,knowledgePointIds:[`cn-1-2-1`]}]},{id:`cn-2`,chapterNum:2,title:`物理层`,sections:[{id:`cn-2-1`,title:`通信基础`,knowledgePointIds:[`cn-2-1-1`,`cn-2-1-2`]},{id:`cn-2-2`,title:`传输介质`,knowledgePointIds:[`cn-2-2-1`]},{id:`cn-2-3`,title:`物理层设备`,knowledgePointIds:[`cn-2-3-1`]}]},{id:`cn-3`,chapterNum:3,title:`数据链路层`,sections:[{id:`cn-3-1`,title:`数据链路层的功能`,knowledgePointIds:[`cn-3-1-1`]},{id:`cn-3-2`,title:`组帧`,knowledgePointIds:[`cn-3-2-1`]},{id:`cn-3-3`,title:`差错控制`,knowledgePointIds:[`cn-3-3-1`]},{id:`cn-3-4`,title:`流量控制与可靠传输机制`,knowledgePointIds:[`cn-3-4-1`,`cn-3-4-2`]},{id:`cn-3-5`,title:`介质访问控制`,knowledgePointIds:[`cn-3-5-1`,`cn-3-5-2`]},{id:`cn-3-6`,title:`局域网`,knowledgePointIds:[`cn-3-6-1`]},{id:`cn-3-7`,title:`广域网`,knowledgePointIds:[`cn-3-7-1`]},{id:`cn-3-8`,title:`数据链路层设备`,knowledgePointIds:[`cn-3-8-1`]}]},{id:`cn-4`,chapterNum:4,title:`网络层`,sections:[{id:`cn-4-1`,title:`网络层的功能`,knowledgePointIds:[`cn-4-1-1`]},{id:`cn-4-2`,title:`IPv4`,knowledgePointIds:[`cn-4-2-1`,`cn-4-2-2`]},{id:`cn-4-3`,title:`IPv6`,knowledgePointIds:[`cn-4-3-1`]},{id:`cn-4-4`,title:`路由算法与路由协议`,knowledgePointIds:[`cn-4-4-1`]},{id:`cn-4-5`,title:`IP 多播`,knowledgePointIds:[`cn-4-5-1`]},{id:`cn-4-6`,title:`移动 IP`,knowledgePointIds:[`cn-4-6-1`]},{id:`cn-4-7`,title:`网络层设备`,knowledgePointIds:[`cn-4-7-1`]}]},{id:`cn-5`,chapterNum:5,title:`传输层`,sections:[{id:`cn-5-1`,title:`传输层提供的服务`,knowledgePointIds:[`cn-5-1-1`]},{id:`cn-5-2`,title:`UDP 协议`,knowledgePointIds:[`cn-5-2-1`]},{id:`cn-5-3`,title:`TCP 协议`,knowledgePointIds:[`cn-5-3-1`,`cn-5-3-2`]}]},{id:`cn-6`,chapterNum:6,title:`应用层`,sections:[{id:`cn-6-1`,title:`网络应用模型`,knowledgePointIds:[`cn-6-1-1`]},{id:`cn-6-2`,title:`DNS 系统`,knowledgePointIds:[`cn-6-2-1`]},{id:`cn-6-3`,title:`FTP`,knowledgePointIds:[`cn-6-3-1`]},{id:`cn-6-4`,title:`电子邮件`,knowledgePointIds:[`cn-6-4-1`]},{id:`cn-6-5`,title:`万维网 WWW`,knowledgePointIds:[`cn-6-5-1`]}]}]},{id:`ma`,name:`数学一`,fullName:`数学一（高等数学+线代+概率）`,color:`#8b5cf6`,chapters:[{id:`ma-1`,chapterNum:1,title:`函数、极限与连续`,sections:[{id:`ma-1-1`,title:`函数的概念与性质`,knowledgePointIds:[`ma-1-1-1`]},{id:`ma-1-2`,title:`数列极限`,knowledgePointIds:[`ma-1-2-1`]},{id:`ma-1-3`,title:`函数极限`,knowledgePointIds:[`ma-1-3-1`]},{id:`ma-1-4`,title:`无穷小与无穷大`,knowledgePointIds:[`ma-1-4-1`]},{id:`ma-1-5`,title:`极限的运算法则与存在准则`,knowledgePointIds:[`ma-1-5-1`]},{id:`ma-1-6`,title:`函数的连续性与间断点`,knowledgePointIds:[`ma-1-6-1`]}]},{id:`ma-2`,chapterNum:2,title:`一元函数微分学`,sections:[{id:`ma-2-1`,title:`导数的概念与几何意义`,knowledgePointIds:[`ma-2-1-1`]},{id:`ma-2-2`,title:`求导法则与高阶导数`,knowledgePointIds:[`ma-2-2-1`]},{id:`ma-2-3`,title:`微分中值定理`,knowledgePointIds:[`ma-3-1-1`]},{id:`ma-2-4`,title:`洛必达法则`,knowledgePointIds:[`ma-2-4-1`]},{id:`ma-2-5`,title:`泰勒公式`,knowledgePointIds:[`ma-2-5-1`]},{id:`ma-2-6`,title:`函数的单调性与极值`,knowledgePointIds:[`ma-2-6-1`]},{id:`ma-2-7`,title:`函数的凹凸性与拐点`,knowledgePointIds:[`ma-2-7-1`]}]},{id:`ma-3`,chapterNum:3,title:`一元函数积分学`,sections:[{id:`ma-3-1`,title:`不定积分的概念与性质`,knowledgePointIds:[`ma-2-2-1`]},{id:`ma-3-2`,title:`不定积分的计算（换元与分部）`,knowledgePointIds:[`ma-3-1-1`]},{id:`ma-3-3`,title:`定积分的概念与性质`,knowledgePointIds:[`ma-3-3-1`]},{id:`ma-3-4`,title:`定积分的计算（牛顿-莱布尼茨）`,knowledgePointIds:[]},{id:`ma-3-5`,title:`广义积分`,knowledgePointIds:[`ma-3-5-1`]},{id:`ma-3-6`,title:`定积分的应用（面积与体积）`,knowledgePointIds:[]}]},{id:`ma-4`,chapterNum:4,title:`多元函数微分学`,sections:[{id:`ma-4-1`,title:`多元函数的基本概念`,knowledgePointIds:[`ma-4-1-1`]},{id:`ma-4-2`,title:`偏导数与全微分`,knowledgePointIds:[]},{id:`ma-4-3`,title:`多元复合函数求导`,knowledgePointIds:[]},{id:`ma-4-4`,title:`隐函数求导`,knowledgePointIds:[]},{id:`ma-4-5`,title:`多元函数的极值与条件极值`,knowledgePointIds:[`ma-4-5-1`]}]},{id:`ma-5`,chapterNum:5,title:`多元函数积分学`,sections:[{id:`ma-5-1`,title:`二重积分的概念与计算`,knowledgePointIds:[`ma-5-1-1`]},{id:`ma-5-2`,title:`三重积分`,knowledgePointIds:[]},{id:`ma-5-3`,title:`曲线积分`,knowledgePointIds:[]},{id:`ma-5-4`,title:`曲面积分`,knowledgePointIds:[]},{id:`ma-5-5`,title:`格林公式与高斯公式`,knowledgePointIds:[]}]},{id:`ma-6`,chapterNum:6,title:`微分方程`,sections:[{id:`ma-6-1`,title:`微分方程的基本概念`,knowledgePointIds:[`ma-6-1-1`]},{id:`ma-6-2`,title:`一阶微分方程`,knowledgePointIds:[`ma-6-2-1`]},{id:`ma-6-3`,title:`高阶常系数线性微分方程`,knowledgePointIds:[`ma-6-3-1`]}]},{id:`ma-7`,chapterNum:7,title:`无穷级数`,sections:[{id:`ma-7-1`,title:`常数项级数的概念与性质`,knowledgePointIds:[]},{id:`ma-7-2`,title:`正项级数的审敛法`,knowledgePointIds:[`ma-7-2-1`]},{id:`ma-7-3`,title:`幂级数`,knowledgePointIds:[]},{id:`ma-7-4`,title:`傅里叶级数`,knowledgePointIds:[]}]},{id:`ma-8`,chapterNum:8,title:`线性代数`,sections:[{id:`ma-8-1`,title:`行列式`,knowledgePointIds:[`ma-8-1-1`]},{id:`ma-8-2`,title:`矩阵及其运算`,knowledgePointIds:[`ma-8-2-1`]},{id:`ma-8-3`,title:`向量组与线性方程组`,knowledgePointIds:[`ma-8-3-1`]},{id:`ma-8-4`,title:`特征值与特征向量`,knowledgePointIds:[`ma-8-4-1`]},{id:`ma-8-5`,title:`二次型`,knowledgePointIds:[`ma-8-5-1`]}]},{id:`ma-9`,chapterNum:9,title:`概率论与数理统计`,sections:[{id:`ma-9-1`,title:`随机事件与概率`,knowledgePointIds:[`ma-9-1-1`]},{id:`ma-9-2`,title:`随机变量及其分布`,knowledgePointIds:[`ma-9-2-1`]},{id:`ma-9-3`,title:`多维随机变量`,knowledgePointIds:[`ma-9-3-1`]},{id:`ma-9-4`,title:`数字特征（期望/方差/协方差）`,knowledgePointIds:[`ma-9-4-1`]},{id:`ma-9-5`,title:`大数定律与中心极限定理`,knowledgePointIds:[`ma-9-5-1`]},{id:`ma-9-6`,title:`数理统计（估计与检验）`,knowledgePointIds:[]}]}]}];function pr(e){return fr.find(t=>t.id===e)}function mr(e){for(let t of fr){let n=t.chapters.find(t=>t.id===e);if(n)return{subject:t,chapter:n}}}var hr=[{id:`ds-1-1-1`,chapterId:`ds-1`,title:`数据、数据元素、数据项与数据对象`,keyConcepts:[`数据`,`数据元素`,`数据项`,`数据对象`,`数据结构`],relatedPoints:[],content:`## 基本术语定义
+Please change the parent <Route path="${e}"> to <Route path="${e===`/`?`*`:`${e}/*`}">.`)}let u=dt(),d;if(t){let e=typeof t==`string`?ie(t):t;D(c===`/`||e.pathname?.startsWith(c),`When overriding the location using \`<Routes location>\` or \`useRoutes(routes, location)\`, the location pathname must begin with the portion of the URL pathname that was matched by all parent routes. The current pathname base is "${c}" but pathname "${e.pathname}" was given in the \`location\` prop.`),d=e}else d=u;let f=d.pathname||`/`,p=f;if(c!==`/`){let e=c.replace(/^\//,``).split(`/`);p=`/`+f.replace(/^\//,``).split(`/`).slice(e.length).join(`/`)}let m=n&&n.state.matches.length?n.state.matches.map(e=>Object.assign(e,{route:n.manifest[e.route.id]||e.route})):k(e,{pathname:p});O(l||m!=null,`No routes matched location "${d.pathname}${d.search}${d.hash}" `),O(m==null||m[m.length-1].route.element!==void 0||m[m.length-1].route.Component!==void 0||m[m.length-1].route.lazy!==void 0,`Matched leaf route at location "${d.pathname}${d.search}${d.hash}" does not have an element or Component. This means it will render an <Outlet /> with a null value by default resulting in an "empty" page.`);let h=Ot(m&&m.map(e=>Object.assign({},e,{params:Object.assign({},o,e.params),pathname:Fe([c,r.encodeLocation?r.encodeLocation(e.pathname.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathname]),pathnameBase:e.pathnameBase===`/`?c:Fe([c,r.encodeLocation?r.encodeLocation(e.pathnameBase.replace(/%/g,`%25`).replace(/\?/g,`%3F`).replace(/#/g,`%23`)).pathname:e.pathnameBase])})),i,n);return t&&h?v.createElement(tt.Provider,{value:{location:{pathname:`/`,search:``,hash:``,state:null,key:`default`,mask:void 0,...d},navigationType:`POP`}},h):h}function St(){let e=Lt(),t=Ve(e)?`${e.status} ${e.statusText}`:e instanceof Error?e.message:JSON.stringify(e),n=e instanceof Error?e.stack:null,r=`rgba(200,200,200, 0.5)`,i={padding:`0.5rem`,backgroundColor:r},a={padding:`2px 4px`,backgroundColor:r},o=null;return console.error(`Error handled by React Router default ErrorBoundary:`,e),o=v.createElement(v.Fragment,null,v.createElement(`p`,null,`💿 Hey developer 👋`),v.createElement(`p`,null,`You can provide a way better UX than this when your app throws errors by providing your own `,v.createElement(`code`,{style:a},`ErrorBoundary`),` or`,` `,v.createElement(`code`,{style:a},`errorElement`),` prop on your route.`)),v.createElement(v.Fragment,null,v.createElement(`h2`,null,`Unexpected Application Error!`),v.createElement(`h3`,{style:{fontStyle:`italic`}},t),n?v.createElement(`pre`,{style:i},n):null,o)}var Ct=v.createElement(St,null),wt=class extends v.Component{constructor(e){super(e),this.state={location:e.location,revalidation:e.revalidation,error:e.error}}static getDerivedStateFromError(e){return{error:e}}static getDerivedStateFromProps(e,t){return t.location!==e.location||t.revalidation!==`idle`&&e.revalidation===`idle`?{error:e.error,location:e.location,revalidation:e.revalidation}:{error:e.error===void 0?t.error:e.error,location:t.location,revalidation:e.revalidation||t.revalidation}}componentDidCatch(e,t){this.props.onError?this.props.onError(e,t):console.error(`React Router caught the following error during render`,e)}render(){let e=this.state.error;if(this.context&&typeof e==`object`&&e&&`digest`in e&&typeof e.digest==`string`){let t=ct(e.digest);t&&(e=t)}let t=e===void 0?this.props.children:v.createElement(nt.Provider,{value:this.props.routeContext},v.createElement(rt.Provider,{value:e,children:this.props.component}));return this.context?v.createElement(Et,{error:e},t):t}};wt.contextType=Ye;var Tt=new WeakMap;function Et({children:e,error:t}){let{basename:n}=v.useContext(et);if(typeof t==`object`&&t&&`digest`in t&&typeof t.digest==`string`){let e=st(t.digest);if(e){let r=Tt.get(t);if(r)throw r;let i=We(e.location,n);if(Ue&&!Tt.get(t))if(i.isExternal||e.reloadDocument)window.location.href=i.absoluteURL||i.to;else{let n=Promise.resolve().then(()=>window.__reactRouterDataRouter.navigate(i.to,{replace:e.replace}));throw Tt.set(t,n),n}return v.createElement(`meta`,{httpEquiv:`refresh`,content:`0;url=${i.absoluteURL||i.to}`})}}return e}function Dt({routeContext:e,match:t,children:n}){let r=v.useContext(qe);return r&&r.static&&r.staticContext&&(t.route.errorElement||t.route.ErrorBoundary)&&(r.staticContext._deepestRenderedBoundaryId=t.route.id),v.createElement(nt.Provider,{value:e},n)}function Ot(e,t=[],n){let r=n?.state;if(e==null){if(!r)return null;if(r.errors)e=r.matches;else if(t.length===0&&!r.initialized&&r.matches.length>0)e=r.matches;else return null}let i=e,a=r?.errors;if(a!=null){let e=i.findIndex(e=>e.route.id&&a?.[e.route.id]!==void 0);D(e>=0,`Could not find a matching route for errors on route IDs: ${Object.keys(a).join(`,`)}`),i=i.slice(0,Math.min(i.length,e+1))}let o=!1,s=-1;if(n&&r){o=r.renderFallback;for(let e=0;e<i.length;e++){let t=i[e];if((t.route.HydrateFallback||t.route.hydrateFallbackElement)&&(s=e),t.route.id){let{loaderData:e,errors:a}=r,c=t.route.loader&&!e.hasOwnProperty(t.route.id)&&(!a||a[t.route.id]===void 0);if(t.route.lazy||c){n.isStatic&&(o=!0),i=s>=0?i.slice(0,s+1):[i[0]];break}}}}let c=n?.onError,l=r&&c?(e,t)=>{c(e,{location:r.location,params:r.matches?.[0]?.params??{},pattern:He(r.matches),errorInfo:t})}:void 0;return i.reduceRight((e,n,c)=>{let u,d=!1,f=null,p=null;r&&(u=a&&n.route.id?a[n.route.id]:void 0,f=n.route.errorElement||Ct,o&&(s<0&&c===0?(Bt(`route-fallback`,!1,"No `HydrateFallback` element provided to render during initial hydration"),d=!0,p=null):s===c&&(d=!0,p=n.route.hydrateFallbackElement||null)));let m=t.concat(i.slice(0,c+1)),h=()=>{let t;return t=u?f:d?p:n.route.Component?v.createElement(n.route.Component,null):n.route.element?n.route.element:e,v.createElement(Dt,{match:n,routeContext:{outlet:e,matches:m,isDataRoute:r!=null},children:t})};return r&&(n.route.ErrorBoundary||n.route.errorElement||c===0)?v.createElement(wt,{location:r.location,revalidation:r.revalidation,component:f,error:u,children:h(),routeContext:{outlet:null,matches:m,isDataRoute:!0},onError:l}):h()},null)}function kt(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function At(e){let t=v.useContext(qe);return D(t,kt(e)),t}function jt(e){let t=v.useContext(Je);return D(t,kt(e)),t}function Mt(e){let t=v.useContext(nt);return D(t,kt(e)),t}function Nt(e){let t=Mt(e),n=t.matches[t.matches.length-1];return D(n.route.id,`${e} can only be used on routes that contain a unique "id"`),n.route.id}function Pt(){return Nt(`useRouteId`)}function Ft(){let e=jt(`useNavigation`);return v.useMemo(()=>{let{matches:t,historyAction:n,...r}=e.navigation;return r},[e.navigation])}function It(){let{matches:e,loaderData:t}=jt(`useMatches`);return v.useMemo(()=>e.map(e=>ce(e,t)),[e,t])}function Lt(){let e=v.useContext(rt),t=jt(`useRouteError`),n=Nt(`useRouteError`);return e===void 0?t.errors?.[n]:e}function Rt(){let{router:e}=At(`useNavigate`),t=Nt(`useNavigate`),n=v.useRef(!1);return pt(()=>{n.current=!0}),v.useCallback(async(r,i={})=>{O(n.current,ft),n.current&&(typeof r==`number`?await e.navigate(r):await e.navigate(r,{fromRouteId:t,...i}))},[e,t])}var zt={};function Bt(e,t,n){!t&&!zt[e]&&(zt[e]=!0,O(!1,n))}v.memo(Vt);function Vt({routes:e,manifest:t,future:n,state:r,isStatic:i,onError:a}){return xt(e,void 0,{manifest:t,state:r,isStatic:i,onError:a,future:n})}function Ht(e){return _t(e.context)}function Ut(e){D(!1,`A <Route> is only ever to be used as the child of <Routes> element, never rendered directly. Please wrap your <Route> in a <Routes>.`)}function Wt({basename:e=`/`,children:t=null,location:n,navigationType:r=`POP`,navigator:i,static:a=!1,useTransitions:o}){D(!ut(),`You cannot render a <Router> inside another <Router>. You should never have more than one in your app.`);let s=e.replace(/^\/*/,`/`),c=v.useMemo(()=>({basename:s,navigator:i,static:a,useTransitions:o,future:{}}),[s,i,a,o]);typeof n==`string`&&(n=ie(n));let{pathname:l=`/`,search:u=``,hash:d=``,state:f=null,key:p=`default`,mask:m}=n,h=v.useMemo(()=>{let e=Ee(l,s);return e==null?null:{location:{pathname:e,search:u,hash:d,state:f,key:p,mask:m},navigationType:r}},[s,l,u,d,f,p,r,m]);return O(h!=null,`<Router basename="${s}"> is not able to match the URL "${l}${u}${d}" because it does not start with the basename, so the <Router> won't render anything.`),h==null?null:v.createElement(et.Provider,{value:c},v.createElement(tt.Provider,{children:t,value:h}))}function Gt({children:e,location:t}){return bt(Kt(e),t)}v.Component;function Kt(e,t=[]){let n=[];return v.Children.forEach(e,(e,r)=>{if(!v.isValidElement(e))return;let i=[...t,r];if(e.type===v.Fragment){n.push.apply(n,Kt(e.props.children,i));return}D(e.type===Ut,`[${typeof e.type==`string`?e.type:e.type.name}] is not a <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>`),D(!e.props.index||!e.props.children,`An index route cannot have child routes.`);let a={id:e.props.id||i.join(`-`),caseSensitive:e.props.caseSensitive,element:e.props.element,Component:e.props.Component,index:e.props.index,path:e.props.path,middleware:e.props.middleware,loader:e.props.loader,action:e.props.action,hydrateFallbackElement:e.props.hydrateFallbackElement,HydrateFallback:e.props.HydrateFallback,errorElement:e.props.errorElement,ErrorBoundary:e.props.ErrorBoundary,hasErrorBoundary:e.props.hasErrorBoundary===!0||e.props.ErrorBoundary!=null||e.props.errorElement!=null,shouldRevalidate:e.props.shouldRevalidate,handle:e.props.handle,lazy:e.props.lazy};e.props.children&&(a.children=Kt(e.props.children,i)),n.push(a)}),n}var qt=`get`,Jt=`application/x-www-form-urlencoded`;function Yt(e){return typeof HTMLElement<`u`&&e instanceof HTMLElement}function Xt(e){return Yt(e)&&e.tagName.toLowerCase()===`button`}function Zt(e){return Yt(e)&&e.tagName.toLowerCase()===`form`}function Qt(e){return Yt(e)&&e.tagName.toLowerCase()===`input`}function $t(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}function en(e,t){return e.button===0&&(!t||t===`_self`)&&!$t(e)}function tn(e=``){return new URLSearchParams(typeof e==`string`||Array.isArray(e)||e instanceof URLSearchParams?e:Object.keys(e).reduce((t,n)=>{let r=e[n];return t.concat(Array.isArray(r)?r.map(e=>[n,e]):[[n,r]])},[]))}function nn(e,t){let n=tn(e);return t&&t.forEach((e,r)=>{n.has(r)||t.getAll(r).forEach(e=>{n.append(r,e)})}),n}var rn=null;function an(){if(rn===null)try{new FormData(document.createElement(`form`),0),rn=!1}catch{rn=!0}return rn}var on=new Set([`application/x-www-form-urlencoded`,`multipart/form-data`,`text/plain`]);function sn(e){return e!=null&&!on.has(e)?(O(!1,`"${e}" is not a valid \`encType\` for \`<Form>\`/\`<fetcher.Form>\` and will default to "${Jt}"`),null):e}function cn(e,t){let n,r,i,a,o;if(Zt(e)){let o=e.getAttribute(`action`);r=o?Ee(o,t):null,n=e.getAttribute(`method`)||qt,i=sn(e.getAttribute(`enctype`))||Jt,a=new FormData(e)}else if(Xt(e)||Qt(e)&&(e.type===`submit`||e.type===`image`)){let o=e.form;if(o==null)throw Error(`Cannot submit a <button> or <input type="submit"> without a <form>`);let s=e.getAttribute(`formaction`)||o.getAttribute(`action`);if(r=s?Ee(s,t):null,n=e.getAttribute(`formmethod`)||o.getAttribute(`method`)||qt,i=sn(e.getAttribute(`formenctype`))||sn(o.getAttribute(`enctype`))||Jt,a=new FormData(o,e),!an()){let{name:t,type:n,value:r}=e;if(n===`image`){let e=t?`${t}.`:``;a.append(`${e}x`,`0`),a.append(`${e}y`,`0`)}else t&&a.append(t,r)}}else if(Yt(e))throw Error(`Cannot submit element that is not <form>, <button>, or <input type="submit|image">`);else n=qt,r=null,i=Jt,o=e;return a&&i===`text/plain`&&(o=a,a=void 0),{action:r,method:n.toLowerCase(),encType:i,formData:a,body:o}}Object.getOwnPropertyNames(Object.prototype).sort().join(`\0`);var ln={"&":`\\u0026`,">":`\\u003e`,"<":`\\u003c`,"\u2028":`\\u2028`,"\u2029":`\\u2029`},un=/[&><\u2028\u2029]/g;function dn(e){return e.replace(un,e=>ln[e])}function fn(e,t){if(e===!1||e==null)throw Error(t)}function pn(e,t,n,r){let i=typeof e==`string`?new URL(e,typeof window>`u`?`server://singlefetch/`:window.location.origin):e;return n?i.pathname.endsWith(`/`)?i.pathname=`${i.pathname}_.${r}`:i.pathname=`${i.pathname}.${r}`:i.pathname===`/`?i.pathname=`_root.${r}`:t&&Ee(i.pathname,t)===`/`?i.pathname=`${Ie(t)}/_root.${r}`:i.pathname=`${Ie(i.pathname)}.${r}`,i}async function mn(e,t){if(e.id in t)return t[e.id];try{let n=await C(()=>import(e.module),[]);return t[e.id]=n,n}catch(t){return console.error(`Error loading route module \`${e.module}\`, reloading page...`),console.error(t),window.__reactRouterContext&&window.__reactRouterContext.isSpaMode,window.location.reload(),new Promise(()=>{})}}function hn(e){return e!=null&&typeof e.page==`string`}function gn(e){return e==null?!1:e.href==null?e.rel===`preload`&&typeof e.imageSrcSet==`string`&&typeof e.imageSizes==`string`:typeof e.rel==`string`&&typeof e.href==`string`}async function _n(e,t,n){return Sn((await Promise.all(e.map(async e=>{let r=t.routes[e.route.id];if(r){let e=await mn(r,n);return e.links?e.links():[]}return[]}))).flat(1).filter(gn).filter(e=>e.rel===`stylesheet`||e.rel===`preload`).map(e=>e.rel===`stylesheet`?{...e,rel:`prefetch`,as:`style`}:{...e,rel:`prefetch`}))}function vn(e,t,n,r,i,a){let o=(e,t)=>n[t]?e.route.id!==n[t].route.id:!0,s=(e,t)=>n[t].pathname!==e.pathname||n[t].route.path?.endsWith(`*`)&&n[t].params[`*`]!==e.params[`*`];return a===`assets`?t.filter((e,t)=>o(e,t)||s(e,t)):a===`data`?t.filter((t,a)=>{let c=r.routes[t.route.id];if(!c||!c.hasLoader)return!1;if(o(t,a)||s(t,a))return!0;if(t.route.shouldRevalidate){let r=t.route.shouldRevalidate({currentUrl:new URL(i.pathname+i.search+i.hash,window.origin),currentParams:n[0]?.params||{},nextUrl:new URL(e,window.origin),nextParams:t.params,defaultShouldRevalidate:!0});if(typeof r==`boolean`)return r}return!0}):[]}function yn(e,t,{includeHydrateFallback:n}={}){return bn(e.map(e=>{let r=t.routes[e.route.id];if(!r)return[];let i=[r.module];return r.clientActionModule&&(i=i.concat(r.clientActionModule)),r.clientLoaderModule&&(i=i.concat(r.clientLoaderModule)),n&&r.hydrateFallbackModule&&(i=i.concat(r.hydrateFallbackModule)),r.imports&&(i=i.concat(r.imports)),i}).flat(1))}function bn(e){return[...new Set(e)]}function xn(e){let t={},n=Object.keys(e).sort();for(let r of n)t[r]=e[r];return t}function Sn(e,t){let n=new Set,r=new Set(t);return e.reduce((e,i)=>{if(t&&!hn(i)&&i.as===`script`&&i.href&&r.has(i.href))return e;let a=JSON.stringify(xn(i));return n.has(a)||(n.add(a),e.push({key:a,link:i})),e},[])}function Cn(){let e=v.useContext(qe);return fn(e,`You must render this element inside a <DataRouterContext.Provider> element`),e}function wn(){let e=v.useContext(Je);return fn(e,`You must render this element inside a <DataRouterStateContext.Provider> element`),e}var Tn=v.createContext(void 0);Tn.displayName=`FrameworkContext`;function En(){let e=v.useContext(Tn);return fn(e,`You must render this element inside a <HydratedRouter> element`),e}function Dn(e,t){let n=v.useContext(Tn),[r,i]=v.useState(!1),[a,o]=v.useState(!1),{onFocus:s,onBlur:c,onMouseEnter:l,onMouseLeave:u,onTouchStart:d}=t,f=v.useRef(null);v.useEffect(()=>{if(e===`render`&&o(!0),e===`viewport`){let e=new IntersectionObserver(e=>{e.forEach(e=>{o(e.isIntersecting)})},{threshold:.5});return f.current&&e.observe(f.current),()=>{e.disconnect()}}},[e]),v.useEffect(()=>{if(r){let e=setTimeout(()=>{o(!0)},100);return()=>{clearTimeout(e)}}},[r]);let p=()=>{i(!0)},m=()=>{i(!1),o(!1)};return n?e===`intent`?[a,f,{onFocus:On(s,p),onBlur:On(c,m),onMouseEnter:On(l,p),onMouseLeave:On(u,m),onTouchStart:On(d,p)}]:[a,f,{}]:[!1,f,{}]}function On(e,t){return n=>{e&&e(n),n.defaultPrevented||t(n)}}function kn({page:e,...t}){let n=Xe(),{router:r}=Cn(),i=v.useMemo(()=>k(r.routes,e,r.basename),[r.routes,e,r.basename]);return i?n?v.createElement(jn,{page:e,matches:i,...t}):v.createElement(Mn,{page:e,matches:i,...t}):null}function An(e){let{manifest:t,routeModules:n}=En(),[r,i]=v.useState([]);return v.useEffect(()=>{let r=!1;return _n(e,t,n).then(e=>{r||i(e)}),()=>{r=!0}},[e,t,n]),r}function jn({page:e,matches:t,...n}){let r=dt(),{future:i}=En(),{basename:a}=Cn(),o=v.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=pn(e,a,i.unstable_trailingSlashAwareDataRequests,`rsc`),o=!1,s=[];for(let e of t)typeof e.route.shouldRevalidate==`function`?o=!0:s.push(e.route.id);return o&&s.length>0&&n.searchParams.set(`_routes`,s.join(`,`)),[n.pathname+n.search]},[a,i.unstable_trailingSlashAwareDataRequests,e,r,t]);return v.createElement(v.Fragment,null,o.map(e=>v.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})))}function Mn({page:e,matches:t,...n}){let r=dt(),{future:i,manifest:a,routeModules:o}=En(),{basename:s}=Cn(),{loaderData:c,matches:l}=wn(),u=v.useMemo(()=>vn(e,t,l,a,r,`data`),[e,t,l,a,r]),d=v.useMemo(()=>vn(e,t,l,a,r,`assets`),[e,t,l,a,r]),f=v.useMemo(()=>{if(e===r.pathname+r.search+r.hash)return[];let n=new Set,l=!1;if(t.forEach(e=>{let t=a.routes[e.route.id];!t||!t.hasLoader||(!u.some(t=>t.route.id===e.route.id)&&e.route.id in c&&o[e.route.id]?.shouldRevalidate||t.hasClientLoader?l=!0:n.add(e.route.id))}),n.size===0)return[];let d=pn(e,s,i.unstable_trailingSlashAwareDataRequests,`data`);return l&&n.size>0&&d.searchParams.set(`_routes`,t.filter(e=>n.has(e.route.id)).map(e=>e.route.id).join(`,`)),[d.pathname+d.search]},[s,i.unstable_trailingSlashAwareDataRequests,c,r,a,u,t,e,o]),p=v.useMemo(()=>yn(d,a),[d,a]),m=An(d);return v.createElement(v.Fragment,null,f.map(e=>v.createElement(`link`,{key:e,rel:`prefetch`,as:`fetch`,href:e,...n})),p.map(e=>v.createElement(`link`,{key:e,rel:`modulepreload`,href:e,...n})),m.map(({key:e,link:t})=>v.createElement(`link`,{key:e,nonce:n.nonce,...t,crossOrigin:t.crossOrigin??n.crossOrigin})))}function Nn(...e){return t=>{e.forEach(e=>{typeof e==`function`?e(t):e!=null&&(e.current=t)})}}v.Component;var Pn=typeof window<`u`&&window.document!==void 0&&window.document.createElement!==void 0;try{Pn&&(window.__reactRouterVersion=`7.15.1`)}catch{}function Fn({basename:e,children:t,useTransitions:n,window:r}){let i=v.useRef();i.current??=E({window:r,v5Compat:!0});let a=i.current,[o,s]=v.useState({action:a.action,location:a.location}),c=v.useCallback(e=>{n===!1?s(e):v.startTransition(()=>s(e))},[n]);return v.useLayoutEffect(()=>a.listen(c),[a,c]),v.createElement(Wt,{basename:e,children:t,location:o.location,navigationType:o.action,navigator:a,useTransitions:n})}function In({basename:e,children:t,history:n,useTransitions:r}){let[i,a]=v.useState({action:n.action,location:n.location}),o=v.useCallback(e=>{r===!1?a(e):v.startTransition(()=>a(e))},[r]);return v.useLayoutEffect(()=>n.listen(o),[n,o]),v.createElement(Wt,{basename:e,children:t,location:i.location,navigationType:i.action,navigator:n,useTransitions:r})}In.displayName=`unstable_HistoryRouter`;var Ln=/^(?:[a-z][a-z0-9+.-]*:|\/\/)/i,Rn=v.forwardRef(function({onClick:e,discover:t=`render`,prefetch:n=`none`,relative:r,reloadDocument:i,replace:a,mask:o,state:s,target:c,to:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m){let{basename:h,navigator:g,useTransitions:_}=v.useContext(et),y=typeof l==`string`&&Ln.test(l),b=We(l,h);l=b.to;let x=lt(l,{relative:r}),S=dt(),C=null;if(o){let e=Ne(o,[],S.mask?S.mask.pathname:`/`,!0);h!==`/`&&(e.pathname=e.pathname===`/`?h:Fe([h,e.pathname])),C=g.createHref(e)}let[w,T,E]=Dn(n,p),D=Gn(l,{replace:a,mask:o,state:s,target:c,preventScrollReset:u,relative:r,viewTransition:d,defaultShouldRevalidate:f,useTransitions:_});function O(t){e&&e(t),t.defaultPrevented||D(t)}let ee=!(b.isExternal||i),te=v.createElement(`a`,{...p,...E,href:(ee?C:void 0)||b.absoluteURL||x,onClick:ee?O:e,ref:Nn(m,T),target:c,"data-discover":!y&&t===`render`?`true`:void 0});return w&&!y?v.createElement(v.Fragment,null,te,v.createElement(kn,{page:x})):te});Rn.displayName=`Link`;var zn=v.forwardRef(function({"aria-current":e=`page`,caseSensitive:t=!1,className:n=``,end:r=!1,style:i,to:a,viewTransition:o,children:s,...c},l){let u=yt(a,{relative:c.relative}),d=dt(),f=v.useContext(Je),{navigator:p,basename:m}=v.useContext(et),h=f!=null&&nr(u)&&o===!0,g=p.encodeLocation?p.encodeLocation(u).pathname:u.pathname,_=d.pathname,y=f&&f.navigation&&f.navigation.location?f.navigation.location.pathname:null;t||(_=_.toLowerCase(),y=y?y.toLowerCase():null,g=g.toLowerCase()),y&&m&&(y=Ee(y,m)||y);let b=g!==`/`&&g.endsWith(`/`)?g.length-1:g.length,x=_===g||!r&&_.startsWith(g)&&_.charAt(b)===`/`,S=y!=null&&(y===g||!r&&y.startsWith(g)&&y.charAt(g.length)===`/`),C={isActive:x,isPending:S,isTransitioning:h},w=x?e:void 0,T;T=typeof n==`function`?n(C):[n,x?`active`:null,S?`pending`:null,h?`transitioning`:null].filter(Boolean).join(` `);let E=typeof i==`function`?i(C):i;return v.createElement(Rn,{...c,"aria-current":w,className:T,ref:l,style:E,to:a,viewTransition:o},typeof s==`function`?s(C):s)});zn.displayName=`NavLink`;var Bn=v.forwardRef(({discover:e=`render`,fetcherKey:t,navigate:n,reloadDocument:r,replace:i,state:a,method:o=qt,action:s,onSubmit:c,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f,...p},m)=>{let{useTransitions:h}=v.useContext(et),g=Yn(),_=Xn(s,{relative:l}),y=o.toLowerCase()===`get`?`get`:`post`,b=typeof s==`string`&&Ln.test(s);return v.createElement(`form`,{ref:m,method:y,action:_,onSubmit:r?c:e=>{if(c&&c(e),e.defaultPrevented)return;e.preventDefault();let r=e.nativeEvent.submitter,s=r?.getAttribute(`formmethod`)||o,p=()=>g(r||e.currentTarget,{fetcherKey:t,method:s,navigate:n,replace:i,state:a,relative:l,preventScrollReset:u,viewTransition:d,defaultShouldRevalidate:f});h&&n!==!1?v.startTransition(()=>p()):p()},...p,"data-discover":!b&&e===`render`?`true`:void 0})});Bn.displayName=`Form`;function Vn({getKey:e,storageKey:t,...n}){let r=v.useContext(Tn),{basename:i}=v.useContext(et),a=dt(),o=It();er({getKey:e,storageKey:t});let s=v.useMemo(()=>{if(!r||!e)return null;let t=$n(a,o,i,e);return t===a.key?null:t},[]);if(!r||r.isSpaMode)return null;let c=((e,t)=>{if(!window.history.state||!window.history.state.key){let e=Math.random().toString(32).slice(2);window.history.replaceState({key:e},``)}try{let n=JSON.parse(sessionStorage.getItem(e)||`{}`)[t||window.history.state.key];typeof n==`number`&&window.scrollTo(0,n)}catch(t){console.error(t),sessionStorage.removeItem(e)}}).toString();return v.createElement(`script`,{...n,suppressHydrationWarning:!0,dangerouslySetInnerHTML:{__html:`(${c})(${dn(JSON.stringify(t||Zn))}, ${dn(JSON.stringify(s))})`}})}Vn.displayName=`ScrollRestoration`;function Hn(e){return`${e} must be used within a data router.  See https://reactrouter.com/en/main/routers/picking-a-router.`}function Un(e){let t=v.useContext(qe);return D(t,Hn(e)),t}function Wn(e){let t=v.useContext(Je);return D(t,Hn(e)),t}function Gn(e,{target:t,replace:n,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c,useTransitions:l}={}){let u=mt(),d=dt(),f=yt(e,{relative:o});return v.useCallback(p=>{if(en(p,t)){p.preventDefault();let t=n===void 0?re(d)===re(f):n,m=()=>u(e,{replace:t,mask:r,state:i,preventScrollReset:a,relative:o,viewTransition:s,defaultShouldRevalidate:c});l?v.startTransition(()=>m()):m()}},[d,u,f,n,r,i,t,e,a,o,s,c,l])}function Kn(e){O(typeof URLSearchParams<`u`,"You cannot use the `useSearchParams` hook in a browser that does not support the URLSearchParams API. If you need to support Internet Explorer 11, we recommend you load a polyfill such as https://github.com/ungap/url-search-params.");let t=v.useRef(tn(e)),n=v.useRef(!1),r=dt(),i=v.useMemo(()=>nn(r.search,n.current?null:t.current),[r.search]),a=mt();return[i,v.useCallback((e,t)=>{let r=tn(typeof e==`function`?e(new URLSearchParams(i)):e);n.current=!0,a(`?`+r,t)},[a,i])]}var qn=0,Jn=()=>`__${String(++qn)}__`;function Yn(){let{router:e}=Un(`useSubmit`),{basename:t}=v.useContext(et),n=Pt(),r=e.fetch,i=e.navigate;return v.useCallback(async(e,a={})=>{let{action:o,method:s,encType:c,formData:l,body:u}=cn(e,t);a.navigate===!1?await r(a.fetcherKey||Jn(),n,a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,flushSync:a.flushSync}):await i(a.action||o,{defaultShouldRevalidate:a.defaultShouldRevalidate,preventScrollReset:a.preventScrollReset,formData:l,body:u,formMethod:a.method||s,formEncType:a.encType||c,replace:a.replace,state:a.state,fromRouteId:n,flushSync:a.flushSync,viewTransition:a.viewTransition})},[r,i,t,n])}function Xn(e,{relative:t}={}){let{basename:n}=v.useContext(et),r=v.useContext(nt);D(r,`useFormAction must be used inside a RouteContext`);let[i]=r.matches.slice(-1),a={...yt(e||`.`,{relative:t})},o=dt();if(e==null){a.search=o.search;let e=new URLSearchParams(a.search),t=e.getAll(`index`);if(t.some(e=>e===``)){e.delete(`index`),t.filter(e=>e).forEach(t=>e.append(`index`,t));let n=e.toString();a.search=n?`?${n}`:``}}return(!e||e===`.`)&&i.route.index&&(a.search=a.search?a.search.replace(/^\?/,`?index&`):`?index`),n!==`/`&&(a.pathname=a.pathname===`/`?n:Fe([n,a.pathname])),re(a)}var Zn=`react-router-scroll-positions`,Qn={};function $n(e,t,n,r){let i=null;return r&&(i=r(n===`/`?e:{...e,pathname:Ee(e.pathname,n)||e.pathname},t)),i??=e.key,i}function er({getKey:e,storageKey:t}={}){let{router:n}=Un(`useScrollRestoration`),{restoreScrollPosition:r,preventScrollReset:i}=Wn(`useScrollRestoration`),{basename:a}=v.useContext(et),o=dt(),s=It(),c=Ft();v.useEffect(()=>(window.history.scrollRestoration=`manual`,()=>{window.history.scrollRestoration=`auto`}),[]),tr(v.useCallback(()=>{if(c.state===`idle`){let t=$n(o,s,a,e);Qn[t]=window.scrollY}try{sessionStorage.setItem(t||Zn,JSON.stringify(Qn))}catch(e){O(!1,`Failed to save scroll positions in sessionStorage, <ScrollRestoration /> will not work properly (${e}).`)}window.history.scrollRestoration=`auto`},[c.state,e,a,o,s,t])),typeof document<`u`&&(v.useLayoutEffect(()=>{try{let e=sessionStorage.getItem(t||Zn);e&&(Qn=JSON.parse(e))}catch{}},[t]),v.useLayoutEffect(()=>{let t=n?.enableScrollRestoration(Qn,()=>window.scrollY,e?(t,n)=>$n(t,n,a,e):void 0);return()=>t&&t()},[n,a,e]),v.useLayoutEffect(()=>{if(r!==!1){if(typeof r==`number`){window.scrollTo(0,r);return}try{if(o.hash){let e=document.getElementById(decodeURIComponent(o.hash.slice(1)));if(e){e.scrollIntoView();return}}}catch{O(!1,`"${o.hash.slice(1)}" is not a decodable element ID. The view will not scroll to it.`)}i!==!0&&window.scrollTo(0,0)}},[o,r,i]))}function tr(e,t){let{capture:n}=t||{};v.useEffect(()=>{let t=n==null?void 0:{capture:n};return window.addEventListener(`pagehide`,e,t),()=>{window.removeEventListener(`pagehide`,e,t)}},[e,n])}function nr(e,{relative:t}={}){let n=v.useContext(Ze);D(n!=null,"`useViewTransitionState` must be used within `react-router-dom`'s `RouterProvider`.  Did you accidentally import `RouterProvider` from `react-router`?");let{basename:r}=Un(`useViewTransitionState`),i=yt(e,{relative:t});if(!n.isTransitioning)return!1;let a=Ee(n.currentLocation.pathname,r)||n.currentLocation.pathname,o=Ee(n.nextLocation.pathname,r)||n.nextLocation.pathname;return Ce(i.pathname,o)!=null||Ce(i.pathname,a)!=null}var rr=`408-exam-prep-progress`;function ir(){try{let e=localStorage.getItem(rr);return e?JSON.parse(e):null}catch{return null}}function ar(e){try{localStorage.setItem(rr,JSON.stringify(e))}catch{}}var or=o((e=>{var t=Symbol.for(`react.transitional.element`),n=Symbol.for(`react.fragment`);function r(e,n,r){var i=null;if(r!==void 0&&(i=``+r),n.key!==void 0&&(i=``+n.key),`key`in n)for(var a in r={},n)a!==`key`&&(r[a]=n[a]);else r=n;return n=r.ref,{$$typeof:t,type:e,key:i,ref:n===void 0?null:n,props:r}}e.Fragment=n,e.jsx=r,e.jsxs=r})),A=o(((e,t)=>{t.exports=or()}))();function sr(){return{completedPoints:[],quizHistory:[],errorBook:[]}}function cr(e,t){switch(t.type){case`COMPLETE_POINT`:return e.progress.completedPoints.includes(t.pointId)?e:{...e,progress:{...e.progress,completedPoints:[...e.progress.completedPoints,t.pointId]}};case`ADD_QUIZ_RESULT`:return{...e,progress:{...e.progress,quizHistory:[...e.progress.quizHistory,t.result]}};case`ADD_ERROR_ITEM`:return e.progress.errorBook.find(e=>e.questionId===t.questionId)?{...e,progress:{...e.progress,errorBook:e.progress.errorBook.map(e=>e.questionId===t.questionId?{...e,wrongCount:e.wrongCount+1,lastWrongDate:new Date().toISOString(),userAnswers:[...e.userAnswers,t.userAnswer]}:e)}}:{...e,progress:{...e.progress,errorBook:[...e.progress.errorBook,{questionId:t.questionId,wrongCount:1,lastWrongDate:new Date().toISOString(),mastered:!1,userAnswers:[t.userAnswer]}]}};case`MASTER_ERROR`:return{...e,progress:{...e.progress,errorBook:e.progress.errorBook.map(e=>e.questionId===t.questionId?{...e,mastered:!0}:e)}};case`RESET_PROGRESS`:return{progress:sr()};default:return e}}var lr=(0,v.createContext)(null);function ur({children:e}){let[t,n]=(0,v.useReducer)(cr,{progress:ir()||sr()});(0,v.useEffect)(()=>{ar(t.progress)},[t.progress]);let r=t.progress.errorBook,i=r.filter(e=>!e.mastered);return(0,A.jsx)(lr.Provider,{value:{state:t,dispatch:n,errorBook:r,activeErrors:i},children:e})}function dr(){let e=(0,v.useContext)(lr);if(!e)throw Error(`useAppContext must be used within AppProvider`);return e}var fr=[{id:`ds`,name:`数据结构`,fullName:`数据结构`,color:`#4f46e5`,chapters:[{id:`ds-1`,chapterNum:1,title:`绪论`,sections:[{id:`ds-1-1`,title:`数据结构的基本概念`,knowledgePointIds:[`ds-1-1-1`,`ds-1-1-2`,`ds-1-1-3`]},{id:`ds-1-2`,title:`算法和算法评价`,knowledgePointIds:[`ds-1-2-1`,`ds-1-2-2`,`ds-1-2-3`]}]},{id:`ds-2`,chapterNum:2,title:`线性表`,sections:[{id:`ds-2-1`,title:`线性表的定义和基本操作`,knowledgePointIds:[`ds-2-1-1`,`ds-2-1-2`]},{id:`ds-2-2`,title:`线性表的顺序表示`,knowledgePointIds:[`ds-2-2-1`,`ds-2-2-2`,`ds-2-2-3`,`ds-2-2-4`]},{id:`ds-2-3`,title:`线性表的链式表示`,knowledgePointIds:[`ds-2-3-1`,`ds-2-3-2`,`ds-2-3-3`,`ds-2-3-4`,`ds-2-3-5`,`ds-2-3-6`]}]},{id:`ds-3`,chapterNum:3,title:`栈、队列和数组`,sections:[{id:`ds-3-1`,title:`栈`,knowledgePointIds:[`ds-3-1-1`,`ds-3-1-2`,`ds-3-1-3`,`ds-3-1-4`]},{id:`ds-3-2`,title:`队列`,knowledgePointIds:[`ds-3-2-1`,`ds-3-2-2`,`ds-3-2-3`,`ds-3-2-4`]},{id:`ds-3-3`,title:`栈和队列的应用`,knowledgePointIds:[`ds-3-3-1`,`ds-3-3-2`,`ds-3-3-3`,`ds-3-3-4`]},{id:`ds-3-4`,title:`数组和特殊矩阵`,knowledgePointIds:[`ds-3-4-1`,`ds-3-4-2`,`ds-3-4-3`]}]},{id:`ds-4`,chapterNum:4,title:`串`,sections:[{id:`ds-4-1`,title:`串的定义和基本操作`,knowledgePointIds:[`ds-4-1-1`,`ds-4-1-2`]},{id:`ds-4-2`,title:`串的模式匹配`,knowledgePointIds:[`ds-4-2-1`,`ds-4-2-2`,`ds-4-2-3`]}]},{id:`ds-5`,chapterNum:5,title:`树与二叉树`,sections:[{id:`ds-5-1`,title:`树的基本概念`,knowledgePointIds:[`ds-5-1-1`,`ds-5-1-2`]},{id:`ds-5-2`,title:`二叉树的概念`,knowledgePointIds:[`ds-5-2-1`,`ds-5-2-2`,`ds-5-2-3`]},{id:`ds-5-3`,title:`二叉树的遍历和线索二叉树`,knowledgePointIds:[`ds-5-3-1`,`ds-5-3-2`,`ds-5-3-3`,`ds-5-3-4`]},{id:`ds-5-4`,title:`树、森林`,knowledgePointIds:[`ds-5-4-1`,`ds-5-4-2`,`ds-5-4-3`]},{id:`ds-5-5`,title:`树与二叉树的应用`,knowledgePointIds:[`ds-5-5-1`,`ds-5-5-2`,`ds-5-5-3`]}]},{id:`ds-6`,chapterNum:6,title:`图`,sections:[{id:`ds-6-1`,title:`图的基本概念`,knowledgePointIds:[`ds-6-1-1`]},{id:`ds-6-2`,title:`图的存储及基本操作`,knowledgePointIds:[`ds-6-2-1`,`ds-6-2-2`,`ds-6-2-3`]},{id:`ds-6-3`,title:`图的遍历`,knowledgePointIds:[`ds-6-3-1`,`ds-6-3-2`]},{id:`ds-6-4`,title:`图的应用`,knowledgePointIds:[`ds-6-4-1`,`ds-6-4-2`,`ds-6-4-3`,`ds-6-4-4`,`ds-6-4-5`]}]},{id:`ds-7`,chapterNum:7,title:`查找`,sections:[{id:`ds-7-1`,title:`查找的基本概念`,knowledgePointIds:[`ds-7-1-1`]},{id:`ds-7-2`,title:`顺序查找和折半查找`,knowledgePointIds:[`ds-7-2-1`,`ds-7-2-2`]},{id:`ds-7-3`,title:`树型查找`,knowledgePointIds:[`ds-7-3-1`,`ds-7-3-2`,`ds-7-3-3`]},{id:`ds-7-4`,title:`散列表`,knowledgePointIds:[`ds-7-4-1`,`ds-7-4-2`,`ds-7-4-3`,`ds-7-4-4`]},{id:`ds-7-5`,title:`串的匹配`,knowledgePointIds:[`ds-7-5-1`]}]},{id:`ds-8`,chapterNum:8,title:`排序`,sections:[{id:`ds-8-1`,title:`排序的基本概念`,knowledgePointIds:[`ds-8-1-1`]},{id:`ds-8-2`,title:`插入排序`,knowledgePointIds:[`ds-8-2-1`,`ds-8-2-2`]},{id:`ds-8-3`,title:`交换排序`,knowledgePointIds:[`ds-8-3-1`,`ds-8-3-2`]},{id:`ds-8-4`,title:`选择排序`,knowledgePointIds:[`ds-8-4-1`]},{id:`ds-8-5`,title:`归并排序和基数排序`,knowledgePointIds:[`ds-8-5-1`,`ds-8-5-2`]},{id:`ds-8-6`,title:`各种内部排序算法的比较`,knowledgePointIds:[`ds-8-6-1`,`ds-8-6-2`]},{id:`ds-8-7`,title:`外部排序`,knowledgePointIds:[`ds-8-7-1`]}]}]},{id:`co`,name:`计组`,fullName:`计算机组成原理`,color:`#dc2626`,chapters:[{id:`co-1`,chapterNum:1,title:`计算机系统概述`,sections:[{id:`co-1-1`,title:`计算机发展历程`,knowledgePointIds:[`co-1-1-1`]},{id:`co-1-2`,title:`计算机系统层次结构`,knowledgePointIds:[`co-1-2-1`]},{id:`co-1-3`,title:`计算机性能指标`,knowledgePointIds:[`co-1-3-1`,`co-1-3-2`]}]},{id:`co-2`,chapterNum:2,title:`数据的表示和运算`,sections:[{id:`co-2-1`,title:`数制与编码`,knowledgePointIds:[`co-2-1-1`,`co-2-1-2`,`co-2-1-3`,`co-2-1-4`]},{id:`co-2-2`,title:`定点数的表示与运算`,knowledgePointIds:[`co-2-2-1`,`co-2-2-2`,`co-2-2-3`]},{id:`co-2-3`,title:`浮点数的表示与运算`,knowledgePointIds:[`co-2-3-1`,`co-2-3-2`]},{id:`co-2-4`,title:`算术逻辑单元 ALU`,knowledgePointIds:[`co-2-4-1`,`co-2-4-2`]}]},{id:`co-3`,chapterNum:3,title:`存储系统`,sections:[{id:`co-3-1`,title:`存储器概述`,knowledgePointIds:[`co-3-1-1`,`co-3-1-2`]},{id:`co-3-2`,title:`主存储器`,knowledgePointIds:[`co-3-2-1`,`co-3-2-2`,`co-3-2-3`]},{id:`co-3-3`,title:`高速缓冲存储器 Cache`,knowledgePointIds:[`co-3-3-1`,`co-3-3-2`,`co-3-3-3`,`co-3-3-4`]},{id:`co-3-4`,title:`虚拟存储器`,knowledgePointIds:[`co-3-4-1`,`co-3-4-2`]},{id:`co-3-5`,title:`外部存储器`,knowledgePointIds:[`co-3-5-1`]}]},{id:`co-4`,chapterNum:4,title:`指令系统`,sections:[{id:`co-4-1`,title:`指令格式`,knowledgePointIds:[`co-4-1-1`]},{id:`co-4-2`,title:`指令的寻址方式`,knowledgePointIds:[`co-4-2-1`,`co-4-2-2`]},{id:`co-4-3`,title:`CISC 和 RISC`,knowledgePointIds:[`co-4-3-1`]}]},{id:`co-5`,chapterNum:5,title:`中央处理器`,sections:[{id:`co-5-1`,title:`CPU 的功能和基本结构`,knowledgePointIds:[`co-5-1-1`,`co-5-1-2`,`co-5-1-3`]},{id:`co-5-2`,title:`数据通路`,knowledgePointIds:[`co-5-2-1`]},{id:`co-5-3`,title:`控制器`,knowledgePointIds:[`co-5-3-1`,`co-5-3-2`,`co-5-3-3`]},{id:`co-5-4`,title:`异常和中断`,knowledgePointIds:[`co-5-4-1`]},{id:`co-5-5`,title:`指令流水线`,knowledgePointIds:[`co-5-5-1`,`co-5-5-2`,`co-5-5-3`]},{id:`co-5-6`,title:`多处理器基本概念`,knowledgePointIds:[`co-5-6-1`]}]},{id:`co-6`,chapterNum:6,title:`总线`,sections:[{id:`co-6-1`,title:`总线概述`,knowledgePointIds:[`co-6-1-1`]},{id:`co-6-2`,title:`总线仲裁`,knowledgePointIds:[`co-6-2-1`]},{id:`co-6-3`,title:`总线操作和定时`,knowledgePointIds:[`co-6-3-1`]},{id:`co-6-4`,title:`总线标准`,knowledgePointIds:[`co-6-4-1`]}]},{id:`co-7`,chapterNum:7,title:`输入/输出系统`,sections:[{id:`co-7-1`,title:`I/O 系统基本概念`,knowledgePointIds:[`co-7-1-1`,`co-7-1-2`]},{id:`co-7-2`,title:`程序查询方式`,knowledgePointIds:[`co-7-2-1`]},{id:`co-7-3`,title:`程序中断方式`,knowledgePointIds:[`co-7-3-1`,`co-7-3-2`]},{id:`co-7-4`,title:`DMA 方式`,knowledgePointIds:[`co-7-4-1`]}]}]},{id:`os`,name:`操作系统`,fullName:`操作系统`,color:`#16a34a`,chapters:[{id:`os-1`,chapterNum:1,title:`计算机系统概述`,sections:[{id:`os-1-1`,title:`操作系统的基本概念`,knowledgePointIds:[`os-1-1-1`,`os-1-1-2`]},{id:`os-1-2`,title:`操作系统的发展和分类`,knowledgePointIds:[`os-1-2-1`]},{id:`os-1-3`,title:`操作系统的运行环境`,knowledgePointIds:[`os-1-3-1`]},{id:`os-1-4`,title:`操作系统体系结构`,knowledgePointIds:[`os-1-4-1`,`os-1-4-2`]}]},{id:`os-2`,chapterNum:2,title:`进程与线程`,sections:[{id:`os-2-1`,title:`进程与线程`,knowledgePointIds:[`os-2-1-1`,`os-2-1-2`,`os-2-1-3`]},{id:`os-2-2`,title:`CPU 调度`,knowledgePointIds:[`os-2-2-1`]},{id:`os-2-3`,title:`同步与互斥`,knowledgePointIds:[`os-2-3-1`,`os-2-3-2`,`os-2-3-3`,`os-2-3-4`,`os-2-3-5`]},{id:`os-2-4`,title:`死锁`,knowledgePointIds:[`os-2-4-1`,`os-2-4-2`]}]},{id:`os-3`,chapterNum:3,title:`内存管理`,sections:[{id:`os-3-1`,title:`内存管理概念`,knowledgePointIds:[`os-3-1-1`]},{id:`os-3-2`,title:`连续分配管理方式`,knowledgePointIds:[`os-3-2-1`,`os-3-2-2`]},{id:`os-3-3`,title:`非连续分配管理方式`,knowledgePointIds:[`os-3-3-1`,`os-3-3-2`,`os-3-3-3`]},{id:`os-3-4`,title:`虚拟内存管理`,knowledgePointIds:[`os-3-4-1`,`os-3-4-2`,`os-3-4-3`,`os-3-4-4`]}]},{id:`os-4`,chapterNum:4,title:`文件管理`,sections:[{id:`os-4-1`,title:`文件系统基础`,knowledgePointIds:[`os-4-1-1`,`os-4-1-2`,`os-4-1-3`,`os-4-1-4`,`os-4-1-5`]},{id:`os-4-2`,title:`文件系统实现`,knowledgePointIds:[`os-4-2-1`,`os-4-2-2`]},{id:`os-4-3`,title:`磁盘组织与管理`,knowledgePointIds:[`os-4-3-1`,`os-4-3-2`]}]},{id:`os-5`,chapterNum:5,title:`输入/输出管理`,sections:[{id:`os-5-1`,title:`I/O 管理概述`,knowledgePointIds:[`os-5-1-1`,`os-5-1-2`]},{id:`os-5-2`,title:`I/O 核心子系统`,knowledgePointIds:[`os-5-2-1`,`os-5-2-2`]}]}]},{id:`cn`,name:`计网`,fullName:`计算机网络`,color:`#ca8a04`,chapters:[{id:`cn-1`,chapterNum:1,title:`计算机网络体系结构`,sections:[{id:`cn-1-1`,title:`计算机网络概述`,knowledgePointIds:[`cn-1-1-1`]},{id:`cn-1-2`,title:`计算机网络体系结构与参考模型`,knowledgePointIds:[`cn-1-2-1`]}]},{id:`cn-2`,chapterNum:2,title:`物理层`,sections:[{id:`cn-2-1`,title:`通信基础`,knowledgePointIds:[`cn-2-1-1`,`cn-2-1-2`]},{id:`cn-2-2`,title:`传输介质`,knowledgePointIds:[`cn-2-2-1`]},{id:`cn-2-3`,title:`物理层设备`,knowledgePointIds:[`cn-2-3-1`]}]},{id:`cn-3`,chapterNum:3,title:`数据链路层`,sections:[{id:`cn-3-1`,title:`数据链路层的功能`,knowledgePointIds:[`cn-3-1-1`]},{id:`cn-3-2`,title:`组帧`,knowledgePointIds:[`cn-3-2-1`]},{id:`cn-3-3`,title:`差错控制`,knowledgePointIds:[`cn-3-3-1`]},{id:`cn-3-4`,title:`流量控制与可靠传输机制`,knowledgePointIds:[`cn-3-4-1`,`cn-3-4-2`]},{id:`cn-3-5`,title:`介质访问控制`,knowledgePointIds:[`cn-3-5-1`,`cn-3-5-2`]},{id:`cn-3-6`,title:`局域网`,knowledgePointIds:[`cn-3-6-1`]},{id:`cn-3-7`,title:`广域网`,knowledgePointIds:[`cn-3-7-1`]},{id:`cn-3-8`,title:`数据链路层设备`,knowledgePointIds:[`cn-3-8-1`]}]},{id:`cn-4`,chapterNum:4,title:`网络层`,sections:[{id:`cn-4-1`,title:`网络层的功能`,knowledgePointIds:[`cn-4-1-1`]},{id:`cn-4-2`,title:`IPv4`,knowledgePointIds:[`cn-4-2-1`,`cn-4-2-2`]},{id:`cn-4-3`,title:`IPv6`,knowledgePointIds:[`cn-4-3-1`]},{id:`cn-4-4`,title:`路由算法与路由协议`,knowledgePointIds:[`cn-4-4-1`]},{id:`cn-4-5`,title:`IP 多播`,knowledgePointIds:[`cn-4-5-1`]},{id:`cn-4-6`,title:`移动 IP`,knowledgePointIds:[`cn-4-6-1`]},{id:`cn-4-7`,title:`网络层设备`,knowledgePointIds:[`cn-4-7-1`]}]},{id:`cn-5`,chapterNum:5,title:`传输层`,sections:[{id:`cn-5-1`,title:`传输层提供的服务`,knowledgePointIds:[`cn-5-1-1`]},{id:`cn-5-2`,title:`UDP 协议`,knowledgePointIds:[`cn-5-2-1`]},{id:`cn-5-3`,title:`TCP 协议`,knowledgePointIds:[`cn-5-3-1`,`cn-5-3-2`]}]},{id:`cn-6`,chapterNum:6,title:`应用层`,sections:[{id:`cn-6-1`,title:`网络应用模型`,knowledgePointIds:[`cn-6-1-1`]},{id:`cn-6-2`,title:`DNS 系统`,knowledgePointIds:[`cn-6-2-1`]},{id:`cn-6-3`,title:`FTP`,knowledgePointIds:[`cn-6-3-1`]},{id:`cn-6-4`,title:`电子邮件`,knowledgePointIds:[`cn-6-4-1`]},{id:`cn-6-5`,title:`万维网 WWW`,knowledgePointIds:[`cn-6-5-1`]}]}]},{id:`ma`,name:`数学一`,fullName:`数学一（高等数学+线代+概率）`,color:`#8b5cf6`,chapters:[{id:`ma-1`,chapterNum:1,title:`函数、极限与连续`,sections:[{id:`ma-1-1`,title:`函数的概念与性质`,knowledgePointIds:[`ma-1-1-1`]},{id:`ma-1-2`,title:`数列极限`,knowledgePointIds:[`ma-1-2-1`]},{id:`ma-1-3`,title:`函数极限`,knowledgePointIds:[`ma-1-3-1`]},{id:`ma-1-4`,title:`无穷小与无穷大`,knowledgePointIds:[`ma-1-4-1`]},{id:`ma-1-5`,title:`极限的运算法则与存在准则`,knowledgePointIds:[`ma-1-5-1`]},{id:`ma-1-6`,title:`函数的连续性与间断点`,knowledgePointIds:[`ma-1-6-1`]}]},{id:`ma-2`,chapterNum:2,title:`一元函数微分学`,sections:[{id:`ma-2-1`,title:`导数的概念与几何意义`,knowledgePointIds:[`ma-2-1-1`]},{id:`ma-2-2`,title:`求导法则与高阶导数`,knowledgePointIds:[`ma-2-2-1`]},{id:`ma-2-3`,title:`微分中值定理`,knowledgePointIds:[`ma-2-3-1`]},{id:`ma-2-4`,title:`洛必达法则`,knowledgePointIds:[`ma-2-4-1`]},{id:`ma-2-5`,title:`泰勒公式`,knowledgePointIds:[`ma-2-5-1`]},{id:`ma-2-6`,title:`函数的单调性与极值`,knowledgePointIds:[`ma-2-6-1`]},{id:`ma-2-7`,title:`函数的凹凸性与拐点`,knowledgePointIds:[`ma-2-7-1`]},{id:`ma-2-8`,title:`曲率与曲率半径`,knowledgePointIds:[`ma-2-8-1`]}]},{id:`ma-3`,chapterNum:3,title:`一元函数积分学`,sections:[{id:`ma-3-1`,title:`不定积分的概念与性质`,knowledgePointIds:[`ma-3-1-1`]},{id:`ma-3-2`,title:`不定积分的计算（换元与分部）`,knowledgePointIds:[`ma-3-2-1`]},{id:`ma-3-3`,title:`定积分的概念与性质`,knowledgePointIds:[`ma-3-3-1`]},{id:`ma-3-4`,title:`定积分的计算（牛顿-莱布尼茨）`,knowledgePointIds:[`ma-3-4-1`]},{id:`ma-3-5`,title:`广义积分`,knowledgePointIds:[`ma-3-5-1`]},{id:`ma-3-6`,title:`定积分的应用（面积与体积）`,knowledgePointIds:[`ma-3-6-1`]}]},{id:`ma-4`,chapterNum:4,title:`多元函数微分学`,sections:[{id:`ma-4-1`,title:`多元函数的基本概念`,knowledgePointIds:[`ma-4-1-1`]},{id:`ma-4-2`,title:`偏导数与全微分`,knowledgePointIds:[`ma-4-2-1`]},{id:`ma-4-3`,title:`多元复合函数求导`,knowledgePointIds:[`ma-4-3-1`]},{id:`ma-4-4`,title:`隐函数求导`,knowledgePointIds:[`ma-4-4-1`]},{id:`ma-4-5`,title:`多元函数的极值与条件极值`,knowledgePointIds:[`ma-4-5-1`]}]},{id:`ma-5`,chapterNum:5,title:`多元函数积分学`,sections:[{id:`ma-5-1`,title:`二重积分的概念与计算`,knowledgePointIds:[`ma-5-1-1`]},{id:`ma-5-2`,title:`三重积分`,knowledgePointIds:[`ma-5-2-1`]},{id:`ma-5-3`,title:`曲线积分`,knowledgePointIds:[`ma-5-3-1`]},{id:`ma-5-4`,title:`曲面积分`,knowledgePointIds:[`ma-5-4-1`]},{id:`ma-5-5`,title:`格林公式与高斯公式`,knowledgePointIds:[`ma-5-5-1`]}]},{id:`ma-6`,chapterNum:6,title:`微分方程`,sections:[{id:`ma-6-1`,title:`微分方程的基本概念`,knowledgePointIds:[`ma-6-1-1`]},{id:`ma-6-2`,title:`一阶微分方程`,knowledgePointIds:[`ma-6-2-1`]},{id:`ma-6-3`,title:`高阶常系数线性微分方程`,knowledgePointIds:[`ma-6-3-1`]},{id:`ma-6-4`,title:`欧拉方程`,knowledgePointIds:[`ma-6-4-1`]}]},{id:`ma-7`,chapterNum:7,title:`无穷级数`,sections:[{id:`ma-7-1`,title:`常数项级数的概念与性质`,knowledgePointIds:[`ma-7-1-1`]},{id:`ma-7-2`,title:`正项级数的审敛法`,knowledgePointIds:[`ma-7-2-1`]},{id:`ma-7-3`,title:`幂级数`,knowledgePointIds:[`ma-7-3-1`]},{id:`ma-7-4`,title:`傅里叶级数`,knowledgePointIds:[`ma-7-4-1`]}]},{id:`ma-8`,chapterNum:8,title:`线性代数`,sections:[{id:`ma-8-1`,title:`行列式`,knowledgePointIds:[`ma-8-1-1`]},{id:`ma-8-2`,title:`矩阵及其运算`,knowledgePointIds:[`ma-8-2-1`]},{id:`ma-8-3`,title:`向量组与线性方程组`,knowledgePointIds:[`ma-8-3-1`]},{id:`ma-8-4`,title:`特征值与特征向量`,knowledgePointIds:[`ma-8-4-1`]},{id:`ma-8-5`,title:`二次型`,knowledgePointIds:[`ma-8-5-1`]}]},{id:`ma-9`,chapterNum:9,title:`概率论与数理统计`,sections:[{id:`ma-9-1`,title:`随机事件与概率`,knowledgePointIds:[`ma-9-1-1`]},{id:`ma-9-2`,title:`随机变量及其分布`,knowledgePointIds:[`ma-9-2-1`]},{id:`ma-9-3`,title:`多维随机变量`,knowledgePointIds:[`ma-9-3-1`]},{id:`ma-9-4`,title:`数字特征（期望/方差/协方差）`,knowledgePointIds:[`ma-9-4-1`]},{id:`ma-9-5`,title:`大数定律与中心极限定理`,knowledgePointIds:[`ma-9-5-1`]},{id:`ma-9-6`,title:`数理统计（估计与检验）`,knowledgePointIds:[`ma-9-6-1`]},{id:`ma-9-7`,title:`常用统计分布`,knowledgePointIds:[`ma-9-7-1`]}]}]}];function pr(e){return fr.find(t=>t.id===e)}function mr(e){for(let t of fr){let n=t.chapters.find(t=>t.id===e);if(n)return{subject:t,chapter:n}}}var hr=[{id:`ds-1-1-1`,chapterId:`ds-1`,title:`数据、数据元素、数据项与数据对象`,keyConcepts:[`数据`,`数据元素`,`数据项`,`数据对象`,`数据结构`],relatedPoints:[],content:`## 基本术语定义
 
 | 术语 | 定义 | 说明 |
 |------|------|------|
@@ -2199,7 +2199,7 @@ $$\\lceil \\log_m(n(m-1)+1) \\rceil$$
 | 区别 | 树 | 二叉树 |
 |------|-----|--------|
 | 子树顺序 | 无序 | **严格区分左右** |
-| 可以为空 | 408教材不可为空 | **可以为空** |
+| 可以为空 | 王道教材约定不可为空 | **可以为空** |
 | 度为 2 的树 | 至少有一个结点度为 2 | 可以没有度为 2 的结点 |
 
 > 二叉树**不是树的特例**，而是两个不同的概念。二叉树严格区分左右子树。
@@ -2212,6 +2212,7 @@ $$\\lceil \\log_m(n(m-1)+1) \\rceil$$
 |------|------|------|
 | **满二叉树** | 每层结点数都达到最大值 | 高度为 $h$ 时有 $2^h-1$ 个结点 |
 | **完全二叉树** | 结点编号与满二叉树一一对应（从上到下、从左到右） | 度为 1 的结点只有 0 或 1 个 |
+| **正则二叉树** | 每个分支结点恰好有 2 个孩子 | 只有度为 0 或 2 的结点（2016真题考点）|
 | **二叉排序树 (BST)** | 左子树 $<$ 根 $<$ 右子树 | 用于查找 |
 | **平衡二叉树 (AVL)** | 任意结点的左右子树高度差 $\\le 1$ | 用于高效查找 |
 
@@ -2993,7 +2994,8 @@ typedef struct {
 ## 考试辨析
 - 邻接矩阵适合稠密图（$|E|$ 接近 $n^2$），不适合稀疏图
 - 无向图的邻接矩阵一定是对称阵——可用下三角/上三角压缩存储
-- 2011年真题考了邻接矩阵的压缩存储`},{id:`ds-6-2-2`,chapterId:`ds-6`,title:`图的存储 — 邻接表`,keyConcepts:[`邻接表`,`链式存储`,`边表`,`顶点表`,`稀疏图`,`O(n+e)`],relatedPoints:[`ds-6-2-1`,`ds-2-3-1`],content:`## 邻接表的定义
+- 2011年真题考了邻接矩阵的压缩存储
+- **A^n 的含义**（重要考点）：设图 G 的邻接矩阵为 A，则 $A^n[i][j]$ = 从顶点 i 到顶点 j 长度为 n 的路径条数（2015年真题考点）`},{id:`ds-6-2-2`,chapterId:`ds-6`,title:`图的存储 — 邻接表`,keyConcepts:[`邻接表`,`链式存储`,`边表`,`顶点表`,`稀疏图`,`O(n+e)`],relatedPoints:[`ds-6-2-1`,`ds-2-3-1`],content:`## 邻接表的定义
 > 顶点用数组存储（顶点表），每个顶点的**邻接边**用链表存储（边表）。
 
 \\\`\\\`\\\`c
@@ -3344,14 +3346,16 @@ $P_i$：查找第 $i$ 个记录的概率；$C_i$：找到第 $i$ 个记录所需
 - ASL 是评价查找算法效率的核心指标
 - 区分静态查找和动态查找——决定适用的数据结构`},{id:`ds-7-2-1`,chapterId:`ds-7`,title:`顺序查找与折半查找`,keyConcepts:[`顺序查找`,`折半查找`,`二分查找`,`ASL`,`有序表`],relatedPoints:[`ds-2-2-4`],content:`## 顺序查找
 
-逐个扫描直到找到目标或遍历完毕。
+逐个扫描直到找到目标或遍历完毕。可使用**哨兵**优化（将查找键放在a[0]位置，消除边界判断）。
 
 | 属性 | 值 |
 |------|-----|
 | 适用 | 顺序表或链表，**无序/有序均可** |
 | ASL(成功) | $\\frac{n+1}{2}$ |
-| ASL(失败) | $n$（无序）；$n+1$（有序） |
+| ASL(失败) | $n+1$（哨兵模式，需比较完所有元素+哨兵） |
 | 时间复杂度 | $O(n)$ |
+
+> 有序表的顺序查找 ASL(失败) ≈ $n/2$（可在a[i] > key时提前终止）
 
 ---
 
@@ -3362,15 +3366,17 @@ $P_i$：查找第 $i$ 个记录的概率；$C_i$：找到第 $i$ 个记录所需
 | 属性 | 值 |
 |------|-----|
 | 适用 | **有序顺序表** |
-| ASL | $\\approx \\log_2(n+1) - 1$ |
+| ASL(成功) | $\\approx \\log_2(n+1) - 1$ |
 | 时间复杂度 | $O(\\log n)$ |
 | 判定树 | 平衡二叉树 |
+
+> **mid取整一致性**：mid可向上或向下取整，但同一次查找中必须一致——这是2017年真题考点
 
 \`\`\`c
 int BinarySearch(int a[], int n, int key) {
     int low = 0, high = n - 1;
     while (low <= high) {
-        int mid = (low + high) / 2;
+        int mid = (low + high) / 2;  // 向下取整，始终一致
         if (a[mid] == key) return mid;
         else if (a[mid] < key) low = mid + 1;
         else high = mid - 1;
@@ -3384,7 +3390,8 @@ int BinarySearch(int a[], int n, int key) {
 ## 考试辨析
 - 折半查找要求**顺序存储 + 有序**——两个条件缺一不可
 - 折半查找的判定树是平衡二叉树，树高 $\\lceil \\log_2(n+1) \\rceil$
-- 求 ASL 需画出判定树，计算每个结点的查找长度`},{id:`ds-7-2-2`,chapterId:`ds-7`,title:`分块查找`,keyConcepts:[`分块查找`,`索引顺序查找`,`块内无序`,`块间有序`],relatedPoints:[`ds-7-2-1`],content:`## 分块查找的思想
+- 求 ASL 需画出判定树，计算每个结点的查找长度
+- ASL(失败)需通过判定树的失败结点(外结点)计算`},{id:`ds-7-2-2`,chapterId:`ds-7`,title:`分块查找`,keyConcepts:[`分块查找`,`索引顺序查找`,`块内无序`,`块间有序`],relatedPoints:[`ds-7-2-1`],content:`## 分块查找的思想
 
 将表分成若干块，**块间有序、块内无序**，建立索引表。
 
@@ -3728,9 +3735,13 @@ void InsertSort(int a[], int n) {
 
 用折半查找确定插入位置，减少比较次数（$O(n\\log n)$），但移动次数不变（$O(n^2)$）。
 
+> **重要限制**：折半插入排序**仅适用于顺序存储**（需要随机访问才能折半查找）。直接插入排序适用于顺序和链式存储。
+
 ---
 
 ## 考试辨析
+- 直接插入与折半插入的总趟数相同(n-1)、移动次数相同、辅助空间相同(O(1))——仅比较次数不同（2012真题）
+- 折半插入只能用于顺序存储——选择题常见陷阱
 - 直接插入排序的最好情况 $O(n)$——当序列基本有序时
 - 插入排序是**稳定**的
 - 适用于 $n$ 较小时`},{id:`ds-8-2-2`,chapterId:`ds-8`,title:`希尔排序`,keyConcepts:[`希尔排序`,`缩小增量`,`不稳定`,`O(n^1.3)`],relatedPoints:[`ds-8-2-1`],content:`## 希尔排序思想
@@ -3966,15 +3977,35 @@ $$\\text{总时间} = \\text{初始归并段产生} + \\text{归并趟数} \\tim
 ## 考试辨析
 - 外部排序采用**归并排序**——因为归并可逐段读写
 - 最佳归并树 = 哈夫曼树的应用（2012年真题考察）
-- $m$ 个初始归并段做 $k$ 路归并，趟数 = $\\lceil \\log_k m \\rceil$`}],gr=[{id:`co-1-1-1`,chapterId:`co-1`,title:`计算机发展历程与冯·诺依曼结构`,keyConcepts:[`冯·诺依曼`,`存储程序`,`五大部件`,`二进制`,`运算器中心`],relatedPoints:[`co-1-2-1`],content:`## 冯·诺依曼计算机的基本思想
+- $m$ 个初始归并段做 $k$ 路归并，趟数 = $\\lceil \\log_k m \\rceil$`}],gr=[{id:`co-1-1-1`,chapterId:`co-1`,title:`计算机发展历程与冯·诺依曼结构`,keyConcepts:[`冯·诺依曼`,`存储程序`,`五大部件`,`二进制`,`四代计算机`,`摩尔定律`],relatedPoints:[`co-1-2-1`],content:`## 计算机发展四代
+
+| 代 | 年代 | 核心元件 | 代表 |
+|----|------|----------|------|
+| 第一代 | 1946-1957 | 电子管 | ENIAC, EDVAC |
+| 第二代 | 1958-1964 | 晶体管 | IBM 7090 |
+| 第三代 | 1965-1971 | 中小规模集成电路 | IBM System/360 |
+| 第四代 | 1972-至今 | 大规模/超大规模集成电路 | Intel 4004→Core i |
+
+> **摩尔定律**：集成电路上可容纳的晶体管数量约每 **18 个月**翻一番。
+
+**微处理器发展**：Intel 4004 → 8008(8位) → 8086(16位) → 80386(32位) → Pentium → Core i(64位/多核)
+
+**软件发展**：机器语言 → 汇编语言 → FORTRAN/Pascal → C++/Java → 操作系统 Windows/UNIX/Linux
+
+---
+
+## 冯·诺依曼计算机的基本思想
 
 > **"存储程序"**——将程序像数据一样存入存储器中，计算机自动逐条取出指令执行。
 
-### 核心要点
+### 冯·诺依曼机的五个正式特征
 1. 计算机由**五大部件**组成：运算器、控制器、存储器、输入设备、输出设备
-2. 指令和数据以**二进制**形式存储
-3. 以**运算器为中心**（现代计算机改为**以存储器为中心**）
-4. 指令按顺序执行（程序计数器 PC 控制）
+2. 采用**"存储程序"**的工作方式——程序和数据预先存入主存，启动后自动、连续执行
+3. 指令和数据以**相同形式**存放于存储器中——**仅凭内容无法区分**（只有执行时才区分）
+4. 指令和数据均采用**二进制**编码表示
+5. 指令由**操作码**和**地址码**组成——操作码指明操作类型，地址码指出操作数地址
+
+> 注："以运算器为中心"并非冯氏机的五个正式特征之一（教科书原文未将其列入）。它是早期冯氏机的实现特点，现代计算机已改为**以存储器为中心**。
 
 ---
 
@@ -3990,25 +4021,55 @@ $$\\text{总时间} = \\text{初始归并段产生} + \\text{归并趟数} \\tim
 ---
 
 ## 考试辨析
-- 冯·诺依曼机的核心是**存储程序**
-- "以运算器为中心"是冯氏结构的标志——现代结构"以存储器为中心"
-- 指令和数据同等存于存储器中——**从存储内容上无法区分**（只有执行时才区分）`},{id:`co-1-2-1`,chapterId:`co-1`,title:`计算机系统的层次结构`,keyConcepts:[`层次结构`,`裸机`,`虚拟机`,`翻译程序`,`解释程序`,`编译`,`汇编`],relatedPoints:[],content:`## 计算机系统的多级层次
+- 冯·诺依曼机的核心是**存储程序**（控制流驱动方式）
+- "以运算器为中心"是传统冯氏结构的标志——现代结构"以存储器为中心"
+- 指令和数据同等存于存储器中——**从存储内容上无法区分**
+- **2019 统考真题**考查：冯·诺依曼机基本思想错误的是？——"数据都在指令中直接给出"（错误，数据由地址码指出）`},{id:`co-1-2-1`,chapterId:`co-1`,title:`计算机系统的层次结构`,keyConcepts:[`层次结构`,`ISA`,`微架构`,`翻译程序`,`解释程序`,`编译`,`汇编`,`预处理`,`链接`,`透明性`],relatedPoints:[`co-1-1-1`],content:`## 计算机系统的多级层次
+
+| 层级 | 名称 | 说明 |
+|------|------|------|
+| L5 | 高级语言层 | C/Java/Python → 编译程序翻译 |
+| L4 | 汇编语言层 | 助记符 → 汇编程序翻译 |
+| L3 | 操作系统层 | 提供系统调用接口 |
+| L2 | **ISA 层**（指令集体系结构）| **软硬件分界线** — 定义"做什么" |
+| L1 | 微架构层 | 硬件实现 — 决定"怎么做" |
+| L0 | 硬件逻辑层 | 数字电路/门电路 |
+
+> **关键分界：ISA 是软硬件的"合同"** — 软件只看到 ISA；同一 ISA 可用不同微架构实现（如 x86 ISA 对应 Pentium/Core i 等不同微架构）。
+
+---
+
+## ISA vs 微架构（核心辨析）
+| 概念 | 含义 | 类比 |
+|------|------|------|
+| **ISA**（指令集体系结构）| 程序员可见的机器属性：指令集、数据类型、寻址方式 | "功能说明书" |
+| **微架构** | ISA 的具体硬件实现：数据通路、流水线级数、Cache 层次、分支预测 | "内部实现细节" |
+
+---
+
+## 从源程序到可执行文件（四阶段）
+
+> **2022 统考真题考点**
 
 \`\`\`
-用户
-
-高级语言 (C/Java/Python)  → 编译程序
-
-汇编语言               → 汇编程序
-
-操作系统               → 操作系统
-
-机器语言（指令系统）
-
-微程序（微指令）
-
-硬件逻辑（电路）
+源程序 .c  →  预处理 .i  →  编译 .s  →  汇编 .o  →  链接 →  可执行文件
+    (cpp)       (ccl)       (as)        (ld)
 \`\`\`
+
+| 阶段 | 输入 | 输出 | 工作 |
+|------|------|------|------|
+| **预处理** | .c | .i | 宏展开、头文件包含、条件编译 |
+| **编译** | .i | .s | 翻译为汇编语言 |
+| **汇编** | .s | .o | 汇编→机器指令（可重定位目标文件）|
+| **链接** | .o | exe | 符号解析+重定位，合并为可执行文件 |
+
+---
+
+## 软/硬件逻辑功能等价性
+- 同一功能既可用硬件实现，也可用软件实现
+- 在相同规范下，二者在**逻辑功能上等价**
+- 例：浮点运算可用硬件 FPU 或软件模拟；排序可用硬件加速器或软件算法
+- 硬件快但成本高、灵活性差；软件慢但灵活、成本低
 
 ---
 
@@ -4016,24 +4077,46 @@ $$\\text{总时间} = \\text{初始归并段产生} + \\text{归并趟数} \\tim
 | 概念 | 说明 |
 |------|------|
 | **翻译程序** | 将高级语言源代码转换为机器语言 |
-| **编译程序** | 一次性翻译整个源程序 |
-| **解释程序** | 逐条翻译并执行（不生成目标代码） |
+| **编译程序** | 一次性翻译整个源程序，生成目标代码 |
+| **解释程序** | 逐条翻译并执行，不生成目标代码（边翻译边执行）|
 | **汇编程序** | 将汇编语言翻译为机器语言 |
+
+---
+
+## 透明性（Transparency）
+> 在计算机领域，"透明" = **看不见、感觉不到**（与日常含义相反！）
+
+| 对象 | 对谁透明？|
+|------|-----------|
+| 指令格式、机器结构、数据格式 | 高级语言程序员（不可见）|
+| 指令格式、机器结构 | 汇编语言程序员（可见！）|
+| IR, MAR, MDR | 所有程序员（均透明）|
 
 ---
 
 ## 机器/汇编/高级语言对比
 | 语言 | 特点 | 可读性 | 可移植性 |
 |------|------|--------|----------|
-| 机器语言 | 二进制代码 | 差 | 差 |
-| 汇编语言 | 助记符 | 较好 | 差 |
-| 高级语言 | 面向问题 | 好 | 好 |
+| 机器语言 | 二进制代码，硬件可直接执行 | 差 | 差 |
+| 汇编语言 | 助记符，与机器指令一一对应 | 较好 | 差 |
+| 高级语言 | 面向问题，与机器结构无关 | 好 | 好 |
 
 ---
 
 ## 考试辨析
-- 编译与解释的区别：编译生成目标代码，解释不生成
-- 汇编语言与机器指令一一对应（汇编 = 机器语言的助记符形式）`},{id:`co-1-3-1`,chapterId:`co-1`,title:`计算机的性能指标`,keyConcepts:[`主频`,`CPI`,`MIPS`,`MFLOPS`,`机器字长`,`数据通路带宽`,`响应时间`],relatedPoints:[`co-5-5-1`],content:`## 核心性能指标
+- 编译 vs 解释：编译生成目标代码可独立执行；解释边翻译边执行
+- ISA 是软硬件接口——**2017/2022 统考均有考查**
+- 汇编指令与机器指令一一对应，不能被计算机直接执行（需汇编）
+- 计算机体系结构 = ISA（程序员视角）；计算机组成 = 微架构（硬件实现）`},{id:`co-1-3-1`,chapterId:`co-1`,title:`计算机的性能指标`,keyConcepts:[`主频`,`CPI`,`IPC`,`MIPS`,`MFLOPS`,`GFLOPS`,`TFLOPS`,`PFLOPS`,`吞吐量`,`响应时间`,`机器字长`,`基准程序`],relatedPoints:[`co-5-5-1`],content:`## 一级性能指标
+
+| 指标 | 含义 | 关系 |
+|------|------|------|
+| **吞吐量** | 单位时间内系统处理请求的数量 | 受主存存取性能显著影响 |
+| **响应时间** | 用户发出请求到获得结果的总等待时间 | = CPU时间 + 等待时间(I/O/磁盘/内存) |
+
+---
+
+## CPU 核心性能指标
 
 | 指标 | 含义 | 公式 |
 |------|------|------|
@@ -4041,9 +4124,25 @@ $$\\text{总时间} = \\text{初始归并段产生} + \\text{归并趟数} \\tim
 | **主频 (f)** | CPU 每秒的时钟周期数 | 单位 Hz |
 | **时钟周期 (T)** | 一个时钟周期的时间 | $T = 1/f$ |
 | **CPI** | 每条指令所需的平均时钟周期数 | — |
+| **IPC** | 每个时钟周期执行的指令数 | $IPC = 1/CPI$ |
 | **CPU 执行时间** | 执行某程序的总时间 | $T_{CPU} = N \\times CPI \\times T$ |
 | **MIPS** | 每秒百万条指令 | $MIPS = f / (CPI \\times 10^6)$ |
-| **MFLOPS** | 每秒百万次浮点运算 | — |
+| **GIPS** | 每秒十亿条指令 | $GIPS = f / (CPI \\times 10^9)$ |
+
+---
+
+## FLOPS 体系（浮点运算速度）
+| 缩写 | 全称 | 数量级 |
+|------|------|--------|
+| MFLOPS | Million FLOPS | $10^6$ |
+| GFLOPS | Giga FLOPS | $10^9$ |
+| TFLOPS | Tera FLOPS | $10^{12}$ |
+| PFLOPS | Peta FLOPS | $10^{15}$（千万亿次）|
+| EFLOPS | Exa FLOPS | $10^{18}$ |
+| ZFLOPS | Zetta FLOPS | $10^{21}$ |
+
+> MIPS/MFLOPS 衡量标量机性能；GFLOPS/TFLOPS 衡量向量机/超级计算机性能。
+> **2021 统考**：神威·太湖之光 93.0146 PFLOPS ≈ 9.3 亿亿次/秒。
 
 ---
 
@@ -4053,13 +4152,24 @@ $$T_{CPU} = N \\times CPI \\times T = \\frac{N \\times CPI}{f}$$
 - $N$ = 指令条数
 - $CPI$ = 每条指令平均时钟周期数
 - $T$ = 时钟周期
+- $f$ = 主频
+
+---
+
+## 基准程序（Benchmark）
+- 用来评价计算机系统性能的标准测试程序
+- **局限性**：性能常依赖某些关键代码片段，硬件/编译器可能针对性优化，无法代表一般负载能力
+- 应结合具体应用领域选择合适的基准程序，多种评测手段综合判断
 
 ---
 
 ## 考试辨析
 - $T_{CPU}$ 越小越好，MIPS/MFLOPS 越大越好
-- 主频 ≠ 性能——受 CPI 影响很大
-- 提高主频 $f$ 和降低 $CPI$ 都提高性能`},{id:`co-2-1-1`,chapterId:`co-2`,title:`进位计数制与转换`,keyConcepts:[`二进制`,`八进制`,`十六进制`,`十进制`,`进制转换`],relatedPoints:[`co-2-1-2`],content:`## 四种常用进制
+- 主频 ≠ 性能 — 受 CPI 影响很大
+- CPI 与时钟频率无关，只与 ISA 和计算机组成有关
+- IPC 是 CPI 的倒数 — **2023 统考考过 GIPS 计算**
+- 提高主频 $f$ 和降低 $CPI$ 都提高性能
+- 存储容量用 $2^{10}$（如 1KB=1024B），速率/频率用 $10^3$（如 1kHz=1000Hz）`},{id:`co-2-1-1`,chapterId:`co-2`,title:`进位计数制与转换`,keyConcepts:[`二进制`,`八进制`,`十六进制`,`十进制`,`进制转换`],relatedPoints:[`co-2-1-2`],content:`## 四种常用进制
 
 | 进制 | 基数 | 数码 | 后缀 |
 |------|------|------|------|
@@ -4141,8 +4251,36 @@ $$OF = C_n \\oplus C_{n-1}$$
 
 ---
 
+## 标志位判断大小关系
+
+### 无符号数比较（用 ZF + CF）
+
+设 A、B 为无符号数，执行运算 A - B：
+
+| 判断 | ZF | CF | 结论 |
+|------|----|----|------|
+| A = B | 1 | 0 | 结果为零，无借位 |
+| A > B | 0 | 0 | 结果非零，无借位 |
+| A < B | 0 | 1 | 结果非零，有借位 |
+
+### 有符号数比较（用 ZF + OF + SF）
+
+设 A、B 为有符号数，执行运算 [A]补 - [B]补：
+
+| 判断 | ZF | OF | SF | 结论 |
+|------|----|----|----|------|
+| A = B | 1 | 0 | 0 | 结果为零 |
+| A > B | 0 | 0 | 0 | 无溢出且结果为正 |
+| A > B | 0 | 1 | 1 | 溢出(=负)说明实际为正 |
+| A < B | 0 | 0 | 1 | 无溢出且结果为负 |
+| A < B | 0 | 1 | 0 | 溢出(=正)说明实际为负 |
+
+---
+
 ## 考试辨析
-- OF 只对**有符号数**有意义，CF 只对**无符号数**有意义
+- OF 只对**有符号数**有意义（溢出判断），CF 只对**无符号数**有意义（进位/借位）
+- 无符号数判断大小：ZF=1 → 相等；CF=1 → 小于
+- 有符号数判断大小：需 ZF + OF + SF 三者组合
 - 双符号位法是最直观的溢出判断——408 常考`},{id:`co-2-2-2`,chapterId:`co-2`,title:`定点数的乘除运算`,keyConcepts:[`乘法`,`Booth算法`,`原码乘法`,`补码乘法`,`除法`,`不恢复余数`,`加减交替`],relatedPoints:[`co-2-2-1`],content:`## 乘法运算
 
 ### Booth 算法（补码一位乘法）—— 核心步骤
@@ -4157,23 +4295,31 @@ $$OF = C_n \\oplus C_{n-1}$$
 3. 部分积和乘数一起**算术右移**一位
 4. 重复 n 次（n = 字长）
 
-**手算示例：X = -3 (1101补), Y = 2 (0010)**
+**手算示例：X = -3 ([X]补=1101, [-X]补=0011), Y = 2 (0010)**
 \`\`\`
-初始: 部分积 0000, 乘数 0010, y_{n+1}=0
-Step1: (0,0) → +0, 右移 → 0000 0001 0
-Step2: (1,0) → +[X]补=1101 → 1101 0001 0, 右移 → 1110 1000 1
-Step3: (0,1) → +[-X]补=0011 → 0001 1000 1, 右移 → 0000 1100 0
-Step4: (0,0) → +0, 右移 → 0000 0110 0
-结果: 0000 0110 = +6 (补码) = (-3)×2 = -6 的补码 → 1111 1010
+初始: 部分积 0000, 乘数 0010 0
+Step1: (0,0) → +0,        算术右移 → 0000 0001 0
+Step2: (1,0) → +[-X]补=0011, 算术右移 → 0001 1000 1
+Step3: (0,1) → +[X]补=1101,  算术右移 → 1111 0100 0
+Step4: (0,0) → +0,        算术右移 → 1111 1010 0
+结果: 1111 1010 = -6 (补码) = (-3)×2 = -6 ✓
 \`\`\`
 时间复杂度：**n 次加法 + n 次移位**
 
 ---
 ## 除法运算
-### 不恢复余数法（加减交替法）
-1. 被除数 - 除数 → 若余数 ≥ 0，商 1；余数 < 0，商 0 并恢复余数（加回去）
-2. **优化**：够减商 1，下一步 - 除数；不够减商 0，下一步 **+ 除数**（不恢复，直接用加减交替）
-3. 重复 n 次，商 n 位
+### 两种方法对比
+
+| 方法 | 够减(余数≥0) | 不够减(余数<0) | 效率 |
+|------|-------------|---------------|------|
+| **恢复余数法** | 商1 → 下一步 -除数 | 商0 → **恢复余数**(+除数) → 下一步 -除数 | 低（多一次加）|
+| **加减交替法** | 商1 → 下一步 -除数 | 商0 → 下一步 **+除数**（不恢复）| 高（408重点）|
+
+### 加减交替法（不恢复余数法）流程
+1. 被除数 - 除数 → 得第一次余数
+2. 余数 ≥ 0：商 1，下一步 - 除数
+3. 余数 < 0：商 0，下一步 + 除数
+4. 重复 n 次，商 n 位（补码除法商的符号由两数符号异或决定）
 
 ---
 ## 考试辨析
@@ -4280,34 +4426,93 @@ C0A00000H = 1100 0000 1010 0000 0000 0000 0000 0000B
 - 对阶时**尾数右移 = 精度降低**——这是浮点运算误差的主因
 - 舍入后可能尾数再次溢出 → 需要二次右规
 - 背熟五个步骤的名称和顺序——408 各种题型都以此为基础
-- 每年都有"浮点数加减法手工模拟"的选择题或简答题`},{id:`co-2-4-1`,chapterId:`co-2`,title:`算术逻辑单元 (ALU)`,keyConcepts:[`ALU`,`全加器`,`串行进位`,`并行进位`,`先行进位`,`SN74181`],relatedPoints:[`co-2-2-1`,`co-5-1-1`],content:`## ALU 的功能
+- 每年都有"浮点数加减法手工模拟"的选择题或简答题`},{id:`co-2-4-1`,chapterId:`co-2`,title:`算术逻辑单元 (ALU)`,keyConcepts:[`ALU`,`全加器`,`串行进位`,`并行进位`,`先行进位`,`SN74181`,`加法器`,`标志位`,`OF`,`CF`],relatedPoints:[`co-2-2-1`,`co-5-1-1`,`co-2-1-2`],content:`## ALU 的功能
 
-> ALU 是运算器的核心部件，能完成算术运算和逻辑运算。
+> ALU 是运算器的核心部件，完成**算术运算**（加减乘除）和**逻辑运算**（与或非、移位）。
 
----
-
-## 进位方式
-| 方式 | 特点 | 速度 |
-|------|------|------|
-| **串行进位** | 每级进位依赖前一级 | 慢，$O(n)$ |
-| **并行进位** | 各级同时生成进位 | 快，但电路复杂 |
-| **先行进位 (CLA)** | 分组并行 | 折中 |
+ALU 的基本组成：
+- **加法器**：核心部件，所有算术运算的基础（减法=补码加法）
+- **逻辑运算单元**：与、或、非、异或
+- **移位器**：左移、右移、算术移位、逻辑移位
 
 ---
 
-## 标志位产生
-| 标志 | 全称 | 说明 |
-|------|------|------|
-| ZF | Zero Flag | 结果为 0 |
-| SF | Sign Flag | 符号位 |
-| CF | Carry Flag | 进位/借位 |
-| OF | Overflow Flag | 溢出 |
+## 加法器——ALU 的核心
+
+### 全加器 (Full Adder)
+
+一个全加器完成 **1 bit + 1 bit + 进位** 的加法：
+
+$$S_i = X_i \\oplus Y_i \\oplus C_{i-1}$$
+$$C_i = X_i Y_i + (X_i \\oplus Y_i) C_{i-1}$$
+
+- $X_i, Y_i$：两个加数的第 i 位
+- $C_{i-1}$：来自低位的进位
+- $S_i$：本位和
+- $C_i$：向高位的进位
+
+### n 位加法器
+
+由 n 个全加器级联构成，完成 n 位加法。
+
+---
+
+## 进位方式对比
+
+| 方式 | 原理 | 进位时间 | 电路复杂度 | 适用 |
+|------|------|---------|-----------|------|
+| **串行进位** | 进位逐级传递（$C_i$ 依赖 $C_{i-1}$） | $O(n)$ | 最低 | 简单加法器 |
+| **并行进位** | 所有进位同时产生 | $O(1)$ | $O(n^2)$，极高 | 理论上最优 |
+| **先行进位 (CLA)** | 分组内并行，组间串行/并行 | $O(\\log n)$ | 适中 | **实际 CPU 采用** |
+
+### 串行进位（行波进位）
+
+$$C_i = X_i Y_i + (X_i \\oplus Y_i)C_{i-1}$$
+
+每个进位必须等待上一级进位稳定——关键路径 = n 级全加器延迟。
+
+### 先行进位（CLA）原理
+
+定义两个辅助函数：
+- **进位生成**：$G_i = X_i Y_i$（本位产生进位）
+- **进位传递**：$P_i = X_i \\oplus Y_i$（进位可通过）
+
+则：$C_i = G_i + P_i \\cdot C_{i-1}$
+
+展开：$C_4 = G_4 + P_4 G_3 + P_4 P_3 G_2 + P_4 P_3 P_2 G_1 + P_4 P_3 P_2 P_1 C_0$
+
+所有进位可用两级门延迟计算（与或表达式）。
+
+---
+
+## SN74181 —— 经典 ALU 芯片
+
+- 4 位 ALU，能完成 16 种算术运算 + 16 种逻辑运算
+- 内置先行进位（CLA）生成电路
+- 可级联多个 74181 构成更大位宽的 ALU
+- 配合 SN74182（先行进位发生器）实现组间并行进位
+
+---
+
+## 标志位的产生
+
+| 标志 | 含义 | 产生条件 |
+|------|------|---------|
+| **ZF**（零） | 结果为 0 | 所有结果位 = 0 |
+| **SF**（符号） | 结果为负 | 结果最高位 = 1 |
+| **CF**（进位/借位） | 无符号溢出 | 加法时最高位有进位 / 减法时有借位 |
+| **OF**（溢出） | 有符号溢出 | 最高位进位 ⊕ 次高位进位（$C_n \\oplus C_{n-1}$） |
+
+> **CF 和 OF 的关键区别**：CF 用于无符号数溢出判断，OF 用于有符号数溢出判断。
 
 ---
 
 ## 考试辨析
-- 加法器是 ALU 的核心——408 主要考加法器及进位生成
-- 串行进位的关键路径 $O(n)$，并行进位 $O(\\log n)$——了解区别即可`},{id:`co-3-1-1`,chapterId:`co-3`,title:`存储器分类与层次结构`,keyConcepts:[`层次结构`,`Cache`,`主存`,`辅存`,`局部性`,`时间局部性`,`空间局部性`],relatedPoints:[`co-3-3-1`,`ds-1-1-2`,`os-3-1-1`],content:`## 存储器的层次结构
+- 加法器是 ALU 的核心——全加器的结构和进位传递是 408 考点
+- 串行进位关键路径 O(n)，CLA 可降至 O(log n)——选择题区分
+- OF = $C_n \\oplus C_{n-1}$ 是溢出判定的核心公式
+- SN74181 是经典实例——了解"先行进位"实现即可
+- ALU 中加法器的位宽 = 机器字长`},{id:`co-3-1-1`,chapterId:`co-3`,title:`存储器分类与层次结构`,keyConcepts:[`层次结构`,`Cache`,`主存`,`辅存`,`局部性`,`时间局部性`,`空间局部性`],relatedPoints:[`co-3-3-1`,`ds-1-1-2`,`os-3-1-1`],content:`## 存储器的层次结构
 
 \`\`\`
 寄存器（CPU内部）  ← 最快/最小/最贵
@@ -4635,10 +4840,40 @@ Tavg = h x Tcache + (1-h) x Tmain
 
 ---
 
+## 三种虚拟存储管理方式
+
+| 方式 | 划分单位 | 地址结构 | 优点 | 缺点 |
+|------|---------|---------|------|------|
+| **页式** | 固定大小的页 | 页号 + 页内偏移 | 简单、无外碎片 | 最后一页有内碎片 |
+| **段式** | 不等长的段（按逻辑）| 段号 + 段内偏移 | 符合程序逻辑、便于共享/保护 | 有外碎片、管理复杂 |
+| **段页式** | 段内再分页 | 段号 + 段内页号 + 页内偏移 | 兼具两者优点 | 硬件开销大 |
+
+### 段式存储详解
+- 按程序的逻辑结构分段（代码段/数据段/堆栈段等）
+- 段表：段号 → 段基址 + 段长 + 访问权限
+- 段长不等，需越界检查（段内偏移 < 段长）
+- 优点：便于模块共享、保护、动态链接
+- 缺点：外碎片、段长不定导致分配困难
+
+### 段页式存储
+- 先分段，段内再分页
+- 段表 → 页表起始地址；页表 → 物理页框号
+- 优点：保留段的逻辑结构 + 消除外碎片
+- 缺点：两次查表（段表+页表），访存开销大
+
+### 多级页表
+- 单级页表太大时（如 64 位系统），将页表本身分页
+- 只调入正在使用的部分页表——节省内存
+- 级数越多，地址转换越慢
+
+---
+
 ## 考试辨析
 - 虚拟存储器由 OS + 硬件共同管理（主存-辅存层）
 - 虚拟地址空间大小取决于**地址线位数**，不取决于主存大小
-- TLB = 页表的 Cache——用 SRAM 实现`},{id:`co-4-1-1`,chapterId:`co-4`,title:`指令格式与操作码编码`,keyConcepts:[`指令格式`,`操作码`,`地址码`,`定长编码`,`变长编码`,`扩展操作码`],relatedPoints:[`co-5-1-1`],content:`## 指令的基本格式
+- TLB = 页表的 Cache——用 SRAM 实现
+- 页式无外碎片（每页恰好填满），段式有外碎片
+- 段页式 = 两次查表（段表→页表→物理地址）`},{id:`co-4-1-1`,chapterId:`co-4`,title:`指令格式与操作码编码`,keyConcepts:[`指令格式`,`操作码`,`地址码`,`定长编码`,`变长编码`,`扩展操作码`],relatedPoints:[`co-5-1-1`],content:`## 指令的基本格式
 
 一条指令由**操作码 (OP)** 和**地址码 (A)** 组成：
 
@@ -4702,25 +4937,64 @@ Tavg = h x Tcache + (1-h) x Tmain
 ## 考试辨析
 - 相对寻址中 EA = (PC) + 偏移量——**PC 已是下一条指令地址**（注意！）
 - 变址寻址特别适合**数组元素访问**——A 是首地址，IX 是下标
-- 基址面向 OS 的程序重定位，变址面向用户程序的数组访问`},{id:`co-4-3-1`,chapterId:`co-4`,title:`CISC与RISC`,keyConcepts:[`CISC`,`RISC`,`复杂指令集`,`精简指令集`,`流水线`],relatedPoints:[`co-5-5-1`,`co-4-1-1`],content:`## CISC vs RISC
+- 基址面向 OS 的程序重定位，变址面向用户程序的数组访问`},{id:`co-4-3-1`,chapterId:`co-4`,title:`CISC与RISC`,keyConcepts:[`CISC`,`RISC`,`复杂指令集`,`精简指令集`,`流水线`,`微程序`,`Load/Store`,`x86`,`ARM`,`MIPS`,`RISC-V`],relatedPoints:[`co-5-5-1`,`co-4-1-1`,`co-5-3-1`,`co-5-2-1`],content:`## CISC vs RISC 详细对比
 
 | 特征 | CISC | RISC |
 |------|------|------|
-| 指令数量 | **多** | **少** |
-| 指令长度 | **变长** | **定长** |
-| 寻址方式 | 多 | 少 |
-| 指令执行时间 | 差异大 | 大多单周期 |
-| 流水线 | 难以实现 | **容易实现** |
-| 编译 | 简单 | 复杂（需优化编译器） |
-| **典型** | x86 | ARM、MIPS、RISC-V |
+| 指令数量 | **多**（200+） | **少**（~100 条） |
+| 指令长度 | **变长**（1~15 字节） | **定长**（4 字节） |
+| 寻址方式 | 丰富（~10 种） | 简单（3~5 种） |
+| 指令执行时间 | 差异大（几天到几十周期） | 大多**单周期** |
+| 访存方式 | 运算类指令可访存 | **只有 Load/Store 访存** |
+| 流水线实现 | 困难（变长指令难预取） | **极易**（定长指令天然适配） |
+| 编程方式 | 微程序控制（固件） | 硬布线控制 |
+| 寄存器数量 | 少 | **多**（如 MIPS 32 个通用寄存器） |
+| 编译器优化 | 简单 | 复杂（需做寄存器分配/指令调度） |
+| 程序代码量 | 小（单条指令功能强） | 大（需多条简单指令实现复杂功能） |
+| 典型代表 | x86（Intel/AMD） | ARM、MIPS、**RISC-V** |
+
+---
+
+## RISC 设计哲学
+
+> **RISC = 精简指令集计算机**。核心思想：80% 的指令由 20% 的功能组成。
+
+1. **Load/Store 体系结构**：只有 Load/Store 指令访问存储器，运算指令只操作寄存器
+2. **定长指令**：每条指令 32 位（4 字节），取指和译码简化
+3. **大量通用寄存器**：MIPS 有 32 个，ARM 有 16 个——减少访存次数
+4. **单周期执行**：大多数指令在一个时钟周期内完成（利于流水线）
+5. **硬布线控制**：不用微程序，控制电路更简单
+
+---
+
+## CISC 设计哲学
+
+> **CISC = 复杂指令集计算机**。用一条复杂指令完成需要 RISC 多条指令才能完成的工作。
+
+- 支持**存储器操作数**：加法指令可直接访问内存
+- 变长指令：编码密度高，程序占用空间小
+- 采用**微程序控制**：方便添加新指令和修复 bug
+- 向上兼容性：x86 四十年来保持了良好的二进制兼容性
+
+---
+
+## 现代 CPU 的融合
+
+> **现代 x86 内部 = CISC 外部 + RISC 内核**
+
+1. x86 前端取 CISC 指令 → 译码器将其**分解为微操作** (μop)
+2. μop 类似于 RISC 指令——定长、简单
+3. 后端流水线执行 μop，充分利用 RISC 流水线优势
+4. Intel Core 微架构 = CISC 兼容外壳 + RISC 执行引擎
 
 ---
 
 ## 考试辨析
-- RISC 指令定长 → 译码简单 → **适合流水线**
-- CISC 变长 → 指令功能强 → 程序代码短
-- 现代 CPU：x86 外部 CISC、内部微码转 RISC（融合两者）
-`},{id:`co-3-4-2`,chapterId:`co-3`,title:`虚实地址转换全流程 (TLB+页表+Cache)`,keyConcepts:[`TLB`,`页表`,`Cache`,`虚实地址`,`缺页`,`访存次数`],relatedPoints:[`co-3-4-1`,`co-3-3-1`,`co-3-3-2`,`os-3-3-2`,`os-3-4-1`],content:`## 完整地址转换流程
+- RISC 的核心特征：**Load/Store 架构 + 定长指令**
+- CISC 的核心特征：变长指令 + 支持存储器操作数
+- 定长指令 → 取指单元简单 → 流水线各段负载均衡 → 有利于提高主频
+- 变长指令 → 编码密度高 → 但译码复杂 → 主频提升困难
+- 现代 x86 破除了"RISC 必然比 CISC 快"的迷思——微操作转换是关键`},{id:`co-3-4-2`,chapterId:`co-3`,title:`虚实地址转换全流程 (TLB+页表+Cache)`,keyConcepts:[`TLB`,`页表`,`Cache`,`虚实地址`,`缺页`,`访存次数`],relatedPoints:[`co-3-4-1`,`co-3-3-1`,`co-3-3-2`,`os-3-3-2`,`os-3-4-1`],content:`## 完整地址转换流程
 \`\`\`
 CPU给出虚拟地址VA
   -> 查TLB(快表)
@@ -4766,25 +5040,152 @@ CPU给出虚拟地址VA
 - TLB命中 != Cache命中（两者独立，不相关）
 - 页表命中 != Cache命中（两者独立）
 - 缺页中断=内中断中的故障（返回重新执行当前指令）
-- [[2011-大题44] [2015-大题44] [2018-大题44]]`},{id:`co-4-2-2`,chapterId:`co-4`,title:`程序的机器级代码表示`,keyConcepts:[`机器代码`,`汇编`,`AT&T`,`Intel`,`栈帧`,`call`,`ret`],relatedPoints:[`co-4-1-1`,`co-4-2-1`],content:`## AT&T vs Intel 汇编格式
-| | AT&T | Intel |
-|------|------|-------|
-| 操作数顺序 | src, dst | dst, src |
-| 寄存器 | %eax | eax |
-| 立即数 | $1 | 1 |
-> 408考研采用AT&T格式(Unix/Linux)。
+- [[2011-大题44] [2015-大题44] [2018-大题44]]`},{id:`co-3-5-1`,chapterId:`co-3`,title:`磁盘存储器与RAID`,keyConcepts:[`磁盘`,`磁道`,`扇区`,`柱面`,`寻道时间`,`旋转延迟`,`传输时间`,`RAID`,`条带化`,`镜像`,`奇偶校验`],relatedPoints:[`co-3-1-1`,`co-3-2-2`,`os-4-3-1`],content:`## 磁盘结构
+
+| 组件 | 说明 |
+|------|------|
+| **盘面** | 每个磁盘有多个盘面，每面一个磁头 |
+| **磁道** | 盘面上的同心圆 |
+| **扇区** | 磁道上的一段弧（最小读写单位，通常 512B）|
+| **柱面** | 所有盘面相同半径的磁道集合 |
+
+### 磁盘地址 = 柱面号 + 磁头号 + 扇区号
 
 ---
-## 函数调用栈帧切换
-调用者：push参数(右到左) -> call (压返回地址+跳转)
-被调用者：push %ebp -> mov %esp,%ebp -> sub N,%esp
-返回：leave -> ret (弹出返回地址到PC)
-栈帧布局：参数 | 返回地址 | 旧ebp | 局部变量
+
+## 磁盘性能指标
+
+| 指标 | 含义 | 典型值 |
+|------|------|--------|
+| **寻道时间** | 磁头移动到目标磁道的时间 | 平均 5~10ms |
+| **旋转延迟** | 扇区旋转到磁头下方的时间 | 平均 = 半圈时间 |
+| **传输时间** | 实际读写数据的时间 | 取决于转速和数据量 |
+
+> 总访问时间 = 寻道时间 + 旋转延迟 + 传输时间
+
+---
+
+## 格式化容量 vs 非格式化容量
+- **非格式化容量** = 磁道数 × 每道最大位密度 × 盘面数
+- **格式化容量** = 扇区数 × 每扇区字节数 × 盘面数
+- 格式化容量 < 非格式化容量（扇区间隙、ECC 等占用空间）
+
+---
+
+## RAID 级别
+
+| RAID | 原理 | 最少盘数 | 容错 | 空间利用率 |
+|------|------|---------|------|-----------|
+| **RAID 0** | 条带化（数据分块分散存储）| 2 | 无 | 100% |
+| **RAID 1** | 镜像（完全复制）| 2 | 1 盘故障 | 50% |
+| **RAID 2** | 位级条带 + 海明码纠错 | 3+ | 1 盘故障 | 较低 |
+| **RAID 3** | 字节级条带 + 1 块专用奇偶校验盘 | 3 | 1 盘故障 | (N-1)/N |
+| **RAID 4** | 块级条带 + 1 块专用奇偶校验盘 | 3 | 1 盘故障 | (N-1)/N |
+| **RAID 5** | 块级条带 + 奇偶校验**分散**存储 | 3 | 1 盘故障 | (N-1)/N |
+
+> 408 考试重点：RAID 0（性能）、RAID 1（可靠性）、RAID 5（性能+可靠性平衡）
+
+---
+
+## SSD 固态硬盘补充
+- 基于 NAND Flash，无机械部件
+- **闪存翻译层 (FTL)**：逻辑块 → 物理页映射
+- 组织：页（512B~4KB）→**块**（16KB~512KB）
+- **读写以页为单位，擦除以块为单位**
+- 磨损均衡：动态（仅热数据）vs 静态（全体数据）`},{id:`co-4-2-2`,chapterId:`co-4`,title:`程序的机器级代码表示`,keyConcepts:[`机器代码`,`汇编`,`AT&T`,`Intel`,`栈帧`,`call`,`ret`,`mov`,`add`,`sub`,`条件码`,`寄存器约定`],relatedPoints:[`co-4-1-1`,`co-4-2-1`,`co-5-5-1`],content:`## AT&T vs Intel 汇编格式
+
+| | AT&T | Intel |
+|------|------|-------|
+| 操作数顺序 | **src, dst** | dst, src |
+| 寄存器 | %eax, %ebx | eax, ebx |
+| 立即数 | \\$1 | 1 |
+| 内存寻址 | disp(%base,%index,scale) | [base+index*scale+disp] |
+| 指令后缀 | movl, addl（标明操作数大小） | mov（无后缀） |
+
+> **408 考研采用 AT&T 格式**（Unix/Linux 默认格式）。
+
+---
+
+## 常用指令
+
+| 指令 | 含义 | 示例 |
+|------|------|------|
+| \`movl S, D\` | S → D（传送） | \`movl %eax, %ebx\` |
+| \`addl S, D\` | D = D + S | \`addl \\$1, %eax\` |
+| \`subl S, D\` | D = D - S | \`subl %eax, %ebx\` |
+| \`pushl S\` | %esp -= 4; [%esp] = S | \`pushl %ebp\` |
+| \`popl D\` | D = [%esp]; %esp += 4 | \`popl %ebp\` |
+| \`call addr\` | 压返回地址入栈 → 跳转到 addr | \`call printf\` |
+| \`ret\` | 弹出返回地址 → 跳转 | \`ret\` |
+| \`leave\` | mov %ebp,%esp; pop %ebp | 恢复调用者栈帧 |
+
+---
+
+## 条件码（EFLAGS 寄存器）
+
+| 条件码 | 含义 | 产生指令 |
+|--------|------|---------|
+| **CF** | 进位/借位 | addl 产生进位, subl 产生借位 |
+| **ZF** | 结果为 0 | 算术/逻辑指令 |
+| **SF** | 结果为负 | 结果最高位 |
+| **OF** | 有符号溢出 | 算术指令 |
+
+> cmp 和 test 指令**只设置条件码**，不修改目的寄存器。
+
+---
+
+## 函数调用与栈帧
+
+### 寄存器约定（32 位 x86）
+
+| 寄存器 | 用途 |
+|--------|------|
+| %eax | 返回值 |
+| %ecx, %edx | 调用者保存（caller-save） |
+| %ebx, %esi, %edi | 被调用者保存（callee-save） |
+| %esp | 栈指针（指向栈顶） |
+| %ebp | 帧指针（指向当前栈帧底部） |
+
+### 栈帧布局（从高地址到低地址）
+
+\`\`\`
+[调用者栈帧] ...
+参数 N          ← 调用者 push 的最后一个参数
+...
+参数 1          ← 调用者 push 的第一个参数
+返回地址        ← call 指令压入
+旧 %ebp         ← 被调用者 push %ebp
+局部变量         ← sub N, %esp 分配
+[栈向下增长] ...
+\`\`\`
+
+### 函数调用完整过程
+
+**调用者**：
+\`\`\`asm
+pushl 参数        ; 从右到左压栈参数
+call  函数        ; 等价于 push 返回地址 + jmp 函数入口
+addl  \\$N, %esp  ; 调用返回后清理参数（部分调用约定）
+\`\`\`
+
+**被调用者（标准序言 + 尾声）**：
+\`\`\`asm
+pushl %ebp         ; 保存旧的帧指针
+movl  %esp, %ebp   ; 设置新的帧指针 = 栈顶
+subl  \\$N, %esp    ; 为局部变量分配栈空间（栈向下增长）
+...                ; 函数体
+leave              ; = mov %ebp,%esp + pop %ebp（恢复栈帧）
+ret                ; 弹出返回地址到 EIP
+\`\`\`
+
+---
 
 ## 考试辨析
-- call = 压返回地址 + 跳转 (两步)
-- ret = 弹出返回地址到PC (一步)
-- 408近年不考汇编大题，选择题可能涉及`},{id:`co-5-1-1`,chapterId:`co-5`,title:`CPU的功能与基本结构`,keyConcepts:[`CPU`,`运算器`,`控制器`,`PC`,`IR`,`MAR`,`MDR`,`寄存器`],relatedPoints:[`co-2-4-1`,`co-4-1-1`],content:`## CPU 的两大组成部分
+- \`call\` = 压栈返回地址 + 跳转（两步）
+- \`ret\` = 弹出栈顶至 PC（一步）
+- \`leave\` = mov %ebp,%esp; pop %ebp——恢复调用者的栈帧
+- 408 近年不考汇编大题，但选择题可能涉及栈帧和指令语义
+- 注意 AT&T 格式的目标操作数在**右边**（与 Intel 相反）`},{id:`co-5-1-1`,chapterId:`co-5`,title:`CPU的功能与基本结构`,keyConcepts:[`CPU`,`运算器`,`控制器`,`PC`,`IR`,`MAR`,`MDR`,`寄存器`],relatedPoints:[`co-2-4-1`,`co-4-1-1`],content:`## CPU 的两大组成部分
 
 \`\`\`
 CPU
@@ -4857,25 +5258,83 @@ CPU
 ## 考试辨析
 - 取指操作是控制器固有功能——不需要操作码控制
 - 间址周期不是每条指令都有
-- PC 在无条件跳转指令周期内被修改2次`},{id:`co-5-2-1`,chapterId:`co-5`,title:`数据通路`,keyConcepts:[`数据通路`,`总线结构`,`专用通路`,`单总线`,`双总线`,`三总线`],relatedPoints:[`co-5-1-1`],content:`## 数据通路的功能
+- PC 在无条件跳转指令周期内被修改2次`},{id:`co-5-2-1`,chapterId:`co-5`,title:`数据通路`,keyConcepts:[`数据通路`,`总线结构`,`专用通路`,`单总线`,`双总线`,`三总线`,`单周期`,`多周期`,`多路复用器`,`R型指令`,`I型指令`,`LW`,`SW`],relatedPoints:[`co-5-1-1`,`co-5-3-1`,`co-5-5-1`,`co-4-3-1`],content:`## 数据通路的功能
 
-> 数据通路是 CPU 中各部件之间数据流动的路径。
+> 数据通路是 CPU 中**数据流动的物理路径**——包括寄存器、ALU、多路复用器、总线和互连线路。
+
+数据通路 + 控制器 = CPU 完整的硬件实现。
 
 ---
 
 ## 数据通路的结构
+
 | 结构 | 特点 | 优缺点 |
 |------|------|--------|
-| **单总线** | 所有部件共享一条总线 | 结构简单，但**瓶颈明显** |
+| **单总线** | 所有部件共享一条数据总线 | 结构简单，但**瓶颈明显**（每次只能传一个数据） |
 | **双总线** | 主存总线和 I/O 总线分离 | 提高吞吐 |
-| **三总线** | 再加一条执行总线 | 更快 |
-| **专用通路** | 各部件间直接连线 | 最快，但线路复杂 |
+| **三总线** | 再加一条执行总线 | 更快，常用于高性能 CPU |
+| **专用通路** | 各部件间直接连线（交叉开关） | 最快，并行传输；但线路$O(n^2)$复杂 |
+
+---
+
+## 单周期 vs 多周期数据通路
+
+| | 单周期 | 多周期 |
+|------|--------|--------|
+| 指令执行 | 每条指令在**一个长周期**内完成 | 每条指令分解为**多个短周期**（取指周期、译码周期…） |
+| 时钟周期 | 由**最慢指令**决定（瓶颈） | 每个周期较短 |
+| 资源复用 | 不能——每个功能部件只能在一个周期用一次 | **可以**——ALU 可在取指时算 PC+4，执行时算结果 |
+| 实现 | 简单（组合逻辑驱动） | 复杂（需状态机/微程序控制） |
+| 效率 | 低（长周期对简单指令浪费） | **高**——简单指令快速完成 |
+
+---
+
+## 典型指令的数据流追踪
+
+以单总线 MIPS 为例：
+
+### R 型指令（如 \`add r1, r2, r3\`）
+
+1. **取指**：PC → MAR → 存储器 → MDR → IR；PC+4 → PC
+2. **译码/取数**：IR[rs] → A 寄存器；IR[rt] → B 寄存器
+3. **执行**：A + B → ALU → C 寄存器
+4. **写回**：C 寄存器 → IR[rd]（目标寄存器）
+
+### LW 指令（\`lw r1, offset(r2)\`）
+
+1. **取指**：同上
+2. **地址计算**：IR[rs] + sign_ext(offset) → ALU → MAR
+3. **读内存**：MAR → 存储器 → MDR
+4. **写回**：MDR → IR[rt]
+
+### SW 指令（\`sw r1, offset(r2)\`）
+
+1. **取指**：同上
+2. **地址计算**：IR[rs] + sign_ext(offset) → ALU → MAR
+3. **写内存**：IR[rt] → MDR → 存储器[MAR]
+
+### BEQ 指令（\`beq r1, r2, offset\`）
+
+1. **取指**：同上
+2. **比较 + 地址计算**：IR[rs] - IR[rt] → ALU 判定零；PC + sign_ext(offset<<2) → ALU 计算目标地址
+3. **条件更新 PC**：Zero=1 → ALU_out → PC
+
+---
+
+## 多路复用器在数据通路中的作用
+
+数据通路中的**多路复用器（MUX）**决定数据走哪条路径：
+- PC 的来源：PC+4 或 分支目标地址（BEQ 时）
+- 寄存器写入数据的来源：ALU 结果或 MDR（LW 时）
+- ALU 第二操作数的来源：寄存器或立即数
 
 ---
 
 ## 考试辨析
-- 数据通路与 CPU 结构有关——408 可能考通路图分析
-- 总线冲突：同一时刻只能有一个部件向总线发送数据`},{id:`co-5-3-1`,chapterId:`co-5`,title:`硬布线控制器与微程序控制器`,keyConcepts:[`硬布线`,`微程序`,`控制存储器`,`微命令`,`微操作`],relatedPoints:[`co-5-1-1`,`co-5-3-2`,`co-5-3-3`],content:`## 硬布线控制器
+- 单总线瓶颈：每个时钟周期只能完成**一次数据传送**
+- 多周期设计的核心优势：**资源复用**——同一 ALU 在不同周期做不同事
+- R 型指令不要访存，LW/SW 要访存——两者数据通路不同
+- 408 可能给出数据通路图，要求分析某条指令的执行过程`},{id:`co-5-3-1`,chapterId:`co-5`,title:`硬布线控制器与微程序控制器`,keyConcepts:[`硬布线`,`微程序`,`控制存储器`,`微命令`,`微操作`],relatedPoints:[`co-5-1-1`,`co-5-3-2`,`co-5-3-3`],content:`## 硬布线控制器
 
 > 用组合逻辑电路产生控制信号——门电路直接实现。
 
@@ -4941,22 +5400,103 @@ CPU
 ## 考试辨析
 - 水平型微指令并行性强——适合RISC；垂直型规整——适合CISC
 - 微程序控制器比硬布线控制器慢——因为多了一层读CM
-- 互斥微命令=不能在同一微指令中同时有效的命令`},{id:`co-5-5-2`,chapterId:`co-5`,title:`流水线 常见题型与解题技巧`,keyConcepts:[`流水线`,`吞吐率`,`加速比`,`瓶颈段`,`时钟周期`],relatedPoints:[`co-5-5-1`],content:`## 题型一：各段时间相等
-T = (k + n - 1) x t
-TP = n / T；S = nk / (k+n-1)
+- 互斥微命令=不能在同一微指令中同时有效的命令`},{id:`co-5-5-2`,chapterId:`co-5`,title:`流水线 常见题型与解题技巧`,keyConcepts:[`流水线`,`吞吐率`,`加速比`,`瓶颈段`,`时钟周期`,`转发`,`阻塞`,`超标量`,`超流水线`],relatedPoints:[`co-5-5-1`,`co-5-2-1`],content:`## 题型一：各段时间相等
 
-## 题型二：各段时间不等
-**时钟周期 = max{各段时间}**（瓶颈段决定一切）
-各段操作时间必须对齐到时钟周期的整数倍
+> 流水线分 k 段，每段时间均为 t，连续执行 n 条指令。
 
-## 题型三：加速比极限
-当 n 趋近无穷大时，加速比趋近于 k（段数）
-实际加速比受限于：段数k、瓶颈段占比、冲突开销
+**完成时间**：$$T = (k + n - 1) \\times t$$
+
+- 第一条指令：k 个周期（排空流水线）
+- 后续每条指令：1 个周期（流水线已填满）
+- 最后一条指令需要 k 个周期流出
+
+**吞吐率**：$$TP = \\frac{n}{T} = \\frac{n}{(k+n-1)t}$$
+
+当 $n \\to \\infty$：$TP_{max} = \\frac{1}{t}$（每周期完成一条）
+
+**加速比**：$$S = \\frac{\\text{串行执行时间}}{\\text{流水线执行时间}} = \\frac{n \\times k \\times t}{(k+n-1)t} = \\frac{nk}{k+n-1}$$
+
+当 $n \\to \\infty$：$S \\to k$（加速比趋近于流水线深度）
+
+---
+
+## 题型二：各段时间不等（瓶颈段问题）
+
+> 流水线各段时间不同——由**最慢的段**决定时钟周期。
+
+**时钟周期** = max{各段时间}（瓶颈段的时间）
+
+各段操作必须对齐到时钟周期的整数倍，从而产生"空闲时间"。
+
+### 示例
+
+各段：取指 10ns, 译码 8ns, 执行 12ns, 写回 10ns
+- 时钟周期 = 12ns（执行段 = 瓶颈段）
+- 译码段 8ns < 12ns → 有 4ns 空闲
+- 加速比公式中的 t = 12ns
+
+### 优化策略
+
+- **瓶颈段再细分**：把 12ns 的执行段拆成两段 6ns
+- **瓶颈段资源加倍**：两个执行单元轮流工作
+
+---
+
+## 题型三：流水线冲突分析
+
+### 结构冲突（Structural Hazard）
+
+多个指令争用同一硬件资源（如单端口存储器 → 取指和数据访存冲突）。
+
+**解决方案**：增设 Cache（指令 Cache 和数据 Cache 分离），增加硬件资源。
+
+### 数据冲突（Data Hazard）
+
+| 类型 | 场景 | 解决方案 |
+|------|------|---------|
+| RAW（读后写） | 前条写 R1，后条读 R1 | **转发**（Forwarding/Bypassing） |
+| WAW（写后写） | 两条指令写同一寄存器 | 动态调度中可能出现 |
+| WAR（写后读） | 后条写 R1，前条读 R1 | 动态调度中可能出现 |
+
+> **转发技术（Forwarding）**：ALU 结果直接送到下一条指令的输入端，不经过寄存器——不会引起阻塞。
+
+### 控制冲突（Control Hazard）
+
+分支指令导致预取的下一条指令作废。
+
+**解决方案**：
+- 分支预测（静态/动态）
+- 延迟槽（MIPS：分支指令后 1 个槽位）
+
+---
+
+## 题型四：流水线的额外开销
+
+- **流水线寄存器延迟**：段间锁存器增加额外延迟（每条指令比非流水线慢）
+- **装入时间**：第一条指令从取指开始需要 k 个周期
+- **排空时间**：最后一条指令需要 k 个周期完全流出
+
+---
+
+## 关键公式速记
+
+| 公式 | 适用条件 |
+|------|---------|
+| $T = (k+n-1)t$ | 各段时间相等 |
+| $TP = n / T$ | 通用 |
+| $S = nk / (k+n-1)$ | 各段时间相等 |
+| $S_{max} \\to k$ | $n \\to \\infty$ |
+| $T_{cycle} = \\max\\{t_i\\}$ | 各段时间不等 |
+
+---
 
 ## 关键结论
-- 流水线不缩短单条指令（反而因锁存器变长）
-- 转发技术不会引起阻塞
-- 超标量=多发射；超流水线=高频再分段`},{id:`co-5-3-3`,chapterId:`co-5`,title:`硬布线控制器设计方法`,keyConcepts:[`硬布线`,`组合逻辑`,`微操作`,`操作时间表`,`布尔函数`],relatedPoints:[`co-5-3-1`,`co-5-3-2`],content:`## 硬布线设计六步
+- 流水线不缩短单条指令的时间（反而因锁存器而变长）
+- 流水线的加速靠的是提高**吞吐率**——多条指令同时在不同段执行
+- 转发技术不会引起阻塞——是解决数据冲突的首选方式
+- **超标量** = 每个时钟周期发射多条指令（多个同功能部件并行）
+- **超流水线** = 提高时钟频率，将各段再细分（更深流水线）
+- 指令流水线效率 = $S / k$（实际加速比 / 理论极限）`},{id:`co-5-3-3`,chapterId:`co-5`,title:`硬布线控制器设计方法`,keyConcepts:[`硬布线`,`组合逻辑`,`微操作`,`操作时间表`,`布尔函数`],relatedPoints:[`co-5-3-1`,`co-5-3-2`],content:`## 硬布线设计六步
 1. 列出各指令各周期的微操作序列
 2. 选择CPU控制方式
 3. 安排微操作时序 (三原则)
@@ -4978,7 +5518,7 @@ TP = n / T；S = nk / (k+n-1)
 
 ## 考试辨析
 - 微程序控制器多一个节拍用于读控存CM
-- 现代CPU常混合：简单指令硬布线+复杂指令微程序`},{id:`co-5-4-1`,chapterId:`co-5`,title:`异常与中断`,keyConcepts:[`异常`,`中断`,`内中断`,`外中断`,`中断向量`,`中断响应`,`中断返回`],relatedPoints:[`co-7-3-1`,`os-1-3-1`],content:`## 异常 vs 中断
+- 现代CPU常混合：简单指令硬布线+复杂指令微程序`},{id:`co-5-4-1`,chapterId:`co-5`,title:`异常与中断`,keyConcepts:[`异常`,`中断`,`故障`,`自陷`,`终止`,`内中断`,`外中断`,`中断向量`,`中断响应`,`中断返回`],relatedPoints:[`co-7-3-1`,`os-1-3-1`],content:`## 异常 vs 中断
 
 | | 异常 (Exception) | 中断 (Interrupt) |
 |------|-------------------|------------------|
@@ -4986,19 +5526,40 @@ TP = n / T；S = nk / (k+n-1)
 | 原因 | 指令执行过程中的错误 | 外部设备或时钟 |
 | 例子 | 除 0、缺页、非法指令 | 键盘输入、DMA 完成 |
 | 同义词 | 内中断 | 外中断 |
+| 时序 | **同步**（与指令相关）| **异步**（随时可能发生）|
+| 断点 | 当前指令地址 | 下一条指令地址 |
+
+---
+
+## 异常的三种子类型（高频考点）
+
+| 类型 | 英文 | 触发时机 | 返回方式 | 示例 |
+|------|------|---------|---------|------|
+| **故障** | Fault | 指令执行中检测 | 返回**当前指令**重新执行 | 缺页、除零、段错误 |
+| **自陷** | Trap | 人为预先设定 | 返回**下一条指令** | 系统调用(int)、断点调试 |
+| **终止** | Abort | 硬件严重错误 | **不可恢复**，程序终止 | 硬件故障、校验错误 |
+
+> 关键区分：自陷是"故意"的（如 int 指令），故障是"被迫"的（如缺页）。
+
+---
+
+## 可屏蔽中断 vs 不可屏蔽中断
+
+| | INTR（可屏蔽）| NMI（不可屏蔽）|
+|------|-------------|---------------|
+| 能否被关中断屏蔽 | 能（IF=0 时忽略）| 不能（无论如何都响应）|
+| 用途 | 一般 I/O 设备 | 紧急事件（掉电、硬件错误）|
+| CPU 引脚 | INTR 线 | NMI 线 |
 
 ---
 
 ## 中断处理流程
-1. 中断请求 → CPU 响应
-2. 关中断（防止嵌套）
-3. **保存断点**（PC + PSW 入栈）
-4. 中断服务程序入口 → PC
-5. 保存现场（寄存器入栈）
-6. 执行中断服务程序
-7. 恢复现场
-8. 开中断
-9. **中断返回**（IRET指令）
+1. 中断请求 → CPU 当前指令执行完毕
+2. **中断隐指令**（硬件自动完成）：关中断 → 保存断点(PC+PSW) → 取中断向量
+3. 保存现场（寄存器入栈）
+4. 执行中断服务程序
+5. 恢复现场
+6. 开中断 → **中断返回**（IRET指令）
 
 ---
 
@@ -5011,8 +5572,11 @@ TP = n / T；S = nk / (k+n-1)
 ---
 
 ## 考试辨析
-- 异常是**同步**的（与指令执行相关），中断是**异步**的（随时可能发生）
-- 408 常考中断响应周期的操作（关中断、保存断点、取中断向量）`},{id:`co-5-5-1`,chapterId:`co-5`,title:`指令流水线`,keyConcepts:[`流水线`,`IF`,`ID`,`EX`,`MEM`,`WB`,`吞吐率`,`加速比`,`数据冲突`,`控制冲突`,`转发`,`分支预测`],relatedPoints:[`co-5-1-1`,`co-4-3-1`,`co-5-5-2`],content:`## 指令流水线的思想
+- 异常是**同步**的，中断是**异步**的
+- 故障返回当前指令（重试），自陷返回下一条，终止不可恢复
+- 中断隐指令由硬件自动完成（关中断/保存断点/取向量）——**2012 统考真题**
+- 断点：异常=当前指令地址，中断=下一条指令地址
+- **2009/2015/2016/2020/2021/2023 统考**均有考查异常分类`},{id:`co-5-5-1`,chapterId:`co-5`,title:`指令流水线`,keyConcepts:[`流水线`,`IF`,`ID`,`EX`,`MEM`,`WB`,`吞吐率`,`加速比`,`数据冲突`,`控制冲突`,`转发`,`分支预测`],relatedPoints:[`co-5-1-1`,`co-4-3-1`,`co-5-5-2`],content:`## 指令流水线的思想
 > 将指令执行过程分为多个阶段，多条指令的不同阶段可以**并行**执行。
 
 经典五段流水线：**IF（取指）→ ID（译码）→ EX（执行）→ MEM（访存）→ WB（写回）**
@@ -5057,7 +5621,7 @@ TP = n / T；S = nk / (k+n-1)
 - **最长段的时间 = 流水线周期**（瓶颈段决定整体速度）
 - 分段时间应尽量均衡——不均衡导致流水线效率低
 - 转发可以解决大多数 RAW 冲突——但 Load-Use 冲突仍需停顿
-- 流水线深度不是越深越好——深度增加 = 冲突增加 + 分支惩罚增大`},{id:`co-6-1-1`,chapterId:`co-6`,title:`总线概述与分类`,keyConcepts:[`总线`,`数据总线`,`地址总线`,`控制总线`,`系统总线`,`局部总线`,`通信总线`],relatedPoints:[],content:`## 总线的定义
+- 流水线深度不是越深越好——深度增加 = 冲突增加 + 分支惩罚增大`},{id:`co-6-1-1`,chapterId:`co-6`,title:`总线概述与分类`,keyConcepts:[`总线`,`数据总线`,`地址总线`,`控制总线`,`总线带宽`,`总线宽度`,`总线复用`,`南北桥`,`QPI`],relatedPoints:[`co-3-2-4`],content:`## 总线的定义
 
 > 总线是连接多个部件的信息传输线，各部件**共享**的传输介质。
 
@@ -5082,9 +5646,47 @@ TP = n / T；S = nk / (k+n-1)
 
 ---
 
+## 总线性能指标（考试常考计算）
+
+| 指标 | 含义 | 公式 |
+|------|------|------|
+| **总线宽度** | 数据总线的根数（一次可并行传输多少位）| — |
+| **总线工作频率** | 每秒传输的次数 | 单位 Hz |
+| **总线带宽** | 总线的最大传输速率 | $B = W \\times f$（宽度×频率）|
+| **总线复用** | 地址线分时复用为数据线 | 节省引脚 |
+| **寻址能力** | 地址总线的位数决定 | $n$ 位 → $2^n$ 个地址 |
+
+---
+
+## 总线结构演变
+
+### 早期共享总线
+| 结构 | 特点 |
+|------|------|
+| 单总线 | 所有设备共享一条总线，简单但冲突多 |
+| 双总线 | CPU-主存 + I/O 两条总线，提高并行度 |
+| 三总线 | 主存总线 + I/O 总线 + DMA 总线 |
+
+### 南北桥结构
+| 桥芯片 | 连接 | 负责 |
+|--------|------|------|
+| **北桥 (MCH)** | CPU ↔ 内存 ↔ 显卡 | 高速设备，FSB 连接 CPU |
+| **南桥 (ICH)** | 硬盘、USB、网卡、音频 | 低速设备 |
+
+### 现代集成化总线
+- 内存控制器集入 CPU → 北桥消失
+- **QPI** (Intel) / **HyperTransport** (AMD) 替代 FSB
+- **PCH** (Platform Controller Hub) 替代南桥
+- PCIe 成为通用高速外设总线
+
+---
+
 ## 考试辨析
 - 总线是**共享**传输介质——同一时刻只能有一个设备发送
-- 地址总线的位数决定**可寻址范围**（$n$ 根地址线 → $2^n$ 个地址）`},{id:`co-6-2-1`,chapterId:`co-6`,title:`总线仲裁`,keyConcepts:[`链式查询`,`计数器定时查询`,`独立请求`,`集中仲裁`,`分布仲裁`],relatedPoints:[],content:`## 集中仲裁方式
+- 地址总线的位数决定**可寻址范围**（$n$ 根地址线 → $2^n$ 个地址）
+- 总线带宽 = 总线宽度 × 工作频率——**每年必考的经典计算**
+- 总线复用：用同一组线分时传送地址和数据——节省导线
+- **2017 统考**考过南北桥结构`},{id:`co-6-2-1`,chapterId:`co-6`,title:`总线仲裁`,keyConcepts:[`链式查询`,`计数器定时查询`,`独立请求`,`集中仲裁`,`分布仲裁`],relatedPoints:[],content:`## 集中仲裁方式
 | 方式 | 控制线数 | 优先级 | 优点 | 缺点 |
 |------|---------|--------|------|------|
 | **链式查询** | 3根(BR/BG/BS) | 固定(越近越高) | 简单易扩充 | 对故障敏感，优先级固定 |
@@ -5193,31 +5795,88 @@ $$B = f \\times W$$
 
 ## 考试辨析
 - 统一编址又称"存储器映射 I/O"——不需专用 I/O 指令
-- 独立编址需要 IN/OUT 指令（x86 采用）`},{id:`co-7-2-1`,chapterId:`co-7`,title:`程序查询方式`,keyConcepts:[`程序查询`,`轮询`,`CPU等待`,`独占`],relatedPoints:[`co-7-3-1`,`co-7-4-1`],content:`## 程序查询方式
+- 独立编址需要 IN/OUT 指令（x86 采用）`},{id:`co-7-2-1`,chapterId:`co-7`,title:`程序查询方式`,keyConcepts:[`程序查询`,`轮询`,`CPU等待`,`独占`,`利用率`,`查询周期`,`定时查询`],relatedPoints:[`co-7-3-1`,`co-7-4-1`,`co-7-5-1`],content:`## 程序查询方式
 
-> CPU 不断查询 I/O 设备状态——"忙等"。
+> CPU 不断查询 I/O 设备状态寄存器——"忙等"（Busy Waiting）。
 
-\`\`\`
-while (设备忙)
-    ;  // 等待
-送数据
+\`\`\`c
+// CPU 轮询设备状态
+while (设备状态寄存器.就绪位 == 0)
+    ;  // 空循环等待
+送数据到设备数据寄存器
 \`\`\`
 
 ---
 
-## 特点
-| 特性 | 说明 |
+## 三个步骤
+
+1. **查询**：CPU 读取设备状态寄存器，检查"就绪"标志
+2. **等待**：若未就绪 → 循环查询（CPU 被独占，不能做其他事）
+3. **传送**：就绪后 → CPU 执行 IN/OUT 指令完成数据传送
+
+---
+
+## CPU 利用率定量分析
+
+假设：
+- 设备数据准备时间 = $T_{device}$（设备独立工作的时间）
+- CPU 查询 + 数据传送时间 = $T_{cpu}$
+
+$$\\text{CPU利用率} = \\frac{T_{cpu}}{T_{device} + T_{cpu}}$$
+
+> 若 $T_{device} \\gg T_{cpu}$，CPU 利用率趋近于 **0**——大量时间浪费在空查询上。
+
+---
+
+## 多设备轮询场景
+
+> 按固定顺序逐个查询各设备——**优先级由查询顺序决定**。
+
+\`\`\`c
+for (;;) {
+    if (设备1就绪) 服务设备1();
+    if (设备2就绪) 服务设备2();
+    if (设备3就绪) 服务设备3();
+}
+\`\`\`
+
+| 特征 | 说明 |
 |------|------|
-| CPU 利用率 | **低**（一直在轮询等待） |
-| 数据传送 | CPU 直接执行 |
-| 优先级 | 取决于查询顺序 |
-| 优点 | 实现简单 |
+| 优先级 | **固定**——排在前面的设备优先被服务 |
+| 公平性 | 差——排在后面的设备可能"饿死" |
+| 灵活性 | 低——改变优先级需修改代码 |
+
+---
+
+## 定时查询方式（变体）
+
+> CPU 不是持续查询，而是按**固定时间间隔**检查设备状态。
+
+- 适用于无需实时响应的场景
+- CPU 利用率比持续查询略高
+- 但响应时间变长（取决于查询间隔）
+
+---
+
+## 三种 I/O 方式对比
+
+| | 程序查询 | 程序中断 | DMA |
+|------|---------|---------|-----|
+| 数据传送方 | CPU | CPU | **DMA 控制器** |
+| CPU 与外设 | **串行** | 并行 | 并行 |
+| CPU 利用率 | 最低 | 中 | **最高** |
+| 适用 | 低速、简单 | 中低速 | **高速批量** |
+| 实现复杂度 | 最简单 | 中等 | 复杂 |
+| 额外硬件 | 无 | 中断控制器 | DMA 控制器 |
 
 ---
 
 ## 考试辨析
-- 程序查询是**最简单的 I/O 方式**——CPU 与外设串行工作
-- 不适合高速设备——CPU 被绑定等待`},{id:`co-7-3-2`,chapterId:`co-7`,title:`多重中断与中断屏蔽`,keyConcepts:[`多重中断`,`中断屏蔽`,`屏蔽字`,`中断嵌套`,`响应优先级`,`处理优先级`],relatedPoints:[`co-7-3-1`,`co-5-4-1`],content:`## 多重中断（中断嵌套）
+- 程序查询 = **CPU 独占方式**——CPU 全程参与，外设被动
+- "忙等" = CPU 空转等待设备——浪费 CPU 资源
+- 查询优先级由**查询顺序**决定——顺序在前，优先级高
+- 适合极低速设备（如 LED 指示灯、简单传感器）
+- 与中断方式的根本区别：**程序查询由 CPU 主动检查，中断由设备主动通知**`},{id:`co-7-3-2`,chapterId:`co-7`,title:`多重中断与中断屏蔽`,keyConcepts:[`多重中断`,`中断屏蔽`,`屏蔽字`,`中断嵌套`,`响应优先级`,`处理优先级`],relatedPoints:[`co-7-3-1`,`co-5-4-1`],content:`## 多重中断（中断嵌套）
 > 执行中断服务程序期间，可响应**更高优先级**的新中断请求。
 
 ### 实现条件
@@ -5257,20 +5916,47 @@ while (设备忙)
 ## 考试辨析
 - 屏蔽字中'1'的数量 = 该中断源能屏蔽的中断数 + 1（自身）
 - 响应优先级由硬件决定(不可改)，处理优先级由屏蔽字决定(可改)
-- 这是408常考题型——给定中断源优先级，写出各屏蔽字`},{id:`co-7-3-1`,chapterId:`co-7`,title:`程序中断方式`,keyConcepts:[`中断`,`中断请求`,`中断响应`,`中断向量`,`中断优先级`,`中断屏蔽`],relatedPoints:[`co-5-4-1`,`co-7-2-1`,`os-2-1-1`,`os-1-3-1`],content:`## 中断 I/O 的思想
+- 这是408常考题型——给定中断源优先级，写出各屏蔽字`},{id:`co-7-3-1`,chapterId:`co-7`,title:`程序中断方式`,keyConcepts:[`中断`,`INTR`,`NMI`,`中断隐指令`,`中断请求`,`中断响应`,`中断向量`,`中断优先级`,`中断屏蔽`],relatedPoints:[`co-5-4-1`,`co-7-2-1`,`os-2-1-1`,`os-1-3-1`],content:`## 中断 I/O 的思想
 
 > 外设准备好后**主动通知 CPU**——CPU 暂停当前程序，执行中断服务程序。
 
 ---
 
+## 可屏蔽中断 (INTR) vs 不可屏蔽中断 (NMI)
+
+| | INTR | NMI |
+|------|------|-----|
+| 能否被 IF 屏蔽 | 能（IF=0 时 CPU 不理睬）| 不能（永远响应）|
+| 用途 | 一般 I/O 设备 | 紧急事件（掉电、硬件故障）|
+| CPU 引脚 | INTR 线 | NMI 线 |
+| 优先级 | 可被屏蔽 | 最高 |
+
+---
+
+## CPU 响应中断的三个条件
+1. **中断源有请求**（中断请求信号有效）
+2. **CPU 允许中断**（中断允许触发器 IF = 1，即开中断）
+3. **当前指令执行完毕**（不是当前总线周期结束）
+
+---
+
+## 中断隐指令（硬件自动完成的操作）
+| 步骤 | 操作 | 说明 |
+|------|------|------|
+| 1 | **关中断** | 防止响应过程中再响应新中断 |
+| 2 | **保存断点** | PC + PSW 入栈（断点 = 下一条指令地址）|
+| 3 | **引出中断服务程序** | 根据中断类型号查中断向量表 → 取入口地址 |
+
+---
+
 ## 中断处理流程
 1. 外设发出中断请求
-2. CPU 当前指令结束后响应
-3. 关中断
-4. 保存断点和现场
-5. 取中断向量 → 中断服务程序
-6. 执行中断服务
-7. 恢复现场 → 开中断 → 返回
+2. CPU 当前指令结束后响应（满足三条件）
+3. 执行**中断隐指令**（关中断 → 保存断点 → 取中断向量）
+4. 保存现场（寄存器入栈）
+5. 执行中断服务程序
+6. 恢复现场
+7. 开中断 → **中断返回**（IRET指令）
 
 ---
 
@@ -5279,14 +5965,16 @@ while (设备忙)
 |------|------|
 | 硬件排队器 | 固定优先级（菊花链） |
 | 软件查询 | 可编程优先级 |
-| **中断屏蔽** | 动态改变优先级 |
+| **中断屏蔽** | 动态改变优先级（1=屏蔽，1越多优先级越高）|
 
 ---
 
 ## 考试辨析
 - 与程序查询的关键区别：CPU 不需等待——**并行工作**
 - 中断响应在**当前指令执行结束后**（不是当前总线周期）
-- 多重中断：高优先级中断可以打断低优先级中断服务`},{id:`co-7-4-1`,chapterId:`co-7`,title:`DMA方式`,keyConcepts:[`DMA`,`DMAC`,`周期窃取`,`DMA请求`,`中断请求`,`AR`,`WC`,`DAR`],relatedPoints:[`co-7-3-1`,`co-6-1-1`,`os-5-1-2`],content:`## DMA 方式核心思想
+- 多重中断：高优先级中断可以打断低优先级中断服务
+- 中断隐指令由 **CPU 硬件自动完成**——不是操作系统代码
+- 响应优先级 ≠ 处理优先级（可通过屏蔽字动态改变）`},{id:`co-7-4-1`,chapterId:`co-7`,title:`DMA方式`,keyConcepts:[`DMA`,`DMAC`,`周期窃取`,`DMA请求`,`中断请求`,`AR`,`WC`,`DAR`],relatedPoints:[`co-7-3-1`,`co-6-1-1`,`os-5-1-2`],content:`## DMA 方式核心思想
 > 在主存与外设间开辟**直接数据通路**，传送过程**不经CPU**。
 
 ---
@@ -5567,6 +6255,26 @@ DRAM芯片地址线**分时复用**（行地址+列地址）：
 多个存储模块轮流访问 → 提高带宽：
 - 地址按模块轮流分配（低位地址选模块）
 - 连续访问可流水线化
+- m 个模块交叉，连续访问速度提高 m 倍
+
+### 交叉存储器带宽公式（考试常考计算）
+$$T_{access} = T + (m-1) 	au$$
+
+| 符号 | 含义 |
+|------|------|
+| $T$ | 第一个字的访问时间（模块启动时间）|
+| $	au$ | 每个字的传输周期（后续每个字的间隔）|
+| $m$ | 模块数 |
+
+### 轮流启动 vs 同时启动
+| 方式 | 说明 | 优点 |
+|------|------|------|
+| 轮流启动 | 各模块错开启动，流水化 | 提高连续访问的吞吐量 |
+| 同时启动 | 所有模块同时开始同一操作 | 用于需要宽数据宽度的场合 |
+
+### 双口 RAM
+- 两个端口可同时独立访问不同地址
+- 适合需要多主机同时访问的场景
 
 ---
 
@@ -5759,22 +6467,71 @@ $T_{new} = 90/1.5 + 10 = 60 + 10 = 70s$
 ---
 ## 考试辨析
 - 并发 ≠ 并行：并发是逻辑上的同时，并行是物理上的同时
-- 没有并发和共享，就谈不上虚拟和异步`},{id:`os-1-2-1`,chapterId:`os-1`,title:`操作系统的发展与分类`,keyConcepts:[`批处理`,`分时`,`实时`,`网络`,`分布式`,`个人计算机`],relatedPoints:[],content:`## 操作系统的发展阶段
+- 没有并发和共享，就谈不上虚拟和异步`},{id:`os-1-2-1`,chapterId:`os-1`,title:`操作系统的发展与分类`,keyConcepts:[`批处理`,`分时`,`实时`,`网络`,`分布式`,`个人计算机`,`多道程序`,`时间片`],relatedPoints:[`os-1-1-1`,`os-1-3-1`],content:`## 操作系统的发展阶段
 
-| 阶段 | 特点 | 标志 |
-|------|------|------|
-| 手工操作 | 人工插拔 | — |
-| **单道批处理** | 监督程序控制 | 联机→脱机 |
-| **多道批处理** | 多道程序交替运行 | 资源利用率高、吞吐量大 |
-| **分时系统** | 时间片轮转 | 交互性强 |
-| **实时系统** | 及时响应 | 可靠性高 |
-| 网络/分布式 | 资源共享 | 现代主流 |
+| 阶段 | 特点 | 核心目标 | 典型系统 |
+|------|------|---------|---------|
+| 手工操作 | 人工插拔面板、纸带 | — | ENIAC 时代 |
+| **单道批处理** | 监督程序自动切换作业 | 减少人工干预 | IBM 7090 |
+| **多道批处理** | 内存中同时驻留多道程序，交替运行 | **提高资源利用率** | IBM OS/360 |
+| **分时系统** | 时间片轮转，多用户交互 | **提高交互性** | **Unix** |
+| **实时系统** | 严格时间约束（硬/软实时） | **可靠性 + 及时性** | VxWorks, QNX |
+| 网络系统 | 通过网络共享资源 | 资源共享 | — |
+| 分布式系统 | 多机协同，用户感知为一台 | 透明性 + 可扩展性 | Hadoop, Kubernetes |
+| 个人计算机 | 单用户、易用 | 用户体验 | Windows, macOS |
+
+---
+
+## 批处理系统
+
+### 单道批处理
+
+- 内存中只有一道作业——CPU 和 I/O 设备**串行**工作
+- 监督程序（Monitor）控制作业自动切换
+
+### 多道批处理
+
+> **核心突破**：内存中同时存放多道作业，CPU 在该作业 I/O 等待时切换执行另一作业。
+
+| 特性 | 说明 |
+|------|------|
+| 多道 | 内存中同时驻留多道程序 |
+| 宏观并行 | 多道程序在并发推进 |
+| 微观串行 | 单 CPU 任一时刻只执行一道 |
+| 目标 | 提高资源利用率（CPU/内存/I/O） |
+| 缺点 | 用户无法交互（作业提交到结果取回需数小时） |
+
+---
+
+## 分时系统
+
+> 一台主机连接多个终端，**时间片轮转**——每个用户感觉独占系统。
+
+| 特性 | 说明 |
+|------|------|
+| 时间片 | 每个终端轮流获得一小段时间的 CPU（如 100ms） |
+| 交互性 | 用户可在线输入命令，即时获得结果 |
+| 公平性 | 时间片用完 → 强制切换到下一个用户 |
+| 典型 | **Unix** ——开创了现代操作系统范式 |
+
+---
+
+## 实时系统
+
+| | 硬实时 | 软实时 |
+|------|--------|--------|
+| 时间约束 | **绝对严格**——超时 = 系统失败 | 可容忍偶尔超时 |
+| 适用 | 导弹制导、心脏起搏器、飞机飞控 | 视频播放、在线交易 |
+| 设计重点 | 一切为确定性（WCET 分析） | 平均响应时间 |
 
 ---
 
 ## 考试辨析
-- 分时系统的关键是**时间片轮转**——每个用户轮流获得CPU
-- 多道批处理的主要目的：**提高资源利用率**（不是交互性）`},{id:`os-1-3-1`,chapterId:`os-1`,title:`操作系统的运行环境`,keyConcepts:[`内核态`,`用户态`,`特权指令`,`系统调用`,`中断`,`访管指令`],relatedPoints:[`os-1-1-1`,`co-5-4-1`],content:`## CPU 的两种状态
+- 多道批处理的核心目的：**提高资源利用率**——不是交互性
+- 分时系统的核心：**时间片轮转**——体现公平和交互
+- 实时系统的核心：**及时响应 + 高可靠性**
+- 多道程序 ≠ 多任务——前者强调并发，后者强调用户视角的并行
+- 408 常考各系统的主要目标和特征对比`},{id:`os-1-3-1`,chapterId:`os-1`,title:`操作系统的运行环境`,keyConcepts:[`内核态`,`用户态`,`特权指令`,`系统调用`,`中断`,`访管指令`],relatedPoints:[`os-1-1-1`,`co-5-4-1`],content:`## CPU 的两种状态
 
 | 状态 | 特征 | 可执行指令 |
 |------|------|-----------|
@@ -5799,7 +6556,35 @@ $T_{new} = 90/1.5 + 10 = 60 + 10 = 70s$
 ## 考试辨析
 - 系统调用运行在**内核态**——用户只能通过调用接口使用
 - 访管指令 ≠ 特权指令——访管指令是用户态下唯一能"进入内核"的手段
-- 中断处理在内核态执行`},{id:`os-1-4-1`,chapterId:`os-1`,title:`操作系统体系结构`,keyConcepts:[`整体式`,`模块化`,`层次式`,`微内核`,`宏内核`],relatedPoints:[],content:`## 主要体系结构
+- 中断处理在内核态执行
+
+---
+
+## 中断与异常分类
+
+### 外中断 vs 内中断（异常）
+
+| | 外中断 | 内中断（异常）|
+|------|-------|-------------|
+| 来源 | CPU 外部（I/O设备、时钟）| CPU 内部（指令执行）|
+| 与指令关系 | 异步（随时发生）| 同步（与指令相关）|
+
+### 异常的三类子类型
+
+| 类型 | 触发 | 返回方式 | 示例 |
+|------|------|---------|------|
+| **陷阱(Trap)** | 人为预设 | 返回**下一条**指令 | 系统调用 |
+| **故障(Fault)** | 指令执行出错 | 返回**当前**指令重试 | 缺页、除零 |
+| **终止(Abort)** | 硬件严重错误 | **不可恢复** | 硬件故障 |
+
+### 系统调用 vs 库函数
+
+| | 系统调用 | 库函数 |
+|------|---------|--------|
+| 运行态 | 内核态 | 用户态 |
+| 例子 | write(), read(), fork() | printf() 封装 write() |
+
+> printf() 是库函数，底层调用 write() 系统调用——408常考点`},{id:`os-1-4-1`,chapterId:`os-1`,title:`操作系统体系结构`,keyConcepts:[`整体式`,`模块化`,`层次式`,`微内核`,`宏内核`],relatedPoints:[],content:`## 主要体系结构
 
 | 结构 | 特点 | 代表 |
 |------|------|------|
@@ -6557,27 +7342,86 @@ P4 → P2 → P0：全部可完成 → **安全！**
 - 银行家算法是最经典的死锁避免算法——408 大题考过多次
 - 死锁检测算法：资源分配图能否完全化简
 - 常见题型：「至少需要多少资源才能不死锁」
--- 「[2009-大题45] [2011-选择25] [2012-大题46] [2014-大题45] [2017-选择24] [2019-选择27] [2022-大题46」`},{id:`os-2-4-2`,chapterId:`os-2`,title:`死锁 常见题型与解题技巧`,keyConcepts:[`死锁`,`最少资源公式`,`银行家算法`,`安全序列`,`资源分配图`],relatedPoints:[`os-2-4-1`],content:`## 必背公式
-**最少资源不死锁**：n个进程各需m个同类资源 -> 最少 (m-1)n + 1
-推导：最坏=每个进程拿m-1个都在等 + 给任一个+1 = 打破僵局
-例：3进程各需4台打印机 -> 最少(4-1)x3+1=10台
+-- 「[2009-大题45] [2011-选择25] [2012-大题46] [2014-大题45] [2017-选择24] [2019-选择27] [2022-大题46」`},{id:`os-2-4-2`,chapterId:`os-2`,title:`死锁 常见题型与解题技巧`,keyConcepts:[`死锁`,`最少资源公式`,`银行家算法`,`安全序列`,`资源分配图`,`死锁预防`,`死锁避免`],relatedPoints:[`os-2-4-1`],content:`## 必背公式
+
+### 最少资源不死锁公式
+
+> n 个进程，每个需要 m 个同类资源，**保证不死锁的最少资源数**：
+
+$$R_{min} = (m-1) \\times n + 1$$
+
+**推导**：最坏情况 = 每个进程都已拿到 m-1 个资源（都在等待第 m 个）→ 此时只需再给任意进程 1 个资源即可打破僵局。
+
+**例 1**：3 个进程各需 4 台打印机 → 最少 $(4-1)\\times 3 + 1 = 10$ 台不死锁
+**例 2**：5 个进程各需 3 个刻录机 → 最少 $(3-1)\\times 5 + 1 = 11$ 台不死锁
+
+### 多资源类型的扩展
+
+> 每种资源类型分别考虑，但并发进程竞争多种资源时，分析复杂——**银行家算法**解决此问题。
 
 ---
-## 银行家算法答题模板
-1. 列出Available, Max, Allocation, Need=Max-Allocation
-2. 找Need <= Available的进程 -> 标记完成 -> Available+=Allocation
-3. 重复直到全部完成(安全)或无法继续(不安全)
+
+## 银行家算法（408 大题必考）
+
+### 数据结构
+
+| 符号 | 含义 |
+|------|------|
+| Available[m] | 系统当前可用各类资源数量 |
+| Max[n][m] | 各进程对各资源的最大需求 |
+| Allocation[n][m] | 各进程已分配到的各类资源数量 |
+| Need[n][m] | **Need = Max - Allocation**——各进程剩余需求 |
+
+### 安全性算法步骤
+
+1. 初始 Work = Available，Finish[i] = false（对所有 i）
+2. 找到一个满足 **Finish[i]=false 且 Need[i] ≤ Work** 的进程 i
+3. 模拟该进程完成：**Work += Allocation[i]**，Finish[i] = true
+4. 重复 2~3 直到所有 Finish[i]=true（**安全**）或找不到满足条件的 i（**不安全**）
+
+### 典型考题形式
+
+给出某时刻的资源分配表和 Available，判断系统是否处于安全状态；或判断某进程的新请求是否可安全分配。
 
 ---
+
 ## 资源分配图判死锁
-- 每类资源只有1个实例：图中有环=死锁
-- 每类资源有多个实例：有环是必要条件，需进一步判断是否能化简
+
+### 符号约定
+
+- 圆圈 ○ = 进程 (P₁, P₂, ...)
+- 方框 □ = 资源类型 (R₁, R₂, ...)
+- □ 内的点 = 该类资源的实例数
+- P → R = 进程**申请**资源（请求边）
+- R → P = 资源**已分配**给进程（分配边）
+
+### 判断规则
+
+| 条件 | 结论 |
+|------|------|
+| 资源单实例 + 图中有环 | **必定死锁** |
+| 资源多实例 + 图中有环 | **仅仅是必要条件**——需进一步化简判断 |
+
+> 资源分配图的化简 = 逐步删除不阻塞进程（请求可满足的进程）及其所有边 → 若图最终为空，则无死锁。
 
 ---
+
+## 死锁处理对比
+
+| 策略 | 方法 | 时机 | 408 考点 |
+|------|------|------|---------|
+| **预防** | 破坏四个必要条件之一 | 运行前（系统设计） | 考破坏哪个条件 |
+| **避免** | 银行家算法——判断是否安全 | 运行时每次分配前 | **大题核心** |
+| **检测** | 定期检查 → 发现死锁 → 解除 | 运行时定期 | 资源分配图化简 |
+| **解除** | 撤销进程 / 剥夺资源 | 死锁发生后 | 代价最小原则 |
+
+---
+
 ## 考试辨析
-- 安全状态 != 无死锁；不安全状态 != 死锁
-- 预防=破坏四个条件之一（选择题常考\\破坏的是哪个）
-- 避免=银行家算法（大题常考）`},{id:`os-3-1-1`,chapterId:`os-3`,title:`内存管理概念`,keyConcepts:[`内存管理`,`地址转换`,`逻辑地址`,`物理地址`,`链接`,`装入`,`覆盖`,`交换`],relatedPoints:[`os-3-2-1`,`ds-1-1-2`,`co-3-1-1`],content:`## 内存管理的任务
+- "安全状态 → 无死锁"正确，"不安全状态 → 死锁"错误（只是可能）
+- 预防死锁：破坏互斥 / 持有并等待 / 不可抢夺 / 循环等待 之一
+- 银行家算法 = **死锁避免**（不是预防、不是检测）
+- 最少资源公式不适用于多种类型资源的情况——仅同类资源`},{id:`os-3-1-1`,chapterId:`os-3`,title:`内存管理概念`,keyConcepts:[`内存管理`,`地址转换`,`逻辑地址`,`物理地址`,`链接`,`装入`,`覆盖`,`交换`],relatedPoints:[`os-3-2-1`,`ds-1-1-2`,`co-3-1-1`],content:`## 内存管理的任务
 1. 内存分配与回收
 2. 地址转换（逻辑地址 → 物理地址）
 3. 内存保护（越界检查）
@@ -6630,7 +7474,7 @@ P4 → P2 → P0：全部可完成 → **安全！**
 | **首次适应 (FF)** | 找第一个够大的空闲区 | 最快 |
 | **循环首次适应 (NF)** | 从上次位置开始找 | 更均匀 |
 | **最佳适应 (BF)** | 找最接近的大小区 | 产生最多碎片 |
-| **最差适应 (WF)** | 找最大的空闲区 | 剩余区仍较大 |
+| **最差适应 (WF)** | 找最大的空闲区 | 剩余区仍较大，但会很快耗尽大空闲区 |
 
 ---
 
@@ -6713,6 +7557,8 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 ## 考试辨析
 - 进程切换 = TLB**全部清空**（因为新进程页表不同）
 - 两级页表解决的是**页表过大且需连续存放**的问题——不是地址空间不够
+- **TLB 命中率影响因素**：增大 TLB 容量、提高页面大小可提高 TLB 命中率；采用多级页表**不影响** TLB 命中率
+- 多级页表级数计算：48位虚拟地址 + 4KB页 + 8B页表项 -> 每个页表页512项(9位) -> 36位页号÷9 = 4级页表
 -- 「[2013-选择30] [2018-选择30」`},{id:`os-3-3-3`,chapterId:`os-3`,title:`段页式管理方式`,keyConcepts:[`段页式`,`段表`,`页表`,`三维地址`,`3次访存`],relatedPoints:[`os-3-3-1`,`os-3-3-2`],content:`## 段页式管理
 > **先分段，段内再分页**——结合分段（逻辑清晰）和分页（无外部碎片）的优点。
 
@@ -6733,7 +7579,7 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 ## 分页 vs 分段 vs 段页式
 | | 分页 | 分段 | 段页式 |
 |------|------|------|--------|
-| 地址维度 | 一维 | 二维 | **三维** |
+| 地址维度 | 一维 | 二维 | **硬件三维/用户二维** |
 | 长度 | 固定(系统定) | 可变(程序员定) | 固定(系统定) |
 | 碎片 | 内部碎片 | 外部碎片 | 内部碎片 |
 | 访存次数 | 2次 | 2次 | **3次** |
@@ -6741,9 +7587,9 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 
 ---
 ## 考试辨析
-- 段页式的地址是三维的——段号+页号+偏移量
+- 段页式的地址结构从硬件角度看是**三维的**（段号+页号+偏移量），但从用户编程视角是**二维的**（分页对用户透明）
 - 访存3次（可用快表优化）
-- 408 常考三种管理方式的对比选择题`},{id:`os-3-4-1`,chapterId:`os-3`,title:`虚拟内存管理`,keyConcepts:[`虚拟内存`,`请求分页`,`缺页`,`页面置换`,`FIFO`,`LRU`,`Clock`,`Belady异常`,`抖动`],relatedPoints:[`os-3-3-1`,`co-3-4-1`,`co-3-3-1`],content:`## 虚拟内存的核心思想
+- 408 常考三种管理方式的对比选择题`},{id:`os-3-4-1`,chapterId:`os-3`,title:`虚拟内存管理`,keyConcepts:[`虚拟内存`,`请求分页`,`缺页`,`页面置换`,`FIFO`,`LRU`,`Clock`,`Belady异常`,`抖动`,`调页策略`,`预调页`,`请求调页`,`对换区`],relatedPoints:[`os-3-3-1`,`co-3-4-1`,`co-3-3-1`],content:`## 虚拟内存的核心思想
 > 只将程序**部分装入内存**即可运行——需要时再从磁盘调入。
 **理论基础**：局部性原理（时间局部性 + 空间局部性）
 
@@ -6765,6 +7611,24 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 3. 若内存满 → 选一页置换出去（若被修改则写回磁盘）
 4. 更新页表，P=1
 5. 重新执行缺页的那条指令
+
+---
+## 调页策略
+
+### 调页时机
+| 策略 | 原理 | 适用场景 |
+|------|------|---------|
+| **预调页 (Prepaging)** | 根据局部性原理，一次调入若干相邻页面 | 主要用于进程首次调入（运行前） |
+| **请求调页 (Demand Paging)** | 运行时缺页才调页，被调页一定会被访问 | **大多数虚拟存储器采用** |
+
+### 从何处调页（三种情况）
+| 情况 | 操作 |
+|------|------|
+| **对换区足够** | 全部从对换区调入（速度快），运行前将文件从文件区复制到对换区 |
+| **对换区不足** | 不会被修改的文件直接从文件区调入；可能被修改的文件换出时放入对换区 |
+| **UNIX 方式** | 未运行过的从文件区调；曾换出的从对换区调；共享页若已在内存则无需调 |
+
+> **对换区**采用连续分配方式（I/O 速度快），**文件区**采用离散分配方式。
 
 ---
 ## 页面置换算法（高频考点）
@@ -6798,9 +7662,9 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 ---
 ## 考试辨析
 - **虚拟内存大小由逻辑地址空间决定**（与物理内存大小无关！）
-- 缺页中断是**可重入中断**——中断处理完成后需重新执行缺页指令
 - FIFO 是唯一有 Belady 异常的置换算法
-- 页面缓冲算法 (Page Buffering) 可以进一步提高置换效率`},{id:`os-3-4-2`,chapterId:`os-3`,title:`页面分配策略与抖动`,keyConcepts:[`驻留集`,`固定分配`,`可变分配`,`局部置换`,`全局置换`,`抖动`,`工作集`],relatedPoints:[`os-3-4-1`],content:`## 驻留集与分配策略
+- 缺页中断是**可重入中断**——中断处理完成后需重新执行缺页指令
+- 抖动发生时 CPU 利用率低 + 磁盘 I/O 高——应减少多道程序度或增加物理内存`},{id:`os-3-4-2`,chapterId:`os-3`,title:`页面分配策略与抖动`,keyConcepts:[`驻留集`,`固定分配`,`可变分配`,`局部置换`,`全局置换`,`抖动`,`工作集`,`平均分配`,`按比例分配`,`优先权分配`],relatedPoints:[`os-3-4-1`],content:`## 驻留集与分配策略
 > **驻留集** = 分配给进程的物理页框集合。分配策略决定何时/如何调整。
 
 | 策略 | 分配 | 置换范围 | 说明 |
@@ -6808,6 +7672,16 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 | **固定+局部** | 运行前固定 | 自己页内 | 简单，但可能不够/浪费 |
 | **可变+全局** | 动态 | 全系统页 | 灵活，但可能抢占过多 |
 | **可变+局部** | 动态 | 自己页内 | 根据缺页率动态调整——最常用 |
+
+---
+## 物理块分配算法（固定分配策略）
+采用固定分配策略时，将系统中的空闲物理块分配给各个进程，有以下三种算法：
+
+| 算法 | 原理 |
+|------|------|
+| **平均分配** | 将所有可供分配的物理块平均分配给各个进程 |
+| **按比例分配** | 根据进程大小按比例分配物理块 |
+| **优先权分配** | 将物理块分两部分：一部分按比例分配，另一部分按优先权分配 |
 
 ---
 ## 抖动 (Thrashing)
@@ -6825,35 +7699,106 @@ $$EAT = h \\times T_{TLB+Mem} + (1-h) \\times (T_{TLB} + 2T_{Mem})$$
 - 原则：**驻留集 $\\ge$ 工作集** → 不抖动
 - 工作集随时间变化——OS 需要动态监测和调整
 
+> **重要辨析**：工作集不一定是驻留集的子集——有些工作集中的页面可能还未被调入内存或已被换出。只有当工作集完全包含在驻留集中时，才能保证不发生缺页中断。
+
 ---
 ## 考试辨析
 - 抖动是操作系统性能的"黑洞"——CPU 被白白浪费
 - 增加物理内存是解决抖动的**最根本方法**
-- 工作集窗口 $\\Delta$ 的选取很关键——太大=过时，太小=不准确`},{id:`os-3-4-3`,chapterId:`os-3`,title:`页面置换 常见题型与解题技巧`,keyConcepts:[`页面置换`,`Belady异常`,`FIFO`,`LRU`,`OPT`,`缺页率`],relatedPoints:[`os-3-4-1`],content:`## 缺页次数计算
-逐地址模拟，维护内存中的页面集合。
-命中=已在内存；缺页=不在内存+需置换。
-初始内存为空时，所有首次访问都是缺页。
+- 工作集窗口 $\\Delta$ 的选取很关键——太大=过时，太小=不准确`},{id:`os-3-4-3`,chapterId:`os-3`,title:`页面置换 常见题型与解题技巧`,keyConcepts:[`页面置换`,`Belady异常`,`FIFO`,`LRU`,`OPT`,`缺页率`,`CLOCK`,`改进型CLOCK`],relatedPoints:[`os-3-4-1`,`os-3-4-2`],content:`## 缺页次数计算
+
+### 基本方法
+
+1. 逐地址（逐页）模拟访问序列
+2. 维护内存中的页面集合（框架数固定）
+3. **命中** = 页面已在内存 → 不操作
+4. **缺页** = 页面不在内存 → 需调入（无空位时需要**置换**）
+5. 初始内存为空 → 首次访问各页面均缺页
+
+### 示例：访问串 1,2,3,4,1,2,5,1,2,3,4,5，分配 3 帧，FIFO
+
+\`\`\`
+访问    内存(3帧)           缺页?
+  1     [1, -, -]            ✓ (首次)
+  2     [1, 2, -]            ✓
+  3     [1, 2, 3]            ✓
+  4     [4, 2, 3]  淘汰1     ✓
+  1     [4, 1, 3]  淘汰2     ✓
+  2     [4, 1, 2]  淘汰3     ✓
+  5     [5, 1, 2]  淘汰4     ✓
+  1     [5, 1, 2]           命中
+  2     [5, 1, 2]           命中
+  3     [3, 1, 2]  淘汰5     ✓
+  4     [3, 4, 2]  淘汰1     ✓
+  5     [3, 4, 5]  淘汰2     ✓
+──────────────────────────────────
+共 12 次访问，缺页 10 次，缺页率 = 10/12 = 83.3%
+\`\`\`
+
+> 同一访问串用 LRU：缺页 10 次；OPT：缺页 7 次（理论最优）。
 
 ---
-## Belady异常（仅FIFO）
-访问串 1,2,3,4,1,2,5,1,2,3,4,5：
-- 分配3块：9次缺页
-- 分配4块：10次缺页 <- 反直觉！
-LRU 和 OPT 不会出现 Belady 异常。
+
+## Belady异常
+
+> **仅有 FIFO** 会出现：分配更多内存帧，缺页次数反而增加。
+
+| 分配帧数 | FIFO 缺页次数 | LRU 缺页次数 | OPT 缺页次数 |
+|:--------:|:------------:|:-----------:|:-----------:|
+| 3 | 9 | 10 | 7 |
+| **4** | **10** ⚠️ | 8 | 6 |
+
+- Belady 异常原因：FIFO 不考虑页面使用频率——可能淘汰即将被访问的页面
+- LRU 和 OPT 属于**栈算法**（分配 k 帧时内存集合 ⊆ 分配 k+1 帧时）→ 无 Belady
 
 ---
-## OPT vs LRU vs FIFO vs CLOCK
+
+## 四种算法对比
+
+### OPT（最佳置换）
+
+> 淘汰**未来最长时间不再访问**的页面。理论最优，但需要预知未来访问序列 → **无法实现**，仅作为性能比较基准。
+
+### LRU（最近最少使用）
+
+> 淘汰**最长时间未使用**的页面。用历史预测未来——**栈算法**，无 Belady。
+> 实现方式：硬件支持（计数器/移位寄存器）或软件模拟（链表维护访问顺序）
+
+### CLOCK / NRU（最近未用）
+
+> **LRU 的近似算法**——用访问位 A 模拟 LRU，少开销。
+
+- 循环扫描各页面
+- A=1 → 置 0，跳过（给第二次机会）
+- A=0 → 淘汰该页面
+
+### 改进型 CLOCK
+
+> 两轮扫描：(A,M) → A 访问位，M 修改位
+
+| 扫描 | 找 (A,M) | 说明 |
+|------|---------|------|
+| 第 1 轮 | (0,0) | 最近未访问+未修改 → 最佳淘汰 |
+| 第 2 轮 | (0,1) | 最近未访问但修改过 |
+| 第 3 轮 | (0,0) | 所有 A 已在第一轮清 0 |
+| 第 4 轮 | (0,1) | |
+
 | 算法 | Belady | 实现难度 | 性能 |
 |------|:--:|:--:|------|
-| OPT | 无 | 无法实现 | 理论最优 |
-| LRU | 无 | 复杂(需硬件) | 接近OPT |
-| CLOCK/NRU | 无 | 简单 | 较好 |
+| OPT | 无 | 无法实现 | **理论最优** |
+| LRU | 无 | 复杂（需硬件） | 接近 OPT |
+| CLOCK / NRU | 无 | **简单**（1位访问位） | 较好 |
+| 改进型 CLOCK | 无 | 中等 | 好（兼顾脏页代价） |
 | FIFO | **有** | 最简单 | 较差 |
 
 ---
+
 ## 考试辨析
-- 缺页中断=内中断中的故障（返回当前指令重新执行）
-- 只有FIFO有Belady异常`},{id:`os-4-1-1`,chapterId:`os-4`,title:`文件系统基础`,keyConcepts:[`文件`,`目录`,`FCB`,`inode`,`文件控制块`,`目录结构`],relatedPoints:[],content:`## 文件的逻辑结构
+- 缺页中断 = **内中断中的故障**（执行缺页指令 → 中断 → 调页 → 返回重执行）
+- Belady 异常**仅 FIFO** 有——LRU 和 OPT 是栈算法，无 Belady
+- 初始内存为空 → 所有页面首次引用均缺页（调入）
+- 改进型 CLOCK 优先淘汰"未访问+未修改"页面——省去写盘开销
+- 408 常考给定访问串和帧数，手工模拟 FIFO/LRU 的缺页过程`},{id:`os-4-1-1`,chapterId:`os-4`,title:`文件系统基础`,keyConcepts:[`文件`,`目录`,`FCB`,`inode`,`文件控制块`,`目录结构`],relatedPoints:[],content:`## 文件的逻辑结构
 
 | 类型 | 特点 |
 |------|------|
@@ -6891,7 +7836,38 @@ LRU 和 OPT 不会出现 Belady 异常。
 
 ## 考试辨析
 - 打开文件时，FCB 被复制到内存（活跃文件表）
-- 文件名 → FCB → 物理位置，这是文件查找的基本路径`},{id:`os-4-1-2`,chapterId:`os-4`,title:`文件的物理结构（分配方式）`,keyConcepts:[`连续分配`,`链接分配`,`隐式链接`,`显式链接`,`FAT`,`索引分配`,`混合索引`],relatedPoints:[`os-4-1-1`],content:`## 四种物理分配方式
+- 文件名 → FCB → 物理位置，这是文件查找的基本路径
+
+---
+
+## 文件属性
+| 属性 | 说明 |
+|------|------|
+| 文件名 | 用户可读的标识 |
+| 标识符 | 系统内部唯一编号 |
+| 类型 | 普通文件/目录/设备文件 |
+| 位置 | 文件在存储设备上的物理位置指针 |
+| 大小 | 文件当前字节数 |
+| 保护 | 访问控制信息（读/写/执行权限）|
+| 时间 | 创建时间、最后修改时间、最后访问时间 |
+
+## 文件基本操作
+| 操作 | 说明 |
+|------|------|
+| create | 创建新文件（分配空间 + 新建FCB）|
+| delete | 删除文件（释放空间 + 删除FCB）|
+| read | 从指定位置读取数据 |
+| write | 向指定位置写入数据 |
+| open | 将FCB复制到内存，返回文件描述符(fd) |
+| close | 更新FCB，释放内存中的文件表项 |
+
+## 文件保护
+| 方式 | 原理 | 特点 |
+|------|------|------|
+| **ACL**（访问控制列表）| 为每个文件列出每个用户的访问权限 | 精细但开销大 |
+| **精简ACL** | 三类权限：owner/group/other × rwx | Unix标准（rwx = 读/写/执行）|
+| **口令** | 访问文件需输入密码 | 简单但有泄露风险 |
+| **加密** | 文件内容加密存储 | 安全但加解密开销大 |`},{id:`os-4-1-2`,chapterId:`os-4`,title:`文件的物理结构（分配方式）`,keyConcepts:[`连续分配`,`链接分配`,`隐式链接`,`显式链接`,`FAT`,`索引分配`,`混合索引`],relatedPoints:[`os-4-1-1`],content:`## 四种物理分配方式
 
 ### 一、连续分配
 > 文件占据一组**连续的**磁盘块。
@@ -6994,32 +7970,70 @@ i-node 中包含：
 - **位示图占用空间与空闲块数无关**——2024年408真题考点
 - 成组链接=空闲表+空闲链表的结合
 - 超级块在系统启动时读入内存
-- 位示图适合快速找连续空闲区`},{id:`os-4-3-1`,chapterId:`os-4`,title:`磁盘组织与管理`,keyConcepts:[`磁盘`,`磁道`,`扇区`,`寻道`,`旋转延迟`,`SCAN`,`C-SCAN`,`SSTF`,`磁盘调度`],relatedPoints:[],content:`## 磁盘访问时间
+- 位示图适合快速找连续空闲区`},{id:`os-4-3-1`,chapterId:`os-4`,title:`磁盘组织与管理`,keyConcepts:[`磁盘`,`磁道`,`扇区`,`寻道`,`旋转延迟`,`SCAN`,`C-SCAN`,`SSTF`,`磁盘调度`,`RAID`,`低格`,`柱面`],relatedPoints:[`os-4-3-2`,`os-5-2-1`],content:`## 磁盘物理结构
 
-$$T_{access} = T_{seek} + T_{rotation} + T_{transfer}$$
+| 部件 | 说明 |
+|------|------|
+| **盘面 (Surface)** | 一个磁盘有多个盘片，每盘片两个盘面 |
+| **磁道 (Track)** | 盘面上的同心圆环 |
+| **柱面 (Cylinder)** | 同一半径上所有磁道的集合——磁头组一次寻道覆盖整个柱面 |
+| **扇区 (Sector)** | 磁道上的弧段，通常 512 字节 |
 
-- **寻道时间 $T_{seek}$**：磁头移动到目标磁道——最耗时
-- **旋转延迟 $T_{rotation}$**：扇区转到磁头下——平均值 = 半圈时间
-- **传输时间 $T_{transfer}$**：数据读写
+> 同一柱面上的各磁道可**同时读写**（磁头组联动），无寻道开销。
 
 ---
 
-## 磁盘调度算法
+## 磁盘访问时间
 
-| 算法 | 策略 | 特点 |
-|------|------|------|
-| **FCFS** | 按请求顺序 | 公平但可能慢 |
-| **SSTF** | 最近磁道先服务 | 快但可能饥饿 |
-| **SCAN（电梯）** | 单向扫描到底再折返 | 实际常用 |
-| **C-SCAN** | 单向到底，快速归位 | 更公平 |
-| **LOOK / C-LOOK** | 到最远请求即折返 | 优化版 |
+$$T_{access} = T_{seek} + T_{rotation} + T_{transfer}$$
+
+### 1. 寻道时间 $T_{seek}$（最耗时——占 70%~90%）
+
+磁头臂从当前位置移动到目标磁道的时间，含启动和稳定时间。
+
+### 2. 旋转延迟 $T_{rotation}$（平均 = 半圈时间）
+
+$$T_{rotation_avg} = \\frac{1}{2} \\times \\frac{60}{RPM} \\text{ 秒}$$
+
+例：7200 RPM → 半圈 = $\\frac{60}{7200 \\times 2}$ ≈ 4.17ms
+
+### 3. 传输时间 $T_{transfer}$
+
+$$T_{transfer} = \\frac{\\text{传输字节数}}{\\text{每磁道字节数}} \\times \\frac{60}{RPM}$$
+
+> 传输时间通常最小（微秒级），寻道 > 旋转延迟 >> 传输时间。
+
+---
+
+## 磁盘格式化
+
+| 阶段 | 内容 |
+|------|------|
+| **低级格式化** | 划分磁道和扇区、写入扇区头部/ECC/间隙——出厂时完成 |
+| **分区** | 将磁盘划分为逻辑分区（C: 盘 / D: 盘） |
+| **高级格式化** | 创建文件系统（NTFS / ext4 等） |
+
+---
+
+## RAID — 磁盘冗余阵列
+
+| RAID 级别 | 原理 | 冗余 | 最少磁盘 | 容错 |
+|-----------|------|------|---------|------|
+| **RAID 0** | 条带化（数据分散到多盘） | 无 | 2 | ❌ 任一故障全丢 |
+| **RAID 1** | 镜像（两份完整副本） | 100% | 2 | ✅ 一个故障 |
+| **RAID 5** | 条带化 + 分布式奇偶校验 | 1 盘容量 | 3 | ✅ 一个故障 |
+| **RAID 10** | 先镜像再条带（RAID 1+0） | 50% | 4 | ✅ 一个故障/组 |
+
+> 408 常考 RAID 级别的对比——RAID 5 折中性价比，RAID 1 最高可靠性。
 
 ---
 
 ## 考试辨析
-- 磁盘调度主要减少的是**寻道时间**（最主要的时间开销）
-- SCAN = 电梯算法——走到头才折返
-- C-SCAN 只有单向服务，归位时不服务`},{id:`os-4-3-2`,chapterId:`os-4`,title:`磁盘调度算法`,keyConcepts:[`FCFS`,`SSTF`,`SCAN`,`LOOK`,`C-SCAN`,`C-LOOK`,`寻道时间`,`饥饿`],relatedPoints:[`os-4-3-1`],content:`## 磁盘访问时间
+- 访问时间中**寻道时间**最大——是磁盘调度的主要优化目标
+- 旋转延迟平均值 = 半圈时间——取决于磁盘转速
+- **柱面**概念：同一柱面内无寻道开销——文件应尽量存在同一柱面
+- SSTF 可能导致"饥饿"——远处请求永远被近处请求插队
+- C-SCAN 比 SCAN 更公平——各磁道的等待时间更均匀`},{id:`os-4-3-2`,chapterId:`os-4`,title:`磁盘调度算法`,keyConcepts:[`FCFS`,`SSTF`,`SCAN`,`LOOK`,`C-SCAN`,`C-LOOK`,`寻道时间`,`饥饿`],relatedPoints:[`os-4-3-1`],content:`## 磁盘访问时间
 $$T_a = T_s + T_r + T_t = T_s + \\frac{1}{2r} + \\frac{b}{rN}$$
 - $T_s$ = 寻道时间（OS可优化），$T_r$ = 旋转延迟，$T_t$ = 传输时间
 
@@ -7169,40 +8183,140 @@ $$T_a = T_s + T_r + T_t = T_s + \\frac{1}{2r} + \\frac{b}{rN}$$
 ## 考试辨析
 - DMA与中断的关键区别：DMA只有开始+结束两次中断，中断驱动每字中断一次
 - DMA 的"周期窃取"——窃取的是总线周期，不是CPU时钟周期
--- 「[2010-选择28] [2013-选择31] [2017-大题44] [2021-选择28」`},{id:`os-5-2-1`,chapterId:`os-5`,title:`I/O核心子系统`,keyConcepts:[`I/O调度`,`缓冲区`,`单缓冲`,`双缓冲`,`循环缓冲`,`设备驱动`],relatedPoints:[`os-5-1-1`],content:`## I/O 软件层次
+-- 「[2010-选择28] [2013-选择31] [2017-大题44] [2021-选择28」`},{id:`os-5-2-1`,chapterId:`os-5`,title:`I/O核心子系统`,keyConcepts:[`I/O调度`,`缓冲区`,`单缓冲`,`双缓冲`,`循环缓冲`,`缓冲池`,`设备驱动`,`SPOOLing`],relatedPoints:[`os-5-1-1`,`os-5-2-2`,`os-4-3-1`],content:`## I/O 软件层次
 
 \`\`\`
-用户层 I/O 软件
+用户层 I/O 软件          ← 库函数（printf/scanf）
     ↓
-设备独立性软件
+设备独立性软件            ← 统一接口、命名、保护、缓冲、分配
     ↓
-设备驱动程序
+设备驱动程序              ← 控制设备控制器寄存器
     ↓
-中断处理程序
+中断处理程序              ← 保存/恢复现场
     ↓
-硬件
+硬件（设备控制器 + 设备）
 \`\`\`
+
+| 层次 | 功能 |
+|------|------|
+| 用户层 | 封装系统调用（如 printf → write） |
+| **设备独立性软件** | 命名映射、保护、缓冲、错误处理、空间分配与回收 |
+| **设备驱动程序** | 操作设备寄存器，将通用命令转换为设备特定操作 |
+| 中断处理程序 | 响应中断，保存现场，唤醒驱动进程 |
 
 ---
 
-## 缓冲区
+## 缓冲区管理
 
-### 单缓冲
-- 并行性：CPU 处理前一块 + I/O 读入下一块 → 时间缩短
+> 缓冲的目的：**缓和 CPU 高速与 I/O 设备低速的矛盾**。
 
-### 双缓冲
-- 进一步并行：一边读入一边写出
-- 可实现连续数据流
+### 三种缓冲策略
 
-### 循环缓冲
-- 多个缓冲区循环使用——适合高速持续 I/O
+| 策略 | 缓冲区数 | 工作方式 | 时间模型（T=传输, C=CPU处理, M=传送） |
+|------|---------|---------|--------------------------------------|
+| **无缓冲** | 0 | I/O 与 CPU 完全串行 | $T + C + M$ |
+| **单缓冲** | 1 | I/O 读入下一块时 CPU 可处理当前块 | 串行 → 部分并行 |
+| **双缓冲** | 2 | I/O 读入一块 + CPU 处理另一块 + 同时传送第三块 | **三并行** |
+| **循环缓冲** | 3+ | 链表循环使用，适合高速持续 I/O | 接近全速 |
+
+### 单缓冲时间分析
+
+设 $T$ = 磁盘输入一块的时间，$C$ = CPU 处理时间，$M$ = 输出时间
+
+- 无缓冲：$total = T + C + M$
+- 单缓冲：$T$ 和 $C$ 可并行 → $total \\approx \\max(T, C) + M$
+
+### 双缓冲时间分析
+
+- 三个阶段可完全并行 → $total \\approx \\max(T, C, M)$
+- 典型场景：输入缓冲区 + 输出缓冲区交替使用
+- **数据流通无间断**——适合网络收发、多媒体播放
+
+---
+
+## 缓冲池
+
+> 三个队列：空闲缓冲区队列 + 输入队列（装满数据）+ 输出队列（待写出）
+
+工作方式：
+1. 输入设备从**空闲队列**取缓冲区 → 装满 → 放入**输入队列**
+2. CPU 从**输入队列**取 → 处理 → 放入**输出队列**
+3. 输出设备从**输出队列**取 → 写出 → 归还**空闲队列**
+
+---
+
+## SPOOLing（假脱机技术）
+
+> 用磁盘模拟独占设备 → 将**独占设备**改造为**可共享的虚拟设备**。
+
+| 组成部分 | 功能 |
+|---------|------|
+| **输入井 / 输出井** | 磁盘上的暂存区域（模拟纸带/卡片） |
+| **预输入程序 (SPi)** | 将作业数据从输入设备预读至输入井 |
+| **缓输出程序 (SPo)** | 将输出井数据延迟写出到输出设备 |
+| **井管理程序** | 调度作业进入/调出 |
+
+> 典型应用：共享打印机——各进程的打印数据先送入输出井，由打印守护进程统一调度打印。
+
+---
+
+## I/O 调度
+
+| 调度层面 | 说明 |
+|---------|------|
+| **设备分配** | 为进程分配请求的设备（独占/共享） |
+| **I/O 请求排序** | 对磁盘请求重新排序以优化寻道时间 |
+| **通道调度** | 多通道系统中分配通道 |
 
 ---
 
 ## 考试辨析
-- 缓冲的目的是**缓和 CPU 与 I/O 设备速度不匹配**
-- 双缓冲可消除生产者-消费者间的等待
-- 缓冲在内存中分配——由 OS 管理`},{id:`os-5-2-2`,chapterId:`os-5`,title:`SPOOLing技术与缓冲区管理`,keyConcepts:[`SPOOLing`,`假脱机`,`输入井`,`输出井`,`单缓冲`,`双缓冲`,`循环缓冲`],relatedPoints:[`os-5-2-1`,`os-5-1-1`],content:`## SPOOLing（假脱机技术）
+- 缓冲的核心目的：**缓和速度不匹配**（不是提高设备速度）
+- 单缓冲 → 部分并行（T 与 C 同时进行，但与 M 串行）
+- 双缓冲 → **完全并行**（T、C、M 三个阶段同时运行）
+- 循环缓冲 → 适合高速设备的持续 I/O
+- SPOOLing = 用**磁盘**模拟独占设备 → 独占变共享
+- 设备独立性 = 用户程序用逻辑设备名，OS 映射到物理设备
+
+---
+
+## 设备分配数据结构（核心考点）
+
+| 数据结构 | 全称 | 内容 |
+|----------|------|------|
+| **SDT** | 系统设备表 | 系统内所有设备信息（设备类型、标识符、DCT指针）|
+| **DCT** | 设备控制表 | 单台设备信息（类型、状态、等待队列、COCT指针）|
+| **COCT** | 控制器控制表 | 单个控制器信息（状态、等待队列、CHCT指针）|
+| **CHCT** | 通道控制表 | 单个通道信息（状态、等待队列）|
+
+### 设备分配流程
+\`\`\`
+SDT → DCT → COCT → CHCT
+（逐层查找，必须全部可用才能分配）
+\`\`\`
+
+### 设备分配算法
+- **FCFS**：按请求顺序分配
+- **优先级**：高优先级进程先分配
+
+### 安全分配 vs 不安全分配
+| 方式 | 行为 | 优点 | 缺点 |
+|------|------|------|------|
+| **安全分配** | 请求设备时进程阻塞 | 无死锁 | 进程进展慢 |
+| **不安全分配** | 请求设备后进程继续 | 进程可并行 | 可能死锁 |
+
+## 逻辑设备名到物理设备名映射
+- **LUT（逻辑设备表）**：逻辑设备名 → 物理设备名 + 驱动入口
+- 全系统一张 LUT：所有进程共享（便于设备独占管理）
+- 每用户一张 LUT：每个用户有自己的映射
+
+## 设备驱动程序
+| 特征 | 说明 |
+|------|------|
+| 功能 | 接收通用命令 → 翻译为设备特定操作 → 控制设备寄存器 |
+| 与设备控制器通信 | 通过 I/O 端口（数据/状态/控制寄存器）|
+| 运行态 | 内核态（可执行特权指令）|
+| 接口 | 向上提供统一接口（open/read/write/ioctl），向下操作硬件 |`},{id:`os-5-2-2`,chapterId:`os-5`,title:`SPOOLing技术与缓冲区管理`,keyConcepts:[`SPOOLing`,`假脱机`,`输入井`,`输出井`,`单缓冲`,`双缓冲`,`循环缓冲`],relatedPoints:[`os-5-2-1`,`os-5-1-1`],content:`## SPOOLing（假脱机技术）
 > 用磁盘(共享设备)模拟独占设备——将独占设备改造成可共享的虚拟设备。
 
 ### 组成
@@ -7466,30 +8580,126 @@ void *mmap(addr, len, prot, flags, fd, offset);
 - mmap映射到**虚拟地址空间**而非物理地址空间
 - 可实现进程间通信（共享映射）
 - 通过缺页机制实现按需加载
-- [[2025-选择30]]`}],vr=[{id:`cn-1-1-1`,chapterId:`cn-1`,title:`计算机网络概述`,keyConcepts:[`计算机网络`,`组成`,`功能`,`分类`,`LAN`,`WAN`,`MAN`],relatedPoints:[],content:`## 计算机网络的定义
-> 将分散的、具有独立功能的计算机系统，通过通信设备与线路连接起来，由网络软件实现资源共享和信息传递。
+- [[2025-选择30]]`},{id:`os-3-4-5`,chapterId:`os-3`,title:`页框回收与页面缓冲算法`,keyConcepts:[`页框回收`,`页面缓冲算法`,`空闲页面链表`,`修改页面链表`,`kswapd`,`伙伴算法`,`页框回收阈值`],relatedPoints:[`os-3-4-1`,`os-3-4-2`],content:`## 概述
+> **页框回收 (Page Frame Reclamation)** 是 2025 年大纲新增考点。2012 年统考真题 45 题已涉及——"被系统回收的页框，放入空闲页框链尾，其中内容在下次分配之前不清零"。
+
+页框回收的核心机制是**页面缓冲算法 (Page Buffering Algorithm)**——通过两个链表显著降低页面换入/换出的磁盘 I/O 开销。
+
+---
+## 页面缓冲算法
+
+### 空闲页面链表 (Free Page List)
+| 操作 | 说明 |
+|------|------|
+| **读入页面** | 从空闲页面链表链首取一个页框，装入所需页面 |
+| **换出未修改页** | 不写回磁盘，直接将页框挂在空闲链表**链尾**（内容保留） |
+| **再次访问** | 若其他进程需要该数据，可直接从空闲链表取下，**避免磁盘读入** |
+
+> 挂在空闲链表中的页框**仍有数据**——这是关键优化（节省读盘 I/O）。
+
+### 修改页面链表 (Modified Page List)
+| 操作 | 说明 |
+|------|------|
+| **换出已修改页** | 不立即写回磁盘，将页框挂在修改页面链表末尾 |
+| **批量写回** | 当修改页面链表数量达到一定阈值时，**一次 I/O 写回多个页面** |
+| **再次访问** | 若在写回前有进程需要这些数据，可直接从链表获取，**避免磁盘读入** |
+
+### 算法特点
+- 显著降低页面换入/换出的频率，使磁盘 I/O 开销大为减少
+- 不需要特殊硬件支持
+- 实现简单（可采用 FIFO 等简单置换策略配合）
+
+---
+## 页框回收 (Page Frame Reclamation)
+
+### 哪些页框可回收
+| 类型 | 可回收？ |
+|------|:-------:|
+| 进程代码段、数据段、堆栈 | ✅ 大部分可回收 |
+| 进程间共享内存使用的页框 | ✅ 可回收 |
+| 文件映射页 | ✅ 可回收 |
+| **内核栈、内核代码段、内核数据段** | ❌ **不可回收** |
+
+### Linux 的页框回收机制
+- **kswapd 守护进程**：定期检查内存使用情况，当空闲页框数量少于特定阈值时发起页框回收操作
+- **伙伴算法 (Buddy System)**：用于合并零碎的空闲页框成为更大的连续空闲块。回收时检查是否有大小相等的伙伴块，若有则合并，合并后继续检查能否继续合并
+
+---
+## 考试辨析
+- 页面缓冲算法的本质：**用链表缓存被淘汰的页面，延迟写回，避免频繁磁盘 I/O**
+- 空闲链表中的页框仍有数据——再次访问时可避免磁盘读入
+- 修改页面链表达到阈值才批量写回——减少磁盘 I/O 次数
+- kswapd 在空闲页框低于阈值时唤醒，触发页框回收
+- 伙伴算法回收的逆操作——将小块合并成大块，与分配时的拆分相反
+- [[2012-大题45]]`}],vr=[{id:`cn-1-1-1`,chapterId:`cn-1`,title:`计算机网络概述`,keyConcepts:[`计算机网络`,`组成`,`功能`,`分类`,`LAN`,`WAN`,`MAN`,`速率`,`带宽`,`吞吐量`,`时延`,`RTT`],relatedPoints:[`cn-1-2-1`],content:`## 计算机网络的定义
+> 将分散的、具有独立功能的计算机系统，通过通信设备与线路连接起来，由网络软件实现**资源共享和信息传递**的系统。
 
 ---
 
 ## 组成
-- **硬件**：计算机、通信设备、传输介质
-- **软件**：协议、网络操作系统
-- **协议**：通信双方共同遵守的规则集合
+
+| 组成部分 | 内容 |
+|---------|------|
+| **硬件** | 计算机（端系统）、通信设备（路由器/交换机）、传输介质 |
+| **软件** | 协议栈、网络操作系统、应用软件 |
+| **协议** | 通信双方共同遵守的规则——协议三要素：语法、语义、同步 |
 
 ---
 
 ## 分类
+
 | 分类方式 | 类型 |
 |----------|------|
-| 范围 | LAN(局域网)、WAN(广域网)、MAN(城域网) |
-| 传输技术 | 广播式、点对点 |
-| 拓扑 | 星形、总线、环形、网状 |
+| 范围 | LAN(局域网)、MAN(城域网)、**WAN**(广域网) |
+| 传输技术 | 广播式网络、点对点网络 |
+| 拓扑结构 | 星形、总线、环形、网状、树形 |
+
+---
+
+## 网络性能指标
+
+### 1. 速率（数据率）
+单位时间传输的比特数，单位：bps（bit/s）
+
+### 2. 带宽
+- 频域：信号频率范围（Hz）
+- 时域：信道能支持的最高数据率（bps）
+
+### 3. 吞吐量
+单位时间内**实际**通过网络的比特数——受限于瓶颈链路。
+
+### 4. 时延（Delay）
+
+| 类型 | 公式 | 说明 |
+|------|------|------|
+| **传输时延** | $d_{trans} = L/R$ | 将分组推到链路上所需时间 |
+| **传播时延** | $d_{prop} = d/s$ | 信号在介质中传播所需时间 |
+| **处理时延** | 微秒级 | 路由器首部处理/查表 |
+| **排队时延** | 可变 | 在路由器队列中等待 |
+
+> 总时延 = 传输 + 传播 + 处理 + 排队
+
+### 5. RTT（往返时间）
+从发送数据到收到确认的总时间 = $2 \\times d_{prop} + 处理时间$
+
+---
+
+## 网络拓扑
+
+| 拓扑 | 特点 | 优点 | 缺点 |
+|------|------|------|------|
+| **星形** | 所有结点连到中心 | 控制简单 | 中心故障全网瘫 |
+| **总线** | 共享同一线路 | 布线简单 | 总线故障全网瘫 |
+| **环形** | 首尾相连 | 无冲突 | 单点故障影响全网 |
+| **网状** | 结点间多路径 | 健壮性最高 | 布线成本最高 |
 
 ---
 
 ## 考试辨析
-- 408 计网 25 分，以选择题为主
-- 协议三要素：语法、语义、同步`},{id:`cn-1-2-1`,chapterId:`cn-1`,title:`计算机网络体系结构与参考模型`,keyConcepts:[`OSI`,`TCP/IP`,`五层协议`,`分层`,`PDU`,`SDU`],relatedPoints:[],content:`## OSI 七层参考模型
+- 408 计网占 25 分，以选择题为主（约 8 题），偶有综合题
+- 协议三要素：**语法**（格式）、**语义**（含义）、**同步**（时序）
+- 传输时延与传播时延的区别——前者取决于数据量，后者取决于距离
+- 吞吐量受瓶颈链路限制——端到端路径上速率最小的一段决定`},{id:`cn-1-2-1`,chapterId:`cn-1`,title:`计算机网络体系结构与参考模型`,keyConcepts:[`OSI`,`TCP/IP`,`五层协议`,`分层`,`PDU`,`SDU`],relatedPoints:[`cn-1-1-1`,`cn-3-1-1`,`cn-4-1-1`,`cn-5-1-1`],content:`## OSI 七层参考模型
 
 \`\`\`
 应用层        ← 应用进程间的通信
@@ -7523,7 +8733,7 @@ void *mmap(addr, len, prot, flags, fd, offset);
 ## 考试辨析
 - 408 考查的是**五层模型**
 - 传输层是**端到端**，网络层以下是**点到点**
-- OSI 上层=端到端，下层=点到点`},{id:`cn-2-1-1`,chapterId:`cn-2`,title:`通信基础`,keyConcepts:[`信道`,`带宽`,`奈奎斯特`,`香农定理`,`编码`,`调制`],relatedPoints:[],content:`## 基本概念
+- OSI 上层=端到端，下层=点到点`},{id:`cn-2-1-1`,chapterId:`cn-2`,title:`通信基础`,keyConcepts:[`信道`,`带宽`,`奈奎斯特`,`香农定理`,`编码`,`调制`],relatedPoints:[`cn-2-1-2`,`cn-2-2-1`],content:`## 基本概念
 | 术语 | 含义 |
 |------|------|
 | 信道 | 信号传输的通道 |
@@ -7554,48 +8764,158 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 
 ## 考试辨析
 - 奈奎斯特：无噪声时的**上限**
-- 香农定理：有噪声时的**上限**——更接近实际`},{id:`cn-2-2-1`,chapterId:`cn-2`,title:`传输介质`,keyConcepts:[`双绞线`,`同轴电缆`,`光纤`,`无线电`],relatedPoints:[],content:`## 常见传输介质
-| 介质 | 特点 | 适用 |
-|------|------|------|
-| **双绞线** | 便宜、易安装 | LAN（以太网） |
-| **同轴电缆** | 抗干扰好 | 有线电视 |
-| **光纤** | 带宽大、距离远、抗干扰 | 骨干网、WAN |
-| 无线电 | 无需线缆 | WiFi、蜂窝网络 |
+- 香农定理：有噪声时的**上限**——更接近实际`},{id:`cn-2-2-1`,chapterId:`cn-2`,title:`传输介质`,keyConcepts:[`双绞线`,`同轴电缆`,`光纤`,`无线电`,`UTP`,`STP`,`单模`,`多模`],relatedPoints:[`cn-2-1-1`],content:`## 常见传输介质
+
+| 介质 | 传输方式 | 抗干扰 | 距离 | 适用 |
+|------|---------|--------|------|------|
+| **双绞线** | 电信号 | 中等 | ≤100m | LAN（以太网） |
+| **同轴电缆** | 电信号 | 好 | 数百米 | 有线电视/早期以太网 |
+| **光纤** | 光信号 | **极好** | **数十km** | 骨干网/WAN/数据中心 |
+| 无线电 | 电磁波 | 差 | 视环境而定 | WiFi/蜂窝网络/卫星 |
+
+---
+
+## 双绞线
+
+| 类别 | 带宽 | 适用 | 屏蔽 |
+|------|------|------|------|
+| Cat 5e | 100MHz | 100M/1G 以太网 | 无（UTP） |
+| Cat 6 | 250MHz | 1G/10G 以太网 | 可选 |
+| Cat 6a/7 | 500~600MHz | 10G 以太网 | 屏蔽（STP） |
+
+- **UTP**（非屏蔽双绞线）：最常用，依赖绞合抵消串扰
+- **STP**（屏蔽双绞线）：金属箔包裹，抗干扰更强，更贵
+- RJ45 接头 = 双绞线的标准接口
+
+---
+
+## 光纤
+
+> 利用光的**全反射**原理传输信号，三段波长：850nm / 1310nm / 1550nm。
+
+| | 多模光纤 (MMF) | 单模光纤 (SMF) |
+|------|----------|----------|
+| 纤芯直径 | 50 / 62.5 μm（较粗） | **9 μm**（极细） |
+| 传播模式 | 多条光路 → **模间色散** | 单一路径 → 无色散 |
+| 光源 | LED | **激光** |
+| 距离 | ≤500m~2km | **数十~上百 km** |
+| 成本 | 低 | 高（收发器昂贵） |
+| 适用 | LAN / 数据中心 | WAN / 海底光缆 |
+| 接头 | SC / LC | SC / LC / FC |
 
 ---
 
 ## 考试辨析
-- 光纤使用**全反射**原理——多模/单模
-- 双绞线通过**绞合**减少串扰`},{id:`cn-2-3-1`,chapterId:`cn-2`,title:`物理层设备`,keyConcepts:[`中继器`,`集线器`,`放大器`],relatedPoints:[],content:`## 物理层设备
-| 设备 | 功能 |
+- 光纤使用**全反射**原理——纤芯折射率 > 包层折射率
+- 多模光纤的模间色散限制了传输距离
+- 单模光纤只有一条传输路径，无色散，距离极远
+- 双绞线通过**绞合**减少电磁干扰（每对线的绞合节距不同）
+- 中继器和放大器用于延长传输距离——物理层设备`},{id:`cn-2-3-1`,chapterId:`cn-2`,title:`物理层设备`,keyConcepts:[`中继器`,`集线器`,`放大器`,`5-4-3规则`],relatedPoints:[`cn-3-8-1`,`cn-4-7-1`],content:`## 物理层设备
+
+> 物理层设备只处理**信号**（模拟或数字）——不理解帧或 IP 地址。
+
+| 设备 | 功能 | 端口 | 域隔离 |
+|------|------|------|--------|
+| **中继器** | 信号再生放大，延长传输距离 | 2 个 | 不隔离任何域 |
+| **集线器 (Hub)** | 多端口中继器，信号广播到所有端口 | 多端口 | 不隔离任何域 |
+| **放大器** | 放大模拟信号（包括噪声） | 2 个 | — |
+
+---
+
+## 中继器与放大器
+
+| | 中继器 (Repeater) | 放大器 (Amplifier) |
+|------|----------|---------|
+| 处理信号 | 数字信号——**再生**整形 | 模拟信号——**放大** |
+| 噪声 | 不放大噪声（重新生成） | 连同噪声一起放大 |
+| 适用 | 以太网扩展 | 电话线/有线电视 |
+
+---
+
+## 集线器 (Hub) 的工作方式
+
+- 信号从任一端口进入 → **广播到所有其他端口**
+- **半双工**——所有端口共享同一信道的带宽
+- 所有端口在同一**冲突域**中（不隔离冲突域）
+- 同一时刻只允许**一台**设备发送（CSMA/CD 管理）
+
+---
+
+## 5-4-3 规则（以太网扩展规则）
+
+> 经典 10Base-T 以太网中继器级联规则：
+
+- 两个站点之间最多 **5 个网段**
+- 最多 **4 台中继器/集线器**
+- 其中最多 **3 个网段**可连接主机（其余 2 个是链路段，仅用于级联）
+
+---
+
+## 考试辨析
+- 中继器/集线器工作在**物理层**——不理解帧地址，无法过滤
+- 集线器 = 多端口中继器，所有端口共享带宽，同一冲突域
+- 物理层设备**不能**连接不同协议/速率的网段
+- 5-4-3 规则是 408 偶尔考查的知识点`},{id:`cn-3-1-1`,chapterId:`cn-3`,title:`数据链路层概述`,keyConcepts:[`数据链路层`,`帧`,`成帧`,`差错控制`,`流量控制`,`链路`,`PPP`,`HDLC`],relatedPoints:[`cn-1-2-1`,`cn-3-2-1`,`cn-3-3-1`,`cn-3-4-1`,`cn-3-5-1`],content:`## 数据链路层的定位
+
+> 数据链路层在物理层之上、网络层之下，负责在**相邻结点之间**可靠传输帧。
+
+| 层次 | 传输单位 | 范围 |
+|------|---------|------|
+| 网络层 | IP 数据报 | 端到端（跨多跳） |
+| **数据链路层** | **帧** | **点到点（一跳）** |
+| 物理层 | 比特 | 物理介质 |
+
+---
+
+## 数据链路层的服务类型
+
+| 服务类型 | 确认 | 连接 | 适用场景 |
+|---------|------|------|---------|
+| **无确认无连接** | 无 | 无 | 误码率低的信道（以太网） |
+| **有确认无连接** | 有 | 无 | 无线链路 |
+| **有确认面向连接** | 有 | 有 | 高质量可靠传输 |
+
+---
+
+## 四个核心功能
+
+### 1. 为网络层提供服务接口
+向上层（网络层）提供统一的帧传输接口，屏蔽物理层差异。
+
+### 2. 成帧（Framing）
+将物理层传来的比特流组装成帧，识别帧的起始和结束。
+
+四种成帧方法：
+| 方法 | 原理 | 优缺点 |
+|------|------|--------|
+| **字符计数** | 帧头标明帧长度 | 简单，计数出错则全乱 |
+| **字符填充** | 特殊字符界定帧边界 | 需转义 |
+| **零比特填充** | 5个连续1后插0 | HDLC/PPP 采用 |
+| **物理层编码违例** | 无效编码标记边界 | 曼彻斯特编码适用 |
+
+### 3. 差错控制
+检测和纠正传输误码（奇偶校验 / CRC / 海明码）。
+
+### 4. 流量控制
+协调发送方和接收方速率，防止快发送淹没慢接收。
+
+---
+
+## 链路与数据链路的区别
+
+| 概念 | 含义 |
 |------|------|
-| **中继器** | 信号再生放大，延长传输距离 |
-| **集线器 (Hub)** | 多端口中继器，**半双工，共享带宽** |
+| **链路** | 无源点到点的物理线段 |
+| **数据链路** | 链路 + 通信协议（硬件+软件） |
 
 ---
 
 ## 考试辨析
-- 中继器和集线器工作在**物理层**——只转发信号
-- 不能连接不同协议的网段`},{id:`cn-3-1-1`,chapterId:`cn-3`,title:`数据链路层概述`,keyConcepts:[`数据链路层`,`帧`,`成帧`,`差错控制`,`流量控制`],relatedPoints:[],content:`## 数据链路层的功能
-1. 为网络层提供服务接口
-2. **成帧**：将比特流组装成帧
-3. **差错控制**：检测/纠正误码
-4. **流量控制**：协调发送方和接收方速率
-
----
-
-## 成帧方法
-| 方法 | 原理 |
-|------|------|
-| 字符计数 | 帧头标明长度 |
-| 字符填充 | 特殊字符界定帧边界 |
-| 零比特填充 | 5个连续1后插0（HDLC） |
-
----
-
-## 考试辨析
-- 数据链路层的传输单位是**帧**
-- 零比特填充法：发送 0111110 → 01111100（5个1后插0）`},{id:`cn-3-2-1`,chapterId:`cn-3`,title:`组帧`,keyConcepts:[`组帧`,`字符计数`,`字符填充`,`零比特填充`,`HDLC`],relatedPoints:[`cn-3-1-1`],content:`## 组帧 (Framing)
+- 数据链路层传输单位是**帧**（Frame）
+- 链路层只负责**一跳**（相邻结点）之间的可靠传输——不是端到端
+- 零比特填充法：发端 5个1后插0，收端 5个1后删0
+- 无确认无连接 ≠ 不可靠——以太网误码率低，省去确认开销
+- [[2009-35] [2010-36]]`},{id:`cn-3-2-1`,chapterId:`cn-3`,title:`组帧`,keyConcepts:[`组帧`,`字符计数`,`字符填充`,`零比特填充`,`HDLC`],relatedPoints:[`cn-3-1-1`],content:`## 组帧 (Framing)
 
 > 将比特流划分为帧——数据链路层的核心功能。
 
@@ -7623,90 +8943,365 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 ## 考试辨析
 - 零比特填充是 HDLC 协议的标准组帧方式
 - 408 选择题常考"5个1后插0"的具体过程
-`},{id:`cn-3-3-1`,chapterId:`cn-3`,title:`差错控制`,keyConcepts:[`差错控制`,`CRC`,`奇偶校验`,`海明码`,`纠错`,`检错`],relatedPoints:[],content:`## 差错控制技术
+`},{id:`cn-3-3-1`,chapterId:`cn-3`,title:`差错控制`,keyConcepts:[`差错控制`,`CRC`,`奇偶校验`,`海明码`,`纠错`,`检错`,`模2除法`,`生成多项式`,`汉明距离`],relatedPoints:[`cn-3-4-1`,`cn-3-1-1`],content:`## 差错控制概述
 
-| 方法 | 类型 | 说明 |
-|------|------|------|
-| **奇偶校验** | 检错 | 增加一位使1的个数为奇/偶 |
-| **CRC（循环冗余校验）** | 检错 | 除法求余，最常用 |
-| **海明码** | **纠错** | 可定位并纠正单比特错误 |
+> 数据在传输过程中可能产生差错（比特翻转），差错控制技术分为**检错**和**纠错**两类。
+
+| 方法 | 类型 | 原理 | 能力 |
+|------|------|------|------|
+| **奇偶校验** | 检错 | 增加一校验位使1的个数为奇/偶 | 检奇数个错 |
+| **CRC** | 检错 | 模2除法求余 | 检错能力强，最常用 |
+| **海明码** | **纠错** | 多重奇偶校验定位错误位 | 纠1位错，检2位错 |
 
 ---
 
-## CRC 原理
-1. 发送方：$M(x) \\cdot 2^k \\div G(x)$ → 余数 = 校验码
-2. 接收方：收到的帧 $\\div G(x)$ → 余数为0则无误
+## 一、CRC — 循环冗余校验
+
+### 基本原理
+
+1. 发送方和接收方约定一个**生成多项式** $G(x)$
+2. 发送方：数据后补 $r$ 个 0 → 模2除以 $G(x)$ → 余数 = FCS（帧检验序列）
+3. 接收方：收到的帧 ÷ $G(x)$ → 余数为 0 则无错
+
+### 生成多项式 → 二进制
+
+$$G(x) = x^4 + x + 1$$
+
+- $x^4$ 项系数为1 → 第4位=1
+- $x^3$ 项没有 → 第3位=0
+- $x^2$ 项没有 → 第2位=0
+- $x^1$ 项系数为1 → 第1位=1
+- $x^0$ 常数项为1 → 第0位=1
+
+**除数 = 10011**（共 5 位，$r=4$，校验码 4 位）
+
+### 模2除法（XOR）
+
+> 逐位处理，只看最高位：是 1 就 XOR 除数，是 0 就跳过。
+
+| 普通除法 | 模2除法 |
+|----------|---------|
+| 减法有借位 | 无借位——就是**异或（XOR）** |
+| 比较大小决定商 | 只看最高位是否为 1 |
+
+### 计算示例
+
+发送数据 \`10111\`，$G(x)=10011$（r=4）：
+
+\`\`\`
+          1 0 1 0 1        ← 商
+10011 ) 1 0 1 1 1 0 0 0 0  ← 数据后补4个0
+        1 0 0 1 1           ← 异或
+        ───────
+        0 0 1 0 0 0
+          0 0 0 0 0         ← 最高位0，跳过
+          ───────
+          0 1 0 0 0 0
+          1 0 0 1 1         ← 异或
+          ───────
+          0 0 0 1 1 0
+            0 0 0 0 0
+            ───────
+              1 1 0 0
+              1 0 0 1 1
+              ───────
+                1 0 1 1     ← 余数 = FCS
+\`\`\`
+
+余数 \`1011\` 即为校验码，发送帧 = \`10111 1011\`
+
+> 接收方用同样的 $G(x)$ 去除收到的帧，余数为 0 → 传输正确。
+
+### CRC 检错能力
+
+- 能检测所有单比特错误
+- 能检测所有双比特错误（若 $G(x)$ 包含因子 $x+1$）
+- 能检测所有奇数个错误
+- 能检测长度 ≤ r 的突发错误
+
+---
+
+## 二、海明码 — 纠错编码
+
+### 海明不等式
+
+$$2^r \\ge m + r + 1$$
+
+$m$ = 数据位，$r$ = 校验位，$+1$ = "无错误"这一正确状态
+
+例：$m=6$ → 试 $r=3$：$8 < 10$ ❌ → $r=4$：$16 \\ge 11$ ✅ → 共10位海明码
+
+### 汉明距离（码距）
+
+| 最小码距 $d$ | 检错能力 | 纠错能力 |
+|-------------|---------|---------|
+| $d=1$ | 无 | 无 |
+| $d=2$ | 检1位错 | 无 |
+| $d=3$ | 检2位错 | **纠1位错** |
+| $d=4$ | 检3位错 | 纠1位错 |
+
+> 海明码设计为 **d=3** —— 可检2位错、纠1位错。
+
+### 编码步骤
+
+1. 确定校验位位数 $r$（海明不等式）
+2. 校验位放 $2^k$ 位置（位1, 位2, 位4, 位8...），数据位填其余位置
+3. 分组异或确定各校验位值
+4. 接收端重新计算 → 指误码十进制值 = 出错位号
+
+### 指误码
+
+接收端对各组重新异或，得 $P_4P_3P_2P_1$，其十进制值即为出错位的位置号（0 = 无错误）。
 
 ---
 
 ## 考试辨析
-- CRC 只能**检错**，不能纠错
-- 海明码可以**纠错**（单比特）
-- $n$ 位校验位最多检测 $n$ 位以内的错误`},{id:`cn-3-4-1`,chapterId:`cn-3`,title:`流量控制与可靠传输`,keyConcepts:[`停止等待`,`GBN`,`SR`,`滑动窗口`,`ARQ`,`ACK`],relatedPoints:[],content:`## 滑动窗口协议
+- CRC 只能**检错**不能纠错——需要重传机制配合（ARQ）
+- 海明码可以**纠单比特错**——适合不可重传的单工信道（如 ECC 内存）
+- 模2除法 = 异或运算，**不是算术除法**——408 高频计算考点
+- 生成多项式位数 - 1 = FCS 校验码位数
+- [[2013-15] [2023-37]]`},{id:`cn-3-4-1`,chapterId:`cn-3`,title:`流量控制与可靠传输`,keyConcepts:[`停止等待`,`GBN`,`SR`,`滑动窗口`,`ARQ`,`ACK`,`超时重传`,`序号空间`,`链路利用率`],relatedPoints:[`cn-3-4-2`,`cn-5-3-1`,`cn-3-2-1`],content:`## 可靠传输机制概述
 
-| 协议 | 窗口大小(发送) | 窗口大小(接收) | 重传 |
-|------|--------------|--------------|------|
-| **停止-等待** | 1 | 1 | 超时 |
-| **GBN (回退N)** | $2^n-1$ | 1 | **批量重传** |
-| **SR (选择重传)** | $2^{n-1}$ | $2^{n-1}$ | **只重传错帧** |
+> 数据链路层通过**确认**和**超时重传**保证可靠传输——统称 ARQ（自动重传请求）。
+
+三种基本 ARQ 协议：
+1. **停止-等待协议**（Stop-and-Wait）
+2. **后退 N 帧协议**（GBN — Go-Back-N）
+3. **选择重传协议**（SR — Selective Repeat）
 
 ---
 
-## 三种协议对比
+## 一、停止-等待协议
+
+**核心思想**：发一帧 → 等确认 → 收到 ACK 发下一帧 / 超时重传。
+
+| 特点 | 说明 |
+|------|------|
+| 发送窗口 | **1** |
+| 接收窗口 | **1** |
+| 序号 | 1 位即可（0/1 交替） |
+| 优点 | 实现最简单 |
+| 缺点 | 效率极低——大量时间在等待 |
+| 信道利用率 | $U = \\frac{L/R}{L/R + 2t_{prop}}$（极低） |
+
+> 停止-等待的信道利用率极低，相当于"说一句话，等对方确认了再说下一句"。
+
+---
+
+## 二、GBN — 后退 N 帧协议
+
+**核心思想**：发送方可连续发送多帧，但接收方**只能按序接收**。
+
+| 特性 | 说明 |
+|------|------|
+| 发送窗口 | $1 < W_S \\le 2^n - 1$ |
+| 接收窗口 | **1**（只收期望序号） |
+| 确认方式 | **累积确认**（ACK=n 表示 n 号及之前全部收到） |
+| 重传策略 | 超时后重传**所有未确认帧**（回退 N） |
+| 乱序处理 | 接收方**直接丢弃**乱序帧 |
+
+### 发送方状态
+
+窗口内的帧可以连续发送，每收到一个 ACK 窗口前移，每发一帧启动一个定时器（实践中只维护最早的未确认帧定时器）。
+
+### 累积确认
+
+ACK=4 表示：0,1,2,3 号帧都已收到，期望收到 4 号帧。
+
+---
+
+## 三、SR — 选择重传协议
+
+**核心思想**：只重传**出错或丢失的帧**，不重传已正确接收的帧。
+
+| 特性 | 说明 |
+|------|------|
+| 发送窗口 | $1 < W_S \\le 2^{n-1}$ |
+| 接收窗口 | $> 1$（通常等于发送窗口） |
+| 确认方式 | **逐帧确认**（每帧单独 ACK） |
+| 重传策略 | 只重传统计时器超时的单帧 |
+| 乱序处理 | 接收方**缓存乱序帧** |
+| 缓冲区 | 收发双方都需要较大缓冲区 |
+
+---
+
+## 四、窗口大小与序号空间（核心考点）
+
+> 设序号用 n 位表示，则序号空间大小为 $2^n$（0 ~ $2^n-1$）。
+
+**核心约束**：发送窗口 + 接收窗口 ≤ 序号空间 $2^n$
+
+| 协议 | 接收窗口 | 发送窗口最大值 |
+|------|---------|---------------|
+| **停止-等待** | 1 | 1 |
+| **GBN** | 1 | $2^n - 1$（留一个序号区分新旧帧） |
+| **SR** | = 发送窗口 | $2^{n-1}$（窗口不超半数） |
+
+### GBN 为什么是 $2^n-1$？
+
+若允许发送窗口 = $2^n$（全部序号），当所有帧的 ACK 全部丢失时，发送方超时重传第一批帧，但接收方无法区分这是"新帧"还是"重传的旧帧"。
+
+### SR 为什么是 $2^{n-1}$？
+
+收发窗口等大 → $2W \\le 2^n$ → $W \\le 2^{n-1}$。类比：没有序号能同时出现在新旧两个窗口中。
+
+---
+
+## 五、三种协议对比
+
 | | 停止-等待 | GBN | SR |
 |------|----------|-----|-----|
-| 效率 | 低 | 中 | 高 |
-| 实现 | 最简单 | 简单 | 复杂 |
-| 缓冲区 | 小 | 小 | 大 |
+| 发送窗口 | 1 | ≤2ⁿ-1 | ≤2ⁿ⁻¹ |
+| 接收窗口 | 1 | 1 | >1 |
+| 乱序处理 | — | 丢弃 | **缓存** |
+| 重传量 | 1 帧 | N 帧（大批） | 1 帧（精准） |
+| 确认方式 | 单帧 | 累积确认 | 逐帧确认 |
+| 缓冲区需求 | 最小 | 小 | 大 |
+| 实现复杂度 | 最简单 | 简单 | **复杂** |
+| 效率 | 低 | 中 | **高** |
+
+---
+
+## 六、链路利用率公式
+
+> 利用率 = 有效传输时间 / 总时间
+
+$$U = \\frac{n \\times L/R}{2t_{prop} + L/R}$$
+
+$n$ = 窗口大小, $L$ = 帧长(bits), $R$ = 数据率(bps), $t_{prop}$ = 单向传播时延
 
 ---
 
 ## 考试辨析
-- GBN 接收方只接受**按序到达的帧**
-- SR 接收方可缓存**乱序帧**
-- 序号空间大小 $\\ge 窗口大小 \\times 2$（避免新旧帧混淆）`},{id:`cn-3-5-1`,chapterId:`cn-3`,title:`介质访问控制`,keyConcepts:[`CSMA/CD`,`CSMA/CA`,`MAC`,`ALOHA`,`碰撞`,`冲突域`],relatedPoints:[`cn-3-5-2`],content:`## 介质访问控制的分类
+- GBN 的关键特征：**累积确认 + 只收顺序帧**
+- SR 的关键特征：**逐帧确认 + 缓存乱序帧**
+- 序号空间大小约束是 408 常考计算题（给定窗口求最小序号位数）
+- GBN "回退 N"——出错影响大；SR "精准重传"——效率高但实现复杂
+- [[2009-35] [2010-36] [2012-36] [2013-36] [2014-36] [2015-35] [2017-36] [2018-36] [2019-35] [2020-36] [2023-35] [2024-37] [2025-36]]`},{id:`cn-3-5-1`,chapterId:`cn-3`,title:`介质访问控制`,keyConcepts:[`CSMA/CD`,`CSMA/CA`,`ALOHA`,`TDM`,`FDM`,`WDM`,`CDMA`,`令牌环`,`二进制指数退避`,`DIFS`,`SIFS`,`NAV`,`RTS`,`CTS`],relatedPoints:[`cn-3-5-2`,`cn-3-6-1`],content:`## 介质访问控制分类
 
-### 信道划分
-- FDMA、TDMA、CDMA
-
-### 随机访问
-| 协议 | 说明 | 适用 |
+### 一、信道划分（静态分配）
+| 方式 | 原理 | 适用 |
 |------|------|------|
-| ALOHA | 想发就发 | — |
-| CSMA | 先听后发 | — |
-| **CSMA/CD** | 先听后发+边发边听+冲突停止 | **以太网** |
-| **CSMA/CA** | 碰撞避免 | WiFi |
+| **FDM**（频分复用）| 不同频率子信道 | 模拟传输 |
+| **TDM**（时分复用）| 不同时间片 | 数字传输 |
+| **WDM**（波分复用）| 不同波长（光的FDM）| 光纤 |
+| **CDMA**（码分复用）| 不同正交码片序列 | 无线通信 |
+
+> CDMA核心：接收站用码片序列与接收到的信号做**规格化内积**，结果=+1→发送1，结果=-1→发送0。
+
+### 统计TDM (STDM)
+- 不同于同步TDM的固定时间片分配
+- 按需动态分配时间片，提高信道利用率
 
 ---
 
-## CSMA/CD 核心
-1. 先听后发
-2. 边发边听
-3. 冲突停止 → 发冲突加强信号
-4. 二进制指数退避（随机等待后重试）
+### 二、随机访问（动态分配）
 
-最小帧长 = 传播时延 × 数据率 × 2
+#### ALOHA 协议
+| 类型 | 发送规则 | 冲突概率 | 吞吐率 |
+|------|---------|---------|--------|
+| **纯ALOHA** | 想发就发，冲突则随机等待重发 | 高 | $S = G e^{-2G}$, 最大18.4% |
+| **时隙ALOHA** | 只能在时隙开始时刻发送 | 较低 | $S = G e^{-G}$, 最大36.8% |
+
+#### CSMA 三种类型
+| 类型 | 侦听到信道忙时的行为 |
+|------|---------------------|
+| **1-坚持CSMA** | 持续监听，一空闲立即发送 |
+| **非坚持CSMA** | 随机等待一段时间后再监听（减少冲突）|
+| **p-坚持CSMA** | 以概率p发送，概率1-p推迟（用于时隙信道）|
+
+#### CSMA/CD（以太网）
+1. 先听后发 → 2. 边发边听 → 3. 冲突停止(发jam信号) → 4. 二进制指数退避
+
+**最小帧长公式**：$L_{min} = 2 \\tau \\times R$（$	au$=单向传播时延, R=数据率）
+
+**二进制指数退避**：退避时间 = $r \\times$ 争用期，$r \\in [0, 2^k-1]$, $k = \\min(重传次数, 10)$
+
+**冲突检测最长时间** = $2\\tau$（往返时延），最短时间 = $\\tau$
+
+#### CSMA/CA（WiFi）
+- 无线无法同时收发 → 无法检测碰撞 → **碰撞避免**
+- **虚拟载波侦听 (NAV)**：通过帧中的Duration字段预留信道
+- **RTS/CTS 握手**：解决隐藏站问题
+- IFS 类型：SIFS(最短) < PIFS < DIFS(最长)
 
 ---
 
-## CSMA/CD vs CSMA/CA
-| | CD | CA |
-|------|-----|-----|
-| 检测方式 | 碰撞检测 | 碰撞**避免** |
-| 适用 | 有线（能检测） | 无线（无法同时收发） |
+### 三、受控访问
+| 方式 | 原理 |
+|------|------|
+| **令牌环 (Token Ring)** | 令牌沿环传递，持令牌者才能发送 |
+| **轮询** | 主节点轮询各站是否需要发送 |
 
 ---
 
 ## 考试辨析
-- 以太网使用 CSMA/CD（经典考点）
-- 最小帧长的公式必须掌握
-- 冲突域：CSMA/CD 环境中可能发生碰撞的计算机集合`},{id:`cn-3-6-1`,chapterId:`cn-3`,title:`局域网 (LAN)`,keyConcepts:[`以太网`,`MAC地址`,`VLAN`,`交换机`,`STP`],relatedPoints:[],content:`## 以太网 (Ethernet)
+- 以太网使用 CSMA/CD——**边发边听**（有线才能检测碰撞）
+- WiFi 使用 CSMA/CA——**碰撞避免+确认机制**（无线无法边发边听）
+- 最小帧长公式 $L = 2\\tau R$ 必须掌握——保证冲突能被检测到
+- 冲突域：CSMA/CD 环境中可能发生碰撞的计算机集合——交换机隔离冲突域`},{id:`cn-3-6-1`,chapterId:`cn-3`,title:`局域网 (LAN)`,keyConcepts:[`以太网`,`MAC地址`,`VLAN`,`802.1Q`,`交换机`,`STP`,`802.11`,`WLAN`,`AP`,`CSMA/CA`,`RTS/CTS`],relatedPoints:[`cn-3-5-1`,`cn-3-8-1`,`cn-3-7-1`],content:`## 以太网 (Ethernet)
 
-> 最经典的局域网技术——IEEE 802.3 标准。
+> IEEE 802.3 标准——最经典的局域网技术。
 
-- MAC 帧格式：目的地址 | 源地址 | 类型/长度 | 数据 | FCS
-- MAC 地址 48 位（6 字节）
-- 工作在**数据链路层**
+### DIX Ethernet V2 MAC 帧格式
+| 字段 | 字节 | 说明 |
+|------|------|------|
+| 前同步码 | 7B | 10101010... 用于时钟同步 |
+| 帧开始定界符 | 1B | 10101011 |
+| 目的MAC | 6B | 接收方地址 |
+| 源MAC | 6B | 发送方地址 |
+| 类型(或长度) | 2B | >0x0600为类型，否则为长度 |
+| 数据 | 46-1500B | 最小46B（保证CSMA/CD最小帧长64B）|
+| FCS | 4B | CRC校验 |
+
+> MAC 地址 48 位（6 字节），全球唯一（前24位OUI+后24位厂商分配）
+
+### 高速以太网
+| 标准 | 速率 | 特点 |
+|------|------|------|
+| 100Base-T | 100Mbps | 快速以太网，仍支持CSMA/CD |
+| 千兆以太网 | 1Gbps | 支持全双工和半双工 |
+| 10吉比特以太网 | 10Gbps | **仅全双工**，无CSMA/CD |
+
+---
+
+## IEEE 802.11 无线局域网 (WLAN)
+
+### 基本架构
+| 组件 | 说明 |
+|------|------|
+| **AP** (接入点) | 无线基站，连接有线网络 |
+| **BSS** (基本服务集) | 一个AP覆盖的范围 |
+| **ESS** (扩展服务集) | 多个BSS通过DS互联 |
+| **Ad Hoc** | 无AP的自组网 |
+
+### CSMA/CA 核心机制
+1. 信道空闲 DIFS → 发送（或等待随机退避）
+2. 接收方收到后等 SIFS → 回复 ACK
+3. **NAV（网络分配向量）**：通过帧 Duration 字段虚拟载波侦听
+4. **RTS/CTS**：解决隐藏站问题——可选项，长帧时使用
+
+### 802.11 帧地址字段
+| To DS | From DS | 含义 |
+|-------|---------|------|
+| 0 | 0 | Ad Hoc（直接通信），地址1=DA, 地址2=SA |
+| 0 | 1 | AP发往站点，地址1=DA, 地址2=BSSID, 地址3=SA |
+| 1 | 0 | 站点发往AP，地址1=BSSID, 地址2=SA, 地址3=DA |
+| 1 | 1 | WDS（无线分布式系统），四个地址均使用 |
+
+> 802.11帧有**三个（或四个）地址字段**，是408高频考点(2017/2022统考)
+
+---
+
+## VLAN（虚拟局域网）
+
+### 802.1Q 标签
+原始MAC帧中插入4字节VLAN标签：
+| TPID (2B) | PCP(3bit) | DEI(1bit) | VID(12bit) |
+|------|------|------|------|
+| 0x8100 | 优先级 | 丢弃指示 | VLAN ID(1-4094) |
+
+> 有VLAN标签时，数据字段最小46B→42B，最大帧长1518B→1522B
 
 ---
 
@@ -7714,22 +9309,26 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 
 | 特性 | 说明 |
 |------|------|
-| 工作层 | 数据链路层（转发帧） |
-| 自学习 | 通过源 MAC 地址学习端口映射 |
-| 转发 | 目的 MAC 不在表 → 洪泛 |
-| 冲突域 | 每个端口独立冲突域 |
+| 工作层 | 数据链路层（按MAC地址转发帧） |
+| 自学习 | 记录源MAC与端口的映射 → **转发表** |
+| 转发方式 | 未知目的MAC → 洪泛（flood）；已知 → 直接转发 |
+| 冲突域隔离 | 每个端口独立冲突域 |
 
----
+**交换机总吞吐量** = N × 单端口带宽（N端口同时通信时）
+**集线器总带宽** = 单端口带宽（所有端口共享）
 
-## VLAN
-
-> 虚拟局域网——在交换机上将端口逻辑分组，隔离广播域。
+### 生成树协议 (STP)
+- 防止交换机环路导致的广播风暴
+- 通过阻断冗余链路构建无环拓扑
 
 ---
 
 ## 考试辨析
 - 交换机隔离**冲突域**——每端口一个冲突域
-- 路由器隔离**广播域**——每端口一个广播域`},{id:`cn-3-7-1`,chapterId:`cn-3`,title:`广域网 (WAN)`,keyConcepts:[`广域网`,`PPP`,`HDLC`,`WAN`],relatedPoints:[`cn-3-6-1`],content:`## 广域网 vs 局域网
+- 路由器隔离**广播域**——每端口一个广播域
+- 以太网最小帧长64B由CSMA/CD冲突检测要求决定
+- 802.11帧有三个地址——与以太网的两个地址不同（2017/2022考点）
+- 直通交换时延仅需读6B目的MAC → $t = 48bit / R$`},{id:`cn-3-7-1`,chapterId:`cn-3`,title:`广域网 (WAN)`,keyConcepts:[`广域网`,`PPP`,`HDLC`,`WAN`],relatedPoints:[`cn-3-6-1`],content:`## 广域网 vs 局域网
 
 | | LAN | WAN |
 |------|-----|-----|
@@ -7750,77 +9349,205 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 ## 考试辨析
 - PPP 是面向**字节**的协议，HDLC 是面向**比特**的
 - 408 对 WAN 要求较低，了解 PPP 和 HDLC 的基本概念即可
-`},{id:`cn-3-8-1`,chapterId:`cn-3`,title:`数据链路层设备`,keyConcepts:[`网桥`,`交换机`,`冲突域`,`广播域`],relatedPoints:[],content:`## 网桥 vs 交换机
-| | 网桥 | 交换机 |
+`},{id:`cn-3-8-1`,chapterId:`cn-3`,title:`数据链路层设备`,keyConcepts:[`网桥`,`交换机`,`冲突域`,`广播域`,`存储转发`,`直通交换`,`STP`,`自学习`,`VLAN`],relatedPoints:[`cn-3-6-1`,`cn-2-3-1`,`cn-4-7-1`],content:`## 网桥与交换机
+
+| | 网桥 (Bridge) | 交换机 (Switch) |
 |------|------|--------|
-| 端口数 | 少 | 多 |
-| 转发 | 基于软件/存储转发 | 基于硬件 |
+| 端口数 | 少（2~4个） | 多（8~48+） |
+| 转发方式 | 存储转发（软件） | 硬件 ASIC 转发 |
 | 本质 | 交换机 = **多端口网桥** |
+| 隔离冲突域 | ✅ | ✅ |
+| 隔离广播域 | ❌ | ❌ |
 
 ---
 
-## 关键概念
-| 概念 | 含义 |
-|------|------|
-| **冲突域** | 同一时刻只能一个设备发送数据的范围 |
-| **广播域** | 能收到同一广播的范围 |
+## 交换机的三种转发方式
+
+| 方式 | 操作 | 延迟 | 差错检测 |
+|------|------|------|---------|
+| **存储转发** | 收完整个帧，检查 CRC，再转发 | **最高** | ✅ 过滤错误帧 |
+| **直通交换** | 只读到目的 MAC 地址（6 字节）即开始转发 | **最低** | ❌ 可能转发错误帧 |
+| **无碎片转发** | 读取前 64 字节后开始转发 | 中等 | 过滤冲突碎片（<64B） |
+
+> "碎片"是指以太网冲突产生的短帧（<64字节），无碎片转发是直通交换的改良版。
+
+---
+
+## 交换机的自学习算法
+
+1. 收到帧 → 记录**源 MAC 地址**与**到达端口**的映射 → 存入 MAC 地址表
+2. 查目的 MAC：
+   - 表中**有**该 MAC → 从对应端口**单播**转发
+   - 表中**无**该 MAC → 向所有其他端口**洪泛（Flooding）**
+3. MAC 地址表条目有老化时间（通常 300s）
+
+---
+
+## 生成树协议 (STP)
+
+> 解决交换机冗余连接导致**广播风暴**的问题。
+
+- 物理拓扑有环路 → 广播帧无限循环 → 网络瘫痪
+- STP 通过阻塞某些端口，将物理环路变为**逻辑无环树**
+- 使用 BPDU（桥协议数据单元）选举根桥
+
+---
+
+## 冲突域 vs 广播域
+
+| 概念 | 含义 | 隔离设备 |
+|------|------|---------|
+| **冲突域** | 同一时刻只能一个设备发送 | 交换机/网桥/路由器 |
+| **广播域** | 能收到同一广播帧的范围 | 路由器（或 VLAN） |
+
+### 各设备对域的隔离
+
+\`\`\`
+设备         隔离冲突域   隔离广播域
+─────────────────────────────────
+中继器/集线器    ❌          ❌
+网桥/交换机      ✅          ❌
+路由器/VLAN      ✅          ✅
+\`\`\`
 
 ---
 
 ## 考试辨析
-- 交换机/网桥隔离**冲突域**（不隔离广播域）
-- 路由器隔离**冲突域 + 广播域**
-- 中继器/集线器不隔离任何域`},{id:`cn-4-1-1`,chapterId:`cn-4`,title:`网络层功能与路由概述`,keyConcepts:[`网络层`,`路由`,`转发`,`虚电路`,`数据报`],relatedPoints:[],content:`## 网络层两大功能
+- 交换机每个端口是一个**独立冲突域**——全双工模式下无冲突
+- 交换机不隔离广播域——所有端口在同一广播域中（VLAN 可隔离广播域）
+- 自学习算法：查不到目的 MAC → **洪泛**（不是丢弃）
+- 三种交换方式是 408 选择题的高频辨析点
+- 路由器隔离广播域——这是与交换机最本质的区别`},{id:`cn-4-1-1`,chapterId:`cn-4`,title:`网络层功能与路由概述`,keyConcepts:[`网络层`,`路由选择`,`分组转发`,`虚电路`,`数据报`,`SDN`,`路由算法`],relatedPoints:[`cn-4-4-1`,`cn-4-2-1`,`cn-3-1-1`],content:`## 网络层两大功能
 
-1. **路由选择**：确定分组从源到目的地的路径
-2. **分组转发**：路由器将分组从输入端口移到输出端口
+1. **路由选择**：确定分组从源到目的地的路径（控制平面）
+2. **分组转发**：路由器将分组从输入端口移到输出端口（数据平面）
 
 ---
 
-## 虚电路 vs 数据报
+## 网络层提供的服务
 
-| | 虚电路 | 数据报 |
+|  | 面向连接（虚电路） | 无连接（数据报） |
 |------|--------|--------|
-| 连接建立 | 需要 | 不需要 |
-| 路由确定 | 一次确定 | 每个分组独立决策 |
-| 顺序 | 按序到达 | 可能乱序 |
-| 典型 | ATM | **IP（互联网）** |
+| 连接建立 | 需要（端到端建立 VC） | 不需要 |
+| 路由确定 | 一次确定，后续分组走同一路径 | 每个分组独立决策 |
+| 顺序保证 | 同一虚电路内按序到达 | 可能乱序 |
+| 路由器状态 | 需要维护每个 VC 的状态 | 无状态（stateless） |
+| 实现复杂度 | 复杂（路由器需 VC 表） | 简单 |
+| 典型代表 | ATM、帧中继 | **IP（互联网）** |
+
+> **互联网采用数据报方式** —— 每个 IP 分组独立路由，路由器不维护连接状态。"尽力而为"（best-effort）是其核心设计哲学。
+
+---
+
+## 路由算法的分类
+
+### 按决策方式
+
+| 分类 | 说明 | 典型协议 |
+|------|------|------|
+| **静态路由** | 管理员手动配置，适合小型稳定网络 | 手动配置 |
+| **动态路由** | 路由器自动交换信息，动态更新路由表 | RIP / OSPF / BGP |
+
+### 按信息范围
+
+| 分类 | 说明 | 典型协议 |
+|------|------|------|
+| **全局信息**（链路状态 LS） | 每个路由器掌握全网拓扑图 → Dijkstra 算法 | OSPF |
+| **分散信息**（距离向量 DV） | 只与邻居交换信息，逐跳扩散 | RIP |
+
+### 按路由域
+
+| 分类 | 说明 | 典型协议 |
+|------|------|------|
+| **IGP**（内部网关协议） | 同一 AS（自治系统）内路由 | RIP / OSPF |
+| **EGP**（外部网关协议） | 跨 AS 路由 | **BGP** |
+
+---
+
+## 转发与 SDN 简介
+
+传统路由器：控制平面 + 数据平面在同一设备中。
+
+**SDN（软件定义网络）**：将控制平面从路由器中分离出来，由**远程控制器**集中计算转发表，路由器只负责根据流表转发。
+
+| 对比 | 传统网络 | SDN |
+|------|---------|-----|
+| 控制位置 | 分布式（每台路由器） | 集中式（控制器） |
+| 转发规则 | 基于 IP 目的地址 | 基于流表（可匹配多字段） |
+| 灵活性 | 低（每台需单独配置） | 高（全局统一编程） |
 
 ---
 
 ## 考试辨析
-- 互联网采用**数据报**方式——无连接
-- 路由算法是大题常考内容（RIP/OSPF/BGP）`},{id:`cn-4-2-1`,chapterId:`cn-4`,title:`IPv4`,keyConcepts:[`IPv4`,`IP地址`,`子网划分`,`CIDR`,`NAT`,`ARP`,`DHCP`],relatedPoints:[`cn-4-2-2`],content:`## IPv4 地址
-- 32 位，点分十进制
-- 分类：A(0~127)、B(128~191)、C(192~223)、D(组播)、E(保留)
+- 互联网采用**数据报**方式——无连接，"尽力而为"
+- 每个 IP 分组独立路由 → 同一连接的分组可能走不同路径 → 可能乱序
+- 网络层提供"主机到主机"的服务，与传输层的"进程到进程"形成层次分工
+- SDN 是近年 408 新增考点——控制器集中计算、交换机按流表转发`},{id:`cn-4-2-1`,chapterId:`cn-4`,title:`IPv4`,keyConcepts:[`IPv4`,`IP数据报`,`TTL`,`分片`,`标识`,`片偏移`,`ICMP`,`NAT`,`ARP`,`DHCP`,`私有地址`],relatedPoints:[`cn-4-2-2`,`cn-4-4-1`],content:`## IPv4 地址
+- 32 位，点分十进制（如 192.168.1.1）
+- 分类：A(1-126, /8)、B(128-191, /16)、C(192-223, /24)、D(224-239, 组播)、E(240-255, 保留)
+
+### 私有地址（RFC 1918）
+| 类 | 范围 | 默认掩码 |
+|----|------|---------|
+| A | 10.0.0.0 - 10.255.255.255 | /8 |
+| B | 172.16.0.0 - 172.31.255.255 | /16 |
+| C | 192.168.0.0 - 192.168.255.255 | /24 |
 
 ---
 
-## 子网划分与 CIDR
+## IP 数据报格式（核心考点）
 
-### 子网划分
-- IP = 网络号 + 子网号 + 主机号
-- 子网掩码：网络位全1，主机位全0
+| 字段 | 位数 | 说明 |
+|------|------|------|
+| 版本 | 4 | IPv4=4, IPv6=6 |
+| 首部长度 | 4 | 以4字节为单位，最小5(20字节) |
+| 总长度 | 16 | 首部+数据，单位字节 |
+| 标识 | 16 | 同一数据报的所有分片有相同标识 |
+| 标志 | 3 | MF=1(后面还有分片), DF=1(禁止分片) |
+| 片偏移 | 13 | 以8字节为单位，本分片在原始数据报中的偏移 |
+| TTL | 8 | 每跳减1，减到0则丢弃 |
+| 协议 | 8 | TCP=6, UDP=17, ICMP=1, OSPF=89 |
+| 首部校验和 | 16 | 仅校验首部（不校验数据），每跳重新计算 |
+| 源IP地址 | 32 | 发送方IP |
+| 目的IP地址 | 32 | 接收方IP |
 
-### CIDR（无类别域间路由）
-- IP/前缀长度（如 192.168.1.0/24）
-- 路由聚合：合并多个网络为一个超网
+> 固定首部20字节，最大60字节（含选项）
+
+## IP 分片（高频计算考点）
+
+- 当数据报长度 > MTU 时需分片
+- **标识**：同一数据报的所有分片相同
+- **MF**：最后一个分片 MF=0，其余 MF=1
+- **片偏移** = 本分片数据起始位置 / 8（单位：8字节）
+- **分片在目的主机重组**（路由器不重组）
 
 ---
 
-## 核心协议
-| 协议 | 功能 |
-|------|------|
-| **ARP** | IP → MAC 地址映射 |
-| **DHCP** | 自动分配 IP 地址 |
-| **NAT** | 私有 IP ↔ 公网 IP 转换 |
+## ICMP（Internet 控制报文协议）
+| 报文类型 | 用途 | 典型场景 |
+|----------|------|---------|
+| 目标不可达 (3) | 无法到达目的地 | 网络/主机/协议/端口不可达 |
+| 超时 (11) | TTL减到0 | **traceroute** 的实现基础 |
+| 回显请求/应答 (8/0) | 连通性测试 | **ping** 命令 |
+| 重定向 (5) | 建议更优路由 | 向主机通知更好的下一跳 |
+| 源点抑制 (4) | 请求降低发送速率 | 拥塞控制（已废弃）|
+
+---
+
+## 核心协议详解
+| 协议 | 功能 | 工作原理 |
+|------|------|---------|
+| **ARP** | IP→MAC映射 | 广播请求(Who has IP x?) + 单播应答；有ARP缓存 |
+| **DHCP** | 自动分配IP | DORA: Discover→Offer→Request→Ack (UDP 67/68) |
+| **NAT** | 私有IP↔公网IP | 转换表记录映射，支持端口复用(PAT/NAPT) |
 
 ---
 
 ## 考试辨析
-- 子网划分计算是408必考题型
-- ARP 在局域网内广播——找同一网段的 MAC
-- NAT 使内网多设备共享一个公网 IP`},{id:`cn-4-3-1`,chapterId:`cn-4`,title:`IPv6`,keyConcepts:[`IPv6`,`地址格式`,`双冒号表示`,`IPv4兼容`,`隧道`],relatedPoints:[`cn-4-2-1`],content:`## IPv6 地址
+- IP分片计算：片偏移单位是8字节，数据字段必须是8的倍数
+- TTL每跳减1 → traceroute利用ICMP超时报文实现
+- ARP在局域网内广播——只找同一子网的MAC（跨子网需通过默认网关）
+- NAT使内网多设备共享一个公网IP，转换表跟踪(TCP/UDP端口映射)`},{id:`cn-4-3-1`,chapterId:`cn-4`,title:`IPv6`,keyConcepts:[`IPv6`,`地址格式`,`双冒号表示`,`IPv4兼容`,`隧道`],relatedPoints:[`cn-4-2-1`],content:`## IPv6 地址
 
 - **128 位**（IPv4 仅 32 位）
 - 冒号十六进制：如 \`2001:0db8:0000:0000:0000:ff00:0042:8329\`
@@ -7903,7 +9630,7 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 - RIP 16 跳不可达 → 限制了网络直径
 - OSPF 用 Dijkstra 算法计算最短路径树（Sink Tree）
 - BGP 是互联网的"邮政系统"——跨运营商路由必须用 BGP
-- 区分"域内路由(IGP)"与"域间路由(EGP)"——选择题常见陷阱`},{id:`cn-4-6-1`,chapterId:`cn-4`,title:`移动 IP`,keyConcepts:[`移动IP`,`家乡代理`,`外地代理`,`转交地址`,`隧道`],relatedPoints:[],content:`## 移动 IP
+- 区分"域内路由(IGP)"与"域间路由(EGP)"——选择题常见陷阱`},{id:`cn-4-6-1`,chapterId:`cn-4`,title:`移动 IP`,keyConcepts:[`移动IP`,`家乡代理`,`外地代理`,`转交地址`,`隧道`],relatedPoints:[`cn-4-2-1`,`cn-4-3-1`],content:`## 移动 IP
 
 > 移动主机在不同网络间移动时保持通信不中断的机制。
 
@@ -7929,67 +9656,205 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 ## 考试辨析
 - 408 对移动 IP 要求较低
 - 理解"三角路由"概念即可——家乡代理→外地网络多走了一段路
-`},{id:`cn-4-5-1`,chapterId:`cn-4`,title:`IP 多播`,keyConcepts:[`多播`,`组播`,`IGMP`,`D类地址`],relatedPoints:[],content:`## IP 多播
+`},{id:`cn-4-5-1`,chapterId:`cn-4`,title:`IP 多播`,keyConcepts:[`多播`,`组播`,`IGMP`,`D类地址`,`多播MAC`,`PIM`,`DVMRP`],relatedPoints:[`cn-4-2-1`],content:`## IP 多播（Multicast）
 
-> 一个源点发送，**一组**指定接收者接收——介于单播和广播之间。
+> 一个源点发送，**一组**指定接收者接收——介于单播（Unicast）和广播（Broadcast）之间。
+
+| 通信方式 | 目标 | 说明 |
+|---------|------|------|
+| 单播 | 1 对 1 | 单独发送，重复占用带宽 |
+| 广播 | 1 对 全部 | 全网广播，无关主机也被打扰 |
+| **多播** | **1 对 一组** | 只发给加入组的接收者——最高效 |
 
 ---
 
-## 多播地址
-- IPv4：D 类地址 224.0.0.0 ~ 239.255.255.255
-- 多播 MAC：01-00-5E-xx-xx-xx（IP 多播 → MAC 多播的映射）
+## 多播 IP 地址
+
+- **D 类地址**：224.0.0.0 ~ 239.255.255.255
+- 不与具体主机绑定——标识一个**多播组**
+- 特殊地址：
+  - 224.0.0.1：本子网所有主机
+  - 224.0.0.2：本子网所有路由器
 
 ---
 
-## IGMP (Internet Group Management Protocol)
-- 主机-路由器之间的多播组成员管理协议
-- 主机通过 IGMP 告知路由器"我要加入/离开某多播组"
+## 多播 MAC 地址映射
+
+> 以太网多播 MAC：01-00-5E-xx-xx-xx
+
+- IP 多播地址的低 **23 位**直接映射到 MAC 地址的低 23 位
+- 由于 IP 地址有 28 位可变（D类前4位固定1110），而 MAC 只映射 23 位
+- **32:1 重叠**——32 个多播 IP 可能被映射到同 1 个多播 MAC
+- 因此需要 IP 层再做一次过滤（丢弃不属于本组的 IP 多播）
+
+---
+
+## IGMP — Internet Group Management Protocol
+
+> 运行在主机和**本地路由器**之间，管理多播组成员。
+
+| IGMP 版本 | 特点 |
+|-----------|------|
+| IGMPv1 | 基本的加入/查询，无离开消息（靠超时） |
+| IGMPv2 | 支持**主动离开**（Leave Group 消息） |
+| IGMPv3 | 支持**源特定多播**（SSM——指定允许/拒绝的源） |
+
+工作机制：
+1. 路由器周期性发送 IGMP 查询（Query）——224.0.0.1
+2. 主机回复 IGMP 报告（Report）——宣告加入某组
+3. 主机可发送离开消息（Leave）——告知退出某组
+
+---
+
+## 多播路由协议
+
+| 协议 | 类型 | 说明 |
+|------|------|------|
+| DVMRP | 距离向量 | 最早的多播路由协议，基于 RIP |
+| **PIM-DM** | 密集模式 | 假设成员密集分布 → 推（Push）+ 剪枝 |
+| **PIM-SM** | 稀疏模式 | 假设成员稀疏 → 拉（Pull）+ 汇聚点（RP） |
+
+> 408 对多播路由协议要求较低，了解"PIM-SM 是当前主流"即可。
 
 ---
 
 ## 考试辨析
-- 408 对多播要求较低，了解 D 类地址和 IGMP 基本概念即可
-- 多播 MAC 地址的低 23 位 = 多播 IP 的低 23 位
-`},{id:`cn-4-7-1`,chapterId:`cn-4`,title:`网络层设备`,keyConcepts:[`路由器`,`路由表`,`转发`,`默认网关`],relatedPoints:[],content:`## 路由器
-> 工作在网络层的互联设备——根据 IP 地址转发分组。
+- 多播 = 1 对一组，D 类地址不绑定主机，标识"组"
+- IP 多播 → MAC 多播映射存在 32:1 重叠——IP 层需额外过滤
+- IGMP 是**主机 ↔ 路由器**协议，用于管理组成员
+- 多播路由协议（PIM 等）是**路由器 ↔ 路由器**协议，用于构建多播分发树
+- 交换机不认识多播 MAC → 将多播帧当作广播帧洪泛`},{id:`cn-4-7-1`,chapterId:`cn-4`,title:`网络层设备`,keyConcepts:[`路由器`,`路由表`,`转发`,`默认网关`,`三层交换`,`交换结构`],relatedPoints:[`cn-4-1-1`,`cn-3-8-1`],content:`## 路由器的组成
 
-- 每端口一个 IP 地址（在不同网络）
-- 隔离冲突域，也隔离广播域
-- 存储 IP 分组，查路由表转发
+路由器由四个主要部分组成：
+
+| 组件 | 功能 |
+|------|------|
+| **输入端口** | 物理层终结、链路层解封装、查路由表（或本地缓存）决定输出端口 |
+| **交换结构** | 将分组从输入端口高速传送到输出端口 |
+| **输出端口** | 排队等待（可能有优先级调度）、链路层封装、发送 |
+| **路由选择处理器** | 运行路由协议（RIP/OSPF/BGP），计算维护路由表 |
 
 ---
 
-## 交换机 vs 路由器
-| | 交换机 | 路由器 |
+## 路由表与转发表
+
+| | 路由表 | 转发表 |
 |------|--------|--------|
-| 工作层 | 数据链路层 | **网络层** |
-| 转发依据 | MAC 地址 | **IP 地址** |
-| 隔离冲突域 | ✅ | ✅ |
-| 隔离广播域 | ❌ | ✅ |
+| 来源 | 路由选择处理器（协议计算） | 从路由表派生 |
+| 作用 | 全局路由决策 | **高速硬件转发** |
+| 位置 | 控制平面（慢路径） | 数据平面（快路径） |
+
+---
+
+## 交换结构（三种实现）
+
+| 方式 | 原理 | 特点 |
+|------|------|------|
+| **经内存交换** | CPU 从输入端口内存拷到输出端口内存 | 最慢，现代路由器不采用 |
+| **经总线交换** | 分组经共享总线传输 | 一次只传一个分组（总线瓶颈） |
+| **经交叉开关交换** | 纵横矩阵同时连通多对端口 | **最优**——多分组并行转发 |
+
+---
+
+## 三层交换
+
+> "三层交换机" = 交换机 + 路由器功能的融合。
+
+- 硬件支持 IP 转发，速度接近二层线速
+- 可配置 VLAN 间路由
+- 内部用 ASIC 实现路由表查找，比纯软件路由器快得多
+
+---
+
+## 设备层次总览（必考）
+
+| 设备 | 工作层 | 隔离冲突域 | 隔离广播域 | 转发依据 |
+|------|--------|----------|----------|---------|
+| 中继器/集线器 | 物理层 | ❌ | ❌ | — |
+| 网桥/交换机 | 数据链路层 | ✅ | ❌ | MAC 地址 |
+| **路由器** | **网络层** | ✅ | ✅ | **IP 地址** |
+| 三层交换机 | 网络层 | ✅ | ✅ | IP 地址 |
 
 ---
 
 ## 考试辨析
-- 路由器是**网络层**设备——408 常考各设备对应层次`},{id:`cn-5-1-1`,chapterId:`cn-5`,title:`传输层概述`,keyConcepts:[`传输层`,`端口`,`复用`,`分用`,`TCP`,`UDP`],relatedPoints:[],content:`## 传输层的功能
-1. 端到端通信（进程到进程）
-2. 复用和分用（端口机制）
-3. 差错控制（TCP）
+- 路由器**每个端口**在不同子网中，各有一个 IP 地址
+- 路由器隔离广播域——广播不跨路由器转发
+- "默认网关" = 本网段的路由器端口 IP——发往外网的分组都交给它
+- 408 常考"哪些设备工作在哪些层"——核心区分：二层（Mac）/ 三层（IP）`},{id:`cn-5-1-1`,chapterId:`cn-5`,title:`传输层概述`,keyConcepts:[`传输层`,`端口`,`复用`,`分用`,`TCP`,`UDP`,`Socket`,`端到端`],relatedPoints:[`cn-5-2-1`,`cn-5-3-1`],content:`## 传输层的地位
+
+> 传输层是**第一个端到端**的层次——只有通信两端的主机才处理传输层，中间路由器只看网络层及以下。
+
+| 对比 | 网络层 | 传输层 |
+|------|--------|--------|
+| 通信对象 | 主机到主机 | **进程到进程** |
+| 寻址 | IP 地址 | IP + **端口号** |
+| 协议 | IP（不可靠） | TCP（可靠）/ UDP（不可靠） |
+| 范围 | 点到点（逐跳） | **端到端** |
+
+---
+
+## 传输层核心功能
+
+### 1. 复用与分用
+| 方向 | 操作 | 说明 |
+|------|------|------|
+| 发送端 | **复用** | 多个应用进程的数据封装到同一传输层协议 |
+| 接收端 | **分用** | 根据端口号将数据交付给正确的应用进程 |
+
+### 2. 差错控制（TCP）
+- 确认 ACK + 超时重传 + 序号机制
+
+### 3. 流量控制（TCP）
+- 滑动窗口：接收方告诉发送方"我还能收多少"
+
+### 4. 拥塞控制（TCP）
+- 发送方主动感知网络拥塞，调整发送速率
 
 ---
 
 ## 端口号
-| 类型 | 范围 | 举例 |
-|------|------|------|
-| 熟知端口 | 0~1023 | HTTP(80), DNS(53), FTP(21) |
-| 注册端口 | 1024~49151 | — |
-| 临时端口 | 49152~65535 | 客户端使用 |
+
+> 端口 = 传输层**标识进程**的 16 位编号（0~65535）
+
+| 类型 | 范围 | 特点 | 举例 |
+|------|------|------|------|
+| 熟知端口 | 0~1023 | IANA 分配给标准服务 | HTTP:80, DNS:53, FTP:21/20, SMTP:25, HTTPS:443 |
+| 注册端口 | 1024~49151 | 应用程序可注册 | MySQL:3306, Redis:6379 |
+| 临时端口 | 49152~65535 | 客户端动态使用 | 浏览器临时分配的源端口 |
+
+---
+
+## Socket（套接字）
+
+$$\\text{Socket} = \\text{IP地址} + \\text{端口号}$$
+
+- 全网唯一标识一个通信端点
+- 一个 TCP 连接 = {源Socket, 目的Socket} 组成的四元组
+
+---
+
+## TCP vs UDP 概述
+
+| 特性 | TCP | UDP |
+|------|-----|-----|
+| 连接 | 面向连接（三次握手） | 无连接 |
+| 可靠性 | 可靠（确认+重传） | 不可靠（尽最大努力） |
+| 顺序 | 保证按序 | 不保证 |
+| 首部开销 | 最少 20 字节 | 8 字节 |
+| 广播/组播 | 不支持 | **支持** |
+| 流量控制 | 有 | 无 |
+| 拥塞控制 | 有 | 无 |
+| 典型应用 | HTTP/HTTPS, FTP, Email | DNS, DHCP, RIP, 视频直播 |
 
 ---
 
 ## 考试辨析
-- **传输层 = 端到端**——只看源和目的进程
-- IP 定位到主机，端口定位到进程
-- Socket (套接字) = IP + 端口`},{id:`cn-5-2-1`,chapterId:`cn-5`,title:`UDP协议`,keyConcepts:[`UDP`,`无连接`,`无确认`,`无流量控制`,`首部8字节`],relatedPoints:[`cn-5-1-1`],content:`## UDP 的特点
+- **传输层 = 端到端**，其下三层 = 点到点（逐跳转发）
+- 网络层的 IP 只负责把数据送到主机，**传输层的端口**才决定送到哪个进程
+- Socket = IP + Port，TCP 连接由四元组唯一标识
+- 熟知端口 0~1023 是范围考点——408 常考 DNS=53, DHCP=67/68, RIP=520
+- UDP 开销小(8字节首部)，适合实时应用；TCP 功能全(20字节首部)，适合可靠传输`},{id:`cn-5-2-1`,chapterId:`cn-5`,title:`UDP协议`,keyConcepts:[`UDP`,`无连接`,`无确认`,`无流量控制`,`首部8字节`,`校验和`,`伪首部`,`二进制反码求和`],relatedPoints:[`cn-5-1-1`,`cn-5-3-1`],content:`## UDP 的特点
 
 > User Datagram Protocol —— 无连接、尽最大努力交付。
 
@@ -8004,9 +9869,44 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 ---
 
 ## UDP 首部格式
+
 \`\`\`
 源端口 | 目的端口 | 长度 | 校验和
    2    |    2     |  2   |   2  (字节)
+\`\`\`
+
+---
+
+## UDP 校验和计算（2024-39 真题考点）
+
+### 校验范围
+
+UDP 校验和覆盖三部分：
+1. **伪首部**（12字节，仅计算用，不传输）：源IP(4B) + 目的IP(4B) + 0+协议号17(2B) + UDP长度(2B)
+2. **UDP 首部**（8字节，校验和字段暂置0）
+3. **UDP 数据部分**
+
+### 算法：二进制反码求和
+
+> 按 16 位分组 → 反码加法（逐组相加）→ 有进位则**回卷**到最低位 → 最终结果**取反** → 填入校验和字段
+
+**反码加法**：每组 16 位二进制相加，若有溢出进位（>16位），将进位加到最低位（回卷）。
+
+### 验证
+
+接收方将**所有数据含校验和**做同样反码求和，结果应为 **全1（0xFFFF）**，否则丢弃。
+
+### 例题（2024-39）
+
+中间结果 \`1011 1001 1011 0110\` + 最后一项 \`0110 0101 1100 0101\`：
+
+\`\`\`
+  1011 1001 1011 0110
++ 0110 0101 1100 0101
+─────────────────────
+1 0001 1111 0111 1011  → 有进位!
+  0001 1111 0111 1011  + 1(回卷) = 0001 1111 0111 1100
+→ 取反: 1110 0000 1000 0011 ✅
 \`\`\`
 
 ---
@@ -8019,7 +9919,10 @@ $S/N$ = 信噪比，$dB = 10 \\log_{10}(S/N)$
 
 ## 考试辨析
 - UDP 首部 8 字节，TCP 首部最少 20 字节
-- UDP 没有拥塞控制——在高拥塞时可能导致网络崩溃`},{id:`cn-5-3-1`,chapterId:`cn-5`,title:`TCP协议`,keyConcepts:[`TCP`,`三次握手`,`四次挥手`,`滑动窗口`,`拥塞控制`,`慢开始`,`拥塞避免`,`快重传`,`快恢复`,`TIME_WAIT`],relatedPoints:[`cn-5-1-1`,`cn-5-3-2`,`cn-3-4-1`],content:`## TCP 的特点
+- UDP 校验和是可选的（IPv4中可为0表示不校验），IPv6中必须计算
+- 伪首部仅用于计算校验和——不实际出现在报文中
+- 校验和中途结果必须做进位回卷再取反——2024真题考点
+- [[2014-39] [2018-39] [2024-39]]`},{id:`cn-5-3-1`,chapterId:`cn-5`,title:`TCP协议`,keyConcepts:[`TCP`,`三次握手`,`四次挥手`,`滑动窗口`,`拥塞控制`,`慢开始`,`拥塞避免`,`快重传`,`快恢复`,`TIME_WAIT`],relatedPoints:[`cn-5-1-1`,`cn-5-3-2`,`cn-3-4-1`],content:`## TCP 的特点
 > Transmission Control Protocol —— **面向连接、可靠、字节流**传输。
 | 特性 | 说明 |
 |------|------|
@@ -8121,30 +10024,79 @@ cwnd: 1→2→4→8→16→17→18→...(线性) → [3个重复ACK] → ssthres
 - 慢开始和拥塞避免是**不同阶段**——由ssthresh划分
 - 超时=严重→重新慢开始；3个重复ACK=轻微→快恢复
 - 408考过多次针对cwnd变化曲线的选择题
-- [[2012-大题47] [2015-大题47] [2018-大题47] [2021-大题47]]`},{id:`cn-3-5-2`,chapterId:`cn-3`,title:`CSMA/CD与CSMA/CA对比`,keyConcepts:[`CSMA/CD`,`CSMA/CA`,`冲突检测`,`碰撞避免`,`二进制指数退避`,`最小帧长`],relatedPoints:[`cn-3-5-1`],content:`## CSMA/CD (有线以太网)
-四步：先听后发 -> 边发边听 -> 冲突停发 -> 随机重发
-争用期 = 2t (往返时间)，最小帧长 = 争用期 x 数据率
-截断二进制指数退避：第k次冲突，r随机取[0, 2^k-1]，退避r*2t
+- [[2012-大题47] [2015-大题47] [2018-大题47] [2021-大题47]]`},{id:`cn-3-5-2`,chapterId:`cn-3`,title:`CSMA/CD与CSMA/CA对比`,keyConcepts:[`CSMA/CD`,`CSMA/CA`,`冲突检测`,`碰撞避免`,`二进制指数退避`,`最小帧长`,`DIFS`,`SIFS`,`NAV`,`RTS/CTS`],relatedPoints:[`cn-3-5-1`],content:`## CSMA/CD (有线以太网 - IEEE 802.3)
+
+四步：**先听后发 → 边发边听 → 冲突停发 → 随机重发**
+
+| 关键参数 | 公式/值 |
+|---------|--------|
+| 争用期 | $2\\tau$（往返传播时延） |
+| 最小帧长 | 争用期 × 数据率（以太网：$2\\tau \\times 10Mbps = 64B$） |
+| 截断二进制指数退避 | 第 k 次冲突，r 随机取 $[0, 2^k-1]$（k≤10），退避时间 = $r \\times 2\\tau$ |
+| 最大重传次数 | 16 次后丢弃帧 |
 
 ---
-## CSMA/CA (无线WiFi)
-无线无法同时收发 -> 改为碰撞避免而非检测
-核心：CCA空闲检测 + RTS/CTS预约 + ACK确认
+
+## CSMA/CA (无线WiFi - IEEE 802.11)
+
+> 无线无法同时收发 → 碰撞**避免**而非检测。核心机制：**CSMA/CA + RTS/CTS 预约 + ACK 确认**。
+
+### 帧间间隔（IFS）
+
+| 间隔 | 含义 | 用途 | 优先级 |
+|------|------|------|--------|
+| **SIFS**（短帧间间隔） | 最短等待 | ACK、CTS、轮询响应 | **最高** |
+| **DIFS**（分布式帧间间隔） | = SIFS + 2×时隙 | 发送数据帧或 RTS 前等待 | 低于 SIFS |
+
+### RTS/CTS 握手机制（解决隐藏站问题）
+
+\`\`\`
+发送方：DIFS → RTS
+接收方：       SIFS → CTS
+发送方：              SIFS → DATA帧
+接收方：                     SIFS → ACK
+\`\`\`
+
+### NAV（网络分配向量）
+
+> 虚拟载波侦听——其他站点通过 RTS/CTS 中的"持续时间"字段设置 NAV 定时器，在此期间保持静默。
+
+隐藏站收到 **CTS 帧后**，NAV 的值 = CTS 结束后的剩余传输时间：
+$$\\text{NAV} = \\text{SIFS} + T_{data} + \\text{SIFS} + T_{ACK}$$
+
+> 注意：**不含 DIFS**（DIFS 在 CTS 之前已过），**不含 CTS 自身**（CTS 结束后 NAV 才开始计时）。
+
+### 例题（2024-36）
+
+主机 A 向 AP 发送 1998B 数据帧，DIFS=128μs, SIFS=28μs, RTS=3μs, CTS=2μs, ACK=2μs, 带宽 54Mb/s。
+
+$T_{data} = 1998 \\times 8 / 54 \\times 10^6 = 296\\mu s$
+$\\text{NAV} = 28 + 296 + 28 + 2 = 354\\mu s$ ✅
 
 ---
-## CD vs CA 对比
+
+## CSMA/CD vs CSMA/CA
+
 | | CSMA/CD | CSMA/CA |
 |------|---------|---------|
-| 检测方式 | 冲突检测 | 碰撞避免 |
-| 适用 | 有线以太网 | 无线WLAN |
-| 确认 | 不需要ACK | 需要ACK |
-| 预约 | 无 | RTS/CTS |
+| 检测方式 | 冲突检测 | 碰撞**避免** |
+| 适用 | 有线以太网 | 无线 WLAN |
+| 确认 | 不需要 ACK | **需要 ACK** |
+| 预约 | 无 | **RTS/CTS** |
+| 帧间间隔 | IFS（96bit时间） | DIFS + SIFS |
+| NAV 机制 | 无 | **有**（虚拟载波侦听） |
 | 标准 | IEEE 802.3 | IEEE 802.11 |
+| 冲突处理 | 退避重发 | 随机退避 |
+
+---
 
 ## 考试辨析
-- 最小帧长公式 = 争用期 x 数据率 (以太网最小64B由此来)
-- 冲突只发生在发送后2t内 (争用期)
-- CSMA/CA没有冲突检测——无线不能同时收发`},{id:`cn-4-2-2`,chapterId:`cn-4`,title:`子网划分与CIDR计算`,keyConcepts:[`子网划分`,`CIDR`,`子网掩码`,`路由聚合`,`最长前缀匹配`],relatedPoints:[`cn-4-2-1`],content:`## 子网划分核心公式
+- 最小帧长公式 = 争用期 × 数据率（以太网最小 64B 由此来）
+- 冲突只发生在发送后 $2\\tau$ 内（争用期）
+- CSMA/CA 没有冲突检测——无线不能同时收发
+- **NAV 从 CTS 结束后开始计算，不包含 DIFS**——2024 真题
+- 收到 RTS 的站只有 AP（目的站）才回复 CTS
+- [[2010-35] [2011-35] [2011-36] [2014-35] [2015-36] [2016-36] [2017-35] [2019-36] [2020-35] [2024-36]]`},{id:`cn-4-2-2`,chapterId:`cn-4`,title:`子网划分与CIDR计算`,keyConcepts:[`子网划分`,`CIDR`,`子网掩码`,`路由聚合`,`最长前缀匹配`],relatedPoints:[`cn-4-2-1`],content:`## 子网划分核心公式
 子网网络地址 = IP & 子网掩码
 广播地址 = 网络地址 + (主机位全1)
 可用IP数 = 2^(主机位数) - 2 (扣除网络和广播地址)
@@ -8163,46 +10115,129 @@ cwnd: 1→2→4→8→16→17→18→...(线性) → [3个重复ACK] → ssthres
 ## 考试辨析
 - 子网划分 = 借主机位做子网位 (掩码变长)
 - CIDR路由聚合 = 缩短前缀 (掩码变短) — 两者方向相反
-- 408常考给定IP和掩码求网络/广播/可用IP范围`},{id:`cn-6-1-1`,chapterId:`cn-6`,title:`网络应用模型`,keyConcepts:[`C/S`,`P2P`],relatedPoints:[],content:`## C/S 模型（客户/服务器）
-- 服务器：永久在线，被动等待请求
-- 客户端：主动发起请求
-- 典型：Web、FTP、Email
+- 408常考给定IP和掩码求网络/广播/可用IP范围`},{id:`cn-6-1-1`,chapterId:`cn-6`,title:`网络应用模型`,keyConcepts:[`C/S`,`P2P`,`混合模型`,`CDN`,`DHT`],relatedPoints:[`cn-6-2-1`,`cn-6-5-1`,`cn-5-1-1`],content:`## 一、C/S 模型（客户/服务器）
+
+> 客户是服务请求方，服务器是服务提供方。
+
+| 特性 | 说明 |
+|------|------|
+| 服务器 | 永久在线，被动等待请求，固定 IP / 域名 |
+| 客户端 | 主动发起连接请求，动态 IP，不直接与其他客户端通信 |
+| 瓶颈 | **服务器**——请求量增大时性能下降（可扩展性差） |
+| 典型应用 | Web（HTTP）、FTP、Email（SMTP/POP3）、DNS |
 
 ---
 
-## P2P 模型（对等）
-- 每个结点既是客户端也是服务器
-- 优点：可扩展性强、成本低
-- 典型：BitTorrent、区块链
+## 二、P2P 模型（对等网络）
+
+> 每个结点既是客户端也是服务器——**对等体 (Peer)**。
+
+| 特性 | 说明 |
+|------|------|
+| 可扩展性 | **高**——结点越多，可用资源越多（羊群效应） |
+| 自组织 | 新结点加入自动发现其他结点，无需中心服务器 |
+| 健壮性 | 部分结点失效不影响整体（无单点故障） |
+| 典型应用 | BitTorrent、区块链、Skype（早期）、迅雷 |
+
+### P2P 分类
+
+| 类型 | 结构 | 路由方式 | 缺点 |
+|------|------|---------|------|
+| **非结构化 P2P** | 无固定拓扑，泛洪搜索 | 广播查询 | 效率低，带宽占用大 |
+| **结构化 P2P** | 基于 **DHT**（分布式哈希表）如 Chord / Kademlia | 精确查找 O(log N) | 维护 DHT 开销 |
+| **混合式 P2P** | 索引服务器 + 结点间直传 | Napster 模式 | 索引服务器仍是瓶颈 |
+
+---
+
+## 三、C/S vs P2P 对比
+
+| | C/S | P2P |
+|------|-----|-----|
+| 角色 | 固定（客户/服务器） | **对等**（互为 C/S） |
+| 服务器 | 必需 | 无中心服务器 |
+| 可扩展性 | 低（服务器瓶颈） | **高**（结点越多越强） |
+| 管理 | 集中管理，易于安全 | 去中心化，管理复杂 |
+| 适用场景 | 企业应用、网站 | 文件分享、区块链 |
+
+---
+
+## 四、混合模型
+
+实际应用常结合二者：
+- **CDN**：C/S 架构 + 多节点分发（边缘服务器）
+- **Skype**：登录鉴权用 C/S，P2P 传输媒体流
+- **迅雷**：中心追踪器 + P2P 文件传输
 
 ---
 
 ## 考试辨析
-- C/S 模型服务器是瓶颈——P2P 无中心，更可扩展`},{id:`cn-6-2-1`,chapterId:`cn-6`,title:`DNS系统`,keyConcepts:[`DNS`,`域名`,`域名解析`,`递归查询`,`迭代查询`,`根域名服务器`],relatedPoints:[],content:`## DNS (域名系统)
-> 将域名转换为 IP 地址的分布式数据库系统。用 **UDP 53 端口**。
+- C/S 核心问题：**服务器瓶颈**——并发量大时性能急剧下降
+- P2P 核心优势：**可扩展性**——结点越多提供服务的能力越强
+- 结构化 P2P 使用 DHT 实现 O(log N) 查找——如 Chord 环`},{id:`cn-6-2-1`,chapterId:`cn-6`,title:`DNS系统`,keyConcepts:[`DNS`,`域名`,`域名解析`,`递归查询`,`迭代查询`,`根域名服务器`,`权威DNS`,`DNS缓存`,`TLD`],relatedPoints:[`cn-5-2-1`,`cn-6-1-1`],content:`## DNS — 域名系统
+
+> 将域名转换为 IP 地址的**分布式目录服务**。运行在 **UDP 53 端口**（数据量小、超时可重试），区域传送时用 TCP 53。
 
 ---
 
 ## 域名层次结构
 
-根 → 顶级域名(.com/.cn/.org) → 二级域名 → 三级域名...
+\`\`\`
+根（.） → 顶级域名（TLD） → 二级域名 → 三级域名 ...
+\`\`\`
+
+| 层次 | 说明 | 举例 |
+|------|------|------|
+| 根域名服务器 | 全球 13 组（a~m.root-servers.net） | 知道所有 TLD 服务器地址 |
+| 顶级域名 TLD | 通用(.com/.org) 和国家(.cn/.uk) | .com 的 NS 记录 |
+| 权威域名服务器 | 负责特定域名的最终解析 | baidu.com 的 DNS 服务器 |
+| 本地域名服务器 | 用户直接查询的 DNS（ISP 或 114.114.114.114） | 默认 DNS |
 
 ---
 
-## 两种查询方式
-| 方式 | 原理 | 负担 |
-|------|------|------|
-| **递归查询** | "你帮我去查" | 被查询端 |
-| **迭代查询** | "我告诉你去找谁" | 查询端 |
+## 域名解析完整流程
 
-主机→本地DNS：递归
-本地DNS→根/顶级/权威：迭代
+假设浏览器访问 \`www.baidu.com\`：
+
+1. 浏览器查本地 **DNS 缓存**（浏览器缓存 → OS hosts 文件）
+2. 未命中 → 向**本地域名服务器**发**递归查询**
+3. 本地 DNS 未缓存 → 向**根域名服务器**发**迭代查询**
+4. 根服务器回复：".com 的 TLD 服务器地址"
+5. 向 **.com TLD 服务器**发迭代查询
+6. TLD 回复："baidu.com 的权威 DNS 地址"
+7. 向**权威 DNS 服务器**发迭代查询
+8. 权威 DNS 返回 \`www.baidu.com\` 的 IP 地址
+9. 本地 DNS 缓存结果并返回给浏览器
+
+---
+
+## 递归查询 vs 迭代查询
+
+| | 递归查询 | 迭代查询 |
+|------|---------|---------|
+| 含义 | "你帮我去查"——全权委托 | "我告诉你去找谁"——逐级查询 |
+| 负担 | 服务器负担重 | 客户端负担重 |
+| 使用场景 | 主机 → 本地 DNS | 本地 DNS → 根/TLD/权威 |
+
+> 典型模式：**主机到本地 DNS 用递归，本地 DNS 向上查询用迭代**。
+
+---
+
+## DNS 缓存机制
+
+| 缓存位置 | TTL | 说明 |
+|----------|-----|------|
+| 浏览器缓存 | 几分钟 | Chrome 内置 DNS 缓存 |
+| OS 缓存 | hosts 文件 | 手动绑定 |
+| 本地 DNS 缓存 | 由权威 DNS 的 TTL 决定 | 减少向上查询 |
 
 ---
 
 ## 考试辨析
-- DNS 用 UDP（因为数据量小，超时可重试）
-- 域名服务器层次是常考结构`},{id:`cn-6-4-1`,chapterId:`cn-6`,title:`电子邮件`,keyConcepts:[`SMTP`,`POP3`,`IMAP`,`MIME`,`电子邮件`],relatedPoints:[`cn-6-1-1`,`cn-6-2-1`],content:`## 电子邮件系统
+- DNS 主要用 **UDP** 53 端口——数据量小，超时可重试
+- 区域传送（AXFR）用 **TCP** 53——数据量大，需可靠传输
+- 递归 vs 迭代是 408 高频辨析点——主机用递归，服务器间用迭代
+- 域名解析是从右向左逐级解析的（com → baidu → www）
+- CDN 的核心原理之一 = DNS 智能解析（根据用户 IP 返回最近的服务器 IP）`},{id:`cn-6-4-1`,chapterId:`cn-6`,title:`电子邮件`,keyConcepts:[`SMTP`,`POP3`,`IMAP`,`MIME`,`电子邮件`],relatedPoints:[`cn-6-1-1`,`cn-6-2-1`],content:`## 电子邮件系统
 
 ---
 
@@ -8262,7 +10297,7 @@ cwnd: 1→2→4→8→16→17→18→...(线性) → [3个重复ACK] → ssthres
 - FTP 用两个 TCP 连接——这是其最鲜明的特征
 - 控制连接全程保持，数据连接用完即关闭
 - 端口 21 控制 + 20 数据 = FTP 标准模式
-`},{id:`cn-6-5-1`,chapterId:`cn-6`,title:`万维网与HTTP`,keyConcepts:[`HTTP`,`HTTPS`,`URL`,`HTML`,`Cookie`,`GET`,`POST`,`状态码`],relatedPoints:[],content:`## HTTP
+`},{id:`cn-6-5-1`,chapterId:`cn-6`,title:`万维网与HTTP`,keyConcepts:[`HTTP`,`HTTPS`,`URL`,`HTML`,`Cookie`,`GET`,`POST`,`状态码`],relatedPoints:[`cn-6-1-1`,`cn-5-3-1`,`cn-6-2-1`],content:`## HTTP
 
 > 超文本传输协议——万维网的核心。用 **TCP 80 端口**。
 
@@ -8302,9 +10337,45 @@ cwnd: 1→2→4→8→16→17→18→...(线性) → [3个重复ACK] → ssthres
 
 ---
 
+## HTTP 时间分析（核心计算考点）
+
+### HTTP/1.0 非持久连接
+- 每个对象需单独TCP连接 → 每次 $2RTT + T_{trans}$
+- n个对象总时间 = $n \\times (2RTT + T_{trans})$
+
+### HTTP/1.1 持久连接（非流水线）
+- 一个TCP连接传所有对象，但需等前一个对象传完再请求下一个
+- n个对象总时间 = $2RTT + n \\times (RTT + T_{trans})$
+
+### HTTP/1.1 持久连接（流水线）
+- 一个TCP连接，连续发送所有请求
+- n个对象总时间 = $2RTT + T_{trans}$ (所有对象同时传输)
+
+> **重要提示**：若考虑TCP拥塞控制，实际时间可能更长（慢启动cwnd限制）
+
+---
+
+## HTTP 请求方法
+| 方法 | 说明 |
+|------|------|
+| GET | 获取资源（幂等）|
+| HEAD | 仅获取首部（不返回实体，测试用）|
+| POST | 提交数据（非幂等）|
+| PUT | 上传/替换资源 |
+| DELETE | 删除资源 |
+
+## 代理服务器 / Web缓存
+- 缓存最近请求的Web对象
+- 命中时直接返回缓存副本——减少响应时间和带宽
+- 条件GET (If-Modified-Since + 304 Not Modified) 验证缓存有效性
+
+---
+
 ## 考试辨析
-- HTTP 是无状态协议——用 Cookie 弥补
-- GET 是幂等的（重复请求不影响），POST 不是`},{id:`cn-2-1-2`,chapterId:`cn-2`,title:`分组交换网络中的时延计算`,keyConcepts:[`传输时延`,`传播时延`,`处理时延`,`排队时延`,`时延带宽积`,`存储转发`],relatedPoints:[`cn-2-1-1`],content:`## 四种时延
+- HTTP 是无状态协议——用 Cookie 弥补状态
+- GET 是幂等的（重复请求不影响），POST 不是
+- HTTP/1.0 非持久每对象2RTT；HTTP/1.1持久连接流水线只需2RTT一次性
+- HTTPS = HTTP + TLS/SSL → TCP 443`},{id:`cn-2-1-2`,chapterId:`cn-2`,title:`分组交换网络中的时延计算`,keyConcepts:[`传输时延`,`传播时延`,`处理时延`,`排队时延`,`时延带宽积`,`存储转发`],relatedPoints:[`cn-2-1-1`],content:`## 四种时延
 
 | 时延类型 | 公式 | 说明 |
 |----------|------|------|
